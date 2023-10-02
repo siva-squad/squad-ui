@@ -11,7 +11,7 @@ export default {
 
 export const Default: StoryObj<typeof Tooltip> = {
   argTypes: {},
-  args: {},
+  args: {
+    text: "メッセージテキスト",
+  },
 };
-
-
