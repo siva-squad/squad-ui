@@ -13,5 +13,7 @@ export const Default: StoryObj<typeof Tooltip> = {
   argTypes: {},
   args: {
     text: "メッセージテキスト",
+    direction: "bottom",
+    position: "center",
   },
 };
