@@ -10,7 +10,7 @@ export const Shape = ({ className }: { className: string }) => {
     >
       <path
         d="M5 5L0 0H10L5 5Z"
-        fill="white"
+        fill="blue"
       />
     </svg>
   );
