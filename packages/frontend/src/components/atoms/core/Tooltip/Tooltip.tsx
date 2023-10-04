@@ -16,3 +16,13 @@ export const Tooltip = ({ direction, position, text }: TooltipProps) => {
     </div>
   );
 };
+
+// Useage: <Tooltip message="Tooltip text">Some children</Tooltip>
+// Hover on text/children: Tooltip opens
+// ESC: closes Tooltip --> cursor still on it, what will happen?!
+// Keyboard accessible
+// Calculate positioning of Tooltip based on space available
+
+// TESTING!!!
+
+// a11y: https://accessibilityinsights.io/info-examples/web/aria-tooltip-name/
