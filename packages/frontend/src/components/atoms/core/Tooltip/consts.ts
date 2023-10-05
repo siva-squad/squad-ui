@@ -1,8 +1,8 @@
 import { TooltipProps } from "./type";
 
 export const DIRECTION_STYLE: { [key in TooltipProps["direction"]]: string } = {
-  bottom: "-bottom-1",
-  top: "-top-1 rotate-180",
+  bottom: "bottom-[-4.5px]",
+  top: "top-[-4.5px] rotate-180",
   left: "left-[-7px] rotate-90",
   right: "right-[-7px] -rotate-90",
 } as const;

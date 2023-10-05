@@ -5,13 +5,16 @@ import { Shape } from "./Shape";
 import type { TooltipProps } from "./type";
 
 export const Tooltip = ({ direction, position, tooltipText, children }: TooltipProps) => {
+  const positionStyles =
+    direction === "left" || direction === "right" ? "" : POSITION_STYLE[position];
+
   return (
     <div>
-      <div className="relative inline-flex items-center justify-center rounded p-2 text-sm leading-normal shadow-04">
-        {tooltipText}
-        <Shape
-          className={clsx("absolute m-auto", DIRECTION_STYLE[direction], POSITION_STYLE[position])}
-        />
+      <div className="inline-flex rounded text-sm leading-normal shadow-04">
+        <span className="relative inline-flex h-full w-full items-center justify-center p-2">
+          {tooltipText}
+          <Shape className={clsx("absolute m-auto", DIRECTION_STYLE[direction], positionStyles)} />
+        </span>
       </div>
       {children}
     </div>
