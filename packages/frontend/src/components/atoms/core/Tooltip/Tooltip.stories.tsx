@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { Button } from "../Button";
 import { Tooltip } from "./Tooltip";
 
 export default {
@@ -15,5 +16,13 @@ export const Default: StoryObj<typeof Tooltip> = {
     tooltipText: "メッセージテキスト",
     direction: "bottom",
     position: "center",
+    children: (
+      <Button
+        theme="white"
+        size="medium"
+      >
+        Test
+      </Button>
+    ),
   },
 };

@@ -4,13 +4,16 @@ import { DIRECTION_STYLE, POSITION_STYLE } from "./consts";
 import { Shape } from "./Shape";
 import type { TooltipProps } from "./type";
 
-export const Tooltip = ({ direction, position, tooltipText }: TooltipProps) => {
+export const Tooltip = ({ direction, position, tooltipText, children }: TooltipProps) => {
   return (
-    <div className="relative inline-flex items-center justify-center rounded p-2 text-sm leading-normal shadow-04">
-      {tooltipText}
-      <Shape
-        className={clsx("absolute m-auto", DIRECTION_STYLE[direction], POSITION_STYLE[position])}
-      />
+    <div>
+      <div className="relative inline-flex items-center justify-center rounded p-2 text-sm leading-normal shadow-04">
+        {tooltipText}
+        <Shape
+          className={clsx("absolute m-auto", DIRECTION_STYLE[direction], POSITION_STYLE[position])}
+        />
+      </div>
+      {children}
     </div>
   );
 };
