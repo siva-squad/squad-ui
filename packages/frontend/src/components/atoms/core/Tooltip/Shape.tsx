@@ -1,4 +1,6 @@
-export const Shape = ({ className }: { className: string }) => {
+import { ComponentProps } from "react";
+
+export const Shape = ({ ...props }: ComponentProps<"svg">) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,7 +8,7 @@ export const Shape = ({ className }: { className: string }) => {
       height="5"
       viewBox="0 0 10 5"
       fill="none"
-      className={className}
+      {...props}
     >
       <path
         d="M5 5L0 0H10L5 5Z"
