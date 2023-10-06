@@ -1,14 +1,13 @@
 import { TooltipProps } from "./type";
 
-export const DIRECTION_STYLE: { [key in TooltipProps["direction"]]: string } = {
-  bottom: "bottom-[-4.5px]",
-  top: "top-[-4.5px] rotate-180",
-  left: "left-[-7px] rotate-90",
-  right: "right-[-7px] -rotate-90",
+export const SHAPE_DIRECTION_STYLE: { [key in TooltipProps["direction"]]: string } = {
+  top: "bottom-[-4.5px]",
+  bottom: "top-[-4.5px] rotate-180",
+  right: "left-[-7px] rotate-90",
+  left: "right-[-7px] -rotate-90",
 } as const;
 
-export const POSITION_STYLE: { [key in TooltipProps["position"]]: string } = {
-  center: "",
-  left: "left-1/4",
-  right: "right-1/4",
-} as const;
+// direction bottom = tooltip on bottom, shape on top
+// direction top = tooltip on top, shape on bottom
+// direction right = tooltip right, shape left
+// direction left = tooltip left, shape right
