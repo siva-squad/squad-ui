@@ -1,123 +1,51 @@
-import { Direction, Position } from "./type";
-
-type getPositionsArgs = {
-  middleHeight: number;
-  right: number;
-  tooltipAnchorGap: number;
-  left: number;
-  bottomAlign: number;
-  topAlign: number;
-  rightAlign: number;
-  middleWidth: number;
-  shapePosition: number;
-  tooltipWidth: number;
-  direction: Direction;
-  position: Position;
-};
-
-type getPositionsReturn = {
-  tooltipPosition: {
-    top?: number;
-    bottom?: number;
-    right?: number;
-    left?: number;
-  };
-  shapePosition: {
-    left?: number;
-    right?: number;
-  };
-};
-
-export const getPositions = ({
-  middleHeight,
-  right,
-  tooltipAnchorGap,
-  left,
-  bottomAlign,
-  topAlign,
-  rightAlign,
-  middleWidth,
-  shapePosition,
-  tooltipWidth,
-  direction,
-  position,
-}: getPositionsArgs): getPositionsReturn => {
-  if (direction === "right") {
-    return {
-      tooltipPosition: {
-        top: middleHeight,
-        left: right + tooltipAnchorGap,
-      },
-      shapePosition: {},
-    };
-  } else if (direction === "left") {
-    return {
-      tooltipPosition: {
-        top: middleHeight,
-        left: left - tooltipWidth - tooltipAnchorGap,
-      },
-      shapePosition: {},
-    };
-  } else if (position === "left" && direction === "bottom") {
-    return {
-      tooltipPosition: {
-        top: bottomAlign,
-        left: left,
-      },
-      shapePosition: {
-        left: shapePosition,
-      },
-    };
-  } else if (position === "right" && direction === "bottom") {
-    return {
-      tooltipPosition: {
-        top: bottomAlign,
-        left: rightAlign,
-      },
-      shapePosition: {
-        right: shapePosition,
-      },
-    };
-  } else if (position === "left" && direction === "top") {
-    return {
-      tooltipPosition: {
-        top: topAlign,
-        left: left,
-      },
-      shapePosition: {
-        left: shapePosition,
-      },
-    };
-  } else if (position === "right" && direction === "top") {
-    return {
-      tooltipPosition: {
-        top: topAlign,
-        left: rightAlign,
-      },
-      shapePosition: {
-        right: shapePosition,
-      },
-    };
-  } else if (position === "center" && direction === "top") {
-    return {
-      tooltipPosition: {
-        top: topAlign,
-        left: middleWidth,
-      },
-      shapePosition: {},
-    };
-  } else if (position === "center" && direction === "bottom") {
-    return {
-      tooltipPosition: {
-        top: bottomAlign,
-        left: middleWidth,
-      },
-      shapePosition: {},
-    };
-  } else {
-    return {
-      tooltipPosition: {},
-      shapePosition: {},
-    };
+const getAlignment = (
+  alignment: string,
+  alignRight: number,
+  alignLeft: number,
+  alignCenter: number,
+): {} => {
+  switch (alignment) {
+    case "left":
+      return { left: alignLeft };
+    case "right":
+      return { left: alignRight };
+    default:
+      return { left: alignCenter };
   }
 };
+
+const getPositionToAnchor = (
+  position: "top" | "bottom" | "left" | "right",
+  topOfAnchor: number,
+  bottomOfAnchor: number,
+  leftOfAnchor: number,
+  rightOfAnchor: number,
+): {} => {
+  switch (position) {
+    case "top":
+      return { top: topOfAnchor };
+    case "bottom":
+      return { top: bottomOfAnchor };
+    case "left":
+      return { left: leftOfAnchor };
+    case "right":
+      return { left: rightOfAnchor };
+  }
+};
+
+const getShapePosition = (alignment: string, shapePosition: number): {} => {
+  switch (alignment) {
+    case "left":
+      return {
+        left: shapePosition,
+      };
+    case "right":
+      return {
+        right: shapePosition,
+      };
+    default:
+      return {};
+  }
+};
+
+export { getAlignment, getPositionToAnchor, getShapePosition };
