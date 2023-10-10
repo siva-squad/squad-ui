@@ -4,14 +4,14 @@ import { clsx } from "clsx";
 import { SHAPE_DIRECTION_STYLE } from "./consts";
 import { Shape } from "./Shape";
 import type { TooltipProps } from "./type";
-import { useTooltipPosition } from "./useTooltipPosition";
+import { useTooltipPositionToAnchor } from "./useTooltipPositionToAnchor";
 
 export const Tooltip = ({ direction, position, tooltipText, children }: TooltipProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const tooltipRef = useRef<HTMLSpanElement>(null);
   const anchorRef = useRef<HTMLSpanElement>(null);
-  const { tooltipPosition, shapePosition } = useTooltipPosition({
+  const { tooltipPosition, shapePosition } = useTooltipPositionToAnchor({
     tooltipRef,
     anchorRef,
     direction,

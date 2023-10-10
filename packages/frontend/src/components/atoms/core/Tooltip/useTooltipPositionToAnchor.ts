@@ -15,7 +15,7 @@ type ShapePosition = {
   left?: number;
 };
 
-type UseTooltipPositionProps = {
+type UseTooltipPositionToAnchorProps = {
   tooltipRef: RefObject<HTMLSpanElement>;
   anchorRef: RefObject<HTMLSpanElement>;
   direction: Direction;
@@ -23,13 +23,13 @@ type UseTooltipPositionProps = {
   isOpen: boolean;
 };
 
-export const useTooltipPosition = ({
+export const useTooltipPositionToAnchor = ({
   tooltipRef,
   anchorRef,
   direction,
   position,
   isOpen,
-}: UseTooltipPositionProps) => {
+}: UseTooltipPositionToAnchorProps) => {
   const [tooltipPosition, setTooltipPosition] = useState<TooltipPosition>({});
   const [shapePosition, setShapePosition] = useState<ShapePosition>({});
 
