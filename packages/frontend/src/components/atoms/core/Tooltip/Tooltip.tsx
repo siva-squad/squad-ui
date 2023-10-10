@@ -25,21 +25,13 @@ export const Tooltip = ({ direction, position, tooltipText, children }: TooltipP
         <span
           ref={tooltipRef}
           className="absolute z-40 inline-block w-40 rounded bg-white text-sm leading-normal shadow-04"
-          style={{
-            top: tooltipPosition.top,
-            left: tooltipPosition.left,
-            bottom: tooltipPosition.bottom,
-            right: tooltipPosition.right,
-          }}
+          style={tooltipPosition}
         >
           <span className="relative inline-flex h-full w-full items-center justify-center p-2">
             {tooltipText}
             <Shape
               className={clsx("absolute m-auto", SHAPE_DIRECTION_STYLE[direction])}
-              style={{
-                right: shapePosition.right,
-                left: shapePosition.left,
-              }}
+              style={shapePosition}
             />
           </span>
         </span>
