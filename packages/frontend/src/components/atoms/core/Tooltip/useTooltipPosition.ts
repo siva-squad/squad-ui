@@ -1,6 +1,6 @@
 import { RefObject, useEffect, useState } from "react";
 import { Direction, Position } from "./type";
-import { getPositions } from "./utils";
+import { getAlignment, getPositionToAnchor, getShapePosition } from "./utils";
 
 // NAMING
 type TooltipPosition = {
@@ -39,32 +39,42 @@ export const useTooltipPosition = ({
       const tooltipWidth = tooltipRef.current.getBoundingClientRect().width || 0;
       const tooltipHeight = tooltipRef.current.getBoundingClientRect().height || 0;
 
-      const tooltipAnchorGap = 12;
-
-      const middleWidth = left + width / 2 - tooltipWidth / 2;
-      const middleHeight = top + height / 2 - tooltipHeight / 2;
+      const tooltipPadding = 12;
       const shape = width / 2;
+      const windowScrollY = window.scrollY;
 
-      const rightAlign = right - tooltipWidth;
-      const topAlign = top - tooltipHeight - tooltipAnchorGap;
-      const bottomAlign = bottom + tooltipAnchorGap;
+      // position
+      const topOfAnchor = top - tooltipHeight - tooltipPadding + windowScrollY;
+      const bottomOfAnchor = bottom + tooltipPadding + windowScrollY;
 
-      const { tooltipPosition, shapePosition } = getPositions({
-        middleHeight,
-        right,
-        tooltipAnchorGap,
-        left,
-        bottomAlign,
-        topAlign,
-        rightAlign,
-        middleWidth,
-        shapePosition: shape,
-        tooltipWidth,
+      const leftOfAnchor = left - tooltipWidth - tooltipPadding;
+      const rightOfAnchor = right + tooltipPadding;
+
+      // alignment
+      const horizontalCenter = left + width / 2 - tooltipWidth / 2;
+      const verticalCenter = top + height / 2 - tooltipHeight / 2 + windowScrollY;
+
+      const alignRight = right - tooltipWidth;
+      const alignLeft = left;
+
+      const alignment =
+        direction === "left" || direction === "right"
+          ? { top: verticalCenter }
+          : getAlignment(position, alignRight, alignLeft, horizontalCenter);
+      const positionToAnchor = getPositionToAnchor(
         direction,
-        position,
-      });
+        topOfAnchor,
+        bottomOfAnchor,
+        leftOfAnchor,
+        rightOfAnchor,
+      );
 
-      setTooltipPosition(tooltipPosition);
+      const shapePosition = getShapePosition(position, shape);
+
+      setTooltipPosition({
+        ...alignment,
+        ...positionToAnchor,
+      });
       setShapePosition(shapePosition);
     }
   }, [isOpen, direction, position, tooltipRef, anchorRef]);
