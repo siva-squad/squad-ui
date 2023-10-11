@@ -30,7 +30,6 @@ export const Tooltip = ({
     const name = anchorRef?.current?.children?.[0]?.localName || undefined;
 
     const nativeFocusableElements = ["button", "a", "input", "select"];
-    // array and includes
 
     if (name && nativeFocusableElements.includes(name)) {
       setTabIndex(-1);
