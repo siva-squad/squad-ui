@@ -1,27 +1,6 @@
-import { RefObject, useLayoutEffect, useState } from "react";
-import { PositionToAnchor, Alignment } from "./type";
+import { useLayoutEffect, useState } from "react";
+import { UseTooltipPositionStylesProps, TooltipPositionStyles, ShapePositionStyles } from "./type";
 import { getAlignment, getPositionToAnchor, getShapePosition } from "./utils";
-
-// NAMING
-type TooltipPositionStyles = {
-  top?: number;
-  left?: number;
-  bottom?: number;
-  right?: number;
-};
-
-type ShapePositionStyles = {
-  right?: number;
-  left?: number;
-};
-
-type UseTooltipPositionStylesProps = {
-  tooltipRef: RefObject<HTMLSpanElement>;
-  anchorRef: RefObject<HTMLSpanElement>;
-  positionToAnchor: PositionToAnchor;
-  alignment: Alignment;
-  isOpen: boolean;
-};
 
 export const useTooltipPositionStyles = ({
   tooltipRef,

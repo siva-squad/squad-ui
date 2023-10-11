@@ -1,4 +1,6 @@
-import { ReactNode } from "react";
+import { ReactNode, RefObject } from "react";
+
+// Tooltip types
 
 export type PositionToAnchor = "bottom" | "top" | "right" | "left";
 
@@ -10,4 +12,26 @@ export type TooltipProps = {
   tooltipText: string;
   children: string | ReactNode;
   ariaLabelledBy: string;
+};
+
+// Hook types
+
+export type TooltipPositionStyles = {
+  top?: number;
+  left?: number;
+  bottom?: number;
+  right?: number;
+};
+
+export type ShapePositionStyles = {
+  right?: number;
+  left?: number;
+};
+
+export type UseTooltipPositionStylesProps = {
+  tooltipRef: RefObject<HTMLSpanElement>;
+  anchorRef: RefObject<HTMLSpanElement>;
+  positionToAnchor: PositionToAnchor;
+  alignment: Alignment;
+  isOpen: boolean;
 };
