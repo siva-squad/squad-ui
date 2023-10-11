@@ -1,3 +1,4 @@
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "../Button";
@@ -10,6 +11,7 @@ export default {
   },
   argTypes: {
     tooltipText: { control: "text" },
+    ariaLabelledBy: { control: "text" },
     positionToAnchor: { control: "inline-radio", options: ["bottom", "top", "left", "right"] },
     alignment: { control: "inline-radio", options: ["center", "left", "right"] },
   },
@@ -17,25 +19,7 @@ export default {
     (Story) => (
       <div className="grid min-h-screen content-center">
         <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-          been the standard dummy text ever since the 1500s, when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book. It has survived not only five
-          centuries, but also the leap into <Story /> electronic typesetting, remaining essentially
-          unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-          Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-          PageMaker including versions of Lorem Ipsum.bled it to make a type specimen book. It has
-          survived not only five centuries, but also the leap into electronic typesetting, remaining
-          essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
-          containing Lorem Ipsum passages, and more recently with desktop publishing software like
-          Aldus PageMaker including versions of Lorem Ipsum.
           <Story />
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-          been the standard dummy text ever since the 1500s, when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book. It has survived not only five
-          centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-          It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-          passages, and more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
         </p>
       </div>
     ),
@@ -48,14 +32,8 @@ export const Default: StoryObj<typeof Tooltip> = {
     tooltipText: "メッセージテキスト",
     positionToAnchor: "top",
     alignment: "left",
-    children: (
-      <Button
-        theme="white"
-        size="medium"
-      >
-        Test
-      </Button>
-    ),
+    children: "Text",
+    ariaLabelledBy: "text-with-tooltip-id",
   },
 };
 
@@ -66,10 +44,11 @@ export const LongText: StoryObj<typeof Tooltip> = {
     positionToAnchor: "top",
     alignment: "left",
     children: "This is some very long text",
+    ariaLabelledBy: "long-text-with-tooltip-id",
   },
 };
 
-export const LongTooltipText: StoryObj<typeof Tooltip> = {
+export const WithButtonAnchor: StoryObj<typeof Tooltip> = {
   argTypes: {},
   args: {
     tooltipText:
@@ -84,5 +63,28 @@ export const LongTooltipText: StoryObj<typeof Tooltip> = {
         Test
       </Button>
     ),
+    ariaLabelledBy: "button-with-tooltip-id",
+  },
+};
+
+export const WithLinkAnchor: StoryObj<typeof Tooltip> = {
+  argTypes: {},
+  args: {
+    tooltipText: "メッセージテキスト",
+    positionToAnchor: "top",
+    alignment: "left",
+    children: <a href="#">Some link</a>,
+    ariaLabelledBy: "link-with-tooltip-id",
+  },
+};
+
+export const WithIconAnchor: StoryObj<typeof Tooltip> = {
+  argTypes: {},
+  args: {
+    tooltipText: "メッセージテキスト",
+    positionToAnchor: "top",
+    alignment: "left",
+    children: <MagnifyingGlassIcon className="h-4 w-4 text-black" />,
+    ariaLabelledBy: "icon-with-tooltip-id",
   },
 };
