@@ -1,6 +1,6 @@
 import { TooltipProps } from "./type";
 
-export const SHAPE_DIRECTION_STYLE: { [key in TooltipProps["direction"]]: string } = {
+export const SHAPE_DIRECTION_STYLE: { [key in TooltipProps["positionToAnchor"]]: string } = {
   top: "bottom-[-4.5px]",
   bottom: "top-[-4.5px] rotate-180",
   right: "left-[-7px] rotate-90",

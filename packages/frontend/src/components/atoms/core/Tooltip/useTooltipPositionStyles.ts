@@ -1,5 +1,5 @@
 import { RefObject, useEffect, useState } from "react";
-import { Direction, Position } from "./type";
+import { PositionToAnchor, Position } from "./type";
 import { getAlignment, getPositionToAnchor, getShapePosition } from "./utils";
 
 // NAMING
@@ -18,7 +18,7 @@ type ShapePositionStyles = {
 type UseTooltipPositionStylesProps = {
   tooltipRef: RefObject<HTMLSpanElement>;
   anchorRef: RefObject<HTMLSpanElement>;
-  direction: Direction;
+  positionToAnchor: PositionToAnchor;
   position: Position;
   isOpen: boolean;
 };
@@ -26,7 +26,7 @@ type UseTooltipPositionStylesProps = {
 export const useTooltipPositionStyles = ({
   tooltipRef,
   anchorRef,
-  direction,
+  positionToAnchor,
   position,
   isOpen,
 }: UseTooltipPositionStylesProps) => {
@@ -58,12 +58,12 @@ export const useTooltipPositionStyles = ({
       const alignLeft = left;
 
       const alignment =
-        direction === "left" || direction === "right"
+        positionToAnchor === "left" || positionToAnchor === "right"
           ? { top: verticalCenter }
           : getAlignment(position, alignRight, alignLeft, horizontalCenter);
 
-      const positionToAnchor = getPositionToAnchor(
-        direction,
+      const positionToAnchorStyles = getPositionToAnchor(
+        positionToAnchor,
         topOfAnchor,
         bottomOfAnchor,
         leftOfAnchor,
@@ -74,11 +74,11 @@ export const useTooltipPositionStyles = ({
 
       setTooltipPositionStyles({
         ...alignment,
-        ...positionToAnchor,
+        ...positionToAnchorStyles,
       });
       setShapePositionStyles(shapePosition);
     }
-  }, [isOpen, direction, position, tooltipRef, anchorRef]);
+  }, [isOpen, positionToAnchor, position, tooltipRef, anchorRef]);
 
   return { tooltipPositionStyles, shapePositionStyles };
 };

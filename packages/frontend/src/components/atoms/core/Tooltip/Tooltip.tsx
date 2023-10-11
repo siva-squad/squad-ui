@@ -4,17 +4,17 @@ import { clsx } from "clsx";
 import { SHAPE_DIRECTION_STYLE } from "./consts";
 import { Shape } from "./Shape";
 import type { TooltipProps } from "./type";
-import { useTooltipPositionToAnchor } from "./useTooltipPositionToAnchor";
+import { useTooltipPositionStyles } from "./useTooltipPositionStyles";
 
-export const Tooltip = ({ direction, position, tooltipText, children }: TooltipProps) => {
+export const Tooltip = ({ positionToAnchor, position, tooltipText, children }: TooltipProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const tooltipRef = useRef<HTMLSpanElement>(null);
   const anchorRef = useRef<HTMLSpanElement>(null);
-  const { tooltipPosition, shapePosition } = useTooltipPositionToAnchor({
+  const { tooltipPositionStyles, shapePositionStyles } = useTooltipPositionStyles({
     tooltipRef,
     anchorRef,
-    direction,
+    positionToAnchor,
     position,
     isOpen,
   });
@@ -25,13 +25,13 @@ export const Tooltip = ({ direction, position, tooltipText, children }: TooltipP
         <span
           ref={tooltipRef}
           className="absolute z-40 inline-block w-40 rounded bg-white text-sm leading-normal shadow-04"
-          style={tooltipPosition}
+          style={tooltipPositionStyles}
         >
           <span className="relative inline-flex h-full w-full items-center justify-center p-2">
             {tooltipText}
             <Shape
-              className={clsx("absolute m-auto", SHAPE_DIRECTION_STYLE[direction])}
-              style={shapePosition}
+              className={clsx("absolute m-auto", SHAPE_DIRECTION_STYLE[positionToAnchor])}
+              style={shapePositionStyles}
             />
           </span>
         </span>
