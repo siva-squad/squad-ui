@@ -29,15 +29,13 @@ export const Tooltip = ({
   useEffect(() => {
     const name = anchorRef?.current?.children?.[0]?.localName || undefined;
 
-    switch (name) {
-      case "button":
-        setTabIndex(-1);
-        break;
-      case "a":
-        setTabIndex(-1);
-        break;
-      default:
-        setTabIndex(0);
+    const nativeFocusableElements = ["button", "a", "input", "select"];
+    // array and includes
+
+    if (name && nativeFocusableElements.includes(name)) {
+      setTabIndex(-1);
+    } else {
+      setTabIndex(0);
     }
   }, []);
 
