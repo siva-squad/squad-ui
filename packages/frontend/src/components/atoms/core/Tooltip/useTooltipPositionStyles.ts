@@ -3,19 +3,19 @@ import { Direction, Position } from "./type";
 import { getAlignment, getPositionToAnchor, getShapePosition } from "./utils";
 
 // NAMING
-type TooltipPosition = {
+type TooltipPositionStyles = {
   top?: number;
   left?: number;
   bottom?: number;
   right?: number;
 };
 
-type ShapePosition = {
+type ShapePositionStyles = {
   right?: number;
   left?: number;
 };
 
-type UseTooltipPositionToAnchorProps = {
+type UseTooltipPositionStylesProps = {
   tooltipRef: RefObject<HTMLSpanElement>;
   anchorRef: RefObject<HTMLSpanElement>;
   direction: Direction;
@@ -23,25 +23,25 @@ type UseTooltipPositionToAnchorProps = {
   isOpen: boolean;
 };
 
-export const useTooltipPositionToAnchor = ({
+export const useTooltipPositionStyles = ({
   tooltipRef,
   anchorRef,
   direction,
   position,
   isOpen,
-}: UseTooltipPositionToAnchorProps) => {
-  const [tooltipPosition, setTooltipPosition] = useState<TooltipPosition>({});
-  const [shapePosition, setShapePosition] = useState<ShapePosition>({});
+}: UseTooltipPositionStylesProps) => {
+  const [tooltipPositionStyles, setTooltipPositionStyles] = useState<TooltipPositionStyles>({});
+  const [shapePositionStyles, setShapePositionStyles] = useState<ShapePositionStyles>({});
 
   useEffect(() => {
     if (isOpen && anchorRef.current && tooltipRef.current) {
       const { left, width, bottom, top, right, height } = anchorRef.current.getBoundingClientRect();
       const tooltipWidth = tooltipRef.current.getBoundingClientRect().width || 0;
       const tooltipHeight = tooltipRef.current.getBoundingClientRect().height || 0;
+      const windowScrollY = window.scrollY;
 
       const tooltipPadding = 12;
       const shape = width / 2;
-      const windowScrollY = window.scrollY;
 
       // position
       const topOfAnchor = top - tooltipHeight - tooltipPadding + windowScrollY;
@@ -61,6 +61,7 @@ export const useTooltipPositionToAnchor = ({
         direction === "left" || direction === "right"
           ? { top: verticalCenter }
           : getAlignment(position, alignRight, alignLeft, horizontalCenter);
+
       const positionToAnchor = getPositionToAnchor(
         direction,
         topOfAnchor,
@@ -71,13 +72,13 @@ export const useTooltipPositionToAnchor = ({
 
       const shapePosition = getShapePosition(position, shape);
 
-      setTooltipPosition({
+      setTooltipPositionStyles({
         ...alignment,
         ...positionToAnchor,
       });
-      setShapePosition(shapePosition);
+      setShapePositionStyles(shapePosition);
     }
   }, [isOpen, direction, position, tooltipRef, anchorRef]);
 
-  return { tooltipPosition, shapePosition };
+  return { tooltipPositionStyles, shapePositionStyles };
 };
