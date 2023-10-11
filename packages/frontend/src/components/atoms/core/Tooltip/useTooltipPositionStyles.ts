@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useState } from "react";
+import { RefObject, useLayoutEffect, useState } from "react";
 import { PositionToAnchor, Alignment } from "./type";
 import { getAlignment, getPositionToAnchor, getShapePosition } from "./utils";
 
@@ -33,7 +33,7 @@ export const useTooltipPositionStyles = ({
   const [tooltipPositionStyles, setTooltipPositionStyles] = useState<TooltipPositionStyles>({});
   const [shapePositionStyles, setShapePositionStyles] = useState<ShapePositionStyles>({});
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isOpen && anchorRef.current && tooltipRef.current) {
       const { left, width, bottom, top, right, height } = anchorRef.current.getBoundingClientRect();
       const tooltipWidth = tooltipRef.current.getBoundingClientRect().width || 0;
