@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { clsx } from "clsx";
 
 import { SHAPE_DIRECTION_STYLE } from "./consts";
@@ -6,8 +6,15 @@ import { Shape } from "./Shape";
 import type { TooltipProps } from "./type";
 import { useTooltipPositionStyles } from "./useTooltipPositionStyles";
 
-export const Tooltip = ({ positionToAnchor, alignment, tooltipText, children }: TooltipProps) => {
+export const Tooltip = ({
+  positionToAnchor,
+  alignment,
+  tooltipText,
+  ariaLabelledBy,
+  children,
+}: TooltipProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [tabIndex, setTabIndex] = useState(0);
 
   const tooltipRef = useRef<HTMLSpanElement>(null);
   const anchorRef = useRef<HTMLSpanElement>(null);
@@ -19,10 +26,36 @@ export const Tooltip = ({ positionToAnchor, alignment, tooltipText, children }: 
     isOpen,
   });
 
+  useEffect(() => {
+    const name = anchorRef?.current?.children?.[0]?.localName || undefined;
+
+    switch (name) {
+      case "button":
+        setTabIndex(-1);
+        break;
+      case "a":
+        setTabIndex(-1);
+        break;
+      default:
+        setTabIndex(0);
+    }
+  }, []);
+
+  const openTooltip = () => {
+    setIsOpen(true);
+  };
+
+  const closeTooltip = () => {
+    setIsOpen(false);
+  };
+
   return (
     <>
       {isOpen && (
         <span
+          role="tooltip"
+          id={ariaLabelledBy}
+          aria-hidden={!isOpen}
           ref={tooltipRef}
           className="absolute z-40 inline-block w-40 rounded bg-white text-sm leading-normal shadow-04"
           style={tooltipPositionStyles}
@@ -37,8 +70,12 @@ export const Tooltip = ({ positionToAnchor, alignment, tooltipText, children }: 
         </span>
       )}
       <span
-        onMouseEnter={() => setIsOpen(true)}
-        onMouseLeave={() => setIsOpen(false)}
+        aria-labelledby={ariaLabelledBy}
+        tabIndex={tabIndex}
+        onFocus={openTooltip}
+        onBlur={closeTooltip}
+        onMouseEnter={openTooltip}
+        onMouseLeave={closeTooltip}
         className="inline-block max-w-full"
         ref={anchorRef}
       >
@@ -51,8 +88,7 @@ export const Tooltip = ({ positionToAnchor, alignment, tooltipText, children }: 
 // Useage: <Tooltip message="Tooltip text">Some children</Tooltip>
 // Hover on text/children: Tooltip opens
 // Calculate positioning of Tooltip based on space available
-// What is the number 12 for --> save as variabel and use it
 
+// open on "tab" key
+// https://github.com/siva-squad/squadbeyond/pull/new/feature/new-design-tooltip
 // TESTING!!!
-
-// a11y: https://accessibilityinsights.io/info-examples/web/aria-tooltip-name/

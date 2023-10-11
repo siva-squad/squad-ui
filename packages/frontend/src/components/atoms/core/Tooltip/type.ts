@@ -9,4 +9,5 @@ export type TooltipProps = {
   alignment: Alignment;
   tooltipText: string;
   children: string | ReactNode;
+  ariaLabelledBy: string;
 };
