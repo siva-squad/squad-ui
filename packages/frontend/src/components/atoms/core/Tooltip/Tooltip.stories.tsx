@@ -11,7 +11,7 @@ export default {
   argTypes: {
     tooltipText: { control: "text" },
     positionToAnchor: { control: "inline-radio", options: ["bottom", "top", "left", "right"] },
-    position: { control: "inline-radio", options: ["center", "left", "right"] },
+    alignment: { control: "inline-radio", options: ["center", "left", "right"] },
   },
   decorators: [
     (Story) => (
@@ -47,7 +47,7 @@ export const Default: StoryObj<typeof Tooltip> = {
   args: {
     tooltipText: "メッセージテキスト",
     positionToAnchor: "top",
-    position: "left",
+    alignment: "left",
     children: (
       <Button
         theme="white"
@@ -64,7 +64,7 @@ export const LongText: StoryObj<typeof Tooltip> = {
   args: {
     tooltipText: "メッセージテキスト",
     positionToAnchor: "top",
-    position: "left",
+    alignment: "left",
     children: "This is some very long text",
   },
 };
@@ -75,7 +75,7 @@ export const LongTooltipText: StoryObj<typeof Tooltip> = {
     tooltipText:
       "メッセージテキストメッセージテキストメッセージテキストメッセージテキストメッセージテキストメッセージテキストメッセージテキストメッセージテキストメッセージテキスト",
     positionToAnchor: "right",
-    position: "center",
+    alignment: "center",
     children: (
       <Button
         theme="white"

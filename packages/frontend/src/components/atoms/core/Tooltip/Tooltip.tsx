@@ -6,7 +6,7 @@ import { Shape } from "./Shape";
 import type { TooltipProps } from "./type";
 import { useTooltipPositionStyles } from "./useTooltipPositionStyles";
 
-export const Tooltip = ({ positionToAnchor, position, tooltipText, children }: TooltipProps) => {
+export const Tooltip = ({ positionToAnchor, alignment, tooltipText, children }: TooltipProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const tooltipRef = useRef<HTMLSpanElement>(null);
@@ -15,7 +15,7 @@ export const Tooltip = ({ positionToAnchor, position, tooltipText, children }: T
     tooltipRef,
     anchorRef,
     positionToAnchor,
-    position,
+    alignment,
     isOpen,
   });
 

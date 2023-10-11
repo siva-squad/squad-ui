@@ -1,5 +1,5 @@
 import { RefObject, useEffect, useState } from "react";
-import { PositionToAnchor, Position } from "./type";
+import { PositionToAnchor, Alignment } from "./type";
 import { getAlignment, getPositionToAnchor, getShapePosition } from "./utils";
 
 // NAMING
@@ -19,7 +19,7 @@ type UseTooltipPositionStylesProps = {
   tooltipRef: RefObject<HTMLSpanElement>;
   anchorRef: RefObject<HTMLSpanElement>;
   positionToAnchor: PositionToAnchor;
-  position: Position;
+  alignment: Alignment;
   isOpen: boolean;
 };
 
@@ -27,7 +27,7 @@ export const useTooltipPositionStyles = ({
   tooltipRef,
   anchorRef,
   positionToAnchor,
-  position,
+  alignment,
   isOpen,
 }: UseTooltipPositionStylesProps) => {
   const [tooltipPositionStyles, setTooltipPositionStyles] = useState<TooltipPositionStyles>({});
@@ -57,10 +57,10 @@ export const useTooltipPositionStyles = ({
       const alignRight = right - tooltipWidth;
       const alignLeft = left;
 
-      const alignment =
+      const alignmentStyles =
         positionToAnchor === "left" || positionToAnchor === "right"
           ? { top: verticalCenter }
-          : getAlignment(position, alignRight, alignLeft, horizontalCenter);
+          : getAlignment(alignment, alignRight, alignLeft, horizontalCenter);
 
       const positionToAnchorStyles = getPositionToAnchor(
         positionToAnchor,
@@ -70,15 +70,18 @@ export const useTooltipPositionStyles = ({
         rightOfAnchor,
       );
 
-      const shapePosition = getShapePosition(position, shape);
+      const shapePosition =
+        positionToAnchor === "left" || positionToAnchor === "right"
+          ? {}
+          : getShapePosition(alignment, shape);
 
       setTooltipPositionStyles({
-        ...alignment,
+        ...alignmentStyles,
         ...positionToAnchorStyles,
       });
       setShapePositionStyles(shapePosition);
     }
-  }, [isOpen, positionToAnchor, position, tooltipRef, anchorRef]);
+  }, [isOpen, positionToAnchor, alignment, tooltipRef, anchorRef]);
 
   return { tooltipPositionStyles, shapePositionStyles };
 };
