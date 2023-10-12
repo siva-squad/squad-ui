@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from "react";
 import { UseTooltipPositionStylesProps, TooltipPositionStyles, ShapePositionStyles } from "./type";
-import { getAlignment, getPositionToAnchor, getShapePosition } from "./utils";
+import { getAlignment, getPositionToAnchor, getShapeClasses, getShapePosition } from "./utils";
 
 export const useTooltipPositionStyles = ({
   tooltipRef,
@@ -54,11 +54,13 @@ export const useTooltipPositionStyles = ({
           ? {}
           : getShapePosition(alignment, shape);
 
+      const shapeClasses = getShapeClasses(positionToAnchor);
+
       setTooltipPositionStyles({
         ...alignmentStyles,
         ...positionToAnchorStyles,
       });
-      setShapePositionStyles(shapePosition);
+      setShapePositionStyles({ shapePosition, shapeClasses });
     }
   }, [isOpen, positionToAnchor, alignment, tooltipRef, anchorRef]);
 

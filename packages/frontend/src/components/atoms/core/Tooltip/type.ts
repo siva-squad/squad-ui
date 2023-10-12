@@ -24,8 +24,8 @@ export type TooltipPositionStyles = {
 };
 
 export type ShapePositionStyles = {
-  right?: number;
-  left?: number;
+  shapePosition: { right?: number; left?: number };
+  shapeClasses: string;
 };
 
 export type UseTooltipPositionStylesProps = {

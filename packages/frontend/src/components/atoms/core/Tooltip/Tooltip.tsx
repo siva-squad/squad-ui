@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { clsx } from "clsx";
 
-import { SHAPE_DIRECTION_STYLE } from "./consts";
 import { Shape } from "./Shape";
 import type { TooltipProps } from "./type";
 import { useTooltipPositionStyles } from "./useTooltipPositionStyles";
@@ -60,8 +59,8 @@ export const Tooltip = ({
           <span className="relative inline-flex h-full w-full items-center justify-center p-2">
             {tooltipText}
             <Shape
-              className={clsx("absolute m-auto", SHAPE_DIRECTION_STYLE[positionToAnchor])}
-              style={shapePositionStyles}
+              className={clsx("absolute m-auto", shapePositionStyles.shapeClasses)}
+              style={shapePositionStyles.shapePosition}
             />
           </span>
         </span>
@@ -82,10 +81,7 @@ export const Tooltip = ({
   );
 };
 
-// Useage: <Tooltip message="Tooltip text">Some children</Tooltip>
-// Hover on text/children: Tooltip opens
 // Calculate positioning of Tooltip based on space available
 
-// open on "tab" key
 // https://github.com/siva-squad/squadbeyond/pull/new/feature/new-design-tooltip
 // TESTING!!!
