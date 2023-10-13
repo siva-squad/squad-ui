@@ -1,6 +1,12 @@
 import { useLayoutEffect, useState } from "react";
 import { UseTooltipPositionStylesProps, TooltipPositionStyles, ShapePositionStyles } from "./type";
-import { getAlignment, getPositionToAnchor, getShapeClasses, getShapePosition } from "./utils";
+import {
+  checkIsOffScreen,
+  getAlignment,
+  getPositionToAnchor,
+  getShapeClasses,
+  getShapePosition,
+} from "./utils";
 
 export const useTooltipPositionStyles = ({
   tooltipRef,
@@ -22,6 +28,20 @@ export const useTooltipPositionStyles = ({
       const tooltipPadding = 12;
       const shape = width / 2;
 
+      const bottomSpace = window.innerHeight - bottom;
+      const rightSpace = window.innerWidth - right;
+
+      const { checkedPositionToAnchor, checkedAlignment } = checkIsOffScreen(
+        bottomSpace,
+        rightSpace,
+        top,
+        left,
+        tooltipHeight,
+        tooltipWidth,
+        positionToAnchor,
+        alignment,
+      );
+
       // position
       const topOfAnchor = top - tooltipHeight - tooltipPadding + windowScrollY;
       const bottomOfAnchor = bottom + tooltipPadding + windowScrollY;
@@ -37,12 +57,12 @@ export const useTooltipPositionStyles = ({
       const alignLeft = left;
 
       const alignmentStyles =
-        positionToAnchor === "left" || positionToAnchor === "right"
+        checkedPositionToAnchor === "left" || checkedPositionToAnchor === "right"
           ? { top: verticalCenter }
-          : getAlignment(alignment, alignRight, alignLeft, horizontalCenter);
+          : getAlignment(checkedAlignment, alignRight, alignLeft, horizontalCenter);
 
       const positionToAnchorStyles = getPositionToAnchor(
-        positionToAnchor,
+        checkedPositionToAnchor,
         topOfAnchor,
         bottomOfAnchor,
         leftOfAnchor,
@@ -50,11 +70,11 @@ export const useTooltipPositionStyles = ({
       );
 
       const shapePosition =
-        positionToAnchor === "left" || positionToAnchor === "right"
+        checkedPositionToAnchor === "left" || checkedPositionToAnchor === "right"
           ? {}
-          : getShapePosition(alignment, shape);
+          : getShapePosition(checkedAlignment, shape);
 
-      const shapeClasses = getShapeClasses(positionToAnchor);
+      const shapeClasses = getShapeClasses(checkedPositionToAnchor);
 
       setTooltipPositionStyles({
         ...alignmentStyles,

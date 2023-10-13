@@ -1,3 +1,62 @@
+import { Alignment, PositionToAnchor } from "./type";
+
+const checkIsOffScreen = (
+  bottomSpace: number,
+  rightSpace: number,
+  top: number,
+  left: number,
+  tooltipHeight: number,
+  tooltipWidth: number,
+  positionToAnchor: PositionToAnchor,
+  alignment: Alignment,
+): {
+  checkedPositionToAnchor: PositionToAnchor;
+  checkedAlignment: Alignment;
+} => {
+  // Position to anchor
+  const positionToAnchorInformation = {
+    top: {
+      isOffScreen: top - tooltipHeight < 0,
+      flipValue: "bottom",
+    },
+    bottom: {
+      isOffScreen: bottomSpace - tooltipHeight < 0,
+      flipValue: "top",
+    },
+    left: {
+      isOffScreen: left - tooltipWidth < 0,
+      flipValue: "right",
+    },
+    right: {
+      isOffScreen: rightSpace - tooltipWidth < 0,
+      flipValue: "left",
+    },
+  };
+
+  // Alignment
+  const alignemntInformation = {
+    left: {
+      isOffScreen: rightSpace - tooltipWidth < 0,
+      flipValue: "right",
+    },
+    right: {
+      isOffScreen: left - tooltipWidth < 0,
+      flipValue: "left",
+    },
+  };
+
+  const checkedPositionToAnchor = positionToAnchorInformation[positionToAnchor].isOffScreen
+    ? (positionToAnchorInformation[positionToAnchor].flipValue as PositionToAnchor)
+    : positionToAnchor;
+
+  const checkedAlignment =
+    alignment !== "center" && alignemntInformation[alignment].isOffScreen
+      ? (alignemntInformation[alignment].flipValue as Alignment)
+      : alignment;
+
+  return { checkedPositionToAnchor, checkedAlignment };
+};
+
 const getAlignment = (
   alignment: string,
   alignRight: number,
@@ -61,4 +120,4 @@ const getShapeClasses = (positionToAnchor: "top" | "bottom" | "left" | "right") 
   }
 };
 
-export { getAlignment, getPositionToAnchor, getShapePosition, getShapeClasses };
+export { getAlignment, getPositionToAnchor, getShapePosition, getShapeClasses, checkIsOffScreen };
