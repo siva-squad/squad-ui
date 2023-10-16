@@ -3,6 +3,7 @@ import { Alignment, PositionToAnchor } from "./type";
 const checkIsOffScreen = (
   bottomSpace: number,
   rightSpace: number,
+  centerSpace: number,
   top: number,
   left: number,
   tooltipHeight: number,
@@ -41,13 +42,31 @@ const checkIsOffScreen = (
       isOffScreen: left - tooltipWidth < 0,
       flipValue: "left",
     },
+    center: {
+      isOffScreen: rightSpace - centerSpace < 0 || left - centerSpace < 0,
+    },
   };
 
   const checkedPositionToAnchor = positionToAnchorInformation[positionToAnchor].isOffScreen
     ? (positionToAnchorInformation[positionToAnchor].flipValue as PositionToAnchor)
     : positionToAnchor;
 
-  const checkedAlignment =
+  let checkedAlignment;
+
+  if (alignment === "center" && alignemntInformation[alignment].isOffScreen) {
+    const isLeftAlignmentOffScreen = alignemntInformation.left.isOffScreen;
+    const isRightAlignmentOffScreen = alignemntInformation.right.isOffScreen;
+
+    checkedAlignment = isLeftAlignmentOffScreen
+      ? ("right" as Alignment)
+      : isRightAlignmentOffScreen
+      ? ("left" as Alignment)
+      : ("center" as Alignment);
+
+    return { checkedPositionToAnchor, checkedAlignment };
+  }
+
+  checkedAlignment =
     alignment !== "center" && alignemntInformation[alignment].isOffScreen
       ? (alignemntInformation[alignment].flipValue as Alignment)
       : alignment;
