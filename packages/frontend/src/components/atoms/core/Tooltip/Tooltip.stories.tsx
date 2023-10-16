@@ -35,6 +35,15 @@ export const Default: StoryObj<typeof Tooltip> = {
     children: "Text",
     ariaLabelledBy: "text-with-tooltip-id",
   },
+  decorators: [
+    (Story) => (
+      <div className="grid min-h-screen content-center justify-center">
+        <p>
+          <Story />
+        </p>
+      </div>
+    ),
+  ],
 };
 
 export const LongText: StoryObj<typeof Tooltip> = {
