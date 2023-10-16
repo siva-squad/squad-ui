@@ -80,6 +80,3 @@ export const Tooltip = ({
     </>
   );
 };
-
-// https://github.com/siva-squad/squadbeyond/pull/new/feature/new-design-tooltip
-// TESTING!!!

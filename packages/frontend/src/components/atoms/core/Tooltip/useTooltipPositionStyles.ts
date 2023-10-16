@@ -47,14 +47,12 @@ export const useTooltipPositionStyles = ({
         alignment,
       );
 
-      // position
       const topOfAnchor = top - tooltipHeight - tooltipPadding + windowScrollY;
       const bottomOfAnchor = bottom + tooltipPadding + windowScrollY;
 
       const leftOfAnchor = left - tooltipWidth - tooltipPadding;
       const rightOfAnchor = right + tooltipPadding;
 
-      // alignment
       const horizontalCenter = left + width / 2 - tooltipWidth / 2;
       const verticalCenter = top + height / 2 - tooltipHeight / 2 + windowScrollY;
 
