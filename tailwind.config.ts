@@ -90,6 +90,9 @@ export default {
         "05": "0px 16px 24px 0px rgba(0, 85, 195, 0.10), 0px 0px 2px 0px rgba(0, 85, 195, 0.10);",
         "06": "0px 40px 40px 0px rgba(0, 85, 195, 0.10), 0px 0px 2px 0px rgba(0, 85, 195, 0.10);",
       },
+      dropShadow: {
+        md: ["0 8px 8px rgba(0, 85, 195, 0.10)", "0 0 1px rgba(0, 85, 195, 0.10)"],
+      },
     },
   },
   plugins: [],
