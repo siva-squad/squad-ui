@@ -16,7 +16,10 @@ export const useTooltipPositionStyles = ({
   isOpen,
 }: UseTooltipPositionStylesProps) => {
   const [tooltipPositionStyles, setTooltipPositionStyles] = useState<TooltipPositionStyles>({});
-  const [shapePositionStyles, setShapePositionStyles] = useState<ShapePositionStyles>({});
+  const [shapePositionStyles, setShapePositionStyles] = useState<ShapePositionStyles>({
+    shapePosition: {},
+    shapeClasses: "",
+  });
 
   useLayoutEffect(() => {
     if (isOpen && anchorRef.current && tooltipRef.current) {

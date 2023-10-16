@@ -13,7 +13,6 @@ const checkIsOffScreen = (
   checkedPositionToAnchor: PositionToAnchor;
   checkedAlignment: Alignment;
 } => {
-  // Position to anchor
   const positionToAnchorInformation = {
     top: {
       isOffScreen: top - tooltipHeight < 0,
@@ -33,7 +32,6 @@ const checkIsOffScreen = (
     },
   };
 
-  // Alignment
   const alignemntInformation = {
     left: {
       isOffScreen: rightSpace - tooltipWidth < 0,
