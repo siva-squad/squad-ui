@@ -21,7 +21,9 @@ export default {
   decorators: [
     (Story) => (
       <div className="grid min-h-screen content-center">
-        <Story />
+        <div>
+          <Story />
+        </div>
       </div>
     ),
   ],
