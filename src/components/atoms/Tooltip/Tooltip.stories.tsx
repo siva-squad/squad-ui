@@ -49,9 +49,17 @@ export const Default: StoryObj<typeof Tooltip> = {
   ],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
+    const tooltipAnchor = canvas.getByText("Text");
 
-    await userEvent.hover(canvas.getByText("Text"));
-    await expect(canvas.getByText("メッセージテキスト")).toBeInTheDocument();
+    await userEvent.hover(tooltipAnchor);
+    const tooltip = canvas.getByRole("tooltip");
+
+    await expect(tooltip).toBeInTheDocument();
+    await expect(tooltipAnchor).toHaveAccessibleName("メッセージテキスト");
+    await expect(tooltip).toHaveAttribute("aria-hidden", "false");
+
+    await userEvent.unhover(tooltipAnchor);
+    await expect(tooltip).not.toBeInTheDocument();
   },
 };
 
