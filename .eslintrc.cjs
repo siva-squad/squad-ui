@@ -1,15 +1,15 @@
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
-  extends: ["plugin:tailwindcss/recommended", "plugin:storybook/recommended", "eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:react-hooks/recommended", "plugin:storybook/recommended"],
+  extends: ["prettier", "plugin:tailwindcss/recommended", "plugin:storybook/recommended", "eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:react-hooks/recommended", "plugin:storybook/recommended"],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
-  plugins: ["react-refresh", "react", "react-hooks"],
+  plugins: ["react-refresh", "react", "react-hooks", "tailwindcss"],
   rules: {
     "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
     // Rules for third party plugins
     "import/order": [
-      "error",
+          "error",
       {
         groups: ["builtin", "external", "parent", "sibling", "index"],
         alphabetize: { order: "asc", caseInsensitive: true },
