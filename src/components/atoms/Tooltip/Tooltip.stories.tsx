@@ -21,9 +21,7 @@ export default {
   decorators: [
     (Story) => (
       <div className="grid min-h-screen content-center">
-        <p>
-          <Story />
-        </p>
+        <Story />
       </div>
     ),
   ],
@@ -40,11 +38,9 @@ export const Default: StoryObj<typeof Tooltip> = {
   },
   decorators: [
     (Story) => (
-      <div className="grid min-h-screen content-center justify-center">
-        <p>
-          <Story />
-        </p>
-      </div>
+      <span className="grid min-h-screen content-center justify-center">
+        <Story />
+      </span>
     ),
   ],
   play: async ({ canvasElement }) => {
