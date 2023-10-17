@@ -66,6 +66,7 @@ export const Tooltip = ({
         </span>
       )}
       <span
+        data-testid="tooltip-anchor"
         aria-labelledby={ariaLabelledBy}
         tabIndex={tabIndex}
         onFocus={openTooltip}
