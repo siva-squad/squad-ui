@@ -17,7 +17,7 @@ describe("Tooltip", () => {
 
     render(<Tooltip />);
 
-    const anchor = screen.getByText("Text");
+    const anchor = screen.getByTestId("tooltip-anchor");
     await user.hover(anchor);
     const tooltip = screen.getByRole("tooltip");
     expect(tooltip).toBeInTheDocument();

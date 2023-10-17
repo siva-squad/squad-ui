@@ -45,7 +45,7 @@ export const Default: StoryObj<typeof Tooltip> = {
   ],
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const tooltipAnchor = canvas.getByText("Text");
+    const tooltipAnchor = canvas.getByTestId("tooltip-anchor");
 
     await userEvent.hover(tooltipAnchor);
     const tooltip = canvas.getByRole("tooltip");
