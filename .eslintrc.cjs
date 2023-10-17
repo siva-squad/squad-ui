@@ -3,16 +3,20 @@ module.exports = {
   env: { browser: true, es2020: true },
   extends: [
     "prettier",
+    "eslint:recommended",
     "plugin:tailwindcss/recommended",
     "plugin:storybook/recommended",
-    "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:storybook/recommended",
   ],
+  settings: {
+    react: { version: "detect" },
+  },
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
-  plugins: ["react-refresh", "react", "react-hooks", "tailwindcss"],
+  plugins: ["react-refresh", "react", "react-hooks", "tailwindcss", "import"],
   rules: {
     "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
     // Rules for third party plugins
