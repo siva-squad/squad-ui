@@ -11,6 +11,7 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "plugin:storybook/recommended",
   ],
+
   settings: {
     react: { version: "detect" },
   },
@@ -18,6 +19,8 @@ module.exports = {
   parser: "@typescript-eslint/parser",
   plugins: ["react-refresh", "react", "react-hooks", "tailwindcss", "import"],
   rules: {
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
     "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
     // Rules for third party plugins
     "import/order": [
