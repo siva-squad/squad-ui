@@ -1,5 +1,8 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { expect } from "@storybook/jest";
 import type { Meta, StoryObj } from "@storybook/react";
+
+import { within, userEvent } from "@storybook/testing-library";
 
 import { Button } from "../Button";
 import { Tooltip } from "./Tooltip";
@@ -44,6 +47,12 @@ export const Default: StoryObj<typeof Tooltip> = {
       </div>
     ),
   ],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.hover(canvas.getByText("Text"));
+    await expect(canvas.getByText("メッセージテキスト")).toBeInTheDocument();
+  },
 };
 
 export const LongText: StoryObj<typeof Tooltip> = {
