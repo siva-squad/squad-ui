@@ -12,9 +12,8 @@ describe("Tooltip", () => {
     cleanup();
   });
 
-  test("open and closes tooltip on hover", async () => {
+  test("open and closes on hover", async () => {
     const user = userEvent.setup();
-
     render(<Tooltip />);
 
     const anchor = screen.getByTestId("tooltip-anchor");
@@ -25,9 +24,8 @@ describe("Tooltip", () => {
     expect(tooltip).not.toBeInTheDocument();
   });
 
-  test("open and closes tooltip on tab", async () => {
+  test("open and closes on tab", async () => {
     const user = userEvent.setup();
-
     render(<Tooltip />);
 
     await user.tab();
@@ -39,14 +37,11 @@ describe("Tooltip", () => {
 
   test("native focusable elements should receive focus on tab", async () => {
     const user = userEvent.setup();
-
     render(<WithButtonAnchor />);
 
     const button = screen.getByRole("button");
     const tooltipAnchor = screen.getByTestId("tooltip-anchor");
-
     await user.tab();
-
     expect(button).toHaveFocus();
     expect(tooltipAnchor).not.toHaveFocus();
   });
