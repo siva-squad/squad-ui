@@ -13,8 +13,10 @@
   },
   "dependencies": {
     "@storybook/addon-docs": "^7.4.6",
+    "clsx": "^2.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tailwind-variants": "^0.1.14"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.4.6",

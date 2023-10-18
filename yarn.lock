@@ -5576,6 +5576,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"clsx@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "clsx@npm:2.0.0"
+  checksum: a2cfb2351b254611acf92faa0daf15220f4cd648bdf96ce369d729813b85336993871a4bf6978ddea2b81b5a130478339c20d9d0b5c6fc287e5147f0c059276e
+  languageName: node
+  linkType: hard
+
 "color-convert@npm:^1.9.0":
   version: 1.9.3
   resolution: "color-convert@npm:1.9.3"
@@ -11804,6 +11811,7 @@ __metadata:
     "@typescript-eslint/parser": ^6.0.0
     "@vitejs/plugin-react": ^4.0.3
     autoprefixer: ^10.4.16
+    clsx: ^2.0.0
     eslint: ^8.45.0
     eslint-config-prettier: ^9.0.0
     eslint-plugin-import: ^2.28.1
@@ -11821,6 +11829,7 @@ __metadata:
     react-dom: ^18.2.0
     sass: ^1.69.3
     storybook: ^7.4.6
+    tailwind-variants: ^0.1.14
     tailwindcss: ^3.3.3
     typescript: ^5.0.2
     vite: ^4.4.5
@@ -12173,6 +12182,24 @@ __metadata:
     slice-ansi: ^2.1.0
     string-width: ^3.0.0
   checksum: 9e35d3efa788edc17237eef8852f8e4b9178efd65a7d115141777b2ee77df4b7796c05f4ed3712d858f98894ac5935a481ceeb6dcb9895e2f67a61cce0e63b6c
+  languageName: node
+  linkType: hard
+
+"tailwind-merge@npm:^1.13.2":
+  version: 1.14.0
+  resolution: "tailwind-merge@npm:1.14.0"
+  checksum: 8cf5d37f51b3b32e4bdd5544feaed34357bfba2f64f14834cc4a21ac29b0ae22d7255386467a0f1dadb3e38499389efbbabeddcd0b16571af5a0d346a4921877
+  languageName: node
+  linkType: hard
+
+"tailwind-variants@npm:^0.1.14":
+  version: 0.1.14
+  resolution: "tailwind-variants@npm:0.1.14"
+  dependencies:
+    tailwind-merge: ^1.13.2
+  peerDependencies:
+    tailwindcss: "*"
+  checksum: 3e0c198bb7dfcbcbc61017bf19e4a0a9b80cfc6c72cee91ef4925fc55f07343f9439f68121432a5949b6825bd52618525bdb4194113c0929b1e803b699d86ac3
   languageName: node
   linkType: hard
 
