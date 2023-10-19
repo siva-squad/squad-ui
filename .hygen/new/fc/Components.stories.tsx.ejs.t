@@ -11,11 +11,11 @@ export default {
   parameters: {
     controls: { expanded: true },
   },
+  argTypes: {},
 } satisfies Meta<typeof <%= component_name %>>;
 
 export const Default: StoryObj<typeof <%= component_name %>> = {
 <% if (have_props) { -%>
-  argTypes: {},
   args: {},
 <% } -%>
 };
