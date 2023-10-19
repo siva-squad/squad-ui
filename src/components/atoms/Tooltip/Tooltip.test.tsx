@@ -1,3 +1,6 @@
+// One option to work with tests and storybook is to export the stories and use them
+// in order to write tests and avoid duplications.
+// Will run with vitest
 import { composeStories } from "@storybook/react";
 import { render, screen, cleanup } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -5,7 +8,7 @@ import { describe, expect, test, afterEach } from "vitest";
 
 import * as TooltipStories from "./Tooltip.stories";
 
-const { Default: Tooltip, WithButtonAnchor } = composeStories(TooltipStories);
+const { DefaultOnHover: Tooltip, FocusOnButton } = composeStories(TooltipStories);
 
 describe("Tooltip", () => {
   afterEach(() => {
@@ -37,7 +40,7 @@ describe("Tooltip", () => {
 
   test("native focusable elements should receive focus on tab", async () => {
     const user = userEvent.setup();
-    render(<WithButtonAnchor />);
+    render(<FocusOnButton />);
 
     const button = screen.getByRole("button");
     const tooltipAnchor = screen.getByTestId("tooltip-anchor");

@@ -29,7 +29,7 @@ export default {
   ],
 } satisfies Meta<typeof Tooltip>;
 
-export const Default: StoryObj<typeof Tooltip> = {
+export const DefaultOnHover: StoryObj<typeof Tooltip> = {
   argTypes: {},
   args: {
     tooltipText: "メッセージテキスト",
@@ -61,22 +61,43 @@ export const Default: StoryObj<typeof Tooltip> = {
   },
 };
 
-export const LongText: StoryObj<typeof Tooltip> = {
+export const DefaultOnTab: StoryObj<typeof Tooltip> = {
   argTypes: {},
   args: {
     tooltipText: "メッセージテキスト",
     positionToAnchor: "top",
     alignment: "left",
-    children: "This is some very long text",
-    ariaLabelledBy: "long-text-with-tooltip-id",
+    children: "Text",
+    ariaLabelledBy: "text-with-tooltip-id",
+  },
+  decorators: [
+    (Story) => (
+      <span className="grid min-h-screen content-center justify-center">
+        <Story />
+      </span>
+    ),
+  ],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const tooltipAnchor = canvas.getByTestId("tooltip-anchor");
+
+    await userEvent.tab();
+
+    const tooltip = canvas.getByRole("tooltip");
+
+    await expect(tooltip).toBeInTheDocument();
+    await expect(tooltipAnchor).toHaveAccessibleName("メッセージテキスト");
+    await expect(tooltip).toHaveAttribute("aria-hidden", "false");
+
+    await userEvent.tab();
+    await expect(tooltip).not.toBeInTheDocument();
   },
 };
 
-export const WithButtonAnchor: StoryObj<typeof Tooltip> = {
+export const FocusOnButton: StoryObj<typeof Tooltip> = {
   argTypes: {},
   args: {
-    tooltipText:
-      "メッセージテキストメッセージテキストメッセージテキストメッセージテキストメッセージテキストメッセージテキストメッセージテキストメッセージテキストメッセージテキスト",
+    tooltipText: "メッセージテキスト",
     positionToAnchor: "right",
     alignment: "center",
     children: (
@@ -89,9 +110,19 @@ export const WithButtonAnchor: StoryObj<typeof Tooltip> = {
     ),
     ariaLabelledBy: "button-with-tooltip-id",
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const tooltipAnchor = canvas.getByTestId("tooltip-anchor");
+    const button = canvas.getByRole("button");
+
+    await userEvent.keyboard("{Tab}");
+
+    await expect(tooltipAnchor).not.toHaveFocus();
+    await expect(button).toHaveFocus();
+  },
 };
 
-export const WithLinkAnchor: StoryObj<typeof Tooltip> = {
+export const FocusOnLink: StoryObj<typeof Tooltip> = {
   argTypes: {},
   args: {
     tooltipText: "メッセージテキスト",
@@ -99,6 +130,16 @@ export const WithLinkAnchor: StoryObj<typeof Tooltip> = {
     alignment: "left",
     children: <a href="#">Some link</a>,
     ariaLabelledBy: "link-with-tooltip-id",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const tooltipAnchor = canvas.getByTestId("tooltip-anchor");
+    const link = canvas.getByRole("link");
+
+    await userEvent.keyboard("{Tab}");
+
+    await expect(tooltipAnchor).not.toHaveFocus();
+    await expect(link).toHaveFocus();
   },
 };
 
