@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { clsx } from "clsx";
 
 import { Shape } from "./Shape";
@@ -25,7 +25,7 @@ export const Tooltip = ({
     isOpen,
   });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const name = anchorRef?.current?.children?.[0]?.localName || undefined;
 
     const nativeFocusableElements = ["button", "a", "input", "select"];
