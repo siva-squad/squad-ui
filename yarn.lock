@@ -1925,6 +1925,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@heroicons/react@npm:^2.0.18":
+  version: 2.0.18
+  resolution: "@heroicons/react@npm:2.0.18"
+  peerDependencies:
+    react: ">= 16"
+  checksum: 597e8668818623d568a302e343ef06b69f62ce297c14b88c2ebbfed0c0f00cd85ec44fae33ec8a249931b4e7dcf145743ae3198095a9f4682108de5155f5f4c3
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.11.11":
   version: 0.11.11
   resolution: "@humanwhocodes/config-array@npm:0.11.11"
@@ -11722,6 +11731,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "squad-ui@workspace:."
   dependencies:
+    "@heroicons/react": ^2.0.18
     "@storybook/addon-docs": ^7.4.6
     "@storybook/addon-essentials": ^7.4.6
     "@storybook/addon-interactions": ^7.4.6
@@ -12584,11 +12594,11 @@ __metadata:
 
 "typescript@patch:typescript@^5.0.2#~builtin<compat/typescript>":
   version: 5.2.2
-  resolution: "typescript@patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=f3b441"
+  resolution: "typescript@patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=1f5320"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 0f4da2f15e6f1245e49db15801dbee52f2bbfb267e1c39225afdab5afee1a72839cd86000e65ee9d7e4dfaff12239d28beaf5ee431357fcced15fb08583d72ca
+  checksum: 07106822b4305de3f22835cbba949a2b35451cad50888759b6818421290ff95d522b38ef7919e70fb381c5fe9c1c643d7dea22c8b31652a717ddbd57b7f4d554
   languageName: node
   linkType: hard
 
