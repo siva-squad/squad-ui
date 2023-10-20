@@ -1,16 +1,16 @@
-import { Alignment, PositionToAnchor } from "./type";
+import { Alignment, CheckIsOffScreenProps, PositionToAnchor } from "./type";
 
-const checkIsOffScreen = (
-  bottomSpace: number,
-  rightSpace: number,
-  centerSpace: number,
-  top: number,
-  left: number,
-  tooltipHeight: number,
-  tooltipWidth: number,
-  positionToAnchor: PositionToAnchor,
-  alignment: Alignment,
-): {
+const checkIsOffScreen = ({
+  bottomSpace,
+  rightSpace,
+  centerSpace,
+  top,
+  left,
+  tooltipHeight,
+  tooltipWidth,
+  positionToAnchor,
+  alignment,
+}: CheckIsOffScreenProps): {
   checkedPositionToAnchor: PositionToAnchor;
   checkedAlignment: Alignment;
 } => {

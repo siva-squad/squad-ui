@@ -35,7 +35,7 @@ export const useTooltipPositionStyles = ({
       const rightSpace = window.innerWidth - right;
       const centerSpace = tooltipWidth - width / 2;
 
-      const { checkedPositionToAnchor, checkedAlignment } = checkIsOffScreen(
+      const { checkedPositionToAnchor, checkedAlignment } = checkIsOffScreen({
         bottomSpace,
         rightSpace,
         centerSpace,
@@ -45,7 +45,7 @@ export const useTooltipPositionStyles = ({
         tooltipWidth,
         positionToAnchor,
         alignment,
-      );
+      });
 
       const topOfAnchor = top - tooltipHeight - tooltipPadding + windowScrollY;
       const bottomOfAnchor = bottom + tooltipPadding + windowScrollY;
