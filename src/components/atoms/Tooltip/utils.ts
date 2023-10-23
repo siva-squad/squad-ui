@@ -74,12 +74,17 @@ export const checkIsOffScreen = ({
   return { checkedPositionToAnchor, checkedAlignment };
 };
 
-export const getAlignment = (
-  alignment: string,
-  alignRight: number,
-  alignLeft: number,
-  alignCenter: number,
-): {} => {
+export const getAlignment = ({
+  alignment,
+  alignRight,
+  alignLeft,
+  alignCenter,
+}: {
+  alignment: string;
+  alignRight: number;
+  alignLeft: number;
+  alignCenter: number;
+}): {} => {
   switch (alignment) {
     case "left":
       return { left: alignLeft };

@@ -169,7 +169,7 @@ describe(`${getAlignment.name}`, () => {
   test.each(alignment)(
     "returns correct style according to alignment $alignment",
     ({ alignCenter, alignLeft, alignRight, alignment, expected }) => {
-      const alignmentStyles = getAlignment(alignment, alignRight, alignLeft, alignCenter);
+      const alignmentStyles = getAlignment({ alignment, alignRight, alignLeft, alignCenter });
 
       expect(alignmentStyles).toStrictEqual(expected);
     },

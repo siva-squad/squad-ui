@@ -62,7 +62,12 @@ export const useTooltipPositionStyles = ({
       const alignmentStyles =
         checkedPositionToAnchor === "left" || checkedPositionToAnchor === "right"
           ? { top: verticalCenter }
-          : getAlignment(checkedAlignment, alignRight, alignLeft, horizontalCenter);
+          : getAlignment({
+              alignment: checkedAlignment,
+              alignRight,
+              alignLeft,
+              alignCenter: horizontalCenter,
+            });
 
       const positionToAnchorStyles = getPositionToAnchor(
         checkedPositionToAnchor,
