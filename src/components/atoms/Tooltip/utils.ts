@@ -95,13 +95,19 @@ export const getAlignment = ({
   }
 };
 
-export const getPositionToAnchor = (
-  position: PositionToAnchor,
-  topOfAnchor: number,
-  bottomOfAnchor: number,
-  leftOfAnchor: number,
-  rightOfAnchor: number,
-): {} => {
+export const getPositionToAnchor = ({
+  position,
+  topOfAnchor,
+  bottomOfAnchor,
+  leftOfAnchor,
+  rightOfAnchor,
+}: {
+  position: PositionToAnchor;
+  topOfAnchor: number;
+  bottomOfAnchor: number;
+  leftOfAnchor: number;
+  rightOfAnchor: number;
+}): {} => {
   switch (position) {
     case "top":
       return { top: topOfAnchor };

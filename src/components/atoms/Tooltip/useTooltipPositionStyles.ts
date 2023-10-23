@@ -69,13 +69,13 @@ export const useTooltipPositionStyles = ({
               alignCenter: horizontalCenter,
             });
 
-      const positionToAnchorStyles = getPositionToAnchor(
-        checkedPositionToAnchor,
+      const positionToAnchorStyles = getPositionToAnchor({
+        position: checkedPositionToAnchor,
         topOfAnchor,
         bottomOfAnchor,
         leftOfAnchor,
         rightOfAnchor,
-      );
+      });
 
       const shapePosition =
         checkedPositionToAnchor === "left" || checkedPositionToAnchor === "right"
