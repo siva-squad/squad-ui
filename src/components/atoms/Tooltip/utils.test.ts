@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import { Alignment, PositionToAnchor } from "./type";
-import { checkIsOffScreen } from "./utils";
+import { checkIsOffScreen, getAlignment } from "./utils";
 
 describe(`${checkIsOffScreen.name}`, () => {
   const positionAndAlignment: {
@@ -137,6 +137,41 @@ describe(`${checkIsOffScreen.name}`, () => {
 
       expect(checkedAlignment).toEqual(expectedAlignment);
       expect(checkedPositionToAnchor).toEqual(expectedPosition);
+    },
+  );
+});
+
+describe(`${getAlignment.name}`, () => {
+  const alignment = [
+    {
+      alignment: "left",
+      alignRight: 70,
+      alignLeft: 50,
+      alignCenter: 40,
+      expected: { left: 50 },
+    },
+    {
+      alignment: "right",
+      alignRight: 70,
+      alignLeft: 50,
+      alignCenter: 40,
+      expected: { left: 70 },
+    },
+    {
+      alignment: "center",
+      alignRight: 70,
+      alignLeft: 50,
+      alignCenter: 40,
+      expected: { left: 40 },
+    },
+  ];
+
+  test.each(alignment)(
+    "returns correct style according to alignment $alignment",
+    ({ alignCenter, alignLeft, alignRight, alignment, expected }) => {
+      const alignmentStyles = getAlignment(alignment, alignRight, alignLeft, alignCenter);
+
+      expect(alignmentStyles).toStrictEqual(expected);
     },
   );
 });
