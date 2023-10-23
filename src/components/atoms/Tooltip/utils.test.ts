@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import { Alignment, PositionToAnchor } from "./type";
-import { checkIsOffScreen, getAlignment, getPositionToAnchor } from "./utils";
+import { checkIsOffScreen, getAlignment, getPositionToAnchor, getShapePosition } from "./utils";
 
 describe(`${checkIsOffScreen.name}`, () => {
   const positionAndAlignment: {
@@ -182,7 +182,7 @@ describe(`${getAlignment.name}`, () => {
   );
 });
 
-describe(`${getPositionToAnchor}`, () => {
+describe(`${getPositionToAnchor.name}`, () => {
   const positionToAnchor: {
     position: PositionToAnchor;
     topOfAnchor: number;
@@ -236,6 +236,38 @@ describe(`${getPositionToAnchor}`, () => {
       });
 
       expect(positionToAnchorStyles).toStrictEqual(expected);
+    },
+  );
+});
+
+describe(`${getShapePosition.name}`, () => {
+  const shapePosition: {
+    alignment: Alignment;
+    shapePosition: number;
+    expected: { left?: number; right?: number };
+  }[] = [
+    {
+      alignment: "left",
+      shapePosition: 50,
+      expected: { left: 50 },
+    },
+    {
+      alignment: "right",
+      shapePosition: 50,
+      expected: { right: 50 },
+    },
+    {
+      alignment: "center",
+      shapePosition: 50,
+      expected: {},
+    },
+  ];
+  test.each(shapePosition)(
+    "returns correct shape position styles for alignment $alignment",
+    ({ alignment, shapePosition, expected }) => {
+      const shapePositionStyles = getShapePosition(alignment, shapePosition);
+
+      expect(shapePositionStyles).toStrictEqual(expected);
     },
   );
 });
