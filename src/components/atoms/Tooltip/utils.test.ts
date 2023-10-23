@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import { Alignment, PositionToAnchor } from "./type";
-import { checkIsOffScreen, getAlignment } from "./utils";
+import { checkIsOffScreen, getAlignment, getPositionToAnchor } from "./utils";
 
 describe(`${checkIsOffScreen.name}`, () => {
   const positionAndAlignment: {
@@ -142,7 +142,13 @@ describe(`${checkIsOffScreen.name}`, () => {
 });
 
 describe(`${getAlignment.name}`, () => {
-  const alignment = [
+  const alignment: {
+    alignment: Alignment;
+    alignRight: number;
+    alignLeft: number;
+    alignCenter: number;
+    expected: { left: number };
+  }[] = [
     {
       alignment: "left",
       alignRight: 70,
@@ -172,6 +178,64 @@ describe(`${getAlignment.name}`, () => {
       const alignmentStyles = getAlignment({ alignment, alignRight, alignLeft, alignCenter });
 
       expect(alignmentStyles).toStrictEqual(expected);
+    },
+  );
+});
+
+describe(`${getPositionToAnchor}`, () => {
+  const positionToAnchor: {
+    position: PositionToAnchor;
+    topOfAnchor: number;
+    bottomOfAnchor: number;
+    leftOfAnchor: number;
+    rightOfAnchor: number;
+    expected: { top?: number; left?: number };
+  }[] = [
+    {
+      position: "top",
+      topOfAnchor: 70,
+      bottomOfAnchor: 80,
+      leftOfAnchor: 90,
+      rightOfAnchor: 60,
+      expected: { top: 70 },
+    },
+    {
+      position: "bottom",
+      topOfAnchor: 70,
+      bottomOfAnchor: 80,
+      leftOfAnchor: 90,
+      rightOfAnchor: 60,
+      expected: { top: 80 },
+    },
+    {
+      position: "right",
+      topOfAnchor: 70,
+      bottomOfAnchor: 80,
+      leftOfAnchor: 90,
+      rightOfAnchor: 60,
+      expected: { left: 60 },
+    },
+    {
+      position: "left",
+      topOfAnchor: 70,
+      bottomOfAnchor: 80,
+      leftOfAnchor: 90,
+      rightOfAnchor: 60,
+      expected: { left: 90 },
+    },
+  ];
+  test.each(positionToAnchor)(
+    "returns correct style according to position $positionToAnchor",
+    ({ position, topOfAnchor, bottomOfAnchor, leftOfAnchor, rightOfAnchor, expected }) => {
+      const positionToAnchorStyles = getPositionToAnchor({
+        position,
+        topOfAnchor,
+        bottomOfAnchor,
+        leftOfAnchor,
+        rightOfAnchor,
+      });
+
+      expect(positionToAnchorStyles).toStrictEqual(expected);
     },
   );
 });
