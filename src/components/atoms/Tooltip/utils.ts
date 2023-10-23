@@ -80,7 +80,7 @@ export const getAlignment = ({
   alignLeft,
   alignCenter,
 }: {
-  alignment: string;
+  alignment: Alignment;
   alignRight: number;
   alignLeft: number;
   alignCenter: number;
@@ -96,7 +96,7 @@ export const getAlignment = ({
 };
 
 export const getPositionToAnchor = (
-  position: "top" | "bottom" | "left" | "right",
+  position: PositionToAnchor,
   topOfAnchor: number,
   bottomOfAnchor: number,
   leftOfAnchor: number,
@@ -114,7 +114,7 @@ export const getPositionToAnchor = (
   }
 };
 
-export const getShapePosition = (alignment: string, shapePosition: number): {} => {
+export const getShapePosition = (alignment: Alignment, shapePosition: number): {} => {
   switch (alignment) {
     case "left":
       return {
@@ -129,7 +129,7 @@ export const getShapePosition = (alignment: string, shapePosition: number): {} =
   }
 };
 
-export const getShapeClasses = (positionToAnchor: "top" | "bottom" | "left" | "right") => {
+export const getShapeClasses = (positionToAnchor: PositionToAnchor) => {
   switch (positionToAnchor) {
     case "top":
       return "bottom-[-4.5px]";
