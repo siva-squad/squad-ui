@@ -1,6 +1,6 @@
 import { Alignment, CheckIsOffScreenProps, PositionToAnchor } from "./type";
 
-const checkIsOffScreen = ({
+export const checkIsOffScreen = ({
   bottomSpace,
   rightSpace,
   centerSpace,
@@ -74,7 +74,7 @@ const checkIsOffScreen = ({
   return { checkedPositionToAnchor, checkedAlignment };
 };
 
-const getAlignment = (
+export const getAlignment = (
   alignment: string,
   alignRight: number,
   alignLeft: number,
@@ -90,7 +90,7 @@ const getAlignment = (
   }
 };
 
-const getPositionToAnchor = (
+export const getPositionToAnchor = (
   position: "top" | "bottom" | "left" | "right",
   topOfAnchor: number,
   bottomOfAnchor: number,
@@ -109,7 +109,7 @@ const getPositionToAnchor = (
   }
 };
 
-const getShapePosition = (alignment: string, shapePosition: number): {} => {
+export const getShapePosition = (alignment: string, shapePosition: number): {} => {
   switch (alignment) {
     case "left":
       return {
@@ -124,7 +124,7 @@ const getShapePosition = (alignment: string, shapePosition: number): {} => {
   }
 };
 
-const getShapeClasses = (positionToAnchor: "top" | "bottom" | "left" | "right") => {
+export const getShapeClasses = (positionToAnchor: "top" | "bottom" | "left" | "right") => {
   switch (positionToAnchor) {
     case "top":
       return "bottom-[-4.5px]";
@@ -136,5 +136,3 @@ const getShapeClasses = (positionToAnchor: "top" | "bottom" | "left" | "right") 
       return "left-[-7px] rotate-90";
   }
 };
-
-export { getAlignment, getPositionToAnchor, getShapePosition, getShapeClasses, checkIsOffScreen };
