@@ -1,49 +1,48 @@
 import { describe, expect, test } from "vitest";
+import { Alignment, PositionToAnchor } from "./type";
 import { checkIsOffScreen } from "./utils";
 
-describe("Check is off screen", () => {
-  test("default values are returned if tooltip is on screen", () => {
-    const alignment = "center";
-    const positionToAnchor = "top";
-    const { checkedAlignment, checkedPositionToAnchor } = checkIsOffScreen({
+describe(`${checkIsOffScreen.name}`, () => {
+  const positionAndAlignment: {
+    bottomSpace: number;
+    rightSpace: number;
+    centerSpace: number;
+    top: number;
+    left: number;
+    tooltipHeight: number;
+    tooltipWidth: number;
+    positionToAnchor: PositionToAnchor;
+    alignment: Alignment;
+    expectedPosition: PositionToAnchor;
+    expectedAlignment: Alignment;
+  }[] = [
+    {
       bottomSpace: 500,
       rightSpace: 500,
-      centerSpace: 500,
+      centerSpace: 30,
       top: 500,
       left: 500,
       tooltipHeight: 50,
       tooltipWidth: 70,
-      positionToAnchor,
-      alignment,
-    });
-
-    expect(checkedAlignment).toEqual(alignment);
-    expect(positionToAnchor).toEqual(checkedPositionToAnchor);
-  });
-
-  test("top flip value is returned when tooltip is off screen", () => {
-    const alignment = "center";
-    const positionToAnchor = "top";
-    const { checkedPositionToAnchor } = checkIsOffScreen({
+      positionToAnchor: "top",
+      alignment: "center",
+      expectedPosition: "top",
+      expectedAlignment: "center",
+    },
+    {
       bottomSpace: 500,
       rightSpace: 500,
-      centerSpace: 500,
+      centerSpace: 30,
       top: 25,
       left: 500,
       tooltipHeight: 50,
       tooltipWidth: 70,
-      positionToAnchor,
-      alignment,
-    });
-
-    expect(positionToAnchor).not.toEqual(checkedPositionToAnchor);
-    expect(checkedPositionToAnchor).toEqual("bottom");
-  });
-
-  test("bottom flip value is returned when tooltip is off screen", () => {
-    const alignment = "center";
-    const positionToAnchor = "bottom";
-    const { checkedPositionToAnchor } = checkIsOffScreen({
+      positionToAnchor: "top",
+      alignment: "center",
+      expectedPosition: "bottom",
+      expectedAlignment: "center",
+    },
+    {
       bottomSpace: 25,
       rightSpace: 500,
       centerSpace: 500,
@@ -51,49 +50,93 @@ describe("Check is off screen", () => {
       left: 500,
       tooltipHeight: 50,
       tooltipWidth: 70,
-      positionToAnchor,
-      alignment,
-    });
-
-    expect(positionToAnchor).not.toEqual(checkedPositionToAnchor);
-    expect(checkedPositionToAnchor).toEqual("top");
-  });
-
-  test("right flip value is returned when tooltip is off screen", () => {
-    const alignment = "center";
-    const positionToAnchor = "right";
-    const { checkedPositionToAnchor } = checkIsOffScreen({
+      positionToAnchor: "bottom",
+      alignment: "center",
+      expectedPosition: "top",
+      expectedAlignment: "center",
+    },
+    {
       bottomSpace: 500,
-      rightSpace: 25,
-      centerSpace: 500,
+      rightSpace: 50,
+      centerSpace: 30,
       top: 500,
       left: 500,
       tooltipHeight: 50,
       tooltipWidth: 70,
-      positionToAnchor,
-      alignment,
-    });
-
-    expect(positionToAnchor).not.toEqual(checkedPositionToAnchor);
-    expect(checkedPositionToAnchor).toEqual("left");
-  });
-
-  test("left flip value is returned when tooltip is off screen", () => {
-    const alignment = "center";
-    const positionToAnchor = "left";
-    const { checkedPositionToAnchor } = checkIsOffScreen({
+      positionToAnchor: "right",
+      alignment: "center",
+      expectedPosition: "left",
+      expectedAlignment: "center",
+    },
+    {
       bottomSpace: 500,
       rightSpace: 500,
-      centerSpace: 500,
+      centerSpace: 30,
+      top: 500,
+      left: 50,
+      tooltipHeight: 50,
+      tooltipWidth: 70,
+      positionToAnchor: "left",
+      alignment: "center",
+      expectedPosition: "right",
+      expectedAlignment: "center",
+    },
+    {
+      bottomSpace: 500,
+      rightSpace: 500,
+      centerSpace: 30,
       top: 500,
       left: 25,
       tooltipHeight: 50,
       tooltipWidth: 70,
+      positionToAnchor: "left",
+      alignment: "center",
+      expectedPosition: "right",
+      expectedAlignment: "left",
+    },
+    {
+      bottomSpace: 500,
+      rightSpace: 25,
+      centerSpace: 30,
+      top: 500,
+      left: 500,
+      tooltipHeight: 50,
+      tooltipWidth: 70,
+      positionToAnchor: "right",
+      alignment: "center",
+      expectedPosition: "left",
+      expectedAlignment: "right",
+    },
+  ];
+  test.each(positionAndAlignment)(
+    "when there is enough space in position $positionToAnchor and in alignment $alignment, returns correct position and alignment",
+    ({
+      bottomSpace,
+      rightSpace,
+      centerSpace,
+      top,
+      left,
+      tooltipHeight,
+      tooltipWidth,
       positionToAnchor,
       alignment,
-    });
+      expectedPosition,
+      expectedAlignment,
+    }) => {
+      const { checkedAlignment, checkedPositionToAnchor } = checkIsOffScreen({
+        bottomSpace,
+        rightSpace,
+        centerSpace,
+        top,
+        left,
+        tooltipHeight,
+        tooltipWidth,
+        positionToAnchor,
+        alignment,
+      });
 
-    expect(positionToAnchor).not.toEqual(checkedPositionToAnchor);
-    expect(checkedPositionToAnchor).toEqual("right");
-  });
+      expect(checkedAlignment).toEqual(expectedAlignment);
+      expect(checkedPositionToAnchor).toEqual(expectedPosition);
+    },
+  );
 });
