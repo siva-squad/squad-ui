@@ -31,10 +31,20 @@ export const MENU_LIST_ITEM_TEXT_CLASS_NAME = tv({
 });
 
 export const MENU_LIST_ITEM_ICON_CLASS_NAME = tv({
-  base: clsx("h-4 w-4 text-gray", "group-enabled:group-active:text-primary-600"),
+  base: clsx("h-6 w-6 text-gray", "group-enabled:group-active:text-primary-600"),
   variants: {
     selected: {
       true: "text-primary-600",
+      false: "",
+    },
+  },
+});
+
+export const MENU_LIST_ITEM_DESCRIPTION_CLASS_NAME = tv({
+  base: clsx("text-xs text-gray", "group-enabled:group-active:text-primary-400"),
+  variants: {
+    selected: {
+      true: "text-primary-400",
       false: "",
     },
   },
