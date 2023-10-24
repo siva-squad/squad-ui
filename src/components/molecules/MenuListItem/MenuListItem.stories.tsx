@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { FolderIcon as FolderIconOutline } from "@heroicons/react/24/outline";
 import { FolderIcon as FolderIconSolid } from "@heroicons/react/24/solid";
 import type { Meta, StoryObj } from "@storybook/react";
@@ -30,4 +31,35 @@ export const Header: StoryObj<typeof MenuListItem> = {
     selectedIcon: <FolderIconSolid />,
     href: "",
   },
+};
+
+export const WithRef = () => {
+  const anchorRef = useRef(null);
+  const buttonRef = useRef(null);
+
+  return (
+    <div className="flex gap-x-2">
+      <div>
+        <h2>Anchor</h2>
+        <MenuListItem
+          type="header"
+          href="#"
+          ref={anchorRef}
+        >
+          Ref有り
+        </MenuListItem>
+      </div>
+      <div>
+        <h2>Button</h2>
+        <MenuListItem
+          type="dropdown"
+          onClick={() => {}}
+          ref={buttonRef}
+        >
+          Ref有り
+        </MenuListItem>
+      </div>
+      <button onClick={() => console.log({ anchorRef, buttonRef })}>Log Refs</button>
+    </div>
+  );
 };

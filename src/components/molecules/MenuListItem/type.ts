@@ -5,11 +5,13 @@ type TypeAndDescriptionType =
       type: "header";
       description?: string;
       href: string;
+      onClick?: never;
     }
   | {
       type: "dropdown";
       description?: never;
       href?: never;
+      onClick: () => void;
     };
 
 export type MenuListItemProps = {
@@ -19,5 +21,4 @@ export type MenuListItemProps = {
   selectedIcon?: ReactElement;
   children?: ReactNode;
   selected?: boolean;
-  onClick: () => void;
 } & TypeAndDescriptionType;
