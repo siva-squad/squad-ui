@@ -3910,6 +3910,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/autoprefixer@npm:^10.2.0":
+  version: 10.2.0
+  resolution: "@types/autoprefixer@npm:10.2.0"
+  dependencies:
+    autoprefixer: "*"
+  checksum: 74d301d170f9f5d6ab113d38defaebf3aeddfb5ac25b3cb71485e08fc504e271a9544aee9dd74a0057a7904ae072e33d4fffb08aa80c165eaee120555eb98e47
+  languageName: node
+  linkType: hard
+
 "@types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.20.2":
   version: 7.20.2
   resolution: "@types/babel__core@npm:7.20.2"
@@ -5205,7 +5214,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:^10.4.16":
+"autoprefixer@npm:*, autoprefixer@npm:^10.4.16":
   version: 10.4.16
   resolution: "autoprefixer@npm:10.4.16"
   dependencies:
@@ -12055,51 +12064,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"squad-ui@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "squad-ui@workspace:."
-  dependencies:
-    "@heroicons/react": ^2.0.18
-    "@storybook/addon-docs": ^7.4.6
-    "@storybook/addon-essentials": ^7.4.6
-    "@storybook/addon-interactions": ^7.4.6
-    "@storybook/addon-links": ^7.4.6
-    "@storybook/addon-onboarding": ^1.0.8
-    "@storybook/addon-styling": ^1.3.7
-    "@storybook/blocks": ^7.4.6
-    "@storybook/react": ^7.4.6
-    "@storybook/react-vite": ^7.4.6
-    "@storybook/testing-library": ^0.2.2
-    "@types/react": ^18.2.15
-    "@types/react-dom": ^18.2.7
-    "@typescript-eslint/eslint-plugin": ^6.0.0
-    "@typescript-eslint/parser": ^6.0.0
-    "@vitejs/plugin-react": ^4.0.3
-    autoprefixer: ^10.4.16
-    clsx: ^2.0.0
-    eslint: ^8.45.0
-    eslint-config-prettier: ^9.0.0
-    eslint-plugin-import: ^2.28.1
-    eslint-plugin-react: ^7.33.2
-    eslint-plugin-react-hooks: ^4.6.0
-    eslint-plugin-react-refresh: ^0.4.3
-    eslint-plugin-storybook: ^0.6.15
-    eslint-plugin-tailwind: ^0.2.1
-    eslint-plugin-tailwindcss: ^3.13.0
-    hygen: ^6.2.11
-    prettier: ^3.0.3
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    storybook: ^7.4.6
-    tailwind-variants: ^0.1.14
-    tailwindcss: ^3.3.3
-    typescript: ^5.0.2
-    vite: ^4.4.5
-    vite-plugin-dts: ^3.6.0
-    vitest: ^0.34.6
-  languageName: unknown
-  linkType: soft
-
 "ssri@npm:^10.0.0":
   version: 10.0.5
   resolution: "ssri@npm:10.0.5"
@@ -13803,6 +13767,55 @@ __metadata:
   checksum: 7f21fe0bbad6e2cb130044a5d1d0d5a0e5bf3d8d4f8c4e6ee12163ce798fee3de7388d22a7a0907f563ac5f9d40f8699a223d3d5c1718da90b0156da6904022b
   languageName: node
   linkType: hard
+
+"yhi-sample-ui@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "yhi-sample-ui@workspace:."
+  dependencies:
+    "@heroicons/react": ^2.0.18
+    "@storybook/addon-docs": ^7.4.6
+    "@storybook/addon-essentials": ^7.4.6
+    "@storybook/addon-interactions": ^7.4.6
+    "@storybook/addon-links": ^7.4.6
+    "@storybook/addon-onboarding": ^1.0.8
+    "@storybook/addon-styling": ^1.3.7
+    "@storybook/blocks": ^7.4.6
+    "@storybook/react": ^7.4.6
+    "@storybook/react-vite": ^7.4.6
+    "@storybook/testing-library": ^0.2.2
+    "@types/autoprefixer": ^10.2.0
+    "@types/react": ^18.2.15
+    "@types/react-dom": ^18.2.7
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
+    "@vitejs/plugin-react": ^4.0.3
+    autoprefixer: ^10.4.16
+    clsx: ^2.0.0
+    eslint: ^8.45.0
+    eslint-config-prettier: ^9.0.0
+    eslint-plugin-import: ^2.28.1
+    eslint-plugin-react: ^7.33.2
+    eslint-plugin-react-hooks: ^4.6.0
+    eslint-plugin-react-refresh: ^0.4.3
+    eslint-plugin-storybook: ^0.6.15
+    eslint-plugin-tailwind: ^0.2.1
+    eslint-plugin-tailwindcss: ^3.13.0
+    hygen: ^6.2.11
+    prettier: ^3.0.3
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    storybook: ^7.4.6
+    tailwind-variants: ^0.1.14
+    tailwindcss: ^3.3.3
+    typescript: ^5.0.2
+    vite: ^4.4.5
+    vite-plugin-dts: ^3.6.0
+    vitest: ^0.34.6
+  peerDependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  languageName: unknown
+  linkType: soft
 
 "yocto-queue@npm:^0.1.0":
   version: 0.1.0
