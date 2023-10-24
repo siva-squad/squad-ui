@@ -28,7 +28,7 @@ export const Tooltip = ({
   useLayoutEffect(() => {
     const name = anchorRef?.current?.children?.[0]?.localName || undefined;
 
-    const nativeFocusableElements = ["button", "a", "input", "select"];
+    const nativeFocusableElements = ["button", "a", "input", "select", "summary"];
 
     if (name && nativeFocusableElements.includes(name)) {
       setTabIndex(-1);
