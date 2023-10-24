@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import {
   MENU_LIST_ITEM_CONTAINER_CLASS_NAME,
@@ -12,17 +13,26 @@ export const MenuListItem = ({
   chevron,
   children,
   icon,
+  selectedIcon,
   disabled,
   selected = false,
   onClick,
 }: MenuListItemProps) => {
+  const iconUI = useMemo(() => {
+    if (selected) {
+      return selectedIcon || icon;
+    }
+
+    return icon;
+  }, [icon, selected, selectedIcon]);
+
   return (
     <button
       className={MENU_LIST_ITEM_CONTAINER_CLASS_NAME({ selected, type })}
       disabled={disabled}
       onClick={onClick}
     >
-      {icon && <span className={MENU_LIST_ITEM_ICON_CLASS_NAME({ selected })}>{icon}</span>}
+      {icon && <span className={MENU_LIST_ITEM_ICON_CLASS_NAME({ selected })}>{iconUI}</span>}
       <div className="flex flex-col items-start">
         <span className={MENU_LIST_ITEM_TEXT_CLASS_NAME({ selected })}>{children}</span>
         <span className="text-xs">{description}</span>

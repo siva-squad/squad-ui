@@ -5,6 +5,7 @@ export type MenuListItemProps = {
   chevron?: boolean;
   disabled?: boolean;
   icon?: ReactElement;
+  selectedIcon?: ReactElement;
   children?: ReactNode;
   description?: string;
   selected?: boolean;

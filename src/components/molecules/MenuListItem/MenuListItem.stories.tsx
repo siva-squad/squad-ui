@@ -1,3 +1,4 @@
+import { EyeIcon } from "@heroicons/react/24/outline";
 import { FaceSmileIcon } from "@heroicons/react/24/solid";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -19,5 +20,6 @@ export const Default: StoryObj<typeof MenuListItem> = {
     disabled: false,
     selected: false,
     icon: <FaceSmileIcon />,
+    selectedIcon: <EyeIcon />,
   },
 };
