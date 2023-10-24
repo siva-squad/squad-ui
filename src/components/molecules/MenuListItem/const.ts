@@ -6,7 +6,7 @@ export const MENU_LIST_ITEM_CONTAINER_CLASS_NAME = tv({
     "group flex w-fit items-center gap-x-2 rounded px-2 outline-none",
     "hover:bg-gray-extraLight",
     "disabled:cursor-not-allowed disabled:opacity-20",
-    "focus:border focus:border-primary-600",
+    "focus-visible:border focus-visible:border-primary-600",
   ),
   variants: {
     selected: {

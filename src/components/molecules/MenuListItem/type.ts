@@ -7,7 +7,7 @@ type TypeAndDescriptionType =
     }
   | {
       type: "dropdown";
-      description: never;
+      description?: never;
     };
 
 export type MenuListItemProps = {
