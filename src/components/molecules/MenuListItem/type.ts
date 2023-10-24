@@ -3,7 +3,7 @@ import { ReactElement, ReactNode } from "react";
 type TypeAndDescriptionType =
   | {
       type: "header";
-      description: string;
+      description?: string;
     }
   | {
       type: "dropdown";
