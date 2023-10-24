@@ -1,7 +1,23 @@
 {
   "name": "squad-ui",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "main": "./dist/squad-ui.umd.js",
+  "module": "./dist/squad-ui.es.js",
+  "types": "./dist/index.d.ts",
+  "engines": {
+    "node": "18"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/squad-ui.es.js",
+      "require": "./dist/squad-ui.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
