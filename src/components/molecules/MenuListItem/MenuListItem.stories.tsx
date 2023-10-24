@@ -10,15 +10,51 @@ export default {
   parameters: {
     controls: { expanded: true },
   },
-  argTypes: {},
+  argTypes: {
+    description: {
+      type: "string",
+    },
+    hasChevron: {
+      type: "boolean",
+      defaultValue: true,
+    },
+    href: {
+      type: "string",
+    },
+    icon: {
+      type: "symbol",
+    },
+    isDisabled: {
+      type: "boolean",
+      defaultValue: false,
+    },
+    isSelected: {
+      type: "boolean",
+      defaultValue: false,
+    },
+    onClick: {
+      type: "function",
+    },
+    selectedIcon: {
+      type: "symbol",
+    },
+    title: {
+      type: "string",
+    },
+    type: {
+      type: "string",
+      options: ["header", "dropdown"],
+      control: {
+        type: "select",
+      },
+    },
+  },
 } satisfies Meta<typeof MenuListItem>;
 
 export const Dropdown: StoryObj<typeof MenuListItem> = {
   args: {
     title: "ダッシュボード",
     type: "dropdown",
-    isDisabled: false,
-    isSelected: false,
   },
 };
 

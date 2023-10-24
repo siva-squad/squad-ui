@@ -47,14 +47,14 @@ export const MenuListItem = React.forwardRef<
         {...(href && { href })}
       >
         {icon && <span className={MENU_LIST_ITEM_ICON_CLASS_NAME({ isSelected })}>{iconUI}</span>}
-        <div className="flex flex-col items-start">
+        <span className="flex flex-col items-start">
           <span className={MENU_LIST_ITEM_TEXT_CLASS_NAME({ isSelected })}>{title}</span>
           {description && (
             <span className={MENU_LIST_ITEM_DESCRIPTION_CLASS_NAME({ isSelected })}>
               {description}
             </span>
           )}
-        </div>
+        </span>
         {hasChevron && <ChevronDownIcon className="h-4 w-4 text-gray-dark" />}
       </Action>
     );
