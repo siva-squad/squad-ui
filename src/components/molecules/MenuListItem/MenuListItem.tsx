@@ -18,12 +18,15 @@ export const MenuListItem = ({
 }: MenuListItemProps) => {
   return (
     <button
-      className={MENU_LIST_ITEM_CONTAINER_CLASS_NAME({ selected })}
+      className={MENU_LIST_ITEM_CONTAINER_CLASS_NAME({ selected, type })}
       disabled={disabled}
       onClick={onClick}
     >
       {icon && <span className={MENU_LIST_ITEM_ICON_CLASS_NAME({ selected })}>{icon}</span>}
-      <span className={MENU_LIST_ITEM_TEXT_CLASS_NAME({ selected })}>{children}</span>
+      <div className="flex flex-col items-start">
+        <span className={MENU_LIST_ITEM_TEXT_CLASS_NAME({ selected })}>{children}</span>
+        <span className="text-xs">{description}</span>
+      </div>
       {chevron && <ChevronDownIcon className="h-4 w-4 text-gray-dark" />}
     </button>
   );
