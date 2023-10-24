@@ -17,11 +17,6 @@ export const Default: StoryObj<typeof MenuListItem> = {
     chevron: true,
     disabled: false,
     selected: false,
-    icon: (
-      <FaceSmileIcon
-        width={24}
-        height={24}
-      />
-    ),
+    icon: <FaceSmileIcon />,
   },
 };

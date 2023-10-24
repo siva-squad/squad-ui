@@ -19,12 +19,21 @@ export const MenuListItem = ({
         "hover:bg-gray-extraLight",
         "disabled:opacity-20",
         "border-primary-600 focus:border",
+        "outline-none",
         { "bg-primary-50": selected },
       )}
       disabled={disabled}
       onClick={onClick}
     >
-      {icon}
+      {icon && (
+        <span
+          className={clsx("h-4 w-4 text-gray group-active:text-primary-600", {
+            "text-primary-600": selected,
+          })}
+        >
+          {icon}
+        </span>
+      )}
       <span
         className={clsx("text-sm font-medium text-gray-dark", "group-active:text-primary-600", {
           "text-primary-600": selected,
