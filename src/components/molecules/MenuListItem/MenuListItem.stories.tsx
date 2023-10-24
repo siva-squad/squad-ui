@@ -15,6 +15,7 @@ export default {
 export const Default: StoryObj<typeof MenuListItem> = {
   args: {
     children: "ダッシュボード",
+    type: "header",
     description: "beyondページが一覧としてみれます",
     chevron: true,
     disabled: false,

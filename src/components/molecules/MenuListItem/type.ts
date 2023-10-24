@@ -1,13 +1,21 @@
 import { ReactElement, ReactNode } from "react";
 
+type TypeAndDescriptionType =
+  | {
+      type: "header";
+      description: string;
+    }
+  | {
+      type: "dropdown";
+      description: never;
+    };
+
 export type MenuListItemProps = {
-  type: "dropdown" | "header";
   chevron?: boolean;
   disabled?: boolean;
   icon?: ReactElement;
   selectedIcon?: ReactElement;
   children?: ReactNode;
-  description?: string;
   selected?: boolean;
   onClick: () => void;
-};
+} & TypeAndDescriptionType;

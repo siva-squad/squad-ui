@@ -10,8 +10,8 @@ import type { MenuListItemProps } from "./type";
 
 export const MenuListItem = ({
   type = "dropdown",
-  description,
   chevron,
+  description,
   children,
   icon,
   selectedIcon,
