@@ -15,10 +15,10 @@ type TypeAndDescriptionType =
     };
 
 export type MenuListItemProps = {
-  chevron?: boolean;
-  disabled?: boolean;
+  hasChevron?: boolean;
+  isDisabled?: boolean;
   icon?: ReactElement;
   selectedIcon?: ReactElement;
-  children?: ReactNode;
-  selected?: boolean;
+  title: ReactNode;
+  isSelected?: boolean;
 } & TypeAndDescriptionType;

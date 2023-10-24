@@ -16,13 +16,13 @@ export const MenuListItem = React.forwardRef<
   (
     {
       type = "dropdown",
-      chevron = true,
+      hasChevron = true,
       description,
-      children,
+      title,
       icon,
       selectedIcon,
-      disabled,
-      selected = false,
+      isDisabled,
+      isSelected = false,
       onClick,
       href,
     },
@@ -31,27 +31,31 @@ export const MenuListItem = React.forwardRef<
     const Action = href ? "a" : "button";
 
     const iconUI = useMemo(() => {
-      if (selected) {
+      if (isSelected) {
         return selectedIcon || icon;
       }
 
       return icon;
-    }, [icon, selected, selectedIcon]);
+    }, [icon, isSelected, selectedIcon]);
 
     return (
       <Action
-        className={MENU_LIST_ITEM_CONTAINER_CLASS_NAME({ selected, type })}
-        disabled={disabled}
+        className={MENU_LIST_ITEM_CONTAINER_CLASS_NAME({ isSelected, type })}
+        disabled={isDisabled}
         onClick={onClick}
         ref={ref as React.RefObject<HTMLAnchorElement> & React.RefObject<HTMLButtonElement>}
         {...(href && { href })}
       >
-        {icon && <span className={MENU_LIST_ITEM_ICON_CLASS_NAME({ selected })}>{iconUI}</span>}
+        {icon && <span className={MENU_LIST_ITEM_ICON_CLASS_NAME({ isSelected })}>{iconUI}</span>}
         <div className="flex flex-col items-start">
-          <span className={MENU_LIST_ITEM_TEXT_CLASS_NAME({ selected })}>{children}</span>
-          <span className={MENU_LIST_ITEM_DESCRIPTION_CLASS_NAME({ selected })}>{description}</span>
+          <span className={MENU_LIST_ITEM_TEXT_CLASS_NAME({ isSelected })}>{title}</span>
+          {description && (
+            <span className={MENU_LIST_ITEM_DESCRIPTION_CLASS_NAME({ isSelected })}>
+              {description}
+            </span>
+          )}
         </div>
-        {chevron && <ChevronDownIcon className="h-4 w-4 text-gray-dark" />}
+        {hasChevron && <ChevronDownIcon className="h-4 w-4 text-gray-dark" />}
       </Action>
     );
   },

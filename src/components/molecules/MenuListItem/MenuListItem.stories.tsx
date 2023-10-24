@@ -15,16 +15,16 @@ export default {
 
 export const Dropdown: StoryObj<typeof MenuListItem> = {
   args: {
-    children: "ダッシュボード",
+    title: "ダッシュボード",
     type: "dropdown",
-    disabled: false,
-    selected: false,
+    isDisabled: false,
+    isSelected: false,
   },
 };
 
 export const Header: StoryObj<typeof MenuListItem> = {
   args: {
-    children: "フォルダ",
+    title: "フォルダ",
     type: "header",
     description: "beyondページが一覧としてみれます",
     icon: <FolderIconOutline />,
@@ -45,9 +45,8 @@ export const WithRef = () => {
           type="header"
           href="#"
           ref={anchorRef}
-        >
-          Ref有り
-        </MenuListItem>
+          title="Ref有り"
+        />
       </div>
       <div>
         <h2>Button</h2>
@@ -55,9 +54,8 @@ export const WithRef = () => {
           type="dropdown"
           onClick={() => {}}
           ref={buttonRef}
-        >
-          Ref有り
-        </MenuListItem>
+          title="Ref有り"
+        ></MenuListItem>
       </div>
       <button onClick={() => console.log({ anchorRef, buttonRef })}>Log Refs</button>
     </div>

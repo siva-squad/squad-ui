@@ -9,7 +9,7 @@ export const MENU_LIST_ITEM_CONTAINER_CLASS_NAME = tv({
     "focus-visible:border focus-visible:border-primary-600",
   ),
   variants: {
-    selected: {
+    isSelected: {
       true: "bg-primary-50",
       false: "",
     },
@@ -23,7 +23,7 @@ export const MENU_LIST_ITEM_CONTAINER_CLASS_NAME = tv({
 export const MENU_LIST_ITEM_TEXT_CLASS_NAME = tv({
   base: clsx("text-sm font-medium text-gray-dark", "group-enabled:group-active:text-primary-600"),
   variants: {
-    selected: {
+    isSelected: {
       true: "text-primary-600",
       false: "",
     },
@@ -33,7 +33,7 @@ export const MENU_LIST_ITEM_TEXT_CLASS_NAME = tv({
 export const MENU_LIST_ITEM_ICON_CLASS_NAME = tv({
   base: clsx("h-6 w-6 text-gray", "group-enabled:group-active:text-primary-600"),
   variants: {
-    selected: {
+    isSelected: {
       true: "text-primary-600",
       false: "",
     },
@@ -43,7 +43,7 @@ export const MENU_LIST_ITEM_ICON_CLASS_NAME = tv({
 export const MENU_LIST_ITEM_DESCRIPTION_CLASS_NAME = tv({
   base: clsx("text-xs text-gray", "group-enabled:group-active:text-primary-400"),
   variants: {
-    selected: {
+    isSelected: {
       true: "text-primary-400",
       false: "",
     },
