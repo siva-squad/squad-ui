@@ -40,9 +40,9 @@ export const DefaultOnHover: StoryObj<typeof Tooltip> = {
   },
   decorators: [
     (Story) => (
-      <span className="grid min-h-screen content-center justify-center">
+      <div className="grid min-h-screen content-center justify-center">
         <Story />
-      </span>
+      </div>
     ),
   ],
   play: async ({ canvasElement }) => {
@@ -72,9 +72,9 @@ export const DefaultOnTab: StoryObj<typeof Tooltip> = {
   },
   decorators: [
     (Story) => (
-      <span className="grid min-h-screen content-center justify-center">
+      <div className="grid min-h-screen content-center justify-center">
         <Story />
-      </span>
+      </div>
     ),
   ],
   play: async ({ canvasElement }) => {
