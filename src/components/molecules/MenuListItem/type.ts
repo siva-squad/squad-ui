@@ -4,10 +4,12 @@ type TypeAndDescriptionType =
   | {
       type: "header";
       description?: string;
+      href: string;
     }
   | {
       type: "dropdown";
       description?: never;
+      href?: never;
     };
 
 export type MenuListItemProps = {
