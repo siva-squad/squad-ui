@@ -8,7 +8,7 @@ Describe the summary of the implementation
 ### Figmaのリンク / Figma Link
 <!-- 
 Figmaの該当箇所のリンクを貼る
-Link to Figma
+Please attach the relevant link from Figma.
 -->
 
 ### Jira のチケット / Jira Ticket
