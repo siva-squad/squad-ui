@@ -5,6 +5,12 @@
 Describe the summary of the implementation
 -->
 
+### Figmaのリンク / Figma Link
+<!-- 
+Figmaの該当箇所のリンクを貼る
+Link to Figma
+-->
+
 ### Jira のチケット / Jira Ticket
 
 <!-- 
