@@ -8,7 +8,25 @@ export default {
   parameters: {
     controls: { expanded: true },
   },
-  argTypes: {},
+  argTypes: {
+    icon: {
+      type: "symbol",
+    },
+    title: {
+      type: "string",
+    },
+    isDisabled: {
+      type: "boolean",
+      defaultValue: false,
+    },
+    isSelected: {
+      type: "boolean",
+      defaultValue: false,
+    },
+    onClick: {
+      type: "function",
+    },
+  },
 } satisfies Meta<typeof LocalMenuItem>;
 
 export const Default: StoryObj<typeof LocalMenuItem> = {
@@ -20,5 +38,7 @@ export const Default: StoryObj<typeof LocalMenuItem> = {
       />
     ),
     title: "フォルダ",
+    isDisabled: false,
+    isSelected: false,
   },
 };
