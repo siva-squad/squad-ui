@@ -24,7 +24,7 @@
     "lint:check": "eslint .",
     "lint:fix": "eslint . --fix",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build",
+    "build-storybook": "storybook build",
     "test:watch": "vitest watch",
     "test:run": "vitest run",
     "generate:component": "hygen new fc"
