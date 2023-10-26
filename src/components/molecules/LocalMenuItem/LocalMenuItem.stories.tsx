@@ -1,4 +1,5 @@
-import { TvIcon } from "@heroicons/react/24/solid";
+import { FolderIcon as FolderIconOutline } from "@heroicons/react/24/outline";
+import { FolderIcon as FolderIconSolid } from "@heroicons/react/24/solid";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { LocalMenuItem } from "./LocalMenuItem";
@@ -32,7 +33,13 @@ export default {
 export const Default: StoryObj<typeof LocalMenuItem> = {
   args: {
     icon: (
-      <TvIcon
+      <FolderIconOutline
+        height={16}
+        width={16}
+      />
+    ),
+    selectedIcon: (
+      <FolderIconSolid
         height={16}
         width={16}
       />
