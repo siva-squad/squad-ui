@@ -2,11 +2,7 @@ import clsx from "clsx";
 import { tv } from "tailwind-variants";
 
 export const MENUITEM_CONTAINER_CLASS_NAME = tv({
-  base: clsx(
-    "group flex h-12 w-12 flex-col items-center justify-center gap-y-1 rounded outline-none",
-    "hover:bg-gray-extraLight",
-    "focus-visible:bg-primary-50 focus-visible:ring-1 focus-visible:ring-primary-600 focus-visible:ring-offset-2",
-  ),
+  base: "group flex h-12 w-12 flex-col items-center justify-center gap-y-1 rounded outline-none",
   variants: {
     isSelected: {
       true: "bg-primary-50",
@@ -14,17 +10,16 @@ export const MENUITEM_CONTAINER_CLASS_NAME = tv({
     },
     isDisabled: {
       true: "cursor-not-allowed",
-      false: "",
+      false: clsx(
+        "hover:bg-gray-extraLight",
+        "focus-visible:bg-primary-50 focus-visible:ring-1 focus-visible:ring-primary-600 focus-visible:ring-offset-2",
+      ),
     },
   },
 });
 
 export const MENUITEM_ICON_CLASS_NAME = tv({
-  base: clsx(
-    "text-gray-dark",
-    "group-active:text-primary-600",
-    "group-focus-visible:text-primary-600",
-  ),
+  base: "text-gray-dark",
   variants: {
     isSelected: {
       true: "text-primary-600",
@@ -32,17 +27,13 @@ export const MENUITEM_ICON_CLASS_NAME = tv({
     },
     isDisabled: {
       true: "text-opacity-20",
-      false: "",
+      false: clsx("group-active:text-primary-600", "group-focus-visible:text-primary-600"),
     },
   },
 });
 
 export const MENUITEM_TITLE_CLASS_NAME = tv({
-  base: clsx(
-    "!text-xxs leading-none text-gray",
-    "group-active:text-primary-600",
-    "group-focus-visible:text-primary-600",
-  ),
+  base: "!text-xxs leading-none text-gray",
   variants: {
     isSelected: {
       true: "text-primary-600",
@@ -50,7 +41,7 @@ export const MENUITEM_TITLE_CLASS_NAME = tv({
     },
     isDisabled: {
       true: "text-opacity-20",
-      false: "",
+      false: clsx("group-active:text-primary-600", "group-focus-visible:text-primary-600"),
     },
   },
 });

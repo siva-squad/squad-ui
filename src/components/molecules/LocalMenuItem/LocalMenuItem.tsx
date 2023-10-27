@@ -1,5 +1,4 @@
-import { useMemo } from "react";
-import React from "react";
+import { useMemo, forwardRef } from "react";
 import {
   MENUITEM_CONTAINER_CLASS_NAME,
   MENUITEM_ICON_CLASS_NAME,
@@ -7,8 +6,8 @@ import {
 } from "./const";
 import type { LocalMenuItemProps } from "./type";
 
-export const LocalMenuItem = React.forwardRef<HTMLAnchorElement, LocalMenuItemProps>(
-  ({ icon, selectedIcon, title, isDisabled = false, isSelected = false, href }, ref) => {
+export const LocalMenuItem = forwardRef<HTMLAnchorElement, LocalMenuItemProps>(
+  ({ id, icon, selectedIcon, title, isDisabled = false, isSelected = false, href }, ref) => {
     const iconUI = useMemo(() => {
       if (isSelected) {
         return selectedIcon || icon;
@@ -21,6 +20,7 @@ export const LocalMenuItem = React.forwardRef<HTMLAnchorElement, LocalMenuItemPr
       <a
         className={MENUITEM_CONTAINER_CLASS_NAME({ isSelected, isDisabled })}
         ref={ref}
+        id={id}
         {...(!isDisabled && { href })}
       >
         {icon && (

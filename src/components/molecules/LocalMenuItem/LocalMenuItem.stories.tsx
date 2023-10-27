@@ -3,6 +3,7 @@ import { FolderIcon as FolderIconSolid } from "@heroicons/react/24/solid";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { LocalMenuItem } from "./LocalMenuItem";
+import { LocalMenuItemProps } from "./type";
 
 export default {
   component: LocalMenuItem,
@@ -48,5 +49,66 @@ export const Default: StoryObj<typeof LocalMenuItem> = {
     isDisabled: false,
     isSelected: false,
     href: "#",
+  },
+};
+
+const STATES: Pick<LocalMenuItemProps, "isDisabled" | "isSelected" | "id">[] = [
+  {
+    id: "disabled",
+    isDisabled: true,
+  },
+  {
+    id: "default",
+  },
+  {
+    id: "hover",
+  },
+  {
+    id: "press",
+  },
+  {
+    id: "selected",
+    isSelected: true,
+  },
+];
+
+export const All = () => {
+  return (
+    <div className="flex gap-x-6">
+      {STATES.map((state) => (
+        <div
+          key={state.id}
+          className="flex flex-col items-center gap-y-2"
+        >
+          <span className="text-xs text-gray-dark">{state.id}</span>
+          <LocalMenuItem
+            id={state.id}
+            title="フォルダ"
+            href="#"
+            icon={
+              <FolderIconOutline
+                height={16}
+                width={16}
+              />
+            }
+            selectedIcon={
+              <FolderIconSolid
+                height={16}
+                width={16}
+              />
+            }
+            {...state}
+          />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+All.parameters = {
+  pseudo: {
+    hover: "#hover",
+    focusVisible: "#focus",
+    active: "#press",
   },
 };
