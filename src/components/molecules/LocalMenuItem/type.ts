@@ -6,5 +6,5 @@ export type LocalMenuItemProps = {
   title: string;
   isDisabled?: boolean;
   isSelected?: boolean;
-  onClick?: () => void;
+  onClick: () => void;
 };
