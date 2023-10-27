@@ -33,7 +33,7 @@ export const MENUITEM_ICON_CLASS_NAME = tv({
 });
 
 export const MENUITEM_TITLE_CLASS_NAME = tv({
-  base: "!text-xxs leading-none text-gray",
+  base: "text-[8px] leading-none text-gray",
   variants: {
     isSelected: {
       true: "text-primary-600",
