@@ -7,8 +7,8 @@ import {
 } from "./const";
 import type { LocalMenuItemProps } from "./type";
 
-export const LocalMenuItem = React.forwardRef<HTMLButtonElement, LocalMenuItemProps>(
-  ({ icon, selectedIcon, title, isDisabled = false, isSelected = false, onClick }, ref) => {
+export const LocalMenuItem = React.forwardRef<HTMLAnchorElement, LocalMenuItemProps>(
+  ({ icon, selectedIcon, title, isDisabled = false, isSelected = false, href }, ref) => {
     const iconUI = useMemo(() => {
       if (isSelected) {
         return selectedIcon || icon;
@@ -18,15 +18,16 @@ export const LocalMenuItem = React.forwardRef<HTMLButtonElement, LocalMenuItemPr
     }, [icon, isSelected, selectedIcon]);
 
     return (
-      <button
-        className={MENUITEM_CONTAINER_CLASS_NAME({ isSelected })}
-        disabled={isDisabled}
-        onClick={onClick}
+      <a
+        className={MENUITEM_CONTAINER_CLASS_NAME({ isSelected, isDisabled })}
         ref={ref}
+        {...(!isDisabled && { href })}
       >
-        {icon && <span className={MENUITEM_ICON_CLASS_NAME({ isSelected })}>{iconUI}</span>}
-        <span className={MENUITEM_TITLE_CLASS_NAME({ isSelected })}>{title}</span>
-      </button>
+        {icon && (
+          <span className={MENUITEM_ICON_CLASS_NAME({ isSelected, isDisabled })}>{iconUI}</span>
+        )}
+        <span className={MENUITEM_TITLE_CLASS_NAME({ isSelected, isDisabled })}>{title}</span>
+      </a>
     );
   },
 );

@@ -24,8 +24,8 @@ export default {
       type: "boolean",
       defaultValue: false,
     },
-    onClick: {
-      type: "function",
+    href: {
+      type: "string",
     },
   },
 } satisfies Meta<typeof LocalMenuItem>;
@@ -47,5 +47,6 @@ export const Default: StoryObj<typeof LocalMenuItem> = {
     title: "フォルダ",
     isDisabled: false,
     isSelected: false,
+    href: "#",
   },
 };
