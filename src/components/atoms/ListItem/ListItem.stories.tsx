@@ -3,10 +3,10 @@ import { FolderIcon as FolderIconOutline } from "@heroicons/react/24/outline";
 import { FolderIcon as FolderIconSolid } from "@heroicons/react/24/solid";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { MenuListItem } from "./MenuListItem";
+import { ListItem } from "./ListItem";
 
 export default {
-  component: MenuListItem,
+  component: ListItem,
   parameters: {
     controls: { expanded: true },
   },
@@ -49,16 +49,16 @@ export default {
       },
     },
   },
-} satisfies Meta<typeof MenuListItem>;
+} satisfies Meta<typeof ListItem>;
 
-export const Dropdown: StoryObj<typeof MenuListItem> = {
+export const Dropdown: StoryObj<typeof ListItem> = {
   args: {
     title: "ダッシュボード",
     type: "dropdown",
   },
 };
 
-export const Header: StoryObj<typeof MenuListItem> = {
+export const Header: StoryObj<typeof ListItem> = {
   args: {
     title: "フォルダ",
     type: "header",
@@ -77,7 +77,7 @@ export const WithRef = () => {
     <div className="flex gap-x-2">
       <div>
         <h2>Anchor</h2>
-        <MenuListItem
+        <ListItem
           type="header"
           href="#"
           ref={anchorRef}
@@ -86,12 +86,12 @@ export const WithRef = () => {
       </div>
       <div>
         <h2>Button</h2>
-        <MenuListItem
+        <ListItem
           type="dropdown"
           onClick={() => {}}
           ref={buttonRef}
           title="Ref有り"
-        ></MenuListItem>
+        ></ListItem>
       </div>
       <button onClick={() => console.log({ anchorRef, buttonRef })}>Log Refs</button>
     </div>

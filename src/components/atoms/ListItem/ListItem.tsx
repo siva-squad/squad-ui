@@ -2,17 +2,14 @@ import { useMemo } from "react";
 import React from "react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import {
-  MENU_LIST_ITEM_CONTAINER_CLASS_NAME,
-  MENU_LIST_ITEM_DESCRIPTION_CLASS_NAME,
-  MENU_LIST_ITEM_ICON_CLASS_NAME,
-  MENU_LIST_ITEM_TEXT_CLASS_NAME,
+  LIST_ITEM_CONTAINER_CLASS_NAME,
+  LIST_ITEM_DESCRIPTION_CLASS_NAME,
+  LIST_ITEM_ICON_CLASS_NAME,
+  LIST_ITEM_TEXT_CLASS_NAME,
 } from "./const";
-import type { MenuListItemProps } from "./type";
+import type { ListItemProps } from "./type";
 
-export const MenuListItem = React.forwardRef<
-  HTMLAnchorElement | HTMLButtonElement,
-  MenuListItemProps
->(
+export const ListItem = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, ListItemProps>(
   (
     {
       type = "dropdown",
@@ -40,19 +37,17 @@ export const MenuListItem = React.forwardRef<
 
     return (
       <Action
-        className={MENU_LIST_ITEM_CONTAINER_CLASS_NAME({ isSelected, type })}
+        className={LIST_ITEM_CONTAINER_CLASS_NAME({ isSelected, type })}
         disabled={isDisabled}
         onClick={onClick}
         ref={ref as React.RefObject<HTMLAnchorElement> & React.RefObject<HTMLButtonElement>}
         {...(href && { href })}
       >
-        {icon && <span className={MENU_LIST_ITEM_ICON_CLASS_NAME({ isSelected })}>{iconUI}</span>}
+        {icon && <span className={LIST_ITEM_ICON_CLASS_NAME({ isSelected })}>{iconUI}</span>}
         <span className="flex flex-col items-start">
-          <span className={MENU_LIST_ITEM_TEXT_CLASS_NAME({ isSelected })}>{title}</span>
+          <span className={LIST_ITEM_TEXT_CLASS_NAME({ isSelected })}>{title}</span>
           {description && (
-            <span className={MENU_LIST_ITEM_DESCRIPTION_CLASS_NAME({ isSelected })}>
-              {description}
-            </span>
+            <span className={LIST_ITEM_DESCRIPTION_CLASS_NAME({ isSelected })}>{description}</span>
           )}
         </span>
         {hasChevron && <ChevronDownIcon className="h-4 w-4 text-gray-dark" />}
@@ -61,4 +56,4 @@ export const MenuListItem = React.forwardRef<
   },
 );
 
-MenuListItem.displayName = "MenuListItem";
+ListItem.displayName = "ListItem";

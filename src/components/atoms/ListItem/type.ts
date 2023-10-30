@@ -14,7 +14,7 @@ type TypeAndDescriptionType =
       onClick: () => void;
     };
 
-export type MenuListItemProps = {
+export type ListItemProps = {
   hasChevron?: boolean;
   isDisabled?: boolean;
   icon?: ReactElement;
