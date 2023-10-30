@@ -37,7 +37,7 @@ export const ListItem = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, 
 
     return (
       <Action
-        className={LIST_ITEM_CONTAINER_CLASS_NAME({ isSelected, size })}
+        className={LIST_ITEM_CONTAINER_CLASS_NAME({ isSelected })}
         disabled={isDisabled}
         onClick={onClick}
         ref={ref as React.RefObject<HTMLAnchorElement> & React.RefObject<HTMLButtonElement>}
@@ -46,7 +46,7 @@ export const ListItem = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, 
         {icon && <span className={LIST_ITEM_ICON_CLASS_NAME({ isSelected, size })}>{iconUI}</span>}
         <span className="flex flex-col items-start">
           <span className={LIST_ITEM_TEXT_CLASS_NAME({ isSelected, size })}>{title}</span>
-          {description && (
+          {description && size === "large" && (
             <span className={LIST_ITEM_DESCRIPTION_CLASS_NAME({ isSelected })}>{description}</span>
           )}
         </span>

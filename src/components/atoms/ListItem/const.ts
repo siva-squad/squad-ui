@@ -13,11 +13,6 @@ export const LIST_ITEM_CONTAINER_CLASS_NAME = tv({
       true: "bg-primary-50",
       false: "",
     },
-    size: {
-      small: "",
-      medium: "",
-      large: "",
-    },
   },
 });
 
@@ -31,7 +26,7 @@ export const LIST_ITEM_TEXT_CLASS_NAME = tv({
     size: {
       small: "text-xs",
       medium: "",
-      large: "",
+      large: "text-black",
     },
   },
 });
