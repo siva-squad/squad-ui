@@ -49,6 +49,7 @@ export const DefaultOnHover: StoryObj<typeof Tooltip> = {
     const canvas = within(canvasElement);
     const tooltipAnchor = canvas.getByTestId("tooltip-anchor");
 
+    await expect(tooltipAnchor).toHaveAccessibleName("");
     await userEvent.hover(tooltipAnchor);
     const tooltip = canvas.getByRole("tooltip");
 
@@ -81,6 +82,7 @@ export const DefaultOnTab: StoryObj<typeof Tooltip> = {
     const canvas = within(canvasElement);
     const tooltipAnchor = canvas.getByTestId("tooltip-anchor");
 
+    await expect(tooltipAnchor).toHaveAccessibleName("");
     await userEvent.tab();
 
     const tooltip = canvas.getByRole("tooltip");
@@ -115,7 +117,7 @@ export const FocusOnButton: StoryObj<typeof Tooltip> = {
     const tooltipAnchor = canvas.getByTestId("tooltip-anchor");
     const button = canvas.getByRole("button");
 
-    await userEvent.keyboard("{Tab}");
+    await userEvent.tab();
 
     await expect(tooltipAnchor).not.toHaveFocus();
     await expect(button).toHaveFocus();
@@ -136,7 +138,7 @@ export const FocusOnLink: StoryObj<typeof Tooltip> = {
     const tooltipAnchor = canvas.getByTestId("tooltip-anchor");
     const link = canvas.getByRole("link");
 
-    await userEvent.keyboard("{Tab}");
+    await userEvent.tab();
 
     await expect(tooltipAnchor).not.toHaveFocus();
     await expect(link).toHaveFocus();
