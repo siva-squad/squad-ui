@@ -41,12 +41,13 @@ export default {
     title: {
       type: "string",
     },
-    type: {
+    size: {
       type: "string",
-      options: ["header", "dropdown"],
       control: {
         type: "select",
       },
+      options: ["small", "medium", "large"],
+      defaultValue: "medium",
     },
   },
 } satisfies Meta<typeof ListItem>;
@@ -54,14 +55,13 @@ export default {
 export const Dropdown: StoryObj<typeof ListItem> = {
   args: {
     title: "ダッシュボード",
-    type: "dropdown",
   },
 };
 
 export const Header: StoryObj<typeof ListItem> = {
   args: {
     title: "フォルダ",
-    type: "header",
+
     description: "beyondページが一覧としてみれます",
     icon: <FolderIconOutline />,
     selectedIcon: <FolderIconSolid />,
@@ -78,7 +78,6 @@ export const WithRef = () => {
       <div>
         <h2>Anchor</h2>
         <ListItem
-          type="header"
           href="#"
           ref={anchorRef}
           title="Ref有り"
@@ -87,7 +86,6 @@ export const WithRef = () => {
       <div>
         <h2>Button</h2>
         <ListItem
-          type="dropdown"
           onClick={() => {}}
           ref={buttonRef}
           title="Ref有り"

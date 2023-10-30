@@ -12,7 +12,6 @@ import type { ListItemProps } from "./type";
 export const ListItem = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, ListItemProps>(
   (
     {
-      type = "dropdown",
       hasChevron = true,
       description,
       title,
@@ -22,6 +21,7 @@ export const ListItem = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, 
       isSelected = false,
       onClick,
       href,
+      size,
     },
     ref,
   ) => {
@@ -37,15 +37,15 @@ export const ListItem = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, 
 
     return (
       <Action
-        className={LIST_ITEM_CONTAINER_CLASS_NAME({ isSelected, type })}
+        className={LIST_ITEM_CONTAINER_CLASS_NAME({ isSelected, size })}
         disabled={isDisabled}
         onClick={onClick}
         ref={ref as React.RefObject<HTMLAnchorElement> & React.RefObject<HTMLButtonElement>}
         {...(href && { href })}
       >
-        {icon && <span className={LIST_ITEM_ICON_CLASS_NAME({ isSelected })}>{iconUI}</span>}
+        {icon && <span className={LIST_ITEM_ICON_CLASS_NAME({ isSelected, size })}>{iconUI}</span>}
         <span className="flex flex-col items-start">
-          <span className={LIST_ITEM_TEXT_CLASS_NAME({ isSelected })}>{title}</span>
+          <span className={LIST_ITEM_TEXT_CLASS_NAME({ isSelected, size })}>{title}</span>
           {description && (
             <span className={LIST_ITEM_DESCRIPTION_CLASS_NAME({ isSelected })}>{description}</span>
           )}
