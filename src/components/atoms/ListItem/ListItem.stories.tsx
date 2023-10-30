@@ -58,6 +58,7 @@ export const Small: StoryObj<typeof ListItem> = {
     icon: <FolderIconOutline />,
     selectedIcon: <FolderIconSolid />,
     href: "",
+    size: "small",
   },
 };
 
@@ -66,7 +67,18 @@ export const Medium: StoryObj<typeof ListItem> = {
     title: "テキスト",
     icon: <FolderIconOutline />,
     selectedIcon: <FolderIconSolid />,
+    size: "medium",
+  },
+};
+
+export const Large: StoryObj<typeof ListItem> = {
+  args: {
+    title: "テキスト",
+    icon: <FolderIconOutline />,
+    selectedIcon: <FolderIconSolid />,
     href: "",
+    size: "large",
+    description: "descriptionTextが入ります",
   },
 };
 

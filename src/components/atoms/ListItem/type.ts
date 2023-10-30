@@ -4,12 +4,18 @@ type TypeAndDescriptionType =
   | {
       size?: "large";
       description?: string;
-      href: string;
-      onClick?: never;
     }
   | {
       size?: "medium" | "small";
       description?: never;
+    };
+
+type AnchorAndButtonType =
+  | {
+      href: string;
+      onClick?: never;
+    }
+  | {
       href?: never;
       onClick: () => void;
     };
@@ -21,4 +27,5 @@ export type ListItemProps = {
   selectedIcon?: ReactElement;
   title: ReactNode;
   isSelected?: boolean;
-} & TypeAndDescriptionType;
+} & TypeAndDescriptionType &
+  AnchorAndButtonType;
