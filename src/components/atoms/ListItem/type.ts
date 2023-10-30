@@ -21,6 +21,7 @@ type AnchorAndButtonType =
     };
 
 export type ListItemProps = {
+  id?: string;
   hasChevron?: boolean;
   isDisabled?: boolean;
   icon?: ReactElement;

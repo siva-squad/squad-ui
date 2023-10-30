@@ -4,13 +4,18 @@ import { FolderIcon as FolderIconSolid } from "@heroicons/react/24/solid";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { ListItem } from "./ListItem";
+import { ListItemProps } from "./type";
 
 export default {
   component: ListItem,
   parameters: {
     controls: { expanded: true },
+    layout: "centered",
   },
   argTypes: {
+    id: {
+      type: "string",
+    },
     description: {
       type: "string",
     },
@@ -107,4 +112,70 @@ export const WithRef = () => {
       <button onClick={() => console.log({ anchorRef, buttonRef })}>Log Refs</button>
     </div>
   );
+};
+
+const SIZES: ListItemProps["size"][] = ["small", "medium", "large"];
+const STATES: (Pick<ListItemProps, "isDisabled" | "isSelected"> & { id: string })[] = [
+  { id: "disable", isDisabled: true },
+  { id: "default" },
+  { id: "hover" },
+  { id: "press" },
+  { id: "selected", isSelected: true },
+  { id: "focus" },
+];
+
+export const All = () => {
+  return (
+    <>
+      <div className="ml-[128px] flex items-center">
+        {SIZES.map((size) => (
+          <h2
+            key={size}
+            className="mr-[125px] text-gray-dark"
+          >
+            {size}
+          </h2>
+        ))}
+      </div>
+      <div className="mt-10 flex w-fit flex-col justify-around gap-y-10">
+        {STATES.map((state) => (
+          <div
+            key={state.id}
+            className="flex items-center gap-x-10"
+          >
+            <h2 className="w-20 text-gray-dark">{state.id}</h2>
+            <div className="flex gap-x-10">
+              {SIZES.map((size) => (
+                <div
+                  key={state.id}
+                  className="w-fit grow-0"
+                >
+                  <ListItem
+                    id={state.id}
+                    title="テキスト"
+                    icon={<FolderIconOutline />}
+                    selectedIcon={<FolderIconSolid />}
+                    key={state.id}
+                    isDisabled={state.isDisabled}
+                    isSelected={state.isSelected}
+                    {...(size === "large" && { description: "descriptionTextが入ります" })}
+                    size={size as "large"} // to avoid description prop passing error
+                    href=""
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+};
+
+All.parameters = {
+  pseudo: {
+    hover: "#hover",
+    focusVisible: "#focus",
+    active: "#press",
+  },
 };

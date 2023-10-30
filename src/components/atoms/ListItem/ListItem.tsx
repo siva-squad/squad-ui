@@ -22,6 +22,7 @@ export const ListItem = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, 
       onClick,
       href,
       size,
+      id,
     },
     ref,
   ) => {
@@ -42,6 +43,7 @@ export const ListItem = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, 
         onClick={onClick}
         ref={ref as React.RefObject<HTMLAnchorElement> & React.RefObject<HTMLButtonElement>}
         {...(href && { href })}
+        id={id}
       >
         {icon && <span className={LIST_ITEM_ICON_CLASS_NAME({ isSelected, size })}>{iconUI}</span>}
         <span className="flex flex-col items-start">
