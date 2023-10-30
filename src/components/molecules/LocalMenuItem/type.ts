@@ -8,4 +8,5 @@ export type LocalMenuItemProps = {
   isDisabled?: boolean;
   isSelected?: boolean;
   href: string;
+  onClick?: (id: string) => void;
 };

@@ -7,7 +7,10 @@ import {
 import type { LocalMenuItemProps } from "./type";
 
 export const LocalMenuItem = forwardRef<HTMLAnchorElement, LocalMenuItemProps>(
-  ({ id, icon, selectedIcon, title, isDisabled = false, isSelected = false, href }, ref) => {
+  (
+    { id, icon, selectedIcon, title, isDisabled = false, isSelected = false, href, onClick },
+    ref,
+  ) => {
     const iconUI = useMemo(() => {
       if (isSelected) {
         return selectedIcon || icon;
@@ -21,6 +24,7 @@ export const LocalMenuItem = forwardRef<HTMLAnchorElement, LocalMenuItemProps>(
         className={MENUITEM_CONTAINER_CLASS_NAME({ isSelected, isDisabled })}
         ref={ref}
         id={id}
+        onClick={() => id && onClick?.(id)}
         {...(!isDisabled && { href })}
       >
         {icon && (
