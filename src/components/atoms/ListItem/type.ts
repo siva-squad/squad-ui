@@ -2,11 +2,13 @@ import { ReactElement, ReactNode } from "react";
 
 type TypeAndDescriptionType =
   | {
+      size?: "large";
       description?: string;
       href: string;
       onClick?: never;
     }
   | {
+      size?: "medium" | "small";
       description?: never;
       href?: never;
       onClick: () => void;
@@ -19,5 +21,4 @@ export type ListItemProps = {
   selectedIcon?: ReactElement;
   title: ReactNode;
   isSelected?: boolean;
-  size?: "small" | "medium" | "large";
 } & TypeAndDescriptionType;

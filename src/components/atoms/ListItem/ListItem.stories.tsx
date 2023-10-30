@@ -52,17 +52,18 @@ export default {
   },
 } satisfies Meta<typeof ListItem>;
 
-export const Dropdown: StoryObj<typeof ListItem> = {
+export const Small: StoryObj<typeof ListItem> = {
   args: {
-    title: "ダッシュボード",
+    title: "テキスト",
+    icon: <FolderIconOutline />,
+    selectedIcon: <FolderIconSolid />,
+    href: "",
   },
 };
 
-export const Header: StoryObj<typeof ListItem> = {
+export const Medium: StoryObj<typeof ListItem> = {
   args: {
-    title: "フォルダ",
-
-    description: "beyondページが一覧としてみれます",
+    title: "テキスト",
     icon: <FolderIconOutline />,
     selectedIcon: <FolderIconSolid />,
     href: "",
