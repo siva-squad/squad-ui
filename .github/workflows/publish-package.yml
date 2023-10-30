@@ -1,0 +1,34 @@
+name: Publish to npm
+
+on:
+  push:
+    tags:
+      - v*
+  workflow_dispatch:
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: setup node
+        uses: ./.github/actions/setup-node
+      - name: cache node_modules
+        uses: ./.github/actions/cache-node-modules
+
+  publish:
+    runs-on: ubuntu-latest
+    needs: [setup]
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup node
+        uses: ./.github/actions/setup-node
+      - name: cache node_modules
+        uses: ./.github/actions/cache-node-modules
+      - name: Build package
+        run: yarn build
+      - name: Publish package
+        run: yarn publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}

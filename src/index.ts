@@ -1,2 +1,3 @@
 // Components
-export * from "./components/atoms";
+import "./index.css";
+export * from "./components";

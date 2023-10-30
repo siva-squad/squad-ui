@@ -1,26 +1,41 @@
 {
-  "name": "squad-ui",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@siva-squad-development/squad-ui",
+  "private": false,
+  "version": "0.1.2",
+  "main": "./dist/squad-ui.umd.js",
+  "module": "./dist/squad-ui.es.js",
+  "types": "./dist/index.d.ts",
+  "engines": {
+    "node": "18"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/squad-ui.es.js",
+      "require": "./dist/squad-ui.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint:check": "eslint .",
     "lint:fix": "eslint . --fix",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build",
+    "build-storybook": "storybook build",
     "test:watch": "vitest watch",
     "test:run": "vitest run",
     "generate:component": "hygen new fc"
   },
   "dependencies": {
-    "@heroicons/react": "^2.0.18",
-    "clsx": "^2.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tailwind-variants": "^0.1.14"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@heroicons/react": "^2.0.18",
     "@storybook/addon-docs": "^7.4.6",
     "@storybook/addon-essentials": "^7.4.6",
     "@storybook/addon-interactions": "^7.4.6",
@@ -31,12 +46,14 @@
     "@storybook/react": "^7.4.6",
     "@storybook/react-vite": "^7.4.6",
     "@storybook/testing-library": "^0.2.2",
+    "@types/autoprefixer": "^10.2.0",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
     "autoprefixer": "^10.4.16",
+    "clsx": "^2.0.0",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.28.1",
@@ -49,10 +66,17 @@
     "hygen": "^6.2.11",
     "prettier": "^3.0.3",
     "storybook": "^7.4.6",
+    "storybook-addon-pseudo-states": "^2.1.2",
+    "tailwind-variants": "^0.1.14",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
+    "vite-plugin-dts": "^3.6.0",
     "vitest": "^0.34.6"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "volta": {
     "node": "18.18.2",
