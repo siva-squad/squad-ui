@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import React from "react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import {
@@ -27,26 +27,34 @@ export const ListItem = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, 
     },
     ref,
   ) => {
+    const [localSelected, setLocalSelected] = useState(isSelected);
+
     const Action = href ? "a" : "button";
 
     const iconUI = useMemo(() => {
-      if (isSelected) {
+      if (isSelected || localSelected) {
         return selectedIcon || icon;
       }
 
       return icon;
-    }, [icon, isSelected, selectedIcon]);
+    }, [icon, isSelected, localSelected, selectedIcon]);
 
     return (
       <Action
         className={LIST_ITEM_CONTAINER_CLASS_NAME({ isSelected })}
         disabled={isDisabled}
         onClick={onClick}
+        onFocus={() => setLocalSelected(true)}
+        onBlur={() => setLocalSelected(false)}
         ref={ref as React.RefObject<HTMLAnchorElement> & React.RefObject<HTMLButtonElement>}
         {...(href && { href, target })}
         id={id}
       >
-        {icon && <span className={LIST_ITEM_ICON_CLASS_NAME({ isSelected, size })}>{iconUI}</span>}
+        {icon && (
+          <span className={LIST_ITEM_ICON_CLASS_NAME({ isSelected: isSelected, size })}>
+            {iconUI}
+          </span>
+        )}
         <span className="flex flex-col items-start">
           <span className={LIST_ITEM_TEXT_CLASS_NAME({ isSelected, size })}>{title}</span>
           {description && size === "large" && (

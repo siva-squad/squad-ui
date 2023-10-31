@@ -7,6 +7,7 @@ export const LIST_ITEM_CONTAINER_CLASS_NAME = tv({
     "hover:bg-gray-extraLight",
     "disabled:cursor-not-allowed disabled:opacity-20",
     "focus-visible:ring-1 focus-visible:ring-primary-600 focus-visible:ring-offset-2",
+    "focus:bg-primary-50",
   ),
   variants: {
     isSelected: {
@@ -20,6 +21,7 @@ export const LIST_ITEM_TEXT_CLASS_NAME = tv({
   base: clsx(
     "break-keep text-sm font-medium text-gray-dark",
     "group-enabled:group-active:text-primary-600",
+    "group-focus:text-primary-600",
   ),
   variants: {
     isSelected: {
@@ -35,7 +37,11 @@ export const LIST_ITEM_TEXT_CLASS_NAME = tv({
 });
 
 export const LIST_ITEM_ICON_CLASS_NAME = tv({
-  base: clsx("h-4 w-4 text-gray", "group-enabled:group-active:text-primary-600"),
+  base: clsx(
+    "h-4 w-4 text-gray",
+    "group-enabled:group-active:text-primary-600",
+    "group-focus:text-primary-600",
+  ),
   variants: {
     isSelected: {
       true: "text-primary-600",
@@ -50,7 +56,11 @@ export const LIST_ITEM_ICON_CLASS_NAME = tv({
 });
 
 export const LIST_ITEM_DESCRIPTION_CLASS_NAME = tv({
-  base: clsx("break-keep text-xs text-gray", "group-enabled:group-active:text-primary-400"),
+  base: clsx(
+    "break-keep text-xs text-gray",
+    "group-enabled:group-active:text-primary-400",
+    "group-focus:text-primary-600",
+  ),
   variants: {
     isSelected: {
       true: "text-primary-400",

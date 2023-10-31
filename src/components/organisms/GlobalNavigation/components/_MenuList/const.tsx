@@ -1,10 +1,11 @@
 import {
   ArrowPathIcon,
   ClipboardDocumentIcon,
-  FolderIcon,
+  FolderIcon as FolderIconOutline,
   ShieldCheckIcon,
   SwatchIcon,
 } from "@heroicons/react/24/outline";
+import { FolderIcon as FolderIconSolid } from "@heroicons/react/24/solid";
 import { ListItemProps } from "../../../../atoms/ListItem/type";
 import { MenuListType } from "../../type";
 
@@ -16,14 +17,15 @@ export const MENU_NAVIGATION: MenuNavigationType = [
     items: [
       {
         id: "1",
-        icon: <FolderIcon />,
+        icon: <FolderIconOutline />,
+        selectedIcon: <FolderIconSolid />,
         description: "descriptionTextが入ります",
         title: "テキスト",
         href: "",
       },
       {
         id: "2",
-        icon: <FolderIcon />,
+        icon: <FolderIconOutline />,
         description: "descriptionTextが入ります",
         title: "一括タグ",
         href: "",
