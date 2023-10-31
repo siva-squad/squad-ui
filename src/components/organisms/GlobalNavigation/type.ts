@@ -1,9 +1,4 @@
-type ListItemProps = {
-  href?: string;
-  title?: string;
-  id: string;
-  // etc
-};
+import { ListItemProps } from "../../atoms/ListItem/type";
 
 type RichMenuProps = {
   key: MenuListType;

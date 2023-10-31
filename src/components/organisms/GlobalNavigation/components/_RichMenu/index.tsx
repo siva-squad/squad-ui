@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import clsx from "clsx";
+import { ListItem } from "../../../../atoms/ListItem";
 import { MenuListType } from "../../type";
 import { RichMenuType } from "../../type";
-import { ListItem } from "../_ListItemSlot";
 import { MenuListSlot } from "../_MenuList";
 
 type MenuListSlotProps = {
@@ -23,7 +23,12 @@ export const RichMenu = ({
     if (type === "default") return <></>;
 
     // ここでrichContent切り替え
-    return <ListItem title={type} />;
+    return (
+      <ListItem
+        title={type}
+        href=""
+      />
+    );
   }, [type]);
 
   if (!isOpen) return <></>;

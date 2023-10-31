@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
+import { ListItem } from "../../../../atoms/ListItem";
 import { MenuListType } from "../../type";
-import { ListItem } from "../_ListItemSlot";
 import { MENU_NAVIGATION } from "./const";
 
 export const MenuListSlot = forwardRef<HTMLDivElement, { type: MenuListType }>(({ type }, ref) => {
@@ -12,9 +12,8 @@ export const MenuListSlot = forwardRef<HTMLDivElement, { type: MenuListType }>((
       {MENU_NAVIGATION.filter((nav) => nav.groupId === type).map((nav) =>
         nav.items.map((item) => (
           <ListItem
-            key={`${item.id}-${type}`}
-            title={item.title}
-            description={item.description}
+            key={item.id}
+            {...item}
           />
         )),
       )}

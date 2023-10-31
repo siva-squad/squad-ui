@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Logo } from "../../../assets/logo";
+import { ListItem } from "../../atoms/ListItem";
 import { GlobalAccount } from "../GlobalAccount";
-import { ListItem } from "./components/_ListItemSlot";
 import { RichMenu } from "./components/_RichMenu";
 import type { GlobalNavigationProps, RichMenuStateType } from "./type";
 
@@ -37,8 +37,6 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
     return () => document.removeEventListener("click", handleClickOutside);
   }, [handleClickOutside, richMenuState.key]);
 
-  // TODO: richMenuStateの構造検討
-  // TODO: richMenuStateのモーダル外クリック対応
   return (
     <header className="flex items-center gap-x-6 border-b border-gray-light bg-white px-4 py-2">
       <Logo
@@ -55,10 +53,9 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
                 ref={(el) => (noCloseRefs.current[index] = el)}
               >
                 <ListItem
-                  title={item.title || ""}
-                  onClick={() => {
-                    setRichMenuState({ isOpen: true, key: item.key });
-                  }}
+                  title={item.title}
+                  onClick={() => setRichMenuState({ isOpen: true, key: item.key })}
+                  hasChevron={item.hasChevron}
                 />
                 <RichMenu
                   isOpen={!!item.key && richMenuState.key === item.key && richMenuState.isOpen}
