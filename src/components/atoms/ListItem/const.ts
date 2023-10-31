@@ -6,7 +6,7 @@ export const LIST_ITEM_CONTAINER_CLASS_NAME = tv({
     "group flex w-fit items-center gap-x-2 rounded p-2 outline-none",
     "hover:bg-gray-extraLight",
     "disabled:cursor-not-allowed disabled:opacity-20",
-    "focus-visible:border focus-visible:border-primary-600",
+    "focus-visible:ring-1 focus-visible:ring-primary-600 focus-visible:ring-offset-2",
   ),
   variants: {
     isSelected: {
