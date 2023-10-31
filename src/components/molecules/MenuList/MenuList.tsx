@@ -1,30 +1,8 @@
-import { ReactNode, forwardRef, useState } from "react";
+import { forwardRef } from "react";
 import { ListItem } from "@atoms/ListItem";
-import { ListItemProps } from "@components/atoms/ListItem/type";
+import { ListItemDropDown } from "../ListItemDropDown";
 import { MENU_NAVIGATION } from "./const";
 import { MenuListType } from "./type";
-import { MergeType } from "@/src/utils/type-utils";
-
-export const ListItemDropDown = ({
-  children,
-  href,
-  target,
-  ...itemProps
-}: MergeType<ListItemProps, { children?: ReactNode }>) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div>
-      <ListItem
-        {...itemProps}
-        onClick={() => setIsOpen((prev) => !prev)}
-        data-ts-avoid-href={href}
-        data-ts-avoid-target={target}
-      />
-      {isOpen && <>{children}</>}
-    </div>
-  );
-};
 
 export const MenuList = forwardRef<HTMLDivElement, { type: MenuListType }>(({ type }, ref) => {
   return (
