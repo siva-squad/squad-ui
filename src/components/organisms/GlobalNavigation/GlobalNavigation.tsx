@@ -39,10 +39,14 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
 
   return (
     <header className="flex items-center gap-x-6 border-b border-gray-light bg-white px-4 py-2">
-      <Logo
-        height={40}
-        width={40}
-      />
+      <div>
+        <a href="https://staging.squadbeyond.com/">
+          <Logo
+            height={40}
+            width={40}
+          />
+        </a>
+      </div>
       <nav className="mr-auto">
         <ul className="flex items-center gap-x-2">
           {items?.map((item, index) => (
