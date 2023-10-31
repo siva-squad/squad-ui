@@ -7,7 +7,17 @@ export default {
   parameters: {
     controls: { expanded: true },
   },
-  argTypes: {},
+  argTypes: {
+    items: {
+      type: "symbol",
+    },
+    onChangeSelectedId: {
+      type: "function",
+    },
+    selectedId: {
+      type: "string",
+    },
+  },
 } satisfies Meta<typeof GlobalNavigation>;
 
 export const Default: StoryObj<typeof GlobalNavigation> = {
