@@ -7,9 +7,48 @@ export default {
   parameters: {
     controls: { expanded: true },
   },
-  argTypes: {},
+  argTypes: {
+    type: {
+      type: "string",
+    },
+  },
+  decorators: [
+    (Story) => (
+      <div className="w-fit">
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof MenuList>;
 
 export const Default: StoryObj<typeof MenuList> = {
-  args: {},
+  argTypes: {
+    type: {
+      type: "string",
+      options: ["beyond", "connection", "account"],
+      control: {
+        type: "select",
+      },
+    },
+  },
+  args: {
+    type: "",
+  },
+};
+
+export const Beyond: StoryObj<typeof MenuList> = {
+  args: {
+    type: "beyond",
+  },
+};
+
+export const Connection: StoryObj<typeof MenuList> = {
+  args: {
+    type: "connection",
+  },
+};
+export const Account: StoryObj<typeof MenuList> = {
+  args: {
+    type: "account",
+  },
 };
