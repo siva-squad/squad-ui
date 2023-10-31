@@ -3,5 +3,3 @@ export type GlobalNavigationProps = {
   selectedId: string;
   onChangeSelectedId?: (id: string) => void;
 };
-
-export type RichMenuStateType = { id: string; isOpen: boolean };

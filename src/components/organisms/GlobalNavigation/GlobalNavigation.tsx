@@ -1,72 +1,9 @@
-import { forwardRef, useState } from "react";
-import clsx from "clsx";
+import { useState } from "react";
 import { Logo } from "../../../assets/logo";
 import { GlobalAccount } from "../GlobalAccount";
-import type { GlobalNavigationProps } from "./type";
-
-// TODO: PRマージ後、ListItemで置換
-type ListItemSlotProps = { onClick?: () => void };
-const ListItemSlot = ({ onClick }: ListItemSlotProps) => {
-  return (
-    <a
-      {...(!onClick && { href: "" })}
-      className="break-keep p-2 text-s leading-none"
-      onClick={onClick}
-      role={onClick ? "button" : ""}
-    >
-      テキスト
-    </a>
-  );
-};
-
-// TODO: ListItemPRマージ後、MenuListで置換
-type MenuListType = "beyond" | "connection" | "account";
-type RichMenuStateType = { id?: string; isOpen: boolean };
-type MenuListSlotProps = {
-  type: MenuListType;
-  isOpen: boolean;
-  onOpenChange?: () => void;
-  absolute?: boolean;
-};
-
-// TODO: ListItemのType利用
-const GLOBAL_NAVIGATION: { id: string; title: string; icon?: string; key: MenuListType }[] = [
-  { id: "1", icon: "", title: "テキスト", key: "account" },
-  { id: "2", icon: "", title: "Dev", key: "beyond" },
-];
-
-export const MenuListSlot = forwardRef<HTMLDivElement, MenuListSlotProps>(({ type }, ref) => {
-  return (
-    <div
-      className="flex flex-col gap-y-4"
-      ref={ref}
-    >
-      {GLOBAL_NAVIGATION.filter((nav) => nav.key === type).map((nav) => (
-        <ListItemSlot key={`${nav.id}-${type}`} />
-      ))}
-    </div>
-  );
-});
-
-MenuListSlot.displayName = "MenuListSlot";
-
-export const RichMenu = ({ absolute = false, isOpen = false, type }: MenuListSlotProps) => {
-  if (!isOpen) return <></>;
-
-  return (
-    <div
-      className={clsx("flex w-fit gap-x-4 rounded-lg bg-white p-4 shadow-06", {
-        "absolute mt-3": absolute,
-      })}
-    >
-      <MenuListSlot
-        type={type}
-        isOpen={isOpen}
-      />
-      {/* RichMenuList */}
-    </div>
-  );
-};
+import { ListItem } from "./components/_ListItemSlot";
+import { RichMenu } from "./components/_RichMenu";
+import type { GlobalNavigationProps, RichMenuStateType } from "./type";
 
 export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
   const [richMenuState, setRichMenuState] = useState<RichMenuStateType>({
@@ -89,7 +26,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
               key={item.id}
               className="relative"
             >
-              <ListItemSlot onClick={() => setRichMenuState({ isOpen: true, id: item.id })} />
+              <ListItem onClick={() => setRichMenuState({ isOpen: true, id: item.id })} />
               <RichMenu
                 isOpen={richMenuState.id === item.id && richMenuState.isOpen}
                 type="account"
