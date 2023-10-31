@@ -19,7 +19,7 @@ export const LIST_ITEM_CONTAINER_CLASS_NAME = tv({
 
 export const LIST_ITEM_TEXT_CLASS_NAME = tv({
   base: clsx(
-    "break-keep text-sm font-medium text-gray-dark",
+    "break-keep text-sm font-medium",
     "group-enabled:group-active:text-primary-600",
     "group-focus:text-primary-600",
   ),
@@ -33,8 +33,8 @@ export const LIST_ITEM_TEXT_CLASS_NAME = tv({
       false: "",
     },
     size: {
-      small: "text-xs",
-      medium: "",
+      small: "text-xs text-gray-dark",
+      medium: "text-gray-dark",
       large: "",
     },
   },

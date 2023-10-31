@@ -61,6 +61,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
                   title={item.title}
                   onClick={() => setRichMenuState({ isOpen: true, key: item.key })}
                   hasChevron={item.hasChevron}
+                  size="medium"
                 />
                 <RichMenu
                   isOpen={!!item.key && richMenuState.key === item.key && richMenuState.isOpen}

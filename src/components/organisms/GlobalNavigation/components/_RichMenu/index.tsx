@@ -26,6 +26,7 @@ export const RichMenu = ({
     return (
       <ListItem
         title={type}
+        size="large"
         href=""
       />
     );
