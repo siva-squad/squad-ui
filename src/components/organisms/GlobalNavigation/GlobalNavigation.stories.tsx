@@ -13,8 +13,8 @@ export default {
 export const Default: StoryObj<typeof GlobalNavigation> = {
   args: {
     items: [
-      { href: "", title: "テキスト" },
-      { href: "", title: "テキスト" },
+      { href: "", title: "テキスト", id: "1" },
+      { href: "", title: "テキスト", id: "2" },
     ],
   },
 };
