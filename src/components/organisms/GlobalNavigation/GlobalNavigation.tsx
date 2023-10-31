@@ -46,7 +46,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
       </nav>
       <div
         className="relative"
-        data-dropdown-id={"account"}
+        data-dropdown-id="account"
         ref={(el) => noCloseRefs.current.push(el)}
       >
         <GlobalAccount
@@ -57,8 +57,8 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
         />
         <RichMenu
           isOpen={richMenuState.key === "account" && richMenuState.isOpen}
-          navigationType={"account"}
-          type={"default"}
+          navigationType="account"
+          type="default"
           absolute
         />
       </div>
