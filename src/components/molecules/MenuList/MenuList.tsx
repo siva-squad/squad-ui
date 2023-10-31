@@ -1,8 +1,8 @@
 import { ReactNode, forwardRef, useState } from "react";
 import { ListItem } from "@atoms/ListItem";
 import { ListItemProps } from "@components/atoms/ListItem/type";
-import { MenuListType } from "../../type";
 import { MENU_NAVIGATION } from "./const";
+import { MenuListType } from "./type";
 import { MergeType } from "@/src/utils/type-utils";
 
 export const ListItemDropDown = ({

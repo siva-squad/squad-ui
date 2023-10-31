@@ -10,7 +10,7 @@ import {
   SwatchIcon,
 } from "@heroicons/react/24/outline";
 import { FolderIcon as FolderIconSolid } from "@heroicons/react/24/solid";
-import { MenuListType } from "../../type";
+import type { MenuListType } from "@molecules/MenuList";
 import { MergeType } from "@/src/utils/type-utils";
 
 type MenuNavigationType = {

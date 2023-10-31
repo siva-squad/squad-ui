@@ -1,4 +1,5 @@
 import { ListItemProps } from "@atoms/ListItem/type";
+import { MenuListType } from "@components/molecules/MenuList/type";
 import { MergeType } from "@/src/utils/type-utils";
 
 type RichMenuProps = {
@@ -12,6 +13,5 @@ export type GlobalNavigationProps = {
   onChangeSelectedId?: (id: string) => void;
 };
 
-export type MenuListType = "beyond" | "connection" | "account" | "";
 export type RichMenuType = "default" | "list" | "description";
 export type RichMenuStateType = { key: MenuListType; isOpen: boolean };
