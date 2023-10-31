@@ -13,6 +13,7 @@ export const MenuListSlot = forwardRef<HTMLDivElement, { type: MenuListType }>((
         nav.items.map((item) => (
           <ListItem
             key={item.id}
+            size="large"
             {...item}
           />
         )),

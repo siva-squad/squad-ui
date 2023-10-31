@@ -3,7 +3,7 @@ import { tv } from "tailwind-variants";
 
 export const LIST_ITEM_CONTAINER_CLASS_NAME = tv({
   base: clsx(
-    "group flex w-fit items-center gap-x-2 rounded p-2 outline-none",
+    "group flex w-full items-center gap-x-2 rounded p-2 outline-none",
     "hover:bg-gray-extraLight",
     "disabled:cursor-not-allowed disabled:opacity-20",
     "focus-visible:ring-1 focus-visible:ring-primary-600 focus-visible:ring-offset-2",
@@ -17,7 +17,10 @@ export const LIST_ITEM_CONTAINER_CLASS_NAME = tv({
 });
 
 export const LIST_ITEM_TEXT_CLASS_NAME = tv({
-  base: clsx("text-sm font-medium text-gray-dark", "group-enabled:group-active:text-primary-600"),
+  base: clsx(
+    "break-keep text-sm font-medium text-gray-dark",
+    "group-enabled:group-active:text-primary-600",
+  ),
   variants: {
     isSelected: {
       true: "text-primary-600",
@@ -47,7 +50,7 @@ export const LIST_ITEM_ICON_CLASS_NAME = tv({
 });
 
 export const LIST_ITEM_DESCRIPTION_CLASS_NAME = tv({
-  base: clsx("text-xs text-gray", "group-enabled:group-active:text-primary-400"),
+  base: clsx("break-keep text-xs text-gray", "group-enabled:group-active:text-primary-400"),
   variants: {
     isSelected: {
       true: "text-primary-400",

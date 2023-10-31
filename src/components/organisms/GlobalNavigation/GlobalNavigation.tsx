@@ -40,7 +40,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
   return (
     <header className="flex items-center gap-x-6 border-b border-gray-light bg-white px-4 py-2">
       <div>
-        <a href="https://staging.squadbeyond.com/">
+        <a href="/">
           <Logo
             height={40}
             width={40}
