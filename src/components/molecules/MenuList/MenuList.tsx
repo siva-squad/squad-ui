@@ -26,7 +26,7 @@ export const ListItemDropDown = ({
   );
 };
 
-export const MenuListSlot = forwardRef<HTMLDivElement, { type: MenuListType }>(({ type }, ref) => {
+export const MenuList = forwardRef<HTMLDivElement, { type: MenuListType }>(({ type }, ref) => {
   return (
     <div
       className="flex flex-col gap-y-4"
@@ -58,4 +58,4 @@ export const MenuListSlot = forwardRef<HTMLDivElement, { type: MenuListType }>((
   );
 });
 
-MenuListSlot.displayName = "MenuListSlot";
+MenuList.displayName = "MenuListSlot";

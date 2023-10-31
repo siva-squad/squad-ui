@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { MenuListSlot } from "./MenuList";
+import { MenuList } from "./MenuList";
 
 export default {
-  component: MenuListSlot,
+  component: MenuList,
   parameters: {
     controls: { expanded: true },
   },
   argTypes: {},
-} satisfies Meta<typeof MenuListSlot>;
+} satisfies Meta<typeof MenuList>;
 
-export const Default: StoryObj<typeof MenuListSlot> = {
+export const Default: StoryObj<typeof MenuList> = {
   args: {},
 };

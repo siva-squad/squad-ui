@@ -1,23 +1,14 @@
 import { useMemo } from "react";
-import { MenuListSlot } from "@molecules/MenuList";
-import { MenuListType } from "@molecules/MenuList/type";
+import { MenuList } from "@molecules/MenuList";
+import { MenuListProps } from "@molecules/MenuList/type";
 import clsx from "clsx";
-import { RichMenuType } from "./type";
-
-type MenuListSlotProps = {
-  navigationType: MenuListType;
-  type: RichMenuType;
-  isOpen: boolean;
-  onOpenChange?: () => void;
-  absolute?: boolean;
-};
 
 export const RichMenu = ({
   absolute = false,
   isOpen = false,
   navigationType,
   type,
-}: MenuListSlotProps) => {
+}: MenuListProps) => {
   const richContentUI = useMemo(() => {
     if (type === "default") return <></>;
 
@@ -33,7 +24,7 @@ export const RichMenu = ({
         "absolute mt-3": absolute,
       })}
     >
-      <MenuListSlot type={navigationType} />
+      <MenuList type={navigationType} />
       {richContentUI}
     </div>
   );
