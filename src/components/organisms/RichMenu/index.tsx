@@ -24,7 +24,7 @@ export const RichMenu = ({
         "absolute mt-3": absolute,
       })}
     >
-      <MenuList type={navigationType} />
+      <MenuList navigationType={navigationType} />
       {richContentUI}
     </div>
   );

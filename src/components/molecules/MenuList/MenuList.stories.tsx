@@ -8,7 +8,7 @@ export default {
     controls: { expanded: true },
   },
   argTypes: {
-    type: {
+    navigationType: {
       type: "string",
     },
   },
@@ -23,7 +23,7 @@ export default {
 
 export const Default: StoryObj<typeof MenuList> = {
   argTypes: {
-    type: {
+    navigationType: {
       type: "string",
       options: ["beyond", "connection", "account"],
       control: {
@@ -32,23 +32,23 @@ export const Default: StoryObj<typeof MenuList> = {
     },
   },
   args: {
-    type: "",
+    navigationType: "",
   },
 };
 
 export const Beyond: StoryObj<typeof MenuList> = {
   args: {
-    type: "beyond",
+    navigationType: "beyond",
   },
 };
 
 export const Connection: StoryObj<typeof MenuList> = {
   args: {
-    type: "connection",
+    navigationType: "connection",
   },
 };
 export const Account: StoryObj<typeof MenuList> = {
   args: {
-    type: "account",
+    navigationType: "account",
   },
 };
