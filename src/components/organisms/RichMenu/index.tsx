@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { MenuListSlot } from "@molecules/MenuList";
 import { MenuListType } from "@molecules/MenuList/type";
 import clsx from "clsx";
-import { RichMenuType } from "../GlobalNavigation/type";
+import { RichMenuType } from "./type";
 
 type MenuListSlotProps = {
   navigationType: MenuListType;

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { MenuListType } from "@components/molecules/MenuList";
-import { RichMenuStateType } from "./type";
+
+export type RichMenuStateType = { key: MenuListType; isOpen: boolean };
 
 export const useRichMenuDialog = () => {
   const [richMenuState, setRichMenuState] = useState<RichMenuStateType>({
