@@ -5,3 +5,5 @@ export type GlobalNavigationProps = {
 };
 
 export type RichMenuStateType = { id: string; isOpen: boolean };
+
+export type MenuListType = "beyond" | "connection" | "account";

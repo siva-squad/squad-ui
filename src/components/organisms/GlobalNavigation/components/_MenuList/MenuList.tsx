@@ -1,14 +1,7 @@
 import { forwardRef } from "react";
+import { MenuListType } from "../../type";
 import { ListItem } from "../_ListItemSlot";
-
-// TODO: ListItemPRマージ後、MenuListで置換
-type MenuListType = "beyond" | "connection" | "account";
-
-// TODO: ListItemのType利用
-const GLOBAL_NAVIGATION: { id: string; title: string; icon?: string; key: MenuListType }[] = [
-  { id: "1", icon: "", title: "テキスト", key: "account" },
-  { id: "2", icon: "", title: "Dev", key: "beyond" },
-];
+import { MENU_NAVIGATION } from "./const";
 
 export const MenuListSlot = forwardRef<HTMLDivElement, { type: MenuListType }>(({ type }, ref) => {
   return (
@@ -16,9 +9,15 @@ export const MenuListSlot = forwardRef<HTMLDivElement, { type: MenuListType }>((
       className="flex flex-col gap-y-4"
       ref={ref}
     >
-      {GLOBAL_NAVIGATION.filter((nav) => nav.key === type).map((nav) => (
-        <ListItem key={`${nav.id}-${type}`} />
-      ))}
+      {MENU_NAVIGATION.filter((nav) => nav.groupId === type).map((nav) =>
+        nav.items.map((item) => (
+          <ListItem
+            key={`${item.id}-${type}`}
+            title={item.title}
+            description={item.description}
+          />
+        )),
+      )}
     </div>
   );
 });

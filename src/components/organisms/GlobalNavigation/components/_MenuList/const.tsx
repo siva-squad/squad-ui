@@ -6,6 +6,7 @@ import {
   ShieldCheckIcon,
   SwatchIcon,
 } from "@heroicons/react/24/outline";
+import { MenuListType } from "../../type";
 
 // MenuItemsの型の配列
 type ItemType = {
@@ -15,7 +16,7 @@ type ItemType = {
   title: string;
   children?: ReactNode;
 };
-type MenuListType = "beyond" | "connection" | "account";
+
 type MenuNavigationType = { groupId: MenuListType; items: ItemType[] }[];
 
 export const MENU_NAVIGATION: MenuNavigationType = [
