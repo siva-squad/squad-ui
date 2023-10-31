@@ -1,5 +1,7 @@
+import { ReactNode } from "react";
 import { CVTag } from "@assets/icons";
 import { ListItemProps } from "@atoms/ListItem/type";
+import { ListItem } from "@components/atoms/ListItem";
 import {
   ArrowPathIcon,
   ClipboardDocumentIcon,
@@ -9,8 +11,39 @@ import {
 } from "@heroicons/react/24/outline";
 import { FolderIcon as FolderIconSolid } from "@heroicons/react/24/solid";
 import { MenuListType } from "../../type";
+import { MergeType } from "@/src/utils/type-utils";
 
-type MenuNavigationType = { groupId: MenuListType; items: ListItemProps[] }[];
+type MenuNavigationType = {
+  groupId: MenuListType;
+  items: MergeType<ListItemProps, { children?: ReactNode }>[];
+}[];
+
+export const OTHERS_NAVIGATION: ListItemProps[] = [
+  {
+    id: "1",
+    title: "FAQ",
+    href: "",
+    hasChevron: false,
+  },
+  {
+    id: "2",
+    title: "利用規約",
+    href: "",
+    hasChevron: false,
+  },
+  {
+    id: "3",
+    title: "プライバシーポリシー",
+    href: "",
+    hasChevron: false,
+  },
+  {
+    id: "4",
+    title: "Admin",
+    href: "",
+    hasChevron: false,
+  },
+];
 
 export const MENU_NAVIGATION: MenuNavigationType = [
   {
@@ -135,6 +168,16 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         id: "7",
         title: "その他",
         href: "",
+        children: (
+          <div className="mt-4 flex flex-col gap-y-2 pl-4">
+            {OTHERS_NAVIGATION.map((nav) => (
+              <ListItem
+                {...nav}
+                key={nav.id}
+              />
+            ))}
+          </div>
+        ),
       },
       {
         id: "8",

@@ -1,14 +1,13 @@
 import { ListItemProps } from "@atoms/ListItem/type";
+import { MergeType } from "@/src/utils/type-utils";
 
 type RichMenuProps = {
   key: MenuListType;
   richMenuType: RichMenuType;
 };
 
-type Merge<T, U> = T & U;
-
 export type GlobalNavigationProps = {
-  items: Merge<ListItemProps, RichMenuProps>[]; // ListItemProps[] + modalKeys
+  items: MergeType<ListItemProps, RichMenuProps>[]; // ListItemProps[] + modalKeys
   selectedId: string;
   onChangeSelectedId?: (id: string) => void;
 };
