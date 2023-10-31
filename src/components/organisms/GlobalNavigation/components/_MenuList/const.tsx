@@ -1,3 +1,4 @@
+import { CVTag } from "@assets/icons";
 import {
   ArrowPathIcon,
   ClipboardDocumentIcon,
@@ -6,7 +7,6 @@ import {
   SwatchIcon,
 } from "@heroicons/react/24/outline";
 import { FolderIcon as FolderIconSolid } from "@heroicons/react/24/solid";
-import { CVTag } from "../../../../../assets/icons";
 import { ListItemProps } from "../../../../atoms/ListItem/type";
 import { MenuListType } from "../../type";
 
