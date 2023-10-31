@@ -6,6 +6,7 @@ import {
   SwatchIcon,
 } from "@heroicons/react/24/outline";
 import { FolderIcon as FolderIconSolid } from "@heroicons/react/24/solid";
+import { CVTag } from "../../../../../assets/icons";
 import { ListItemProps } from "../../../../atoms/ListItem/type";
 import { MenuListType } from "../../type";
 
@@ -26,7 +27,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
       },
       {
         id: "2",
-        icon: <FolderIconOutline />,
+        icon: <CVTag />,
         description: "descriptionTextが入ります",
         title: "一括タグ",
         href: "",
