@@ -1,42 +1,12 @@
-import { useCallback, useEffect, useRef, useState } from "react";
 import { Logo } from "@assets/logo";
 import { ListItem } from "@atoms/ListItem";
 import { GlobalAccount } from "../GlobalAccount";
 import { RichMenu } from "../RichMenu";
-import type { GlobalNavigationProps, RichMenuStateType } from "./type";
+import { useRichMenuDialog } from "./hooks";
+import type { GlobalNavigationProps } from "./type";
 
 export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
-  const [richMenuState, setRichMenuState] = useState<RichMenuStateType>({
-    key: "",
-    isOpen: false,
-  });
-
-  // TODO: hooks化
-  const noCloseRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const currentTarget = noCloseRefs.current.find(
-    (ref) => ref?.dataset.dropdownId === richMenuState.key,
-  );
-
-  const handleClickOutside = useCallback(
-    (e: MouseEvent) => {
-      const isChild = currentTarget?.contains(e.target as Node);
-
-      if (!isChild) {
-        setRichMenuState({ isOpen: false, key: "" });
-      }
-    },
-    [currentTarget],
-  );
-
-  useEffect(() => {
-    const el = noCloseRefs.current;
-
-    if (!el.length) return;
-
-    document.addEventListener("click", handleClickOutside);
-
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, [handleClickOutside, richMenuState.key]);
+  const { noCloseRefs, manageDialog, richMenuState } = useRichMenuDialog();
 
   return (
     <header className="flex items-center gap-x-6 border-b border-gray-light bg-white px-4 py-2">
@@ -59,7 +29,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
               >
                 <ListItem
                   title={item.title}
-                  onClick={() => setRichMenuState({ isOpen: true, key: item.key })}
+                  onClick={() => manageDialog(item.key, true)}
                   hasChevron={item.hasChevron}
                   size="medium"
                 />
@@ -83,7 +53,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
           userId="1"
           userName="田中 太郎"
           teamName="Squad beyondチーム"
-          onClick={() => setRichMenuState({ isOpen: true, key: "account" })}
+          onClick={() => manageDialog("account", true)}
         />
         <RichMenu
           isOpen={richMenuState.key === "account" && richMenuState.isOpen}
