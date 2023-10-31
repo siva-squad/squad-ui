@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode } from "react";
+import { HTMLAttributeAnchorTarget, ReactElement, ReactNode } from "react";
 
 type TypeAndDescriptionType =
   | {
@@ -13,10 +13,12 @@ type TypeAndDescriptionType =
 type AnchorAndButtonType =
   | {
       href: string;
+      target?: HTMLAttributeAnchorTarget;
       onClick?: never;
     }
   | {
       href?: never;
+      target?: never;
       onClick: () => void;
     };
 
