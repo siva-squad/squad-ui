@@ -71,11 +71,24 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
           ))}
         </ul>
       </nav>
-      <GlobalAccount
-        userId="1"
-        userName="田中 太郎"
-        teamName="Squad beyondチーム"
-      />
+      <div
+        className="relative"
+        data-dropdown-id={"account"}
+        ref={(el) => noCloseRefs.current.push(el)}
+      >
+        <GlobalAccount
+          userId="1"
+          userName="田中 太郎"
+          teamName="Squad beyondチーム"
+          onClick={() => setRichMenuState({ isOpen: true, key: "account" })}
+        />
+        <RichMenu
+          isOpen={richMenuState.key === "account" && richMenuState.isOpen}
+          navigationType={"account"}
+          type={"default"}
+          absolute
+        />
+      </div>
     </header>
   );
 };
