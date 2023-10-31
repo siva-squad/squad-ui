@@ -11,6 +11,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
     isOpen: false,
   });
 
+  // TODO: hooks化
   const noCloseRefs = useRef<(HTMLDivElement | null)[]>([]);
   const currentTarget = noCloseRefs.current.find(
     (ref) => ref?.dataset.dropdownId === richMenuState.key,

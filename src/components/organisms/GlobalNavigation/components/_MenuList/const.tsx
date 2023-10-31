@@ -22,6 +22,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         description: "descriptionTextが入ります",
         title: "テキスト",
         href: "",
+        hasChevron: false,
       },
       {
         id: "2",
@@ -29,6 +30,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         description: "descriptionTextが入ります",
         title: "一括タグ",
         href: "",
+        hasChevron: false,
       },
       {
         id: "3",
@@ -36,6 +38,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         description: "descriptionTextが入ります",
         title: "マジック置換",
         href: "",
+        hasChevron: false,
       },
       {
         id: "4",
@@ -43,6 +46,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         description: "descriptionTextが入ります",
         title: "メディア",
         href: "",
+        hasChevron: false,
       },
       {
         id: "5",
@@ -50,6 +54,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         description: "descriptionTextが入ります",
         title: "審査",
         href: "",
+        hasChevron: false,
       },
       {
         id: "6",
@@ -57,6 +62,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         description: "descriptionTextが入ります",
         title: "フォーム",
         href: "",
+        hasChevron: false,
       },
     ],
   },
@@ -68,12 +74,14 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         title: "広告媒体連携",
         description: "descriptionTextが入ります",
         href: "",
+        hasChevron: false,
       },
       {
         id: "2",
         title: "CV計測連携",
         description: "descriptionTextが入ります",
         href: "",
+        hasChevron: false,
       },
     ],
   },
