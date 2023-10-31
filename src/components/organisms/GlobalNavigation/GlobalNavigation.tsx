@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Logo } from "../../../assets/logo";
-import { ListItem } from "../../atoms/ListItem";
+import { Logo } from "@assets/logo";
+import { ListItem } from "@atoms/ListItem";
 import { GlobalAccount } from "../GlobalAccount";
 import { RichMenu } from "./components/_RichMenu";
 import type { GlobalNavigationProps, RichMenuStateType } from "./type";

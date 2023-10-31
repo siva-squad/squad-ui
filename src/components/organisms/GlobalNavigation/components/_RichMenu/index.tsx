@@ -1,6 +1,6 @@
 import { useMemo } from "react";
+import { ListItem } from "@atoms/ListItem";
 import clsx from "clsx";
-import { ListItem } from "../../../../atoms/ListItem";
 import { MenuListType } from "../../type";
 import { RichMenuType } from "../../type";
 import { MenuListSlot } from "../_MenuList";

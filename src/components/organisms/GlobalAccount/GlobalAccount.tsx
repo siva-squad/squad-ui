@@ -1,6 +1,6 @@
+import { Avatar } from "@atoms/Avatar";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
-import { Avatar } from "../../atoms/Avatar";
 import type { GlobalAccountProps } from "./type";
 
 export const GlobalAccount = ({

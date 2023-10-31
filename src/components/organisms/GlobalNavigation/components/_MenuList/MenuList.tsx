@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { ListItem } from "../../../../atoms/ListItem";
+import { ListItem } from "@atoms/ListItem";
 import { MenuListType } from "../../type";
 import { MENU_NAVIGATION } from "./const";
 
