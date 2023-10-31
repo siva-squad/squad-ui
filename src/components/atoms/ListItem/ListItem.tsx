@@ -24,6 +24,7 @@ export const ListItem = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, 
       size,
       id,
       target,
+      isDangerText,
     },
     ref,
   ) => {
@@ -56,7 +57,9 @@ export const ListItem = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, 
           </span>
         )}
         <span className="flex flex-1 flex-col items-start">
-          <span className={LIST_ITEM_TEXT_CLASS_NAME({ isSelected, size })}>{title}</span>
+          <span className={LIST_ITEM_TEXT_CLASS_NAME({ isSelected, size, isDangerText })}>
+            {title}
+          </span>
           {description && size === "large" && (
             <span className={LIST_ITEM_DESCRIPTION_CLASS_NAME({ isSelected })}>{description}</span>
           )}

@@ -28,12 +28,28 @@ export const LIST_ITEM_TEXT_CLASS_NAME = tv({
       true: "text-primary-600",
       false: "",
     },
+    isDangerText: {
+      true: "",
+      false: "",
+    },
     size: {
       small: "text-xs",
       medium: "",
-      large: "text-black",
+      large: "",
     },
   },
+  compoundVariants: [
+    {
+      isDangerText: true,
+      size: "large",
+      class: "text-red",
+    },
+    {
+      isDangerText: false,
+      size: "large",
+      class: "text-black",
+    },
+  ],
 });
 
 export const LIST_ITEM_ICON_CLASS_NAME = tv({

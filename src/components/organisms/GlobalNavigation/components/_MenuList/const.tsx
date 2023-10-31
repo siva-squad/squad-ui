@@ -136,6 +136,13 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         title: "その他",
         href: "",
       },
+      {
+        id: "8",
+        title: "ログアウト",
+        hasChevron: false,
+        isDangerText: true,
+        onClick: () => {},
+      },
     ],
   },
 ];
