@@ -32,7 +32,8 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
               />
               <RichMenu
                 isOpen={!!item.key && richMenuState.key === item.key && richMenuState.isOpen}
-                type={item.key}
+                navigationType={item.key}
+                type={item.richMenuType}
                 absolute
               />
             </li>
