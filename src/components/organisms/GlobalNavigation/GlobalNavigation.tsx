@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Logo } from "../../../assets/logo";
 import { GlobalAccount } from "../GlobalAccount";
 import { ListItem } from "./components/_ListItemSlot";
@@ -11,6 +11,32 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
     isOpen: false,
   });
 
+  const noCloseRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const currentTarget = noCloseRefs.current.find(
+    (ref) => ref?.dataset.dropdownId === richMenuState.key,
+  );
+
+  const handleClickOutside = useCallback(
+    (e: MouseEvent) => {
+      const isChild = currentTarget?.contains(e.target as Node);
+
+      if (!isChild) {
+        setRichMenuState({ isOpen: false, key: "" });
+      }
+    },
+    [currentTarget],
+  );
+
+  useEffect(() => {
+    const el = noCloseRefs.current;
+
+    if (!el.length) return;
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [handleClickOutside, richMenuState.key]);
+
   // TODO: richMenuStateの構造検討
   // TODO: richMenuStateのモーダル外クリック対応
   return (
@@ -21,21 +47,26 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
       />
       <nav className="mr-auto">
         <ul className="flex items-center gap-x-2">
-          {items?.map((item) => (
-            <li
-              key={item.id}
-              className="relative"
-            >
-              <ListItem
-                onClick={() => setRichMenuState({ isOpen: true, key: item.key })}
-                title={item.title || ""}
-              />
-              <RichMenu
-                isOpen={!!item.key && richMenuState.key === item.key && richMenuState.isOpen}
-                navigationType={item.key}
-                type={item.richMenuType}
-                absolute
-              />
+          {items?.map((item, index) => (
+            <li key={item.id}>
+              <div
+                className="relative"
+                data-dropdown-id={item.key}
+                ref={(el) => (noCloseRefs.current[index] = el)}
+              >
+                <ListItem
+                  title={item.title || ""}
+                  onClick={() => {
+                    setRichMenuState({ isOpen: true, key: item.key });
+                  }}
+                />
+                <RichMenu
+                  isOpen={!!item.key && richMenuState.key === item.key && richMenuState.isOpen}
+                  navigationType={item.key}
+                  type={item.richMenuType}
+                  absolute
+                />
+              </div>
             </li>
           ))}
         </ul>

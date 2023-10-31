@@ -15,7 +15,7 @@ export const Default: StoryObj<typeof GlobalNavigation> = {
     items: [
       { href: "", title: "beyond", id: "1", key: "beyond", richMenuType: "default" },
       { href: "", title: "ドメイン", id: "2", key: "", richMenuType: "default" },
-      { href: "", title: "外部連携", id: "2", key: "connection", richMenuType: "description" },
+      { href: "", title: "外部連携", id: "3", key: "connection", richMenuType: "default" },
     ],
   },
 };
