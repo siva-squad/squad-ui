@@ -8,7 +8,7 @@ export const LocalNavigation = ({ items, selectedId }: LocalNavigationProps) => 
   useEffect(() => setSelected(selectedId), [items, selectedId]);
 
   return (
-    <nav className="h-full w-fit border-r border-gray-light px-2 py-4">
+    <nav className="h-full w-fit border-r border-gray-light bg-white px-2 py-4">
       <ul className="flex flex-col gap-2">
         {items.map((item) => (
           <li key={item.id}>
