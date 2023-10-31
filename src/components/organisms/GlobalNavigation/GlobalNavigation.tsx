@@ -7,7 +7,7 @@ import type { GlobalNavigationProps, RichMenuStateType } from "./type";
 
 export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
   const [richMenuState, setRichMenuState] = useState<RichMenuStateType>({
-    id: "",
+    key: "",
     isOpen: false,
   });
 
@@ -26,10 +26,13 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
               key={item.id}
               className="relative"
             >
-              <ListItem onClick={() => setRichMenuState({ isOpen: true, id: item.id })} />
+              <ListItem
+                onClick={() => setRichMenuState({ isOpen: true, key: item.key })}
+                title={item.title || ""}
+              />
               <RichMenu
-                isOpen={richMenuState.id === item.id && richMenuState.isOpen}
-                type="account"
+                isOpen={!!item.key && richMenuState.key === item.key && richMenuState.isOpen}
+                type={item.key}
                 absolute
               />
             </li>

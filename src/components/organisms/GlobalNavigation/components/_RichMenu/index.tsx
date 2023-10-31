@@ -1,7 +1,7 @@
 import clsx from "clsx";
+import { MenuListType } from "../../type";
 import { MenuListSlot } from "../_MenuList";
 
-type MenuListType = "beyond" | "connection" | "account";
 type MenuListSlotProps = {
   type: MenuListType;
   isOpen: boolean;
