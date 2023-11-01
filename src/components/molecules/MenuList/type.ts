@@ -8,4 +8,5 @@ export type MenuListProps = {
   isOpen: boolean;
   onOpenChange?: () => void;
   absolute?: boolean;
+  maxHeight?: string;
 };

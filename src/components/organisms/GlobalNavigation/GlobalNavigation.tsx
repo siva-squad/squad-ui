@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { Logo } from "@assets/logo";
 import { ListItem } from "@atoms/ListItem";
 import { GlobalAccount } from "../GlobalAccount";
@@ -7,9 +8,13 @@ import type { GlobalNavigationProps } from "./type";
 
 export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
   const { noCloseRefs, richMenuState, toggleDialog } = useRichMenuDialog();
+  const headerRef = useRef<HTMLHeadElement>(null);
 
   return (
-    <header className="flex items-center gap-x-6 border-b border-gray-light bg-white px-4 py-2">
+    <header
+      className="flex items-center gap-x-6 border-b border-gray-light bg-white px-4 py-2"
+      ref={headerRef}
+    >
       <div>
         <a href="/">
           <Logo

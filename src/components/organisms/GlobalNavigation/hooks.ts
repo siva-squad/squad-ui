@@ -29,9 +29,16 @@ export const useRichMenuDialog = () => {
     setRichMenuState((prev) => ({ ...prev, key, isOpen }));
   }, []);
 
-  const toggleDialog = useCallback((key: MenuListType) => {
-    setRichMenuState((prev) => ({ ...prev, key, isOpen: !prev.isOpen }));
-  }, []);
+  const toggleDialog = useCallback(
+    (key: MenuListType) => {
+      if (key === richMenuState.key && richMenuState.isOpen) {
+        manageDialog(key, false);
+      } else {
+        manageDialog(key, true);
+      }
+    },
+    [manageDialog, richMenuState.isOpen, richMenuState.key],
+  );
 
   useEffect(() => {
     const el = noCloseRefs.current;
