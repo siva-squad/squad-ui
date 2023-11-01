@@ -2,12 +2,12 @@ import { useMemo, useRef, useState } from "react";
 import { Logo } from "@assets/logo";
 import { ListItem } from "@atoms/ListItem";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useScreenSize } from "@hooks/useScreenSize";
 import { GlobalAccount } from "../GlobalAccount";
 import { RichMenu } from "../RichMenu";
 import { NAVIGATION_LIST_CLASS_NAME } from "./const";
 import { useRichMenuDialog } from "./hooks";
 import type { GlobalNavigationProps } from "./type";
-import { useScreenSize } from "@/src/hooks/useScreenSize";
 
 export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
   const { noCloseRefs, richMenuState, toggleDialog } = useRichMenuDialog();
@@ -43,9 +43,10 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
                 <ListItem
                   title={item.title}
                   hasChevron={item.hasChevron}
-                  {...(item.href
-                    ? { href: item.href }
-                    : { onClick: () => toggleDialog(item.navigationType) })}
+                  // {...(item.href
+                  //   ? { href: item.href }
+                  //   : { onClick: () => toggleDialog(item.navigationType) })}
+                  onClick={() => toggleDialog(item.navigationType)}
                   size="medium"
                 />
                 <RichMenu

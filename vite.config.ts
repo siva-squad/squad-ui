@@ -29,7 +29,8 @@ export default defineConfig({
       "@organisms": resolve(__dirname, "src/components/organisms"),
       "@components": resolve(__dirname, "src/components"),
       "@assets": resolve(__dirname, "src/assets"),
-      "@": resolve(__dirname, "/"),
+      "@hooks": resolve(__dirname, "src/hooks"),
+      "@": resolve(__dirname, "./"),
     },
   },
   build: {

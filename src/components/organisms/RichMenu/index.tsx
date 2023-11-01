@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useScreenSize } from "@hooks/useScreenSize";
 import { MenuList } from "@molecules/MenuList";
 import { RICH_MENU_CLASS_NAME } from "./const";
 import { RichMenuProps } from "./type";
-import { useScreenSize } from "@/src/hooks/useScreenSize";
 
 export const RichMenu = ({
   absolute = false,

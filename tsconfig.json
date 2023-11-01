@@ -31,7 +31,8 @@
       "@molecules/*": ["./src/components/molecules/*"],
       "@organisms/*": ["./src/components/organisms/*"],
       "@assets/*": ["./src/assets/*"],
-      "@/*": ["*"]
+      "@hooks/*": ["./src/hooks/*"],
+      "@/*": ["./*"]
     }
   },
   "include": ["src"],
