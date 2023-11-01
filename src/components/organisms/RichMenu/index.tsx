@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo } from "react";
+import { useClientRect } from "@hooks/useClientRect";
 import { useScreenSize } from "@hooks/useScreenSize";
 import { MenuList } from "@molecules/MenuList";
 import { RICH_MENU_CLASS_NAME } from "./const";
@@ -12,15 +13,7 @@ export const RichMenu = ({
   anchor = "left",
 }: RichMenuProps) => {
   const { height: windowHeight } = useScreenSize();
-  const internalRef = useRef<HTMLDivElement>(null);
-
-  const [richMenuRect, setRichMenuRect] = useState({ y: 0, x: 0 });
-
-  useEffect(() => {
-    if (!internalRef.current) return;
-    const rect = internalRef.current.getBoundingClientRect();
-    setRichMenuRect(rect);
-  }, [isOpen]);
+  const { rectState, clientRectRef } = useClientRect({ enabled: isOpen });
 
   const richContentUI = useMemo(() => {
     if (richMenuType === "default") return <></>;
@@ -37,10 +30,10 @@ export const RichMenu = ({
       style={{
         maxHeight: `calc(
           ${windowHeight}px - 
-          ${richMenuRect.y}px -
+          ${rectState.y}px -
           1rem)`,
       }}
-      ref={internalRef}
+      ref={clientRectRef}
     >
       <MenuList navigationType={navigationType} />
       {richContentUI}
