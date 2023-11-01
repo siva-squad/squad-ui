@@ -5,8 +5,10 @@ import { GlobalAccount } from "../GlobalAccount";
 import { RichMenu } from "../RichMenu";
 import { useRichMenuDialog } from "./hooks";
 import type { GlobalNavigationProps } from "./type";
+import { useScreenSize } from "@/src/hooks/useScreenSize";
 
 export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
+  const { width: screenWidth } = useScreenSize();
   const { noCloseRefs, richMenuState, toggleDialog } = useRichMenuDialog();
   const headerRef = useRef<HTMLHeadElement>(null);
 
@@ -23,34 +25,36 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
           />
         </a>
       </div>
-      <nav className="mr-auto">
-        <ul className="flex items-center gap-x-2">
-          {items.map((item, index) => (
-            <li key={item.id}>
-              <div
-                className="relative"
-                data-dropdown-id={item.key}
-                ref={(el) => (noCloseRefs.current[index] = el)}
-              >
-                <ListItem
-                  title={item.title}
-                  onClick={() => toggleDialog(item.key)}
-                  hasChevron={item.hasChevron}
-                  size="medium"
-                />
-                <RichMenu
-                  isOpen={!!item.key && richMenuState.key === item.key && richMenuState.isOpen}
-                  navigationType={item.key}
-                  type={item.richMenuType}
-                  absolute
-                />
-              </div>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      {screenWidth > 480 && (
+        <nav className="mr-auto">
+          <ul className="flex items-center gap-x-2">
+            {items.map((item, index) => (
+              <li key={item.id}>
+                <div
+                  className="relative"
+                  data-dropdown-id={item.key}
+                  ref={(el) => (noCloseRefs.current[index] = el)}
+                >
+                  <ListItem
+                    title={item.title}
+                    onClick={() => toggleDialog(item.key)}
+                    hasChevron={item.hasChevron}
+                    size="medium"
+                  />
+                  <RichMenu
+                    isOpen={!!item.key && richMenuState.key === item.key && richMenuState.isOpen}
+                    navigationType={item.key}
+                    type={item.richMenuType}
+                    absolute
+                  />
+                </div>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
       <div
-        className="relative"
+        className="relative ml-auto"
         data-dropdown-id="account"
         ref={(el) => noCloseRefs.current.push(el)}
       >
