@@ -20,7 +20,7 @@ export const GlobalAccount = ({
       onClick={() => onClick?.(userId)}
     >
       <Avatar src={userImage} />
-      {width >= 480 && (
+      {width > 480 && (
         <>
           <div className="flex flex-col items-start gap-y-1">
             <span className="text-xs leading-none text-gray-dark">{userName}</span>

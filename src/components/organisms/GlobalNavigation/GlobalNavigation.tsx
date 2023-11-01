@@ -13,7 +13,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
   const headerRef = useRef<HTMLHeadElement>(null);
 
   const { width: screenWidth } = useScreenSize();
-  const media = screenWidth >= 480 ? "pc" : "sp";
+  const media = screenWidth > 480 ? "pc" : "sp";
 
   const logoUI = useMemo(() => {
     return (
@@ -90,7 +90,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
         </div>
       </header>
       {screenWidth <= 480 && (
-        <aside className="absolute left-0 top-0 flex h-full flex-col border-r border-gray-light bg-white px-4 pb-4 pt-6">
+        <aside className="absolute left-0 top-0 flex h-full w-60 flex-col border-r border-gray-light bg-white px-4 pb-4 pt-6">
           {/* GlobalSidebar */}
           {logoUI}
           {navigationUI}
