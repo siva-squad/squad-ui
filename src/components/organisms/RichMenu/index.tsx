@@ -32,7 +32,7 @@ export const RichMenu = ({
   return (
     <div
       className={clsx(
-        "flex h-fit w-fit gap-x-4 overflow-y-auto rounded-lg bg-white p-4 shadow-06",
+        "z-10 flex h-fit w-fit gap-x-4 overflow-y-auto rounded-lg bg-white p-4 shadow-06",
         {
           "absolute mt-3": absolute,
         },
