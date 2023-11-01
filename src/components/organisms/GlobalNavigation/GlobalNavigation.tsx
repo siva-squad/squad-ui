@@ -1,6 +1,7 @@
-import { useMemo, useRef } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Logo } from "@assets/logo";
 import { ListItem } from "@atoms/ListItem";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { GlobalAccount } from "../GlobalAccount";
 import { RichMenu } from "../RichMenu";
 import { NAVIGATION_LIST_CLASS_NAME } from "./const";
@@ -11,8 +12,9 @@ import { useScreenSize } from "@/src/hooks/useScreenSize";
 export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
   const { noCloseRefs, richMenuState, toggleDialog } = useRichMenuDialog();
   const headerRef = useRef<HTMLHeadElement>(null);
-
   const { media, isPC, isSP } = useScreenSize();
+
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const logoUI = useMemo(() => {
     return (
@@ -66,6 +68,14 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
         className="flex items-center gap-x-6 border-b border-gray-light bg-white px-4 py-2"
         ref={headerRef}
       >
+        {isSP && (
+          <button onClick={() => setIsSidebarOpen(true)}>
+            <Bars3Icon
+              height={24}
+              width={24}
+            />
+          </button>
+        )}
         {logoUI}
         {isPC && navigationUI}
         <div
@@ -88,10 +98,17 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
           />
         </div>
       </header>
-      {isSP && (
-        <aside className="absolute left-0 top-0 flex h-full w-60 flex-col border-r border-gray-light bg-white px-4 pb-4 pt-6">
-          {/* GlobalSidebar */}
-          {logoUI}
+      {isSP && isSidebarOpen && (
+        <aside className="absolute left-0 top-0 flex h-full w-60 flex-col border-r border-gray-light bg-white px-4 py-2">
+          <div className="flex items-center justify-between">
+            {logoUI}
+            <button onClick={() => setIsSidebarOpen(false)}>
+              <XMarkIcon
+                height={24}
+                width={24}
+              />
+            </button>
+          </div>
           {navigationUI}
         </aside>
       )}
