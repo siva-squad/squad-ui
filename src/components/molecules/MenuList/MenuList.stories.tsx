@@ -10,6 +10,10 @@ export default {
   argTypes: {
     navigationType: {
       type: "string",
+      options: ["beyond", "connection", "account"],
+      control: {
+        type: "select",
+      },
     },
   },
   decorators: [
@@ -22,15 +26,6 @@ export default {
 } satisfies Meta<typeof MenuList>;
 
 export const Default: StoryObj<typeof MenuList> = {
-  argTypes: {
-    navigationType: {
-      type: "string",
-      options: ["beyond", "connection", "account"],
-      control: {
-        type: "select",
-      },
-    },
-  },
   args: {
     navigationType: "",
   },
