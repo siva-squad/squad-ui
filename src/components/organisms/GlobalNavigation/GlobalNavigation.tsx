@@ -12,8 +12,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
   const { noCloseRefs, richMenuState, toggleDialog } = useRichMenuDialog();
   const headerRef = useRef<HTMLHeadElement>(null);
 
-  const { width: screenWidth } = useScreenSize();
-  const media = screenWidth > 480 ? "pc" : "sp";
+  const { media, isPC, isSP } = useScreenSize();
 
   const logoUI = useMemo(() => {
     return (
@@ -68,7 +67,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
         ref={headerRef}
       >
         {logoUI}
-        {screenWidth > 480 && navigationUI}
+        {isPC && navigationUI}
         <div
           className="relative ml-auto"
           data-dropdown-id="account"
@@ -89,7 +88,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
           />
         </div>
       </header>
-      {screenWidth <= 480 && (
+      {isSP && (
         <aside className="absolute left-0 top-0 flex h-full w-60 flex-col border-r border-gray-light bg-white px-4 pb-4 pt-6">
           {/* GlobalSidebar */}
           {logoUI}
