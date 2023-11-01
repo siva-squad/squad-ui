@@ -1,22 +1,12 @@
 import { useMemo, useRef } from "react";
 import { Logo } from "@assets/logo";
 import { ListItem } from "@atoms/ListItem";
-import { tv } from "tailwind-variants";
 import { GlobalAccount } from "../GlobalAccount";
 import { RichMenu } from "../RichMenu";
+import { NAVIGATION_LIST_CLASS_NAME } from "./const";
 import { useRichMenuDialog } from "./hooks";
 import type { GlobalNavigationProps } from "./type";
 import { useScreenSize } from "@/src/hooks/useScreenSize";
-
-const NAVIGATION_LIST_CLASS_NAME = tv({
-  base: "flex",
-  variants: {
-    media: {
-      pc: "items-center gap-x-2",
-      sp: "flex-col gap-y-2 pt-6",
-    },
-  },
-});
 
 export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
   const { noCloseRefs, richMenuState, toggleDialog } = useRichMenuDialog();
