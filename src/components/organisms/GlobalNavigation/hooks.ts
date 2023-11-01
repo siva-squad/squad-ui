@@ -5,7 +5,7 @@ export type RichMenuStateType = { key: MenuListType; isOpen: boolean };
 
 export const useRichMenuDialog = () => {
   const [richMenuState, setRichMenuState] = useState<RichMenuStateType>({
-    key: "",
+    key: "default",
     isOpen: false,
   });
 
@@ -19,7 +19,7 @@ export const useRichMenuDialog = () => {
       const isChild = currentTarget?.contains(e.target as Node);
 
       if (!isChild) {
-        setRichMenuState({ isOpen: false, key: "" });
+        setRichMenuState({ isOpen: false, key: "default" });
       }
     },
     [currentTarget],

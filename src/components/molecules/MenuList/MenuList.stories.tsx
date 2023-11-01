@@ -27,7 +27,7 @@ export default {
 
 export const Default: StoryObj<typeof MenuList> = {
   args: {
-    navigationType: "",
+    navigationType: "default",
   },
 };
 

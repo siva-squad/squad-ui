@@ -1,6 +1,6 @@
 import { RichMenuType } from "@components/organisms/RichMenu/type";
 
-export type MenuListType = "beyond" | "connection" | "account" | "";
+export type MenuListType = "beyond" | "connection" | "account" | "default";
 
 export type MenuListProps = {
   navigationType: MenuListType;
