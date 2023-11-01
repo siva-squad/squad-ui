@@ -6,34 +6,34 @@ import { MenuListProps } from "./type";
 
 export const MenuList = forwardRef<HTMLDivElement, Pick<MenuListProps, "navigationType">>(
   ({ navigationType }, ref) => {
+    const [menuNavigationItems] = MENU_NAVIGATION.filter((nav) => nav.groupId === navigationType);
+
     return (
-      <div
+      <nav
         className="flex flex-col gap-y-4"
         ref={ref}
       >
-        {MENU_NAVIGATION.filter((nav) => nav.groupId === navigationType).map((nav) =>
-          nav.items.map((item) => {
-            if (item.children) {
-              return (
-                <ListItemDropDown
-                  {...item}
-                  key={item.id}
-                >
-                  {item.children}
-                </ListItemDropDown>
-              );
-            }
-
+        {menuNavigationItems?.items.map((item) => {
+          if (item.children) {
             return (
-              <ListItem
-                key={item.id}
-                size="large"
+              <ListItemDropDown
                 {...item}
-              />
+                key={item.id}
+              >
+                {item.children}
+              </ListItemDropDown>
             );
-          }),
-        )}
-      </div>
+          }
+
+          return (
+            <ListItem
+              key={item.id}
+              size="large"
+              {...item}
+            />
+          );
+        })}
+      </nav>
     );
   },
 );
