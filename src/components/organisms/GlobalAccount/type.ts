@@ -3,5 +3,5 @@ export type GlobalAccountProps = {
   userName: string;
   userImage?: string;
   teamName: string;
-  onClick?: (userId: string) => void;
+  onClick: (userId: string) => void;
 };

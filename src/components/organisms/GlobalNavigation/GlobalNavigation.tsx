@@ -20,7 +20,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
       </div>
       <nav className="mr-auto">
         <ul className="flex items-center gap-x-2">
-          {items?.map((item, index) => (
+          {items.map((item, index) => (
             <li key={item.id}>
               <div
                 className="relative"
