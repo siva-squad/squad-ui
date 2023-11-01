@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { Logo } from "@assets/logo";
 import { ListItem } from "@atoms/ListItem";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -16,7 +16,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const logoUI = useMemo(() => {
+  const LogoUI = useCallback(() => {
     return (
       <div>
         <a href="/">
@@ -29,7 +29,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
     );
   }, []);
 
-  const navigationUI = useMemo(() => {
+  const NavigationUI = useCallback(() => {
     return (
       <nav>
         <ul className={NAVIGATION_LIST_CLASS_NAME({ media })}>
@@ -80,8 +80,8 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
             />
           </button>
         )}
-        {logoUI}
-        {isPC && navigationUI}
+        <LogoUI />
+        {isPC && <NavigationUI />}
         <div
           className="relative ml-auto"
           data-dropdown-id="account"
@@ -105,7 +105,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
       {isSP && isSidebarOpen && (
         <aside className="absolute left-0 top-0 flex h-full w-60 flex-col border-r border-gray-light bg-white px-4 py-2">
           <div className="flex items-center justify-between">
-            {logoUI}
+            <LogoUI />
             <button onClick={() => setIsSidebarOpen(false)}>
               <XMarkIcon
                 height={24}
@@ -113,7 +113,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
               />
             </button>
           </div>
-          {navigationUI}
+          <NavigationUI />
         </aside>
       )}
     </>

@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useCallback } from "react";
 import { useClientRect } from "@hooks/useClientRect";
 import { useScreenSize } from "@hooks/useScreenSize";
 import { MenuList } from "@molecules/MenuList";
@@ -15,7 +15,7 @@ export const RichMenu = ({
   const { height: windowHeight } = useScreenSize();
   const { rectState, clientRectRef } = useClientRect({ enabled: isOpen });
 
-  const richContentUI = useMemo(() => {
+  const RichContentUI = useCallback(() => {
     if (richMenuType === "default") return <></>;
 
     // ここでrichContent切り替え
@@ -36,7 +36,7 @@ export const RichMenu = ({
       ref={clientRectRef}
     >
       <MenuList navigationType={navigationType} />
-      {richContentUI}
+      <RichContentUI />
     </div>
   );
 };
