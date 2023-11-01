@@ -37,21 +37,25 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
             <li key={item.id}>
               <div
                 className="relative"
-                data-dropdown-id={item.key}
+                data-dropdown-id={item.id}
                 ref={(el) => (noCloseRefs.current[index] = el)}
               >
                 <ListItem
                   title={item.title}
                   hasChevron={item.hasChevron}
-                  {...(item.href ? { href: item.href } : { onClick: () => toggleDialog(item.key) })}
+                  {...(item.href
+                    ? { href: item.href }
+                    : { onClick: () => toggleDialog(item.navigationType) })}
                   size="medium"
                 />
                 <RichMenu
                   isOpen={
-                    item.key !== "default" && richMenuState.key === item.key && richMenuState.isOpen
+                    item.navigationType !== "default" &&
+                    richMenuState.key === item.navigationType &&
+                    richMenuState.isOpen
                   }
-                  navigationType={item.key}
-                  type={item.richMenuType}
+                  navigationType={item.navigationType}
+                  richMenuType={item.richMenuType}
                   absolute
                 />
               </div>
@@ -92,7 +96,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
           <RichMenu
             isOpen={richMenuState.key === "account" && richMenuState.isOpen}
             navigationType="account"
-            type="default"
+            richMenuType="default"
             absolute
             anchor="right"
           />

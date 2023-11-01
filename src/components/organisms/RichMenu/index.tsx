@@ -8,7 +8,7 @@ export const RichMenu = ({
   absolute = false,
   isOpen = false,
   navigationType,
-  type,
+  richMenuType,
   anchor = "left",
 }: RichMenuProps) => {
   const { height: windowHeight } = useScreenSize();
@@ -22,11 +22,11 @@ export const RichMenu = ({
   }, [isOpen]);
 
   const richContentUI = useMemo(() => {
-    if (type === "default") return <></>;
+    if (richMenuType === "default") return <></>;
 
     // ここでrichContent切り替え
-    return <div className="border-l border-gray-extraLight p-4">{type} エリア</div>;
-  }, [type]);
+    return <div className="border-l border-gray-extraLight p-4">{richMenuType} エリア</div>;
+  }, [richMenuType]);
 
   if (!isOpen) return <></>;
 
