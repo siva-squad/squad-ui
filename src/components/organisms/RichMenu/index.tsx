@@ -9,6 +9,7 @@ export const RichMenu = ({
   isOpen = false,
   navigationType,
   type,
+  anchor = "left",
 }: MenuListProps) => {
   const { height: windowHeight } = useScreenSize();
   const internalRef = useRef<HTMLDivElement>(null);
@@ -35,6 +36,12 @@ export const RichMenu = ({
         "z-10 flex h-fit w-fit gap-x-4 overflow-y-auto rounded-lg bg-white p-4 shadow-06",
         {
           "absolute mt-3": absolute,
+        },
+        {
+          "left-0": anchor === "left",
+        },
+        {
+          "right-0": anchor === "right",
         },
       )}
       style={{

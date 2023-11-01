@@ -8,5 +8,6 @@ export type MenuListProps = {
   isOpen: boolean;
   onOpenChange?: () => void;
   absolute?: boolean;
+  anchor?: "right" | "left";
   maxHeight?: string;
 };

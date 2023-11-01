@@ -95,6 +95,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
             navigationType="account"
             type="default"
             absolute
+            anchor="right"
           />
         </div>
       </header>
