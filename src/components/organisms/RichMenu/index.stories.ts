@@ -1,9 +1,9 @@
-import { MenuListType } from "@components/molecules/MenuList";
+import { MenuListTypeKey } from "@components/molecules/MenuList";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { RichMenu } from "./";
 
-const RICH_MENU_TYPES: MenuListType[] = ["account", "beyond", "connection"];
+const RICH_MENU_TYPES: MenuListTypeKey[] = ["account", "beyond", "connection"];
 
 export default {
   component: RichMenu,

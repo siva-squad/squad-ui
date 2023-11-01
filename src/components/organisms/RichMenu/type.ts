@@ -1,11 +1,11 @@
-import type { MenuListType } from "@components/molecules/MenuList";
+import type { MenuListTypeKey } from "@components/molecules/MenuList";
 
 export type RichMenuTypeKey = "default" | "list" | "description";
 
 export type RichMenuProps = {
-  key: MenuListType;
+  key: MenuListTypeKey;
   richMenuType: RichMenuTypeKey;
-  navigationType: MenuListType;
+  navigationType: MenuListTypeKey;
   type: RichMenuTypeKey;
   isOpen: boolean;
   onOpenChange?: () => void;

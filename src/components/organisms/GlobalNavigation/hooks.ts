@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { MenuListType } from "@components/molecules/MenuList";
+import { MenuListTypeKey } from "@components/molecules/MenuList";
 
-export type RichMenuStateType = { key: MenuListType; isOpen: boolean };
+export type RichMenuStateType = { key: MenuListTypeKey; isOpen: boolean };
 
 export const useRichMenuDialog = () => {
   const [richMenuState, setRichMenuState] = useState<RichMenuStateType>({
@@ -25,12 +25,12 @@ export const useRichMenuDialog = () => {
     [currentTarget],
   );
 
-  const manageDialog = useCallback((key: MenuListType, isOpen: boolean) => {
+  const manageDialog = useCallback((key: MenuListTypeKey, isOpen: boolean) => {
     setRichMenuState((prev) => ({ ...prev, key, isOpen }));
   }, []);
 
   const toggleDialog = useCallback(
-    (key: MenuListType) => {
+    (key: MenuListTypeKey) => {
       if (key === richMenuState.key && richMenuState.isOpen) {
         manageDialog(key, false);
       } else {

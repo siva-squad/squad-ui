@@ -10,12 +10,12 @@ import {
   SwatchIcon,
 } from "@heroicons/react/24/outline";
 import { FolderIcon as FolderIconSolid } from "@heroicons/react/24/solid";
-import type { MenuListType } from "@molecules/MenuList";
+import type { MenuListTypeKey } from "@molecules/MenuList";
 import { OTHERS_NAVIGATION } from "../ListItemDropDown/const";
 import { MergeType } from "@/src/utils/type-utils";
 
 type MenuNavigationType = {
-  groupId: MenuListType;
+  groupId: MenuListTypeKey;
   items: MergeType<ListItemProps, { children?: ReactNode }>[];
 }[];
 
