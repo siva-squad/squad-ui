@@ -6,7 +6,7 @@ import { useRichMenuDialog } from "./hooks";
 import type { GlobalNavigationProps } from "./type";
 
 export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
-  const { noCloseRefs, manageDialog, richMenuState } = useRichMenuDialog();
+  const { noCloseRefs, richMenuState, toggleDialog } = useRichMenuDialog();
 
   return (
     <header className="flex items-center gap-x-6 border-b border-gray-light bg-white px-4 py-2">
@@ -29,7 +29,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
               >
                 <ListItem
                   title={item.title}
-                  onClick={() => manageDialog(item.key, true)}
+                  onClick={() => toggleDialog(item.key)}
                   hasChevron={item.hasChevron}
                   size="medium"
                 />
@@ -53,7 +53,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
           userId="1"
           userName="田中 太郎"
           teamName="Squad beyondチーム"
-          onClick={() => manageDialog("account", true)}
+          onClick={() => toggleDialog("account")}
         />
         <RichMenu
           isOpen={richMenuState.key === "account" && richMenuState.isOpen}

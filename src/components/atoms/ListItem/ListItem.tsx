@@ -48,8 +48,8 @@ export const ListItem = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, 
         onFocus={() => setLocalSelected(true)}
         onBlur={() => setLocalSelected(false)}
         ref={ref as React.RefObject<HTMLAnchorElement> & React.RefObject<HTMLButtonElement>}
-        {...(href && { href, target })}
         id={id}
+        {...(href && { href, target })}
       >
         {icon && (
           <span className={LIST_ITEM_ICON_CLASS_NAME({ isSelected: isSelected, size })}>

@@ -29,6 +29,10 @@ export const useRichMenuDialog = () => {
     setRichMenuState((prev) => ({ ...prev, key, isOpen }));
   }, []);
 
+  const toggleDialog = useCallback((key: MenuListType) => {
+    setRichMenuState((prev) => ({ ...prev, key, isOpen: !prev.isOpen }));
+  }, []);
+
   useEffect(() => {
     const el = noCloseRefs.current;
 
@@ -39,5 +43,5 @@ export const useRichMenuDialog = () => {
     return () => document.removeEventListener("click", handleClickOutside);
   }, [handleClickOutside, richMenuState.key]);
 
-  return { noCloseRefs, richMenuState, manageDialog };
+  return { noCloseRefs, richMenuState, manageDialog, toggleDialog };
 };
