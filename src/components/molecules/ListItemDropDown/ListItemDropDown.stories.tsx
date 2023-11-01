@@ -1,7 +1,7 @@
 import { ListItem } from "@components/atoms/ListItem";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { OTHERS_NAVIGATION } from "../MenuList/const";
+import { OTHERS_NAVIGATION } from "./const";
 import { ListItemDropDown } from "./ListItemDropDown";
 
 export default {
