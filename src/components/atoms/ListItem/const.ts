@@ -4,32 +4,45 @@ import { tv } from "tailwind-variants";
 export const LIST_ITEM_CONTAINER_CLASS_NAME = tv({
   base: clsx(
     "group flex w-full items-center gap-x-2 rounded p-2 outline-none",
-    "hover:bg-gray-extraLight",
-    "disabled:cursor-not-allowed disabled:opacity-20",
-    "focus-visible:ring-1 focus-visible:ring-primary-600 focus-visible:ring-offset-2",
-    "focus:bg-primary-50",
+    "disabled:cursor-not-allowed",
+    "focus-visible:ring-1 focus-visible:ring-offset-2",
   ),
   variants: {
     isSelected: {
-      true: "bg-primary-50",
+      true: "",
       false: "",
     },
+    theme: {
+      normal: clsx(
+        "hover:enabled:bg-gray-extraLight",
+        "focus-visible:ring-primary-600",
+        "focus:bg-primary-50",
+      ),
+      red: clsx("hover:enabled:bg-red-light", "focus-visible:ring-red", "focus:bg-red-light"),
+    },
   },
+  defaultVariants: {
+    theme: "normal",
+  },
+  compoundVariants: [
+    {
+      theme: "red",
+      isSelected: true,
+      class: "bg-red-light",
+    },
+    {
+      theme: "normal",
+      isSelected: true,
+      class: "bg-primary-50",
+    },
+  ],
 });
 
 export const LIST_ITEM_TEXT_CLASS_NAME = tv({
-  base: clsx(
-    "break-keep text-sm font-medium",
-    "group-enabled:group-active:text-primary-600",
-    "group-focus:text-primary-600",
-  ),
+  base: clsx("break-keep text-sm font-medium", "group-disabled:opacity-20"),
   variants: {
     isSelected: {
       true: "text-primary-600",
-      false: "",
-    },
-    isDangerText: {
-      true: "",
       false: "",
     },
     size: {
@@ -37,27 +50,18 @@ export const LIST_ITEM_TEXT_CLASS_NAME = tv({
       medium: "text-gray-dark",
       large: "",
     },
+    theme: {
+      normal: clsx("group-enabled:group-active:text-primary-600", "group-focus:text-primary-600"),
+      red: "text-red",
+    },
+    defaultVariants: {
+      theme: "normal",
+    },
   },
-  compoundVariants: [
-    {
-      isDangerText: true,
-      size: "large",
-      class: "text-red",
-    },
-    {
-      isDangerText: false,
-      size: "large",
-      class: "text-black",
-    },
-  ],
 });
 
 export const LIST_ITEM_ICON_CLASS_NAME = tv({
-  base: clsx(
-    "h-4 w-4 text-gray",
-    "group-enabled:group-active:text-primary-600",
-    "group-focus:text-primary-600",
-  ),
+  base: clsx("h-4 w-4 text-gray", "group-disabled:opacity-20"),
   variants: {
     isSelected: {
       true: "text-primary-600",
@@ -68,19 +72,45 @@ export const LIST_ITEM_ICON_CLASS_NAME = tv({
       medium: "",
       large: "h-6 w-6",
     },
+    theme: {
+      normal: clsx("group-enabled:group-active:text-primary-600", "group-focus:text-primary-600"),
+      red: "text-red",
+    },
+  },
+  defaultVariants: {
+    theme: "normal",
   },
 });
 
 export const LIST_ITEM_DESCRIPTION_CLASS_NAME = tv({
-  base: clsx(
-    "break-keep text-xs text-gray",
-    "group-enabled:group-active:text-primary-400",
-    "group-focus:text-primary-600",
-  ),
+  base: clsx("break-keep text-xs text-gray", "group-disabled:opacity-20"),
   variants: {
     isSelected: {
-      true: "text-primary-400",
+      true: "",
       false: "",
     },
+    theme: {
+      normal: clsx("group-enabled:group-active:text-primary-400", "group-focus:text-primary-400"),
+      red: clsx("group-enabled:group-active:text-red", "group-focus:text-red"),
+    },
   },
+  defaultVariants: {
+    theme: "normal",
+  },
+  compoundVariants: [
+    {
+      theme: "red",
+      isSelected: true,
+      class: "text-red",
+    },
+    {
+      theme: "normal",
+      isSelected: true,
+      class: "text-primary-400",
+    },
+  ],
+});
+
+export const LIST_CHEVRON_CLASS_NAME = tv({
+  base: clsx("h-4 w-4 text-gray-dark", "group-disabled:opacity-20"),
 });

@@ -26,10 +26,10 @@ export type ListItemProps = {
   id?: string;
   hasChevron?: boolean;
   isDisabled?: boolean;
-  isDangerText?: boolean;
   icon?: ReactElement;
   selectedIcon?: ReactElement;
   title: ReactNode;
   isSelected?: boolean;
+  theme?: "normal" | "red";
 } & TypeAndDescriptionType &
   AnchorAndButtonType;

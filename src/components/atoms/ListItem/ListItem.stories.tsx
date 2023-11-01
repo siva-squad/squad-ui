@@ -54,6 +54,14 @@ export default {
       options: ["small", "medium", "large"],
       defaultValue: "medium",
     },
+    theme: {
+      type: "string",
+      control: {
+        type: "select",
+      },
+      options: ["normal", "red"],
+      defaultValue: "normal",
+    },
   },
 } satisfies Meta<typeof ListItem>;
 

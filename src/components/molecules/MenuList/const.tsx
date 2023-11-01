@@ -157,7 +157,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         id: "8",
         title: "ログアウト",
         hasChevron: false,
-        isDangerText: true,
+        theme: "red",
         onClick: () => {},
       },
     ],
