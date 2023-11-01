@@ -2,9 +2,9 @@ import { forwardRef } from "react";
 import { ListItem } from "@atoms/ListItem";
 import { ListItemDropDown } from "../ListItemDropDown";
 import { MENU_NAVIGATION } from "./const";
-import { MenuListProps } from "./type";
+import { MenuListType } from "./type";
 
-export const MenuList = forwardRef<HTMLDivElement, Pick<MenuListProps, "navigationType">>(
+export const MenuList = forwardRef<HTMLDivElement, { navigationType: MenuListType }>(
   ({ navigationType }, ref) => {
     const [menuNavigationItems] = MENU_NAVIGATION.filter((nav) => nav.groupId === navigationType);
 

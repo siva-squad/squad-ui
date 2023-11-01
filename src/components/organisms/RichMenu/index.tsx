@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { MenuList } from "@molecules/MenuList";
-import { MenuListProps } from "@molecules/MenuList/type";
 import { RICH_MENU_CLASS_NAME } from "./const";
+import { RichMenuProps } from "./type";
 import { useScreenSize } from "@/src/hooks/useScreenSize";
 
 export const RichMenu = ({
@@ -10,7 +10,7 @@ export const RichMenu = ({
   navigationType,
   type,
   anchor = "left",
-}: MenuListProps) => {
+}: RichMenuProps) => {
   const { height: windowHeight } = useScreenSize();
   const internalRef = useRef<HTMLDivElement>(null);
   const [richMenuRect, setRichMenuRect] = useState({ y: 0, x: 0 });
