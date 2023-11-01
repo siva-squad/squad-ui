@@ -14,20 +14,20 @@ export const useRichMenuDialog = () => {
     (ref) => ref?.dataset.dropdownId === richMenuState.key,
   );
 
+  const manageDialog = useCallback((key: MenuListTypeKey, isOpen: boolean) => {
+    setRichMenuState((prev) => ({ ...prev, key, isOpen }));
+  }, []);
+
   const handleClickOutside = useCallback(
     (e: MouseEvent) => {
       const isChild = currentTarget?.contains(e.target as Node);
 
       if (!isChild) {
-        setRichMenuState({ isOpen: false, key: "default" });
+        manageDialog("default", false);
       }
     },
-    [currentTarget],
+    [currentTarget, manageDialog],
   );
-
-  const manageDialog = useCallback((key: MenuListTypeKey, isOpen: boolean) => {
-    setRichMenuState((prev) => ({ ...prev, key, isOpen }));
-  }, []);
 
   const toggleDialog = useCallback(
     (key: MenuListTypeKey) => {

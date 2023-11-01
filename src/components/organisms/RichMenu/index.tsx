@@ -13,12 +13,13 @@ export const RichMenu = ({
 }: RichMenuProps) => {
   const { height: windowHeight } = useScreenSize();
   const internalRef = useRef<HTMLDivElement>(null);
+
   const [richMenuRect, setRichMenuRect] = useState({ y: 0, x: 0 });
 
   useEffect(() => {
     if (!internalRef.current) return;
     const rect = internalRef.current.getBoundingClientRect();
-    setRichMenuRect({ x: rect.x, y: rect.y });
+    setRichMenuRect(rect);
   }, [isOpen]);
 
   const richContentUI = useMemo(() => {
