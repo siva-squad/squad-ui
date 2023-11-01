@@ -41,8 +41,8 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
               >
                 <ListItem
                   title={item.title}
-                  onClick={() => toggleDialog(item.key)}
                   hasChevron={item.hasChevron}
+                  {...(item.href ? { href: item.href } : { onClick: () => toggleDialog(item.key) })}
                   size="medium"
                 />
                 <RichMenu

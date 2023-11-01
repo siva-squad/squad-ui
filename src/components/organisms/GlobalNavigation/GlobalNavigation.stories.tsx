@@ -23,16 +23,24 @@ export default {
 export const Default: StoryObj<typeof GlobalNavigation> = {
   args: {
     items: [
-      { href: "", title: "beyondページ", id: "1", key: "beyond", richMenuType: "default" },
       {
-        href: "",
-        title: "ドメイン",
-        id: "2",
+        href: "#",
+        title: "ダッシュボード",
+        id: "1",
         key: "default",
         richMenuType: "default",
         hasChevron: false,
       },
-      { href: "", title: "外部連携", id: "3", key: "connection", richMenuType: "default" },
+      { href: "", title: "beyondページ", id: "2", key: "beyond", richMenuType: "default" },
+      {
+        href: "#",
+        title: "ドメイン",
+        id: "3",
+        key: "default",
+        richMenuType: "default",
+        hasChevron: false,
+      },
+      { href: "", title: "外部連携", id: "4", key: "connection", richMenuType: "default" },
     ],
   },
 };
