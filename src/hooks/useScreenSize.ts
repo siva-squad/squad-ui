@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const BREAKPOINT = 480;
+const BREAKPOINT = 700;
 
 export type ScreenUtilProps = {
   width: number;

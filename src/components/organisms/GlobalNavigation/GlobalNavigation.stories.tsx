@@ -6,6 +6,7 @@ export default {
   component: GlobalNavigation,
   parameters: {
     controls: { expanded: true },
+    layout: "fullscreen",
   },
   argTypes: {
     items: {
