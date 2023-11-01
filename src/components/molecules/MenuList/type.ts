@@ -1,10 +1,10 @@
-import { RichMenuType } from "@components/organisms/RichMenu/type";
+import { RichMenuTypeKey } from "@components/organisms/RichMenu/type";
 
 export type MenuListType = "beyond" | "connection" | "account" | "default";
 
 export type MenuListProps = {
   navigationType: MenuListType;
-  type: RichMenuType;
+  type: RichMenuTypeKey;
   isOpen: boolean;
   onOpenChange?: () => void;
   absolute?: boolean;

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { MenuList } from "@molecules/MenuList";
 import { MenuListProps } from "@molecules/MenuList/type";
-import clsx from "clsx";
+import { RICH_MENU_CLASS_NAME } from "./const";
 import { useScreenSize } from "@/src/hooks/useScreenSize";
 
 export const RichMenu = ({
@@ -32,18 +32,7 @@ export const RichMenu = ({
 
   return (
     <div
-      className={clsx(
-        "z-10 flex h-fit w-fit gap-x-4 overflow-y-auto rounded-lg bg-white p-4 shadow-06",
-        {
-          "absolute mt-3": absolute,
-        },
-        {
-          "left-0": anchor === "left",
-        },
-        {
-          "right-0": anchor === "right",
-        },
-      )}
+      className={RICH_MENU_CLASS_NAME({ anchor, absolute })}
       style={{
         maxHeight: `calc(
           ${windowHeight}px - 
