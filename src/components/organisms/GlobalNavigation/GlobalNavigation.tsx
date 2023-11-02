@@ -11,8 +11,8 @@ import type { GlobalNavigationProps } from "./type";
 
 export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
   const { noCloseRefs, richMenuState, toggleDialog } = useRichMenuDialog();
-  const headerRef = useRef<HTMLHeadElement>(null);
-  const { media, isPC, isSP } = useScreenSize();
+  const headerRef = useRef<HTMLElement>(null);
+  const { media, isDesktop, isMobile } = useScreenSize();
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -72,7 +72,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
         className="flex items-center gap-x-6 border-b border-gray-light bg-white px-4 py-2"
         ref={headerRef}
       >
-        {isSP && (
+        {isMobile && (
           <button onClick={() => setIsSidebarOpen(true)}>
             <Bars3Icon
               height={24}
@@ -81,7 +81,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
           </button>
         )}
         <LogoUI />
-        {isPC && <NavigationUI />}
+        {isDesktop && <NavigationUI />}
         <div
           className="relative ml-auto"
           data-dropdown-id="account"
@@ -102,7 +102,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
           />
         </div>
       </header>
-      {isSP && isSidebarOpen && (
+      {isMobile && isSidebarOpen && (
         <aside className="absolute left-0 top-0 flex h-full w-60 flex-col border-r border-gray-light bg-white px-4 py-2">
           <div className="flex items-center justify-between">
             <LogoUI />

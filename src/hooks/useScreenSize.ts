@@ -5,9 +5,9 @@ const BREAKPOINT = 700;
 export type ScreenUtilProps = {
   width: number;
   height: number;
-  isPC: boolean;
-  isSP: boolean;
-  media: "pc" | "sp";
+  isDesktop: boolean;
+  isMobile: boolean;
+  media: "desktop" | "mobile";
 };
 
 export const useScreenSize = (breakpoint = BREAKPOINT): ScreenUtilProps => {
@@ -33,8 +33,8 @@ export const useScreenSize = (breakpoint = BREAKPOINT): ScreenUtilProps => {
 
   return {
     ...screenSize,
-    isPC: screenSize.width > breakpoint,
-    isSP: screenSize.width <= breakpoint,
-    media: screenSize.width > breakpoint ? "pc" : "sp",
+    isDesktop: screenSize.width > breakpoint,
+    isMobile: screenSize.width <= breakpoint,
+    media: screenSize.width > breakpoint ? "desktop" : "mobile",
   };
 };
