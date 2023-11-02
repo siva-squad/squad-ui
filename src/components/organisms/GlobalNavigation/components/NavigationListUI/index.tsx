@@ -7,14 +7,15 @@ import { NAVIGATION_LIST_CLASS_NAME } from "./const";
 
 type NavigationListUIProps = {
   items: GlobalNavigationProps["items"];
+  mediaType?: "desktop" | "mobile";
 };
-export const NavigationListUI = ({ items }: NavigationListUIProps) => {
+export const NavigationListUI = ({ items, mediaType = "desktop" }: NavigationListUIProps) => {
   const { media } = useScreenSize();
   const { richMenuState, noCloseRefs, toggleDialog } = useRichMenuDialog();
 
   return (
     <nav>
-      <ul className={NAVIGATION_LIST_CLASS_NAME({ media })}>
+      <ul className={NAVIGATION_LIST_CLASS_NAME({ media: mediaType || media })}>
         {items.map((item, index) => (
           <li key={item.id}>
             <div

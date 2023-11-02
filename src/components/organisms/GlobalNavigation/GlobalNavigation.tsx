@@ -1,8 +1,9 @@
 import { useRef, useState } from "react";
 import { BrandLogo } from "@components/molecules/BrandLogo";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon } from "@heroicons/react/24/outline";
 import { useScreenSize } from "@hooks/useScreenSize";
 import { GlobalAccount } from "../GlobalAccount";
+import { GlobalSidebar } from "../GlobalSidebar";
 import { RichMenu } from "../RichMenu";
 import { NavigationListUI } from "./components/NavigationListUI";
 import { useRichMenuDialog } from "./hooks";
@@ -51,20 +52,11 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
           />
         </div>
       </header>
-      {isMobile && isSidebarOpen && (
-        <aside className="absolute left-0 top-0 flex h-full w-60 flex-col border-r border-gray-light bg-white px-4 py-2">
-          <div className="flex items-center justify-between">
-            <BrandLogo />
-            <button onClick={() => setIsSidebarOpen(false)}>
-              <XMarkIcon
-                height={24}
-                width={24}
-              />
-            </button>
-          </div>
-          <NavigationListUI items={items} />
-        </aside>
-      )}
+      <GlobalSidebar
+        items={items}
+        isOpen={isMobile && isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
+      />
     </>
   );
 };
