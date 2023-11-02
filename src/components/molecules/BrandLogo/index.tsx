@@ -1,12 +1,17 @@
 import { Logo } from "@assets/logo";
 
-export const BrandLogo = () => {
+type BrandLogoProps = {
+  href?: string;
+  height?: number;
+  width?: number;
+};
+export const BrandLogo = ({ href = "/", width = 40, height = 40 }: BrandLogoProps) => {
   return (
-    <div>
-      <a href="/">
+    <div className="w-fit">
+      <a href={href}>
         <Logo
-          height={40}
-          width={40}
+          height={height}
+          width={width}
         />
       </a>
     </div>
