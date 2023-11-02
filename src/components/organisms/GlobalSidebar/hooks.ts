@@ -7,10 +7,10 @@ export const useSidebar = ({ onClose }: { onClose: () => void }) => {
   useEffect(() => {
     document.addEventListener("click", (e) => {
       const isChild = sidebarRef.current?.contains(e.target as Node);
-      const isTrigger = triggerRef?.current?.contains(e.target as Node);
+      const isTrigger = triggerRef.current?.contains(e.target as Node);
 
       if (!isChild && !isTrigger) {
-        onClose?.();
+        onClose();
       }
     });
   }, [onClose]);

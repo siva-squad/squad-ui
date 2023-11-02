@@ -6,7 +6,7 @@ import { GlobalNavigationProps } from "../GlobalNavigation/type";
 
 type GlobalSidebarProps = {
   items: GlobalNavigationProps["items"];
-  onClose?: () => void;
+  onClose: () => void;
   isOpen: boolean;
 };
 export const GlobalSidebar = forwardRef<HTMLElement, GlobalSidebarProps>(
