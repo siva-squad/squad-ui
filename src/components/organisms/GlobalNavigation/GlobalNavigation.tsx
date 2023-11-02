@@ -4,17 +4,19 @@ import { Bars3Icon } from "@heroicons/react/24/outline";
 import { useScreenSize } from "@hooks/useScreenSize";
 import { GlobalAccount } from "../GlobalAccount";
 import { GlobalSidebar } from "../GlobalSidebar";
+import { useSidebar } from "../GlobalSidebar/hooks";
 import { RichMenu } from "../RichMenu";
 import { NavigationListUI } from "./components/NavigationListUI";
 import { useRichMenuDialog } from "./hooks";
 import type { GlobalNavigationProps } from "./type";
 
 export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
-  const { noCloseRefs, richMenuState, toggleDialog } = useRichMenuDialog();
-  const headerRef = useRef<HTMLElement>(null);
   const { isDesktop, isMobile } = useScreenSize();
-
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const headerRef = useRef<HTMLElement>(null);
+  const { noCloseRefs, richMenuState, toggleDialog } = useRichMenuDialog();
+  const { sidebarRef, triggerRef } = useSidebar({ onClose: () => setIsSidebarOpen(false) });
 
   return (
     <>
@@ -23,7 +25,10 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
         ref={headerRef}
       >
         {isMobile && (
-          <button onClick={() => setIsSidebarOpen(true)}>
+          <button
+            onClick={() => setIsSidebarOpen(true)}
+            ref={triggerRef}
+          >
             <Bars3Icon
               height={24}
               width={24}
@@ -56,6 +61,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
         items={items}
         isOpen={isMobile && isSidebarOpen}
         onClose={() => setIsSidebarOpen(false)}
+        ref={sidebarRef}
       />
     </>
   );
