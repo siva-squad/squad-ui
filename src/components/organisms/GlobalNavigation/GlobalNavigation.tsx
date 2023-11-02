@@ -1,70 +1,32 @@
-import { useCallback, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Logo } from "@assets/logo";
-import { ListItem } from "@atoms/ListItem";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useScreenSize } from "@hooks/useScreenSize";
 import { GlobalAccount } from "../GlobalAccount";
 import { RichMenu } from "../RichMenu";
-import { NAVIGATION_LIST_CLASS_NAME } from "./const";
+import { NavigationListUI } from "./components/NavigationListUI";
 import { useRichMenuDialog } from "./hooks";
 import type { GlobalNavigationProps } from "./type";
+
+export const LogoUI = () => {
+  return (
+    <div>
+      <a href="/">
+        <Logo
+          height={40}
+          width={40}
+        />
+      </a>
+    </div>
+  );
+};
 
 export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
   const { noCloseRefs, richMenuState, toggleDialog } = useRichMenuDialog();
   const headerRef = useRef<HTMLElement>(null);
-  const { media, isDesktop, isMobile } = useScreenSize();
+  const { isDesktop, isMobile } = useScreenSize();
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const LogoUI = useCallback(() => {
-    return (
-      <div>
-        <a href="/">
-          <Logo
-            height={40}
-            width={40}
-          />
-        </a>
-      </div>
-    );
-  }, []);
-
-  const NavigationUI = useCallback(() => {
-    return (
-      <nav>
-        <ul className={NAVIGATION_LIST_CLASS_NAME({ media })}>
-          {items.map((item, index) => (
-            <li key={item.id}>
-              <div
-                className="relative"
-                data-dropdown-id={item.navigationType}
-                ref={(el) => (noCloseRefs.current[index] = el)}
-              >
-                <ListItem
-                  title={item.title}
-                  hasChevron={item.hasChevron}
-                  {...(item.href
-                    ? { href: item.href }
-                    : { onClick: () => toggleDialog(item.navigationType) })}
-                  size="medium"
-                />
-                <RichMenu
-                  isOpen={
-                    richMenuState.key !== "default" &&
-                    richMenuState.key === item.navigationType &&
-                    richMenuState.isOpen
-                  }
-                  navigationType={item.navigationType}
-                  richMenuType={item.richMenuType}
-                  absolute
-                />
-              </div>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    );
-  }, [items, media, noCloseRefs, richMenuState.isOpen, richMenuState.key, toggleDialog]);
 
   return (
     <>
@@ -81,7 +43,18 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
           </button>
         )}
         <LogoUI />
-        {isDesktop && <NavigationUI />}
+        {isDesktop && (
+          <NavigationListUI
+            items={items}
+            refs={noCloseRefs}
+            isRichMenuOpen={(navigationType) =>
+              richMenuState.key !== "default" &&
+              richMenuState.key === navigationType &&
+              richMenuState.isOpen
+            }
+            onClick={(navigationType) => toggleDialog(navigationType)}
+          />
+        )}
         <div
           className="relative ml-auto"
           data-dropdown-id="account"
@@ -113,7 +86,16 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
               />
             </button>
           </div>
-          <NavigationUI />
+          <NavigationListUI
+            items={items}
+            refs={noCloseRefs}
+            isRichMenuOpen={(navigationType) =>
+              richMenuState.key !== "default" &&
+              richMenuState.key === navigationType &&
+              richMenuState.isOpen
+            }
+            onClick={(navigationType) => toggleDialog(navigationType)}
+          />
         </aside>
       )}
     </>
