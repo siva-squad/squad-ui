@@ -43,18 +43,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
           </button>
         )}
         <LogoUI />
-        {isDesktop && (
-          <NavigationListUI
-            items={items}
-            refs={noCloseRefs}
-            isRichMenuOpen={(navigationType) =>
-              richMenuState.key !== "default" &&
-              richMenuState.key === navigationType &&
-              richMenuState.isOpen
-            }
-            onClick={(navigationType) => toggleDialog(navigationType)}
-          />
-        )}
+        {isDesktop && <NavigationListUI items={items} />}
         <div
           className="relative ml-auto"
           data-dropdown-id="account"
@@ -86,16 +75,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
               />
             </button>
           </div>
-          <NavigationListUI
-            items={items}
-            refs={noCloseRefs}
-            isRichMenuOpen={(navigationType) =>
-              richMenuState.key !== "default" &&
-              richMenuState.key === navigationType &&
-              richMenuState.isOpen
-            }
-            onClick={(navigationType) => toggleDialog(navigationType)}
-          />
+          <NavigationListUI items={items} />
         </aside>
       )}
     </>
