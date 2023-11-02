@@ -41,10 +41,6 @@ export const LIST_ITEM_CONTAINER_CLASS_NAME = tv({
 export const LIST_ITEM_TEXT_CLASS_NAME = tv({
   base: clsx("break-keep text-sm font-medium", "group-disabled:opacity-20"),
   variants: {
-    isSelected: {
-      true: "text-primary-600",
-      false: "",
-    },
     size: {
       small: "text-xs text-gray-dark",
       medium: "text-gray-dark",
@@ -63,10 +59,6 @@ export const LIST_ITEM_TEXT_CLASS_NAME = tv({
 export const LIST_ITEM_ICON_CLASS_NAME = tv({
   base: clsx("h-4 w-4 text-gray", "group-disabled:opacity-20"),
   variants: {
-    isSelected: {
-      true: "text-primary-600",
-      false: "",
-    },
     size: {
       small: "",
       medium: "",
