@@ -12,7 +12,7 @@ export const MenuList = forwardRef<HTMLDivElement, MenuListProps>(({ navigationT
       className="flex flex-col gap-y-4"
       ref={ref}
     >
-      {menuNavigationItems?.items.map((item) => {
+      {menuNavigationItems.items.map((item) => {
         if (item.children) {
           return (
             <ListItemDropDown

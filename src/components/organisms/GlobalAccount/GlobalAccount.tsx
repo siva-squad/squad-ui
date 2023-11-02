@@ -17,7 +17,7 @@ export const GlobalAccount = ({
     <button
       className="flex w-fit items-center gap-x-2"
       data-user={userId}
-      onClick={() => onClick?.(userId)}
+      onClick={() => onClick(userId)}
     >
       <Avatar src={userImage} />
       {width > 800 && (

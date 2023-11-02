@@ -15,7 +15,7 @@ export const ListItemDropDown = ({
   selectedIcon,
   size,
   description,
-}: MergeType<ListItemProps, { children?: ReactNode }>) => {
+}: MergeType<ListItemProps, { children: ReactNode }>) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
