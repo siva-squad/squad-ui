@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Logo } from "@assets/logo";
+import { BrandLogo } from "@components/molecules/BrandLogo";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useScreenSize } from "@hooks/useScreenSize";
 import { GlobalAccount } from "../GlobalAccount";
@@ -7,19 +7,6 @@ import { RichMenu } from "../RichMenu";
 import { NavigationListUI } from "./components/NavigationListUI";
 import { useRichMenuDialog } from "./hooks";
 import type { GlobalNavigationProps } from "./type";
-
-export const LogoUI = () => {
-  return (
-    <div>
-      <a href="/">
-        <Logo
-          height={40}
-          width={40}
-        />
-      </a>
-    </div>
-  );
-};
 
 export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
   const { noCloseRefs, richMenuState, toggleDialog } = useRichMenuDialog();
@@ -42,7 +29,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
             />
           </button>
         )}
-        <LogoUI />
+        <BrandLogo />
         {isDesktop && <NavigationListUI items={items} />}
         <div
           className="relative ml-auto"
@@ -67,7 +54,7 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
       {isMobile && isSidebarOpen && (
         <aside className="absolute left-0 top-0 flex h-full w-60 flex-col border-r border-gray-light bg-white px-4 py-2">
           <div className="flex items-center justify-between">
-            <LogoUI />
+            <BrandLogo />
             <button onClick={() => setIsSidebarOpen(false)}>
               <XMarkIcon
                 height={24}
