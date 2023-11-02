@@ -21,6 +21,10 @@ type MenuNavigationType = {
 
 export const MENU_NAVIGATION: MenuNavigationType = [
   {
+    groupId: "default",
+    items: [],
+  },
+  {
     groupId: "beyond",
     items: [
       {
