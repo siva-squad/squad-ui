@@ -127,7 +127,7 @@ const STATES: (Pick<ListItemProps, "isDisabled" | "isSelected"> & { id: string }
   { id: "disable", isDisabled: true },
   { id: "default" },
   { id: "hover" },
-  { id: "press" },
+  { id: "press", isSelected: true },
   { id: "selected", isSelected: true },
   { id: "focus" },
 ];
