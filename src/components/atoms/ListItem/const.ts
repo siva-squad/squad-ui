@@ -16,7 +16,7 @@ export const LIST_ITEM_CONTAINER_CLASS_NAME = tv({
       normal: clsx(
         "hover:enabled:bg-gray-extraLight",
         "focus-visible:ring-primary-600",
-        "focus:bg-primary-50",
+        "[&:not(:focus-visible)]:focus:bg-primary-50",
       ),
       red: clsx("hover:enabled:bg-red-light", "focus-visible:ring-red", "focus:bg-red-light"),
     },
@@ -59,6 +59,10 @@ export const LIST_ITEM_TEXT_CLASS_NAME = tv({
 export const LIST_ITEM_ICON_CLASS_NAME = tv({
   base: clsx("h-4 w-4 text-gray", "group-disabled:opacity-20"),
   variants: {
+    isSelected: {
+      true: "",
+      false: "",
+    },
     size: {
       small: "",
       medium: "",
@@ -72,6 +76,13 @@ export const LIST_ITEM_ICON_CLASS_NAME = tv({
   defaultVariants: {
     theme: "normal",
   },
+  compoundVariants: [
+    {
+      isSelected: true,
+      theme: "normal",
+      class: "text-primary-600",
+    },
+  ],
 });
 
 export const LIST_ITEM_DESCRIPTION_CLASS_NAME = tv({
