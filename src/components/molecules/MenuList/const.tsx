@@ -3,13 +3,19 @@ import { CVTag } from "@assets/icons";
 import { ListItemProps } from "@atoms/ListItem/type";
 import { ListItem } from "@components/atoms/ListItem";
 import {
-  ArrowPathIcon,
-  ClipboardDocumentIcon,
+  ArrowPathIcon as ArrowPathIconOutline,
+  ClipboardDocumentIcon as ClipboardDocumentIconOutline,
   FolderIcon as FolderIconOutline,
-  ShieldCheckIcon,
-  SwatchIcon,
+  ShieldCheckIcon as ShieldCheckIconOutline,
+  SwatchIcon as SwatchIconOutline,
 } from "@heroicons/react/24/outline";
-import { FolderIcon as FolderIconSolid } from "@heroicons/react/24/solid";
+import {
+  FolderIcon as FolderIconSolid,
+  ArrowPathIcon as ArrowPathIconSolid,
+  SwatchIcon as SwatchIconSolid,
+  ShieldCheckIcon as ShieldCheckIconSolid,
+  ClipboardDocumentIcon as ClipboardDocumentIconSolid,
+} from "@heroicons/react/24/solid";
 import type { MenuListTypeKey } from "@molecules/MenuList";
 import { OTHERS_NAVIGATION } from "../ListItemDropDown/const";
 import { MergeType } from "@/src/utils/type-utils";
@@ -46,7 +52,8 @@ export const MENU_NAVIGATION: MenuNavigationType = [
       },
       {
         id: "3",
-        icon: <ArrowPathIcon />,
+        icon: <ArrowPathIconOutline />,
+        selectedIcon: <ArrowPathIconSolid />,
         description: "descriptionTextが入ります",
         title: "マジック置換",
         href: "",
@@ -54,7 +61,8 @@ export const MENU_NAVIGATION: MenuNavigationType = [
       },
       {
         id: "4",
-        icon: <SwatchIcon />,
+        icon: <SwatchIconOutline />,
+        selectedIcon: <SwatchIconSolid />,
         description: "descriptionTextが入ります",
         title: "メディア",
         href: "",
@@ -62,7 +70,8 @@ export const MENU_NAVIGATION: MenuNavigationType = [
       },
       {
         id: "5",
-        icon: <ShieldCheckIcon />,
+        icon: <ShieldCheckIconOutline />,
+        selectedIcon: <ShieldCheckIconSolid />,
         description: "descriptionTextが入ります",
         title: "審査",
         href: "",
@@ -70,7 +79,8 @@ export const MENU_NAVIGATION: MenuNavigationType = [
       },
       {
         id: "6",
-        icon: <ClipboardDocumentIcon />,
+        icon: <ClipboardDocumentIconOutline />,
+        selectedIcon: <ClipboardDocumentIconSolid />,
         description: "descriptionTextが入ります",
         title: "フォーム",
         href: "",
