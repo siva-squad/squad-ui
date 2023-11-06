@@ -26,6 +26,7 @@
     "lint:fix": "eslint . --fix",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "test-storybook": "test-storybook",
     "test:watch": "vitest watch",
     "test:run": "vitest run",
     "generate:component": "hygen new fc"
@@ -45,6 +46,7 @@
     "@storybook/blocks": "^7.4.6",
     "@storybook/react": "^7.4.6",
     "@storybook/react-vite": "^7.4.6",
+    "@storybook/test-runner": "^0.13.0",
     "@storybook/testing-library": "^0.2.2",
     "@types/autoprefixer": "^10.2.0",
     "@types/react": "^18.2.15",
