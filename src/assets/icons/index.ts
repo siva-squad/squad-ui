@@ -1,1 +1,1 @@
-export { CVTag } from "./CVTag";
+export * from "./cvtag";

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { CVTag } from "@assets/icons";
+import { CVTag, CVTagFilled } from "@assets/icons";
 import { ListItemProps } from "@atoms/ListItem/type";
 import { ListItem } from "@components/atoms/ListItem";
 import {
@@ -45,6 +45,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
       {
         id: "2",
         icon: <CVTag />,
+        selectedIcon: <CVTagFilled />,
         description: "descriptionTextが入ります",
         title: "一括タグ",
         href: "",
