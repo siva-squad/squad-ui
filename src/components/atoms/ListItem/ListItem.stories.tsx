@@ -54,6 +54,14 @@ export default {
       options: ["small", "medium", "large"],
       defaultValue: "medium",
     },
+    theme: {
+      type: "string",
+      control: {
+        type: "select",
+      },
+      options: ["normal", "red"],
+      defaultValue: "normal",
+    },
   },
 } satisfies Meta<typeof ListItem>;
 
@@ -119,7 +127,6 @@ const STATES: (Pick<ListItemProps, "isDisabled" | "isSelected"> & { id: string }
   { id: "disable", isDisabled: true },
   { id: "default" },
   { id: "hover" },
-  { id: "press" },
   { id: "selected", isSelected: true },
   { id: "focus" },
 ];

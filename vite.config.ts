@@ -22,6 +22,17 @@ export default defineConfig({
       plugins: [tailwindcss, autoprefixer],
     },
   },
+  resolve: {
+    alias: {
+      "@molecules": resolve(__dirname, "src/components/molecules"),
+      "@atoms": resolve(__dirname, "src/components/atoms"),
+      "@organisms": resolve(__dirname, "src/components/organisms"),
+      "@components": resolve(__dirname, "src/components"),
+      "@assets": resolve(__dirname, "src/assets"),
+      "@hooks": resolve(__dirname, "src/hooks"),
+      "@": resolve(__dirname, "./"),
+    },
+  },
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),

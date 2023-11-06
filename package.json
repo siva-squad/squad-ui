@@ -1,7 +1,7 @@
 {
   "name": "@siva-squad-development/squad-ui",
   "private": false,
-  "version": "0.2.1",
+  "version": "0.3.0",
   "main": "./dist/squad-ui.umd.js",
   "module": "./dist/squad-ui.es.js",
   "types": "./dist/index.d.ts",
@@ -72,6 +72,7 @@
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.6.0",
+    "vite-tsconfig-paths": "^4.2.1",
     "vitest": "^0.34.6"
   },
   "peerDependencies": {

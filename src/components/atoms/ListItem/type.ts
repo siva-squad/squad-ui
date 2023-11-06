@@ -30,5 +30,6 @@ export type ListItemProps = {
   selectedIcon?: ReactElement;
   title: ReactNode;
   isSelected?: boolean;
+  theme?: "normal" | "red";
 } & TypeAndDescriptionType &
   AnchorAndButtonType;
