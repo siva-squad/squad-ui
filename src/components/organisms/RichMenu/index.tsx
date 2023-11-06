@@ -1,43 +1,19 @@
-import { ReactElement, useCallback } from "react";
-import { Button, ListItem } from "@components/atoms";
+import { useCallback } from "react";
+import { Button } from "@components/atoms";
 import { ListItemProps } from "@components/atoms/ListItem/type";
-import { ChevronRightIcon, FolderIcon } from "@heroicons/react/24/outline";
-import { StarIcon } from "@heroicons/react/24/solid";
+import { RichMenuList } from "@components/molecules/RichMenulist";
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
+import { FolderIcon, StarIcon } from "@heroicons/react/24/solid";
 import { useClientRect } from "@hooks/useClientRect";
 import { useScreenSize } from "@hooks/useScreenSize";
 import { MenuList } from "@molecules/MenuList";
 import { RICH_MENU_CLASS_NAME } from "./const";
 import { RichMenuProps } from "./type";
 
-// TODO: 別ファイル分割
-type RichMenuListProps = {
-  title: string;
-  titleIcon?: ReactElement;
-  items: ListItemProps[];
-};
-const RichMenuList = ({ items, title, titleIcon }: RichMenuListProps) => {
-  return (
-    <article className="w-[240px]">
-      <div className="flex items-center gap-x-1">
-        {titleIcon && <span>{titleIcon}</span>}
-        <span className="text-xs font-medium leading-none">{title}</span>
-      </div>
-      <div className="mt-4 flex h-full flex-col gap-y-2 overflow-auto pb-8">
-        {items.map((item) => (
-          <ListItem
-            {...item}
-            key={item.id}
-          />
-        ))}
-      </div>
-    </article>
-  );
-};
-
 const ITEMS: ListItemProps[] = [...Array(15).keys()].map((_, index) => ({
   icon: <FolderIcon />,
   // TODO: ListItemのtruncate対応
-  title: "フォルダ名が入りますフォルダ名が入ります" + index,
+  title: "フォルダ名" + index,
   onClick: () => {},
   hasChevron: false,
   size: "medium",
