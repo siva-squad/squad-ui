@@ -4,36 +4,42 @@ import { ListItemDropDown } from "../ListItemDropDown";
 import { MENU_NAVIGATION } from "./const";
 import { MenuListProps } from "./type";
 
-export const MenuList = forwardRef<HTMLDivElement, MenuListProps>(({ navigationType }, ref) => {
-  const [menuNavigationItems] = MENU_NAVIGATION.filter((nav) => nav.groupId === navigationType);
+export const MenuList = forwardRef<HTMLDivElement, MenuListProps>(
+  ({ navigationType, onMouseEnter, onMouseLeave }, ref) => {
+    const [menuNavigationItems] = MENU_NAVIGATION.filter((nav) => nav.groupId === navigationType);
 
-  return (
-    <nav
-      className="flex flex-col gap-y-4 overflow-auto p-4"
-      ref={ref}
-    >
-      {menuNavigationItems.items.map((item) => {
-        if (item.children) {
+    return (
+      <nav
+        className="flex flex-col gap-y-4 overflow-auto p-4"
+        ref={ref}
+      >
+        {menuNavigationItems.items.map((item) => {
+          if (item.children) {
+            return (
+              <ListItemDropDown
+                {...item}
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
+                key={item.id}
+              >
+                {item.children}
+              </ListItemDropDown>
+            );
+          }
+
           return (
-            <ListItemDropDown
-              {...item}
+            <ListItem
               key={item.id}
-            >
-              {item.children}
-            </ListItemDropDown>
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+              size="large"
+              {...item}
+            />
           );
-        }
-
-        return (
-          <ListItem
-            key={item.id}
-            size="large"
-            {...item}
-          />
-        );
-      })}
-    </nav>
-  );
-});
+        })}
+      </nav>
+    );
+  },
+);
 
 MenuList.displayName = "MenuListSlot";

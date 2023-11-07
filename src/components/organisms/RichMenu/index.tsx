@@ -38,7 +38,10 @@ export const RichMenu = ({
       }}
       ref={clientRectRef}
     >
-      <MenuList navigationType={navigationType} />
+      <MenuList
+        navigationType={navigationType}
+        onMouseEnter={(id) => console.log({ id })}
+      />
       {/* TODO: ここでRichMenuListとDescription切り替え */}
       <RichMenuList
         groups={[
