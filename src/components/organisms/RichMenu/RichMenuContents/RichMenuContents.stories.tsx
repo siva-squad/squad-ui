@@ -13,5 +13,3 @@ export default {
 export const Default: StoryObj<typeof RichMenuContents> = {
   args: {},
 };
-
-
