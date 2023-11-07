@@ -13,7 +13,7 @@ export const RichMenuListContent = ({ listGroup }: RichMenuListContentProps) => 
               {...list}
               key={list.title}
             />
-            {index < passedArray.length && <div className="h-full w-px bg-gray-light"></div>}
+            {index < passedArray.length - 1 && <div className="h-full w-px bg-gray-light"></div>}
           </>
         ))}
       </div>
