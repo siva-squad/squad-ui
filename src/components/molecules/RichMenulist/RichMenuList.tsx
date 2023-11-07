@@ -1,13 +1,6 @@
-import { ReactElement } from "react";
 import { ListItem } from "@components/atoms";
-import { ListItemProps } from "@components/atoms/ListItem/type";
+import { RichMenuListProps } from "./type";
 
-// TODO: 別ファイル分割
-type RichMenuListProps = {
-  title: string;
-  titleIcon?: ReactElement;
-  items: ListItemProps[];
-};
 export const RichMenuList = ({ items, title, titleIcon }: RichMenuListProps) => {
   return (
     <article className="w-[240px]">
