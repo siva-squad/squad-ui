@@ -20,9 +20,32 @@ import type { MenuListTypeKey } from "@molecules/MenuList";
 import { OTHERS_NAVIGATION } from "../ListItemDropDown/const";
 import { MergeType } from "@/src/utils/type-utils";
 
+export const MENU_NAVIGATION_KEYS = [
+  "default",
+  "beyond",
+  "cvtag",
+  "replacement",
+  "media",
+  "inspection",
+  "form",
+  "ad",
+  "cv-measurement",
+  "team",
+  "role",
+  "user-settings",
+  "plans",
+  "payments",
+  "bonus",
+  "others",
+  "logout",
+] as const;
+
+export type MenuKindKey = (typeof MENU_NAVIGATION_KEYS)[number];
+
+type MenuNavigationItemProps = Omit<ListItemProps, "id"> & { id: MenuKindKey };
 type MenuNavigationType = {
   groupId: MenuListTypeKey;
-  items: MergeType<ListItemProps, { children?: ReactNode }>[];
+  items: MergeType<MenuNavigationItemProps, { children?: ReactNode }>[];
 }[];
 
 export const MENU_NAVIGATION: MenuNavigationType = [
@@ -34,7 +57,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
     groupId: "beyond",
     items: [
       {
-        id: "1",
+        id: "default",
         icon: <FolderIconOutline />,
         selectedIcon: <FolderIconSolid />,
         description: "descriptionTextが入ります",
@@ -43,7 +66,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         hasChevron: false,
       },
       {
-        id: "2",
+        id: "cvtag",
         icon: <CVTag />,
         selectedIcon: <CVTagFilled />,
         description: "descriptionTextが入ります",
@@ -52,7 +75,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         hasChevron: false,
       },
       {
-        id: "3",
+        id: "replacement",
         icon: <ArrowPathIconOutline />,
         selectedIcon: <ArrowPathIconSolid />,
         description: "descriptionTextが入ります",
@@ -61,7 +84,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         hasChevron: false,
       },
       {
-        id: "4",
+        id: "media",
         icon: <SwatchIconOutline />,
         selectedIcon: <SwatchIconSolid />,
         description: "descriptionTextが入ります",
@@ -70,7 +93,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         hasChevron: false,
       },
       {
-        id: "5",
+        id: "inspection",
         icon: <ShieldCheckIconOutline />,
         selectedIcon: <ShieldCheckIconSolid />,
         description: "descriptionTextが入ります",
@@ -79,7 +102,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         hasChevron: false,
       },
       {
-        id: "6",
+        id: "form",
         icon: <ClipboardDocumentIconOutline />,
         selectedIcon: <ClipboardDocumentIconSolid />,
         description: "descriptionTextが入ります",
@@ -93,14 +116,14 @@ export const MENU_NAVIGATION: MenuNavigationType = [
     groupId: "connection",
     items: [
       {
-        id: "1",
+        id: "ad",
         title: "広告媒体連携",
         description: "descriptionTextが入ります",
         href: "",
         hasChevron: false,
       },
       {
-        id: "2",
+        id: "cv-measurement",
         title: "CV計測連携",
         description: "descriptionTextが入ります",
         href: "",
@@ -112,49 +135,49 @@ export const MENU_NAVIGATION: MenuNavigationType = [
     groupId: "account",
     items: [
       {
-        id: "1",
+        id: "team",
         title: "所属チーム",
         description: "descriptionTextが入ります",
         href: "",
         hasChevron: false,
       },
       {
-        id: "2",
+        id: "role",
         title: "招待/権限",
         description: "descriptionTextが入ります",
         href: "",
         hasChevron: false,
       },
       {
-        id: "3",
+        id: "user-settings",
         title: "ユーザー設定",
         description: "descriptionTextが入ります",
         href: "",
         hasChevron: false,
       },
       {
-        id: "4",
+        id: "plans",
         title: "プラン",
         description: "descriptionTextが入ります",
         href: "",
         hasChevron: false,
       },
       {
-        id: "5",
+        id: "payments",
         title: "支払い管理",
         description: "descriptionTextが入ります",
         href: "",
         hasChevron: false,
       },
       {
-        id: "6",
+        id: "bonus",
         title: "特典",
         description: "descriptionTextが入ります",
         href: "",
         hasChevron: false,
       },
       {
-        id: "7",
+        id: "others",
         title: "その他",
         href: "",
         children: (
@@ -169,7 +192,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         ),
       },
       {
-        id: "8",
+        id: "logout",
         title: "ログアウト",
         hasChevron: false,
         theme: "red",

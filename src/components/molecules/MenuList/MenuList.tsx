@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import { ListItem } from "@atoms/ListItem";
+import { ListItemProps } from "@components/atoms/ListItem/type";
 import { ListItemDropDown } from "../ListItemDropDown";
 import { MENU_NAVIGATION } from "./const";
 import { MenuListProps } from "./type";
@@ -17,7 +18,7 @@ export const MenuList = forwardRef<HTMLDivElement, MenuListProps>(
           if (item.children) {
             return (
               <ListItemDropDown
-                {...item}
+                {...(item as ListItemProps)}
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
                 key={item.id}
@@ -29,11 +30,11 @@ export const MenuList = forwardRef<HTMLDivElement, MenuListProps>(
 
           return (
             <ListItem
+              {...(item as ListItemProps)}
               key={item.id}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
               size="large"
-              {...item}
             />
           );
         })}
