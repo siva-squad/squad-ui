@@ -47,7 +47,7 @@ export const RichMenu = ({
             <div className="mt-6 flex-1">
               <img
                 src="https://placehold.jp/1080x1090.png"
-                className=" object-scale-down"
+                className="rounded-lg object-scale-down"
               />
             </div>
             <div className="mt-4 w-fit self-center">
@@ -64,7 +64,7 @@ export const RichMenu = ({
         );
       case "list":
         return (
-          <div className="flex flex-col gap-y-2 border-l border-gray-extraLight p-4">
+          <div className="my-4 flex flex-col gap-y-2 border-l border-gray-extraLight px-4">
             <div className="flex flex-1 gap-x-4 overflow-hidden rounded bg-gray-extraLight p-4">
               <RichMenuList
                 items={ITEMS}
