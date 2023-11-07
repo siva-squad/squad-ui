@@ -39,7 +39,7 @@ export const LIST_ITEM_CONTAINER_CLASS_NAME = tv({
 });
 
 export const LIST_ITEM_TEXT_CLASS_NAME = tv({
-  base: clsx("break-keep text-sm font-medium", "group-disabled:opacity-20"),
+  base: clsx("break-keep text-sm font-medium", "max-w-[200px] truncate group-disabled:opacity-20"),
   variants: {
     size: {
       small: "text-xs text-gray-dark",

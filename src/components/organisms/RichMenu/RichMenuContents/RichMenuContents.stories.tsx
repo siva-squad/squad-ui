@@ -7,7 +7,6 @@ import { RichMenuContents } from "./RichMenuContents";
 
 const LIST_ITEMS: ListItemProps[] = [...Array(15).keys()].map((_, index) => ({
   icon: <FolderIcon />,
-  // TODO: ListItemのtruncate対応
   title: "フォルダ名" + index,
   onClick: () => {},
   hasChevron: false,
