@@ -6,7 +6,7 @@ export const RichMenuList = ({ groups, onClickButton }: RichMenuListProps) => {
   return (
     <div className="my-4 flex max-h-[400px] w-fit flex-col gap-y-2 border-l border-gray-extraLight px-4">
       <div className="flex flex-1 gap-x-4 overflow-hidden rounded bg-gray-extraLight p-4">
-        {groups.map((group) => (
+        {groups?.map((group) => (
           <article
             className="flex w-[240px] flex-col"
             key={group.id}
