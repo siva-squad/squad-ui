@@ -9,8 +9,8 @@ export const RichMenu = ({
   absolute = false,
   isOpen = false,
   navigationType,
-  richMenuType,
   anchor = "left",
+  ...richMenuProps
 }: RichMenuProps) => {
   const { height: windowHeight } = useScreenSize();
   const { rectState, clientRectRef } = useClientRect({ enabled: isOpen });
@@ -29,7 +29,7 @@ export const RichMenu = ({
       ref={clientRectRef}
     >
       <MenuList navigationType={navigationType} />
-      <RichMenuContents richMenuType={richMenuType} />
+      <RichMenuContents {...richMenuProps} />
     </div>
   );
 };
