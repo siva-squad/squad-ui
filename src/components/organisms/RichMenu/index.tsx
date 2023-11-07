@@ -1,3 +1,4 @@
+import { RichMenuList } from "@components/molecules/RichMenuList";
 import { useClientRect } from "@hooks/useClientRect";
 import { useScreenSize } from "@hooks/useScreenSize";
 import { MenuList } from "@molecules/MenuList";
@@ -28,6 +29,7 @@ export const RichMenu = ({
     >
       <MenuList navigationType={navigationType} />
       {/* <RichMenuContent richMenuKey="cvtag" /> */}
+      <RichMenuList groups={[]} />
     </div>
   );
 };
