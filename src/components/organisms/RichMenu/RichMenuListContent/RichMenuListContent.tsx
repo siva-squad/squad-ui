@@ -5,7 +5,7 @@ import { RichMenuListContentProps } from "./type";
 
 export const RichMenuListContent = ({ listGroup }: RichMenuListContentProps) => {
   return (
-    <div className="my-4 flex max-h-[400px] flex-col gap-y-2 border-l border-gray-extraLight px-4">
+    <div className="my-4 flex max-h-[400px] w-fit flex-col gap-y-2 border-l border-gray-extraLight px-4">
       <div className="flex flex-1 gap-x-4 overflow-hidden rounded bg-gray-extraLight p-4">
         {listGroup.map((list, index, passedArray) => (
           <>

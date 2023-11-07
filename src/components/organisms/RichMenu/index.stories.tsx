@@ -1,6 +1,7 @@
+import { Button } from "@components/atoms";
 import { ListItemProps } from "@components/atoms/ListItem/type";
 import { MenuListTypeKey } from "@components/molecules/MenuList";
-import { FolderIcon } from "@heroicons/react/24/outline";
+import { ChevronRightIcon, FolderIcon } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/24/solid";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -69,6 +70,16 @@ export const List: StoryObj<typeof RichMenu> = {
       {
         items: LIST_ITEMS,
         title: "お気に入り",
+        bottomButton: (
+          <Button
+            theme="no-background"
+            size="small"
+            iconPosition="right"
+            icon={<ChevronRightIcon />}
+          >
+            すべてのお気に入りを見る
+          </Button>
+        ),
         titleIcon: (
           <StarIcon
             className="text-yellow"

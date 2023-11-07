@@ -4,5 +4,6 @@ import { ListItemProps } from "@components/atoms/ListItem/type";
 export type RichMenuListProps = {
   title: string;
   titleIcon?: ReactElement;
+  bottomButton?: ReactElement;
   items: ListItemProps[];
 };
