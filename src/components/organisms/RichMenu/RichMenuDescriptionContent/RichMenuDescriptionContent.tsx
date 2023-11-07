@@ -13,12 +13,11 @@ export const RichMenuDescriptionContent = ({
         <h2 className="text-lg font-bold leading-tight">{headingText}</h2>
         <p className="text-xs leading-normal">{description}</p>
       </div>
-      <div className="mt-6 flex-1">
-        <img
-          src={imgSrc}
-          className="rounded-lg object-scale-down"
-        />
-      </div>
+      <img
+        src={imgSrc}
+        className="mt-6 flex-1 overflow-hidden rounded-lg object-cover"
+        draggable={false}
+      />
       <div className="mt-4 w-fit self-center">
         <Button
           theme="no-background"
