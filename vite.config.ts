@@ -1,10 +1,9 @@
-/// <reference types="vitest">
 import { resolve } from "path";
 import react from "@vitejs/plugin-react";
 import autoprefixer from "autoprefixer";
 import tailwindcss from "tailwindcss";
-import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
+import { defineConfig } from "vitest/config";
 import { name } from "./package.json";
 
 const formattedName = name.match(/[^/]+$/)?.[0] ?? name;
@@ -32,6 +31,11 @@ export default defineConfig({
       "@hooks": resolve(__dirname, "src/hooks"),
       "@": resolve(__dirname, "./"),
     },
+  },
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: ["./vitest.setup.ts"],
   },
   build: {
     lib: {
