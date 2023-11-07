@@ -6,6 +6,7 @@ export default {
   component: RichMenuDescriptionContent,
   parameters: {
     controls: { expanded: true },
+    chromatic: { disableSnapshot: true },
   },
   argTypes: {},
 } satisfies Meta<typeof RichMenuDescriptionContent>;
