@@ -5,6 +5,9 @@ import { MenuList } from "@molecules/MenuList";
 import { RICH_MENU_CLASS_NAME } from "./const";
 import { RichMenuProps } from "./type";
 
+// TODO:
+// lisItemのアイコン・desc見切れ調整
+
 export const RichMenu = ({
   absolute = false,
   isOpen = false,
