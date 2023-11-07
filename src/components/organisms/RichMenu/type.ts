@@ -6,5 +6,4 @@ export type RichMenuProps = {
   onOpenChange?: () => void;
   absolute?: boolean;
   anchor?: "right" | "left";
-  maxHeight?: string;
 };
