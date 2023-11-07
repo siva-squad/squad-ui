@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { RichMenuContent } from "@components/molecules/RichMenuContent";
 import { useClientRect } from "@hooks/useClientRect";
 import { useScreenSize } from "@hooks/useScreenSize";
 import { MenuList } from "@molecules/MenuList";
@@ -9,18 +9,10 @@ export const RichMenu = ({
   absolute = false,
   isOpen = false,
   navigationType,
-  richMenuType,
   anchor = "left",
 }: RichMenuProps) => {
   const { height: windowHeight } = useScreenSize();
   const { rectState, clientRectRef } = useClientRect({ enabled: isOpen });
-
-  const RichContentUI = useCallback(() => {
-    if (richMenuType === "default") return <></>;
-
-    // ここでrichContent切り替え
-    return <div className="border-l border-gray-extraLight p-4">{richMenuType} エリア</div>;
-  }, [richMenuType]);
 
   if (!isOpen) return <></>;
 
@@ -36,7 +28,7 @@ export const RichMenu = ({
       ref={clientRectRef}
     >
       <MenuList navigationType={navigationType} />
-      <RichContentUI />
+      <RichMenuContent richMenuKey="cvtag" />
     </div>
   );
 };
