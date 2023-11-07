@@ -51,7 +51,6 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
           <RichMenu
             isOpen={richMenuState.key === "account" && richMenuState.isOpen}
             navigationType="account"
-            richMenuType="default"
             absolute
             anchor="right"
           />

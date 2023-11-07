@@ -29,7 +29,6 @@ export const Default: StoryObj<typeof GlobalSidebar> = {
         title: "ダッシュボード",
         id: "1",
         navigationType: "default",
-        richMenuType: "default",
         hasChevron: false,
       },
       {
@@ -37,14 +36,12 @@ export const Default: StoryObj<typeof GlobalSidebar> = {
         title: "beyondページ",
         id: "2",
         navigationType: "beyond",
-        richMenuType: "default",
       },
       {
         href: "#",
         title: "ドメイン",
         id: "3",
         navigationType: "default",
-        richMenuType: "default",
         hasChevron: false,
       },
       {
@@ -52,7 +49,6 @@ export const Default: StoryObj<typeof GlobalSidebar> = {
         title: "外部連携",
         id: "4",
         navigationType: "connection",
-        richMenuType: "default",
       },
     ],
   },

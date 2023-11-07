@@ -38,7 +38,6 @@ export const NavigationListUI = ({ items, mediaType = "desktop" }: NavigationLis
                   richMenuState.isOpen
                 }
                 navigationType={item.navigationType}
-                richMenuType={item.richMenuType}
                 absolute
               />
             </div>

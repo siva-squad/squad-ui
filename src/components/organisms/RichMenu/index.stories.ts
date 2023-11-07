@@ -27,13 +27,6 @@ export default {
     onOpenChange: {
       type: "function",
     },
-    richMenuType: {
-      type: "string",
-      options: ["default", "list", "description"],
-      control: {
-        type: "select",
-      },
-    },
   },
 } satisfies Meta<typeof RichMenu>;
 
@@ -41,7 +34,6 @@ export const Default: StoryObj<typeof RichMenu> = {
   args: {
     isOpen: true,
     navigationType: "beyond",
-    richMenuType: "default",
   },
 };
 
@@ -49,7 +41,6 @@ export const List: StoryObj<typeof RichMenu> = {
   args: {
     isOpen: true,
     navigationType: "beyond",
-    richMenuType: "list",
   },
 };
 
@@ -57,6 +48,5 @@ export const Description: StoryObj<typeof RichMenu> = {
   args: {
     isOpen: true,
     navigationType: "beyond",
-    richMenuType: "description",
   },
 };
