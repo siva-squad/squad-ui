@@ -10,7 +10,7 @@ import { RichMenuProps } from "./type";
 
 const commonItems = {
   icon: <FolderIcon />,
-  title: "フォルダ名",
+  title: "フォルダ名フォルダ名フォルダ名フォルダ名",
   size: "medium",
   hasChevron: false,
   onClick: () => {},
