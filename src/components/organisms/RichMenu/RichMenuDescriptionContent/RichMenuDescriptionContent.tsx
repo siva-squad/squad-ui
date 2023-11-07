@@ -8,7 +8,7 @@ export const RichMenuDescriptionContent = ({
   imgSrc,
 }: RichMenuDescriptionContentProps) => {
   return (
-    <div className="m-4 flex w-[544px] flex-col px-6 py-4">
+    <div className="m-4 flex max-h-[400px] w-[544px] flex-col px-6 py-4">
       <div className="flex flex-col items-center gap-y-4">
         <h2 className="text-lg font-bold leading-tight">{headingText}</h2>
         <p className="text-xs leading-normal">{description}</p>
