@@ -1,9 +1,12 @@
 import { ListItemProps } from "@components/atoms/ListItem/type";
+import { MenuListTypeKey } from "@components/molecules/MenuList";
 import { FolderIcon } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/24/solid";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { RichMenuContents } from "./RichMenuContents";
+import { RichMenu } from ".";
+
+const RICH_MENU_TYPES: MenuListTypeKey[] = ["account", "beyond", "connection"];
 
 const LIST_ITEMS: ListItemProps[] = [...Array(15).keys()].map((_, index) => ({
   icon: <FolderIcon />,
@@ -15,38 +18,55 @@ const LIST_ITEMS: ListItemProps[] = [...Array(15).keys()].map((_, index) => ({
 }));
 
 export default {
-  component: RichMenuContents,
+  component: RichMenu,
   parameters: {
     controls: { expanded: true },
   },
-  argTypes: {},
-} satisfies Meta<typeof RichMenuContents>;
-
-export const Default: StoryObj<typeof RichMenuContents> = {
   argTypes: {
-    richMenuType: {
+    absolute: {
+      type: "boolean",
+    },
+    isOpen: {
+      type: "boolean",
+    },
+    navigationType: {
       type: "string",
+      options: RICH_MENU_TYPES,
       control: {
-        type: "disabled",
+        type: "select",
       },
     },
-  },
-};
-
-export const List: StoryObj<typeof RichMenuContents> = {
-  argTypes: {
+    onOpenChange: {
+      type: "function",
+    },
     richMenuType: {
       type: "string",
-      options: ["list", "default"],
+      options: ["default", "list", "description"],
       control: {
         type: "select",
       },
     },
   },
+} satisfies Meta<typeof RichMenu>;
+
+export const Default: StoryObj<typeof RichMenu> = {
   args: {
+    isOpen: true,
+    navigationType: "beyond",
+    richMenuType: "default",
+  },
+};
+
+export const List: StoryObj<typeof RichMenu> = {
+  args: {
+    isOpen: true,
+    navigationType: "beyond",
     richMenuType: "list",
     listGroup: [
-      { items: LIST_ITEMS, title: "もっと見る" },
+      {
+        items: LIST_ITEMS,
+        title: "もっと見る",
+      },
       {
         items: LIST_ITEMS,
         title: "お気に入り",
@@ -62,17 +82,10 @@ export const List: StoryObj<typeof RichMenuContents> = {
   },
 };
 
-export const Description: StoryObj<typeof RichMenuContents> = {
-  argTypes: {
-    richMenuType: {
-      type: "string",
-      options: ["description", "default"],
-      control: {
-        type: "select",
-      },
-    },
-  },
+export const Description: StoryObj<typeof RichMenu> = {
   args: {
+    isOpen: true,
+    navigationType: "beyond",
     richMenuType: "description",
     headingText: "一括タグで時間を節約一括タグで時間を節約",
     description:
