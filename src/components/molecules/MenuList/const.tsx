@@ -22,7 +22,7 @@ import { MergeType } from "@/src/utils/type-utils";
 
 export const MENU_NAVIGATION_KEYS = [
   "default",
-  "beyond",
+  "folder",
   "cvtag",
   "replacement",
   "media",
@@ -57,7 +57,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
     groupId: "beyond",
     items: [
       {
-        id: "default",
+        id: "folder",
         icon: <FolderIconOutline />,
         selectedIcon: <FolderIconSolid />,
         description: "descriptionTextが入ります",

@@ -19,8 +19,8 @@ export const MenuList = forwardRef<HTMLDivElement, MenuListProps>(
             return (
               <ListItemDropDown
                 {...(item as ListItemProps)}
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
+                onMouseEnter={() => onMouseEnter?.(item.id)}
+                onMouseLeave={() => onMouseLeave?.(item.id)}
                 key={item.id}
               >
                 {item.children}
@@ -32,8 +32,8 @@ export const MenuList = forwardRef<HTMLDivElement, MenuListProps>(
             <ListItem
               {...(item as ListItemProps)}
               key={item.id}
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
+              onMouseEnter={() => onMouseEnter?.(item.id)}
+              onMouseLeave={() => onMouseLeave?.(item.id)}
               size="large"
             />
           );

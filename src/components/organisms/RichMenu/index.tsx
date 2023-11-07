@@ -1,8 +1,12 @@
+import { useState } from "react";
+import { MenuKindKey } from "@components/molecules/MenuList/const";
+import { RichMenuDescription } from "@components/molecules/RichMenuDescription";
 import { RichMenuList } from "@components/molecules/RichMenuList";
 import { useClientRect } from "@hooks/useClientRect";
 import { useScreenSize } from "@hooks/useScreenSize";
 import { MenuList } from "@molecules/MenuList";
 import { RICH_MENU_CLASS_NAME } from "./const";
+import { DESCRIPTIONS } from "./dict";
 import { RichMenuProps } from "./type";
 
 // TODO:
@@ -17,6 +21,9 @@ export const RichMenu = ({
 }: RichMenuProps) => {
   const { height: windowHeight } = useScreenSize();
   const { rectState, clientRectRef } = useClientRect({ enabled: isOpen });
+
+  const [hoveredMenuId, setHoveredMenuId] = useState<MenuKindKey>("default");
+  const descriptionContent = DESCRIPTIONS.find((desc) => desc.id === hoveredMenuId);
 
   if (!isOpen) return <></>;
 
@@ -33,13 +40,25 @@ export const RichMenu = ({
     >
       <MenuList
         navigationType={navigationType}
-        onMouseEnter={(id) => console.log({ id })}
+        onMouseEnter={(id) => setHoveredMenuId(id)}
       />
       {/* TODO: ここでRichMenuListとDescription切り替え */}
-      <RichMenuList
-        groups={groups}
-        onClickButton={() => {}}
-      />
+      {hoveredMenuId !== "default" ? (
+        hoveredMenuId === "folder" ? (
+          <RichMenuList
+            groups={groups}
+            onClickButton={() => {}}
+          />
+        ) : (
+          <RichMenuDescription
+            imgSrc={descriptionContent?.imgSrc || ""}
+            headingText={descriptionContent?.headingText || ""}
+            description={descriptionContent?.description || ""}
+          />
+        )
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

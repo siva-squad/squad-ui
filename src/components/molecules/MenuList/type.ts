@@ -1,6 +1,8 @@
-import { ListItemProps } from "@components/atoms/ListItem/type";
+import { MenuKindKey } from "./const";
 
 export type MenuListTypeKey = "beyond" | "connection" | "account" | "default";
 export type MenuListProps = {
   navigationType: MenuListTypeKey;
-} & Pick<ListItemProps, "onMouseEnter" | "onMouseLeave">;
+  onMouseEnter?: (id: MenuKindKey) => void;
+  onMouseLeave?: (id: MenuKindKey) => void;
+};
