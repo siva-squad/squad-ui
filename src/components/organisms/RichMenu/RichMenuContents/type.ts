@@ -4,16 +4,16 @@ export type RichMenuContentsProps =
   | {
       richMenuType: "default";
       listGroup?: never;
-      headingText: never;
-      description: never;
+      headingText?: never;
+      description?: never;
       imgSrc: never;
     }
   | {
       richMenuType: "list";
       listGroup: RichMenuListContentProps["listGroup"];
-      headingText: never;
-      description: never;
-      imgSrc: never;
+      headingText?: never;
+      description?: never;
+      imgSrc?: never;
     }
   | {
       richMenuType: "description";
