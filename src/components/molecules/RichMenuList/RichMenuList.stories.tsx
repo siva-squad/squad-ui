@@ -12,21 +12,22 @@ export default {
   argTypes: {},
 } satisfies Meta<typeof RichMenuList>;
 
+const commonItems = {
+  icon: <FolderIcon />,
+  title: "フォルダ名",
+  size: "medium",
+  hasChevron: false,
+  onClick: () => {},
+} as const;
+
 export const Default: StoryObj<typeof RichMenuList> = {
   args: {
+    onClickButton: () => console.log("clicked"),
     groups: [
       {
         id: "1",
         title: "最近見た",
-        items: [
-          {
-            icon: <FolderIcon />,
-            title: "フォルダ名",
-            size: "medium",
-            hasChevron: false,
-            onClick: () => {},
-          },
-        ],
+        items: [...Array(10)].map(() => commonItems),
       },
       {
         id: "2",
@@ -38,15 +39,7 @@ export const Default: StoryObj<typeof RichMenuList> = {
             className="text-yellow"
           />
         ),
-        items: [
-          {
-            icon: <FolderIcon />,
-            title: "フォルダ名",
-            size: "medium",
-            hasChevron: false,
-            onClick: () => {},
-          },
-        ],
+        items: [...Array(10)].map(() => commonItems),
       },
     ],
   },

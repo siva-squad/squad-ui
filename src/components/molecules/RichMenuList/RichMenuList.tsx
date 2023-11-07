@@ -2,7 +2,7 @@ import { Button, ListItem } from "@components/atoms";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import type { RichMenuListProps } from "./type";
 
-export const RichMenuList = ({ groups }: RichMenuListProps) => {
+export const RichMenuList = ({ groups, onClickButton }: RichMenuListProps) => {
   return (
     <div className="my-4 flex max-h-[400px] w-fit flex-col gap-y-2 border-l border-gray-extraLight px-4">
       <div className="flex flex-1 gap-x-4 overflow-hidden rounded bg-gray-extraLight p-4">
@@ -33,6 +33,7 @@ export const RichMenuList = ({ groups }: RichMenuListProps) => {
           size="small"
           iconPosition="right"
           icon={<ChevronRightIcon />}
+          onClick={onClickButton}
         >
           すべてのフォルダを見る
         </Button>

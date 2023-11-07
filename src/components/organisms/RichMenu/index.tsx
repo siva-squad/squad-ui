@@ -29,7 +29,10 @@ export const RichMenu = ({
     >
       <MenuList navigationType={navigationType} />
       {/* <RichMenuContent richMenuKey="cvtag" /> */}
-      <RichMenuList groups={[]} />
+      <RichMenuList
+        groups={[]}
+        onClickButton={() => {}}
+      />
     </div>
   );
 };
