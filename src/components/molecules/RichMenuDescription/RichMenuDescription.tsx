@@ -7,6 +7,7 @@ export const RichMenuDescription = ({
   headingText,
   description,
   imgSrc,
+  faqLink,
 }: RichMenuDescriptionProps) => {
   return (
     <div className="m-4 flex max-h-[400px] w-[544px] flex-col px-6 py-4">
@@ -26,7 +27,7 @@ export const RichMenuDescription = ({
           iconPosition="right"
           icon={<ArrowTopRightOnSquareIcon />}
         >
-          利用方法(FAQ)
+          <a href={faqLink}>利用方法(FAQ)</a>
         </Button>
       </div>
     </div>

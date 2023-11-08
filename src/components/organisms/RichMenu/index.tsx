@@ -59,6 +59,7 @@ export const RichMenu = ({
     if (hoveredMenuId !== "folder" && !!descriptionContent)
       return (
         <RichMenuDescription
+          faqLink={descriptionContent.faqLink}
           imgSrc={descriptionContent?.imgSrc || ""}
           headingText={descriptionContent?.headingText || ""}
           description={descriptionContent?.description || ""}
