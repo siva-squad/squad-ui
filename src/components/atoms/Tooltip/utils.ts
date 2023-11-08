@@ -54,27 +54,25 @@ const checkIsOffScreen = (
     ? (positionToAnchorInformation[positionToAnchor].flipValue as PositionToAnchor)
     : positionToAnchor;
 
-  let checkedAlignment;
-
   if (alignment === "center" && alignmentInformation[alignment].isOffScreen) {
     const isLeftAlignmentOffScreen = alignmentInformation.left.isOffScreen;
     const isRightAlignmentOffScreen = alignmentInformation.right.isOffScreen;
 
-    checkedAlignment = isLeftAlignmentOffScreen
+    const checkedAlignment = isLeftAlignmentOffScreen
       ? ("right" as Alignment)
       : isRightAlignmentOffScreen
       ? ("left" as Alignment)
       : ("center" as Alignment);
 
     return { checkedPositionToAnchor, checkedAlignment };
+  } else {
+    const checkedAlignment =
+      alignment !== "center" && alignmentInformation[alignment].isOffScreen
+        ? (alignmentInformation[alignment].flipValue as Alignment)
+        : alignment;
+
+    return { checkedPositionToAnchor, checkedAlignment };
   }
-
-  checkedAlignment =
-    alignment !== "center" && alignmentInformation[alignment].isOffScreen
-      ? (alignmentInformation[alignment].flipValue as Alignment)
-      : alignment;
-
-  return { checkedPositionToAnchor, checkedAlignment };
 };
 
 const getAlignment = (
