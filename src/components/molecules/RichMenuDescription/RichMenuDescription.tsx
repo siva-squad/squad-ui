@@ -19,6 +19,7 @@ export const RichMenuDescription = ({
         src={imgSrc}
         className="mt-6 flex-1 overflow-hidden rounded-lg object-cover"
         draggable={false}
+        alt=""
       />
       <div className="mt-4 w-fit self-center">
         <Button
