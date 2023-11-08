@@ -31,3 +31,20 @@ export type UseTooltipPositionStylesProps = {
   alignment: Alignment;
   isOpen: boolean;
 };
+
+// utility function return types
+
+export type CheckIsOffScreenReturn = {
+  checkedPositionToAnchor: PositionToAnchor;
+  checkedAlignment: Alignment;
+};
+
+export type GetPositionToAnchorReturn = {
+  top?: number;
+  left?: number;
+};
+
+export type GetShapePositionReturn = {
+  left?: number;
+  right?: number;
+};

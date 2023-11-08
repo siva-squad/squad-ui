@@ -1,4 +1,10 @@
-import { Alignment, PositionToAnchor } from "./type";
+import {
+  Alignment,
+  CheckIsOffScreenReturn,
+  GetPositionToAnchorReturn,
+  GetShapePositionReturn,
+  PositionToAnchor,
+} from "./type";
 
 const checkIsOffScreen = (
   bottomSpace: number,
@@ -10,10 +16,7 @@ const checkIsOffScreen = (
   tooltipWidth: number,
   positionToAnchor: PositionToAnchor,
   alignment: Alignment,
-): {
-  checkedPositionToAnchor: PositionToAnchor;
-  checkedAlignment: Alignment;
-} => {
+): CheckIsOffScreenReturn => {
   const positionToAnchorInformation = {
     top: {
       isOffScreen: top - tooltipHeight < 0,
@@ -33,7 +36,7 @@ const checkIsOffScreen = (
     },
   };
 
-  const alignemntInformation = {
+  const alignmentInformation = {
     left: {
       isOffScreen: rightSpace - tooltipWidth < 0,
       flipValue: "right",
@@ -53,9 +56,9 @@ const checkIsOffScreen = (
 
   let checkedAlignment;
 
-  if (alignment === "center" && alignemntInformation[alignment].isOffScreen) {
-    const isLeftAlignmentOffScreen = alignemntInformation.left.isOffScreen;
-    const isRightAlignmentOffScreen = alignemntInformation.right.isOffScreen;
+  if (alignment === "center" && alignmentInformation[alignment].isOffScreen) {
+    const isLeftAlignmentOffScreen = alignmentInformation.left.isOffScreen;
+    const isRightAlignmentOffScreen = alignmentInformation.right.isOffScreen;
 
     checkedAlignment = isLeftAlignmentOffScreen
       ? ("right" as Alignment)
@@ -67,8 +70,8 @@ const checkIsOffScreen = (
   }
 
   checkedAlignment =
-    alignment !== "center" && alignemntInformation[alignment].isOffScreen
-      ? (alignemntInformation[alignment].flipValue as Alignment)
+    alignment !== "center" && alignmentInformation[alignment].isOffScreen
+      ? (alignmentInformation[alignment].flipValue as Alignment)
       : alignment;
 
   return { checkedPositionToAnchor, checkedAlignment };
@@ -79,7 +82,7 @@ const getAlignment = (
   alignRight: number,
   alignLeft: number,
   alignCenter: number,
-): {} => {
+): { left: number } => {
   switch (alignment) {
     case "left":
       return { left: alignLeft };
@@ -96,7 +99,7 @@ const getPositionToAnchor = (
   bottomOfAnchor: number,
   leftOfAnchor: number,
   rightOfAnchor: number,
-): {} => {
+): GetPositionToAnchorReturn => {
   switch (position) {
     case "top":
       return { top: topOfAnchor };
@@ -109,7 +112,7 @@ const getPositionToAnchor = (
   }
 };
 
-const getShapePosition = (alignment: string, shapePosition: number): {} => {
+const getShapePosition = (alignment: string, shapePosition: number): GetShapePositionReturn => {
   switch (alignment) {
     case "left":
       return {
@@ -124,7 +127,7 @@ const getShapePosition = (alignment: string, shapePosition: number): {} => {
   }
 };
 
-const getShapeClasses = (positionToAnchor: "top" | "bottom" | "left" | "right") => {
+const getShapeClasses = (positionToAnchor: "top" | "bottom" | "left" | "right"): string => {
   switch (positionToAnchor) {
     case "top":
       return "bottom-[-4.5px]";
