@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { MenuKindKey } from "@components/molecules/MenuList/const";
 import { RichMenuDescription } from "@components/molecules/RichMenuDescription";
 import { RichMenuList } from "@components/molecules/RichMenuList";
@@ -45,6 +45,27 @@ export const RichMenu = ({
 
   const descriptionContent = DESCRIPTIONS.find((desc) => desc.id === hoveredMenuId);
 
+  const richMenuUI = useMemo(() => {
+    if (hoveredMenuId === "default") return <></>;
+
+    if (hoveredMenuId === "folder" && groups?.length)
+      return (
+        <RichMenuList
+          groups={groups}
+          onClickButton={() => {}}
+        />
+      );
+
+    if (hoveredMenuId !== "folder" && !!descriptionContent)
+      return (
+        <RichMenuDescription
+          imgSrc={descriptionContent?.imgSrc || ""}
+          headingText={descriptionContent?.headingText || ""}
+          description={descriptionContent?.description || ""}
+        />
+      );
+  }, [descriptionContent, groups, hoveredMenuId]);
+
   if (!isOpen) return <></>;
 
   return (
@@ -62,22 +83,7 @@ export const RichMenu = ({
         navigationType={navigationType}
         onMouseEnter={(id) => setHoveredMenuId(id)}
       />
-      {hoveredMenuId !== "default" ? (
-        hoveredMenuId === "folder" ? (
-          <RichMenuList
-            groups={groups}
-            onClickButton={() => {}}
-          />
-        ) : (
-          <RichMenuDescription
-            imgSrc={descriptionContent?.imgSrc || ""}
-            headingText={descriptionContent?.headingText || ""}
-            description={descriptionContent?.description || ""}
-          />
-        )
-      ) : (
-        <></>
-      )}
+      {richMenuUI}
     </div>
   );
 };
