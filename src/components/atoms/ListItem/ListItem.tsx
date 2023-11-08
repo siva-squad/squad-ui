@@ -45,7 +45,12 @@ export const ListItem = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, 
 
     return (
       <Action
-        className={LIST_ITEM_CONTAINER_CLASS_NAME({ theme, isSelected })}
+        className={LIST_ITEM_CONTAINER_CLASS_NAME({
+          theme,
+          isSelected,
+          isAnchor: !!href,
+          isDisabled,
+        })}
         disabled={isDisabled}
         onClick={onClick}
         onFocus={() => setLocalSelected(true)}
@@ -54,20 +59,22 @@ export const ListItem = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, 
         id={id}
         onMouseEnter={() => onMouseEnter?.(id || "")}
         onMouseLeave={() => onMouseLeave?.(id || "")}
-        {...(href && { href, target })}
+        {...(href && !isDisabled && { href, target })}
       >
         {icon && (
-          <span className={LIST_ITEM_ICON_CLASS_NAME({ size, theme, isSelected })}>{iconUI}</span>
+          <span className={LIST_ITEM_ICON_CLASS_NAME({ size, theme, isSelected, isDisabled })}>
+            {iconUI}
+          </span>
         )}
         <span className="flex flex-1 flex-col items-start">
-          <span className={LIST_ITEM_TEXT_CLASS_NAME({ size, theme })}>{title}</span>
+          <span className={LIST_ITEM_TEXT_CLASS_NAME({ size, theme, isDisabled })}>{title}</span>
           {description && size === "large" && (
-            <span className={LIST_ITEM_DESCRIPTION_CLASS_NAME({ isSelected, theme })}>
+            <span className={LIST_ITEM_DESCRIPTION_CLASS_NAME({ isSelected, theme, isDisabled })}>
               {description}
             </span>
           )}
         </span>
-        {hasChevron && <ChevronDownIcon className={LIST_CHEVRON_CLASS_NAME()} />}
+        {hasChevron && <ChevronDownIcon className={LIST_CHEVRON_CLASS_NAME({ isDisabled })} />}
       </Action>
     );
   },
