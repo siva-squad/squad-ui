@@ -38,11 +38,11 @@ const checkIsOffScreen = (
 
   const alignmentInformation = {
     left: {
-      isOffScreen: rightSpace - tooltipWidth < 0,
+      isOffScreen: rightSpace - centerSpace < 0,
       flipValue: "right",
     },
     right: {
-      isOffScreen: left - tooltipWidth < 0,
+      isOffScreen: left - centerSpace < 0,
       flipValue: "left",
     },
     center: {
