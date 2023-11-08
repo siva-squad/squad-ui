@@ -16,15 +16,14 @@ export const RichMenuList = ({ groups, onClickButton }: RichMenuListProps) => {
                 {group.titleIcon}
                 <span className="text-xs font-medium leading-none">{group.title}</span>
               </div>
-              <div className="mt-4 flex flex-col gap-y-2 overflow-y-auto overflow-x-hidden pb-4">
+              <ul className="mt-4 flex flex-col gap-y-2 overflow-y-auto overflow-x-hidden pb-4">
                 {group.items.map((item) => (
-                  <ListItem
-                    {...item}
-                    key={item.id}
-                  />
+                  <li key={item.id}>
+                    <ListItem {...item} />
+                  </li>
                 ))}
-              </div>
-              {group.bottomButton && <div className="self-start">{group.bottomButton}</div>}
+              </ul>
+              {group?.bottomButton && <div className="self-start">{group.bottomButton}</div>}
             </article>
             {index < passed.length - 1 && <div className="h-full w-px bg-gray-light"></div>}
           </>
