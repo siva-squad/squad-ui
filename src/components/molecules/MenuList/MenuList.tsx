@@ -11,7 +11,7 @@ export const MenuList = forwardRef<HTMLDivElement, MenuListProps>(
 
     return (
       <nav
-        className="flex flex-col gap-y-4 overflow-auto p-4"
+        className="flex shrink-0 flex-col gap-y-4 overflow-auto p-4"
         ref={ref}
       >
         {menuNavigationItems.items.map((item) => {
