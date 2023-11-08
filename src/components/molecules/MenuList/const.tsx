@@ -60,7 +60,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         id: "folder",
         icon: <FolderIconOutline />,
         selectedIcon: <FolderIconSolid />,
-        description: "",
+        description: "ページの制作・設定・管理等はコチラから",
         title: "フォルダ",
         href: "",
         hasChevron: false,
