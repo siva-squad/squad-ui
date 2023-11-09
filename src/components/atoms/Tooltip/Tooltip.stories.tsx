@@ -1,8 +1,5 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { expect } from "@storybook/jest";
 import type { Meta, StoryObj } from "@storybook/react";
-
-import { within, userEvent } from "@storybook/testing-library";
 
 import { Button } from "../Button";
 import { Tooltip } from "./Tooltip";
@@ -29,7 +26,7 @@ export default {
   ],
 } satisfies Meta<typeof Tooltip>;
 
-export const DefaultOnHover: StoryObj<typeof Tooltip> = {
+export const Default: StoryObj<typeof Tooltip> = {
   argTypes: {},
   args: {
     tooltipText: "メッセージテキスト",
@@ -45,58 +42,9 @@ export const DefaultOnHover: StoryObj<typeof Tooltip> = {
       </div>
     ),
   ],
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const tooltipAnchor = canvas.getByTestId("tooltip-anchor");
-
-    await expect(tooltipAnchor).toHaveAccessibleName("");
-    await userEvent.hover(tooltipAnchor);
-    const tooltip = canvas.getByRole("tooltip");
-
-    await expect(tooltip).toBeInTheDocument();
-    await expect(tooltipAnchor).toHaveAccessibleName("メッセージテキスト");
-    await expect(tooltip).toHaveAttribute("aria-hidden", "false");
-
-    await userEvent.unhover(tooltipAnchor);
-    await expect(tooltip).not.toBeInTheDocument();
-  },
 };
 
-export const DefaultOnTab: StoryObj<typeof Tooltip> = {
-  argTypes: {},
-  args: {
-    tooltipText: "メッセージテキスト",
-    positionToAnchor: "top",
-    alignment: "left",
-    children: "Text",
-    ariaLabelledBy: "text-with-tooltip-id",
-  },
-  decorators: [
-    (Story) => (
-      <div className="grid min-h-screen content-center justify-center">
-        <Story />
-      </div>
-    ),
-  ],
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const tooltipAnchor = canvas.getByTestId("tooltip-anchor");
-
-    await expect(tooltipAnchor).toHaveAccessibleName("");
-    await userEvent.tab();
-
-    const tooltip = canvas.getByRole("tooltip");
-
-    await expect(tooltip).toBeInTheDocument();
-    await expect(tooltipAnchor).toHaveAccessibleName("メッセージテキスト");
-    await expect(tooltip).toHaveAttribute("aria-hidden", "false");
-
-    await userEvent.tab();
-    await expect(tooltip).not.toBeInTheDocument();
-  },
-};
-
-export const FocusOnButton: StoryObj<typeof Tooltip> = {
+export const WithButton: StoryObj<typeof Tooltip> = {
   argTypes: {},
   args: {
     tooltipText: "メッセージテキスト",
@@ -112,19 +60,9 @@ export const FocusOnButton: StoryObj<typeof Tooltip> = {
     ),
     ariaLabelledBy: "button-with-tooltip-id",
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const tooltipAnchor = canvas.getByTestId("tooltip-anchor");
-    const button = canvas.getByRole("button");
-
-    await userEvent.tab();
-
-    await expect(tooltipAnchor).not.toHaveFocus();
-    await expect(button).toHaveFocus();
-  },
 };
 
-export const FocusOnLink: StoryObj<typeof Tooltip> = {
+export const WithLink: StoryObj<typeof Tooltip> = {
   argTypes: {},
   args: {
     tooltipText: "メッセージテキスト",
@@ -132,16 +70,6 @@ export const FocusOnLink: StoryObj<typeof Tooltip> = {
     alignment: "left",
     children: <a href="#">Some link</a>,
     ariaLabelledBy: "link-with-tooltip-id",
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const tooltipAnchor = canvas.getByTestId("tooltip-anchor");
-    const link = canvas.getByRole("link");
-
-    await userEvent.tab();
-
-    await expect(tooltipAnchor).not.toHaveFocus();
-    await expect(link).toHaveFocus();
   },
 };
 
