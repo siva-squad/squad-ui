@@ -1,4 +1,11 @@
-import { Alignment, CheckIsOffScreenProps, PositionToAnchor } from "./type";
+import {
+  Alignment,
+  CheckIsOffScreenReturn,
+  GetPositionToAnchorReturn,
+  GetShapePositionReturn,
+  PositionToAnchor,
+  CheckIsOffScreenProps,
+} from "./type";
 
 export const checkIsOffScreen = ({
   bottomSpace,
@@ -10,10 +17,7 @@ export const checkIsOffScreen = ({
   tooltipWidth,
   positionToAnchor,
   alignment,
-}: CheckIsOffScreenProps): {
-  checkedPositionToAnchor: PositionToAnchor;
-  checkedAlignment: Alignment;
-} => {
+}: CheckIsOffScreenProps): CheckIsOffScreenReturn => {
   const positionToAnchorInformation = {
     top: {
       isOffScreen: top - tooltipHeight < 0,
@@ -33,13 +37,13 @@ export const checkIsOffScreen = ({
     },
   };
 
-  const alignemntInformation = {
+  const alignmentInformation = {
     left: {
-      isOffScreen: rightSpace - tooltipWidth < 0,
+      isOffScreen: rightSpace - centerSpace < 0,
       flipValue: "right",
     },
     right: {
-      isOffScreen: left - tooltipWidth < 0,
+      isOffScreen: left - centerSpace < 0,
       flipValue: "left",
     },
     center: {
@@ -51,27 +55,25 @@ export const checkIsOffScreen = ({
     ? (positionToAnchorInformation[positionToAnchor].flipValue as PositionToAnchor)
     : positionToAnchor;
 
-  let checkedAlignment;
+  if (alignment === "center" && alignmentInformation[alignment].isOffScreen) {
+    const isLeftAlignmentOffScreen = alignmentInformation.left.isOffScreen;
+    const isRightAlignmentOffScreen = alignmentInformation.right.isOffScreen;
 
-  if (alignment === "center" && alignemntInformation[alignment].isOffScreen) {
-    const isLeftAlignmentOffScreen = alignemntInformation.left.isOffScreen;
-    const isRightAlignmentOffScreen = alignemntInformation.right.isOffScreen;
-
-    checkedAlignment = isLeftAlignmentOffScreen
+    const checkedAlignment = isLeftAlignmentOffScreen
       ? ("right" as Alignment)
       : isRightAlignmentOffScreen
       ? ("left" as Alignment)
       : ("center" as Alignment);
 
     return { checkedPositionToAnchor, checkedAlignment };
+  } else {
+    const checkedAlignment =
+      alignment !== "center" && alignmentInformation[alignment].isOffScreen
+        ? (alignmentInformation[alignment].flipValue as Alignment)
+        : alignment;
+
+    return { checkedPositionToAnchor, checkedAlignment };
   }
-
-  checkedAlignment =
-    alignment !== "center" && alignemntInformation[alignment].isOffScreen
-      ? (alignemntInformation[alignment].flipValue as Alignment)
-      : alignment;
-
-  return { checkedPositionToAnchor, checkedAlignment };
 };
 
 export const getAlignment = ({
@@ -84,7 +86,7 @@ export const getAlignment = ({
   alignRight: number;
   alignLeft: number;
   alignCenter: number;
-}): {} => {
+}): { left: number } => {
   switch (alignment) {
     case "left":
       return { left: alignLeft };
@@ -107,7 +109,7 @@ export const getPositionToAnchor = ({
   bottomOfAnchor: number;
   leftOfAnchor: number;
   rightOfAnchor: number;
-}): {} => {
+}): GetPositionToAnchorReturn => {
   switch (position) {
     case "top":
       return { top: topOfAnchor };
@@ -120,7 +122,10 @@ export const getPositionToAnchor = ({
   }
 };
 
-export const getShapePosition = (alignment: Alignment, shapePosition: number): {} => {
+export const getShapePosition = (
+  alignment: Alignment,
+  shapePosition: number,
+): GetShapePositionReturn => {
   switch (alignment) {
     case "left":
       return {
@@ -135,7 +140,7 @@ export const getShapePosition = (alignment: Alignment, shapePosition: number): {
   }
 };
 
-export const getShapeClasses = (positionToAnchor: PositionToAnchor) => {
+export const getShapeClasses = (positionToAnchor: PositionToAnchor): string => {
   switch (positionToAnchor) {
     case "top":
       return "bottom-[-4.5px]";
