@@ -4,19 +4,20 @@ import {
   GetPositionToAnchorReturn,
   GetShapePositionReturn,
   PositionToAnchor,
+  CheckIsOffScreenProps,
 } from "./type";
 
-const checkIsOffScreen = (
-  bottomSpace: number,
-  rightSpace: number,
-  centerSpace: number,
-  top: number,
-  left: number,
-  tooltipHeight: number,
-  tooltipWidth: number,
-  positionToAnchor: PositionToAnchor,
-  alignment: Alignment,
-): CheckIsOffScreenReturn => {
+export const checkIsOffScreen = ({
+  bottomSpace,
+  rightSpace,
+  centerSpace,
+  top,
+  left,
+  tooltipHeight,
+  tooltipWidth,
+  positionToAnchor,
+  alignment,
+}: CheckIsOffScreenProps): CheckIsOffScreenReturn => {
   const positionToAnchorInformation = {
     top: {
       isOffScreen: top - tooltipHeight < 0,
@@ -75,12 +76,17 @@ const checkIsOffScreen = (
   }
 };
 
-const getAlignment = (
-  alignment: string,
-  alignRight: number,
-  alignLeft: number,
-  alignCenter: number,
-): { left: number } => {
+export const getAlignment = ({
+  alignment,
+  alignRight,
+  alignLeft,
+  alignCenter,
+}: {
+  alignment: Alignment;
+  alignRight: number;
+  alignLeft: number;
+  alignCenter: number;
+}): { left: number } => {
   switch (alignment) {
     case "left":
       return { left: alignLeft };
@@ -91,13 +97,19 @@ const getAlignment = (
   }
 };
 
-const getPositionToAnchor = (
-  position: "top" | "bottom" | "left" | "right",
-  topOfAnchor: number,
-  bottomOfAnchor: number,
-  leftOfAnchor: number,
-  rightOfAnchor: number,
-): GetPositionToAnchorReturn => {
+export const getPositionToAnchor = ({
+  position,
+  topOfAnchor,
+  bottomOfAnchor,
+  leftOfAnchor,
+  rightOfAnchor,
+}: {
+  position: PositionToAnchor;
+  topOfAnchor: number;
+  bottomOfAnchor: number;
+  leftOfAnchor: number;
+  rightOfAnchor: number;
+}): GetPositionToAnchorReturn => {
   switch (position) {
     case "top":
       return { top: topOfAnchor };
@@ -110,7 +122,10 @@ const getPositionToAnchor = (
   }
 };
 
-const getShapePosition = (alignment: string, shapePosition: number): GetShapePositionReturn => {
+export const getShapePosition = (
+  alignment: Alignment,
+  shapePosition: number,
+): GetShapePositionReturn => {
   switch (alignment) {
     case "left":
       return {
@@ -125,7 +140,7 @@ const getShapePosition = (alignment: string, shapePosition: number): GetShapePos
   }
 };
 
-const getShapeClasses = (positionToAnchor: "top" | "bottom" | "left" | "right"): string => {
+export const getShapeClasses = (positionToAnchor: PositionToAnchor): string => {
   switch (positionToAnchor) {
     case "top":
       return "bottom-[-4.5px]";
@@ -137,5 +152,3 @@ const getShapeClasses = (positionToAnchor: "top" | "bottom" | "left" | "right"):
       return "left-[-7px] rotate-90";
   }
 };
-
-export { getAlignment, getPositionToAnchor, getShapePosition, getShapeClasses, checkIsOffScreen };

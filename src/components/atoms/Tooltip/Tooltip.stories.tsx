@@ -18,9 +18,9 @@ export default {
   decorators: [
     (Story) => (
       <div className="grid min-h-screen content-center">
-        <p>
+        <div>
           <Story />
-        </p>
+        </div>
       </div>
     ),
   ],
@@ -38,30 +38,16 @@ export const Default: StoryObj<typeof Tooltip> = {
   decorators: [
     (Story) => (
       <div className="grid min-h-screen content-center justify-center">
-        <p>
-          <Story />
-        </p>
+        <Story />
       </div>
     ),
   ],
 };
 
-export const LongText: StoryObj<typeof Tooltip> = {
+export const WithButton: StoryObj<typeof Tooltip> = {
   argTypes: {},
   args: {
     tooltipText: "メッセージテキスト",
-    positionToAnchor: "top",
-    alignment: "left",
-    children: "This is some very long text",
-    ariaLabelledBy: "long-text-with-tooltip-id",
-  },
-};
-
-export const WithButtonAnchor: StoryObj<typeof Tooltip> = {
-  argTypes: {},
-  args: {
-    tooltipText:
-      "メッセージテキストメッセージテキストメッセージテキストメッセージテキストメッセージテキストメッセージテキストメッセージテキストメッセージテキストメッセージテキスト",
     positionToAnchor: "right",
     alignment: "center",
     children: (
@@ -76,7 +62,7 @@ export const WithButtonAnchor: StoryObj<typeof Tooltip> = {
   },
 };
 
-export const WithLinkAnchor: StoryObj<typeof Tooltip> = {
+export const WithLink: StoryObj<typeof Tooltip> = {
   argTypes: {},
   args: {
     tooltipText: "メッセージテキスト",

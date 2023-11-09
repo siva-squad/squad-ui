@@ -32,6 +32,18 @@ export type UseTooltipPositionStylesProps = {
   isOpen: boolean;
 };
 
+export type CheckIsOffScreenProps = {
+  bottomSpace: number;
+  rightSpace: number;
+  centerSpace: number;
+  top: number;
+  left: number;
+  tooltipHeight: number;
+  tooltipWidth: number;
+  positionToAnchor: PositionToAnchor;
+  alignment: Alignment;
+};
+
 // utility function return types
 
 export type CheckIsOffScreenReturn = {

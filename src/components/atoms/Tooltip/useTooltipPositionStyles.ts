@@ -35,7 +35,7 @@ export const useTooltipPositionStyles = ({
       const rightSpace = window.innerWidth - right;
       const centerSpace = (tooltipWidth - width) / 2;
 
-      const { checkedPositionToAnchor, checkedAlignment } = checkIsOffScreen(
+      const { checkedPositionToAnchor, checkedAlignment } = checkIsOffScreen({
         bottomSpace,
         rightSpace,
         centerSpace,
@@ -45,7 +45,7 @@ export const useTooltipPositionStyles = ({
         tooltipWidth,
         positionToAnchor,
         alignment,
-      );
+      });
 
       const topOfAnchor = top - tooltipHeight - tooltipPadding + windowScrollY;
       const bottomOfAnchor = bottom + tooltipPadding + windowScrollY;
@@ -62,15 +62,20 @@ export const useTooltipPositionStyles = ({
       const alignmentStyles =
         checkedPositionToAnchor === "left" || checkedPositionToAnchor === "right"
           ? { top: verticalCenter }
-          : getAlignment(checkedAlignment, alignRight, alignLeft, horizontalCenter);
+          : getAlignment({
+              alignment: checkedAlignment,
+              alignRight,
+              alignLeft,
+              alignCenter: horizontalCenter,
+            });
 
-      const positionToAnchorStyles = getPositionToAnchor(
-        checkedPositionToAnchor,
+      const positionToAnchorStyles = getPositionToAnchor({
+        position: checkedPositionToAnchor,
         topOfAnchor,
         bottomOfAnchor,
         leftOfAnchor,
         rightOfAnchor,
-      );
+      });
 
       const shapePosition =
         checkedPositionToAnchor === "left" || checkedPositionToAnchor === "right"
