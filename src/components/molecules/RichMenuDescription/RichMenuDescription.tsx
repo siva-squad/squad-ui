@@ -1,4 +1,4 @@
-import { Button } from "@components/atoms";
+import { Anchor } from "@components/atoms/Anchor";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 
 import type { RichMenuDescriptionProps } from "./type";
@@ -22,14 +22,15 @@ export const RichMenuDescription = ({
         alt=""
       />
       <div className="mt-4 w-fit self-center">
-        <Button
+        <Anchor
+          href={faqLink}
           theme="no-background"
           size="small"
           iconPosition="right"
           icon={<ArrowTopRightOnSquareIcon />}
         >
-          <a href={faqLink}>利用方法(FAQ)</a>
-        </Button>
+          利用方法(FAQ)
+        </Anchor>
       </div>
     </div>
   );
