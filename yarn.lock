@@ -2221,25 +2221,6 @@
     "@storybook/global" "^5.0.0"
     "@storybook/preview-api" "7.5.3"
 
-"@storybook/addon-interactions@^7.5.2":
-  version "7.5.3"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-interactions/-/addon-interactions-7.5.3.tgz#5aef96b3fa24aaafb88c0fc501f6a7e8cfa2a342"
-  integrity sha512-gD3cU8sYSM/mdbA9ooYIb4c689JkDsJbZ17vfYJ5RjNkSmqKehybdpZOfkj27sVIyFtmscSi75t+pzK4Pv4rZw==
-  dependencies:
-    "@storybook/client-logger" "7.5.3"
-    "@storybook/components" "7.5.3"
-    "@storybook/core-common" "7.5.3"
-    "@storybook/core-events" "7.5.3"
-    "@storybook/global" "^5.0.0"
-    "@storybook/instrumenter" "7.5.3"
-    "@storybook/manager-api" "7.5.3"
-    "@storybook/preview-api" "7.5.3"
-    "@storybook/theming" "7.5.3"
-    "@storybook/types" "7.5.3"
-    jest-mock "^27.0.6"
-    polished "^4.2.2"
-    ts-dedent "^2.2.0"
-
 "@storybook/addon-links@^7.4.6":
   version "7.5.3"
   resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-7.5.3.tgz#4ed55c932db0b25197a16c30723307f6d20d7141"
@@ -2681,17 +2662,6 @@
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/@storybook/global/-/global-5.0.0.tgz#b793d34b94f572c1d7d9e0f44fac4e0dbc9572ed"
   integrity sha512-FcOqPAXACP0I3oJ/ws6/rrPT9WGhu915Cg8D02a9YxLo0DE9zI+a9A5gRGvmQ09fiWPukqI8ZAEoQEdWUKMQdQ==
-
-"@storybook/instrumenter@7.5.3":
-  version "7.5.3"
-  resolved "https://registry.yarnpkg.com/@storybook/instrumenter/-/instrumenter-7.5.3.tgz#de875ba10db3b5a06a1acbc27a8b1f8fb1d875ff"
-  integrity sha512-p6b+/6ohTCKxWn00bXT8KBqVjXUOxeILnJtLlG83USLQCpI+XVkpmK57HYuydqEwy/1XjG+4S4ntPk9VVz3u7w==
-  dependencies:
-    "@storybook/channels" "7.5.3"
-    "@storybook/client-logger" "7.5.3"
-    "@storybook/core-events" "7.5.3"
-    "@storybook/global" "^5.0.0"
-    "@storybook/preview-api" "7.5.3"
 
 "@storybook/jest@^0.2.3":
   version "0.2.3"
@@ -7417,7 +7387,7 @@ jest-message-util@^29.7.0:
     slash "^3.0.0"
     stack-utils "^2.0.3"
 
-jest-mock@^27.0.6, jest-mock@^27.3.0:
+jest-mock@^27.3.0:
   version "27.5.1"
   resolved "https://registry.yarnpkg.com/jest-mock/-/jest-mock-27.5.1.tgz#19948336d49ef4d9c52021d34ac7b5f36ff967d6"
   integrity sha512-K4jKbY1d4ENhbrG2zuPWaQBvDly+iZ2yAW+T1fATN78hc0sInwn7wZB8XtlNnvHug5RMwV897Xm4LqmPM4e2Og==
@@ -10049,6 +10019,7 @@ string-length@^5.0.1:
     strip-ansi "^7.0.1"
 
 "string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.3:
+  name string-width-cjs
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -10140,6 +10111,7 @@ string_decoder@~1.1.1:
     safe-buffer "~5.1.0"
 
 "strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+  name strip-ansi-cjs
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
@@ -11212,6 +11184,7 @@ wordwrap@^1.0.0:
   integrity sha512-gvVzJFlPycKc5dZN4yPkP8w7Dc37BtP1yczEneOb4uq34pXZcvrtRTmWV8W+Ume+XCxKgbjM+nevkyFPMybd4Q==
 
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
+  name wrap-ansi-cjs
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
