@@ -1,5 +1,5 @@
 import { ListItem } from "@components/atoms";
-import { RichMenu } from "@components/organisms/RichMenu";
+import { RichMenu } from "@components/organisms/RichMenu/RIchMenu";
 import { useScreenSize } from "@hooks/useScreenSize";
 import { useRichMenuDialog } from "../../hooks";
 import { GlobalNavigationProps } from "../../type";

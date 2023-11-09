@@ -4,7 +4,7 @@ import { ChevronRightIcon, FolderIcon } from "@heroicons/react/24/outline";
 import { StarIcon } from "@heroicons/react/24/solid";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { RichMenu } from ".";
+import { RichMenu } from "./RIchMenu";
 
 const RICH_MENU_TYPES: MenuListTypeKey[] = ["account", "beyond", "connection"];
 
