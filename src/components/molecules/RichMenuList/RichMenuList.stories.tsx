@@ -23,7 +23,7 @@ const commonItems = {
 
 export const Default: StoryObj<typeof RichMenuList> = {
   args: {
-    onClickButton: () => console.log("clicked"),
+    onViewAllFolders: () => console.log("clicked"),
     groups: [
       {
         id: "1",

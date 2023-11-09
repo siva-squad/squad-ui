@@ -16,7 +16,7 @@ export const RichMenuContents = ({ menuId, descriptionContent, groups }: RichMen
     return (
       <RichMenuList
         groups={groups}
-        onClickButton={() => {}}
+        onViewAllFolders={() => {}}
       />
     );
 
