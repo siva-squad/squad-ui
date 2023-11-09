@@ -56,7 +56,7 @@ export const ListItem = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, 
         onBlur={() => setLocalSelected(false)}
         ref={ref as React.RefObject<HTMLAnchorElement> & React.RefObject<HTMLButtonElement>}
         id={id}
-        onMouseEnter={() => onMouseEnter?.(id || "")}
+        onMouseEnter={onMouseEnter}
         {...(href && !isDisabled && { href, target })}
       >
         {icon && (

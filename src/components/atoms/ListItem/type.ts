@@ -31,7 +31,6 @@ export type ListItemProps = {
   title: ReactNode;
   isSelected?: boolean;
   theme?: "normal" | "red";
-  onMouseEnter?: (id: string) => void;
-  onMouseLeave?: (id: string) => void;
+  onMouseEnter?: () => void;
 } & TypeAndDescriptionType &
   AnchorAndButtonType;
