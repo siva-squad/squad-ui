@@ -1,4 +1,4 @@
-import { MenuKindKey } from "@components/molecules/MenuList/const";
+import { MenuKindKey } from "@components/molecules/MenuList/type";
 import { RichMenuDescriptionProps } from "@components/molecules/RichMenuDescription/type";
 
 export const DESCRIPTIONS: ({ id: MenuKindKey } & RichMenuDescriptionProps)[] = [

@@ -1,6 +1,4 @@
-import { ReactNode } from "react";
 import { CVTag, CVTagFilled } from "@assets/icons";
-import { ListItemProps } from "@atoms/ListItem/type";
 import { ListItem } from "@components/atoms/ListItem";
 import {
   ArrowPathIcon as ArrowPathIconOutline,
@@ -16,9 +14,8 @@ import {
   ShieldCheckIcon as ShieldCheckIconSolid,
   ClipboardDocumentIcon as ClipboardDocumentIconSolid,
 } from "@heroicons/react/24/solid";
-import type { MenuListTypeKey } from "@molecules/MenuList";
+import type { MenuNavigationType } from "@molecules/MenuList";
 import { OTHERS_NAVIGATION } from "../ListItemDropDown/const";
-import { MergeType } from "@/src/utils/type-utils";
 
 export const MENU_NAVIGATION_KEYS = [
   "default",
@@ -39,14 +36,6 @@ export const MENU_NAVIGATION_KEYS = [
   "others",
   "logout",
 ] as const;
-
-export type MenuKindKey = (typeof MENU_NAVIGATION_KEYS)[number];
-
-type MenuNavigationItemProps = Omit<ListItemProps, "id"> & { id: MenuKindKey };
-type MenuNavigationType = {
-  groupId: MenuListTypeKey;
-  items: MergeType<MenuNavigationItemProps, { children?: ReactNode }>[];
-}[];
 
 export const MENU_NAVIGATION: MenuNavigationType = [
   {

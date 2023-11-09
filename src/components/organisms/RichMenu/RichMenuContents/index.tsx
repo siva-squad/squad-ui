@@ -1,4 +1,4 @@
-import { MenuKindKey } from "@components/molecules/MenuList/const";
+import { MenuKindKey } from "@components/molecules/MenuList/type";
 import { RichMenuDescription } from "@components/molecules/RichMenuDescription";
 import { RichMenuDescriptionProps } from "@components/molecules/RichMenuDescription/type";
 import { RichMenuList } from "@components/molecules/RichMenuList";

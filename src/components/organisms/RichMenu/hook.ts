@@ -1,5 +1,5 @@
 import { RefObject, useCallback, useEffect, useState } from "react";
-import { MenuKindKey } from "@components/molecules/MenuList/const";
+import { MenuKindKey } from "@components/molecules/MenuList/type";
 
 export const useRichMenuHover = ({ containerRef }: { containerRef: RefObject<HTMLElement> }) => {
   const [hoveredMenuId, setHoveredMenuId] = useState<MenuKindKey>("default");

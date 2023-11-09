@@ -5,7 +5,7 @@ import { ListItemDropDown } from "../ListItemDropDown";
 import { MENU_NAVIGATION } from "./const";
 import { MenuListProps } from "./type";
 
-export const MenuList = forwardRef<HTMLDivElement, MenuListProps>(
+export const MenuList = forwardRef<HTMLElement, MenuListProps>(
   ({ navigationType, onMouseEnter, onMouseLeave }, ref) => {
     const [menuNavigationItems] = MENU_NAVIGATION.filter((nav) => nav.groupId === navigationType);
 
