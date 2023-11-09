@@ -10,7 +10,7 @@ import { NavigationListUI } from "./components/NavigationListUI";
 import { useRichMenuDialog } from "./hooks";
 import type { GlobalNavigationProps } from "./type";
 
-export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
+export const GlobalNavigation = ({ items, groups }: GlobalNavigationProps) => {
   const { isDesktop, isMobile } = useScreenSize();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -36,7 +36,12 @@ export const GlobalNavigation = ({ items }: GlobalNavigationProps) => {
           </button>
         )}
         <BrandLogo />
-        {isDesktop && <NavigationListUI items={items} />}
+        {isDesktop && (
+          <NavigationListUI
+            items={items}
+            groups={groups}
+          />
+        )}
         <div
           className="relative ml-auto"
           data-dropdown-id="account"

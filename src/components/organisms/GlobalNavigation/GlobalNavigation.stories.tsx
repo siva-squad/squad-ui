@@ -1,3 +1,4 @@
+import { StarIcon } from "@heroicons/react/24/solid";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { GlobalNavigation } from "./GlobalNavigation";
@@ -23,6 +24,25 @@ export default {
 
 export const Default: StoryObj<typeof GlobalNavigation> = {
   args: {
+    groups: [
+      {
+        title: "最近見た",
+        id: "1",
+        items: [],
+      },
+      {
+        title: "お気に入り",
+        titleIcon: (
+          <StarIcon
+            height={12}
+            width={12}
+            className="text-yellow"
+          />
+        ),
+        id: "2",
+        items: [],
+      },
+    ],
     items: [
       {
         href: "#",
