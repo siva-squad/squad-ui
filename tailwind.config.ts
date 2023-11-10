@@ -59,14 +59,6 @@ export default {
         black: "#13141533",
       },
     },
-    boxShadow: {
-      "01": "0px 0.5px 2px 0px rgba(0, 85, 195, 0.10), 0px 0px 2px 0px rgba(0, 85, 195, 0.10);",
-      "02": "0px 2px 4px 0px rgba(0, 85, 195, 0.10), 0px 0px 2px 0px rgba(0, 85, 195, 0.10);",
-      "03": "0px 4px 8px 0px rgba(0, 85, 195, 0.10), 0px 0px 2px 0px rgba(0, 85, 195, 0.10);",
-      "04": "0px 8px 16px 0px rgba(0, 85, 195, 0.10), 0px 0px 2px 0px rgba(0, 85, 195, 0.10);",
-      "05": "0px 16px 24px 0px rgba(0, 85, 195, 0.10), 0px 0px 2px 0px rgba(0, 85, 195, 0.10);",
-      "06": "0px 40px 40px 0px rgba(0, 85, 195, 0.10), 0px 0px 2px 0px rgba(0, 85, 195, 0.10);",
-    },
     fontFamily: {
       "noto-sans-cjk-jp": "Noto Sans CJK JP",
     },
@@ -89,6 +81,17 @@ export default {
         normal: "160%",
         tight: "120%",
         none: "100%",
+      },
+      boxShadow: {
+        "01": "0px 0.5px 2px 0px rgba(0, 85, 195, 0.10), 0px 0px 2px 0px rgba(0, 85, 195, 0.10);",
+        "02": "0px 2px 4px 0px rgba(0, 85, 195, 0.10), 0px 0px 2px 0px rgba(0, 85, 195, 0.10);",
+        "03": "0px 4px 8px 0px rgba(0, 85, 195, 0.10), 0px 0px 2px 0px rgba(0, 85, 195, 0.10);",
+        "04": "0px 8px 16px 0px rgba(0, 85, 195, 0.10), 0px 0px 2px 0px rgba(0, 85, 195, 0.10);",
+        "05": "0px 16px 24px 0px rgba(0, 85, 195, 0.10), 0px 0px 2px 0px rgba(0, 85, 195, 0.10);",
+        "06": "0px 40px 40px 0px rgba(0, 85, 195, 0.10), 0px 0px 2px 0px rgba(0, 85, 195, 0.10);",
+      },
+      dropShadow: {
+        md: ["0 8px 8px rgba(0, 85, 195, 0.10)", "0 0 1px rgba(0, 85, 195, 0.10)"],
       },
     },
   },
