@@ -1,6 +1,4 @@
-import { ReactNode } from "react";
 import { CVTag, CVTagFilled } from "@assets/icons";
-import { ListItemProps } from "@atoms/ListItem/type";
 import { ListItem } from "@components/atoms/ListItem";
 import {
   ArrowPathIcon as ArrowPathIconOutline,
@@ -16,14 +14,28 @@ import {
   ShieldCheckIcon as ShieldCheckIconSolid,
   ClipboardDocumentIcon as ClipboardDocumentIconSolid,
 } from "@heroicons/react/24/solid";
-import type { MenuListTypeKey } from "@molecules/MenuList";
+import type { MenuNavigationType } from "@molecules/MenuList";
 import { OTHERS_NAVIGATION } from "../ListItemDropDown/const";
-import { MergeType } from "@/src/utils/type-utils";
 
-type MenuNavigationType = {
-  groupId: MenuListTypeKey;
-  items: MergeType<ListItemProps, { children?: ReactNode }>[];
-}[];
+export const MENU_NAVIGATION_KEYS = [
+  "default",
+  "folder",
+  "cvtag",
+  "replacement",
+  "media",
+  "inspection",
+  "form",
+  "ad",
+  "cv-measurement",
+  "team",
+  "role",
+  "user-settings",
+  "plans",
+  "payments",
+  "bonus",
+  "others",
+  "logout",
+] as const;
 
 export const MENU_NAVIGATION: MenuNavigationType = [
   {
@@ -34,55 +46,55 @@ export const MENU_NAVIGATION: MenuNavigationType = [
     groupId: "beyond",
     items: [
       {
-        id: "1",
+        id: "folder",
         icon: <FolderIconOutline />,
         selectedIcon: <FolderIconSolid />,
-        description: "descriptionTextが入ります",
-        title: "テキスト",
+        description: "ページの制作・設定・管理等はコチラから",
+        title: "フォルダ",
         href: "",
         hasChevron: false,
       },
       {
-        id: "2",
+        id: "cvtag",
         icon: <CVTag />,
         selectedIcon: <CVTagFilled />,
-        description: "descriptionTextが入ります",
+        description: "必ず使うタグを事前設置。設定漏れ防止",
         title: "一括タグ",
         href: "",
         hasChevron: false,
       },
       {
-        id: "3",
+        id: "replacement",
         icon: <ArrowPathIconOutline />,
         selectedIcon: <ArrowPathIconSolid />,
-        description: "descriptionTextが入ります",
+        description: "ページを横断して画像やURLを一括置換",
         title: "マジック置換",
         href: "",
         hasChevron: false,
       },
       {
-        id: "4",
+        id: "media",
         icon: <SwatchIconOutline />,
         selectedIcon: <SwatchIconSolid />,
-        description: "descriptionTextが入ります",
+        description: "LPに検索窓や検索候補を簡単に設置",
         title: "メディア",
         href: "",
         hasChevron: false,
       },
       {
-        id: "5",
+        id: "inspection",
         icon: <ShieldCheckIconOutline />,
         selectedIcon: <ShieldCheckIconSolid />,
-        description: "descriptionTextが入ります",
+        description: "審査が通過したLPだけを表示可能に",
         title: "審査",
         href: "",
         hasChevron: false,
       },
       {
-        id: "6",
+        id: "form",
         icon: <ClipboardDocumentIconOutline />,
         selectedIcon: <ClipboardDocumentIconSolid />,
-        description: "descriptionTextが入ります",
+        description: "申し込みフォームを利用し顧客を増やす",
         title: "フォーム",
         href: "",
         hasChevron: false,
@@ -93,16 +105,16 @@ export const MENU_NAVIGATION: MenuNavigationType = [
     groupId: "connection",
     items: [
       {
-        id: "1",
+        id: "ad",
         title: "広告媒体連携",
-        description: "descriptionTextが入ります",
+        description: "広告管理画面の数値を取得できます",
         href: "",
         hasChevron: false,
       },
       {
-        id: "2",
+        id: "cv-measurement",
         title: "CV計測連携",
-        description: "descriptionTextが入ります",
+        description: "ECカートやCRMのCV数を表示できます",
         href: "",
         hasChevron: false,
       },
@@ -112,49 +124,49 @@ export const MENU_NAVIGATION: MenuNavigationType = [
     groupId: "account",
     items: [
       {
-        id: "1",
+        id: "team",
         title: "所属チーム",
-        description: "descriptionTextが入ります",
+        description: "作業するチームを選択できます。",
         href: "",
         hasChevron: false,
       },
       {
-        id: "2",
+        id: "role",
         title: "招待/権限",
-        description: "descriptionTextが入ります",
+        description: "チームメンバーを管理できます",
         href: "",
         hasChevron: false,
       },
       {
-        id: "3",
+        id: "user-settings",
         title: "ユーザー設定",
-        description: "descriptionTextが入ります",
+        description: "お客様自身の情報を確認・変更できます",
         href: "",
         hasChevron: false,
       },
       {
-        id: "4",
+        id: "plans",
         title: "プラン",
-        description: "descriptionTextが入ります",
+        description: "ご利用中のプラン料金を確認できます",
         href: "",
         hasChevron: false,
       },
       {
-        id: "5",
+        id: "payments",
         title: "支払い管理",
-        description: "descriptionTextが入ります",
+        description: "お支払い情報を確認・変更",
         href: "",
         hasChevron: false,
       },
       {
-        id: "6",
+        id: "bonus",
         title: "特典",
-        description: "descriptionTextが入ります",
+        description: "ご紹介キャッシュバック等の特典があります",
         href: "",
         hasChevron: false,
       },
       {
-        id: "7",
+        id: "others",
         title: "その他",
         href: "",
         children: (
@@ -169,7 +181,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         ),
       },
       {
-        id: "8",
+        id: "logout",
         title: "ログアウト",
         hasChevron: false,
         theme: "red",

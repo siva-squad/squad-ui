@@ -1,26 +1,24 @@
-import { useCallback } from "react";
 import { useClientRect } from "@hooks/useClientRect";
 import { useScreenSize } from "@hooks/useScreenSize";
 import { MenuList } from "@molecules/MenuList";
 import { RICH_MENU_CLASS_NAME } from "./const";
+import { DESCRIPTIONS } from "./dict";
+import { useRichMenuHover } from "./hook";
+import { RichMenuContents } from "./RichMenuContents";
 import { RichMenuProps } from "./type";
 
 export const RichMenu = ({
   absolute = false,
   isOpen = false,
   navigationType,
-  richMenuType,
   anchor = "left",
+  groups,
 }: RichMenuProps) => {
   const { height: windowHeight } = useScreenSize();
   const { rectState, clientRectRef } = useClientRect({ enabled: isOpen });
+  const { hoveredMenuId, setHoveredMenuId } = useRichMenuHover({ containerRef: clientRectRef });
 
-  const RichContentUI = useCallback(() => {
-    if (richMenuType === "default") return <></>;
-
-    // ここでrichContent切り替え
-    return <div className="border-l border-gray-extraLight p-4">{richMenuType} エリア</div>;
-  }, [richMenuType]);
+  const descriptionContent = DESCRIPTIONS.find((desc) => desc.id === hoveredMenuId);
 
   if (!isOpen) return <></>;
 
@@ -35,8 +33,15 @@ export const RichMenu = ({
       }}
       ref={clientRectRef}
     >
-      <MenuList navigationType={navigationType} />
-      <RichContentUI />
+      <MenuList
+        navigationType={navigationType}
+        onMouseEnter={(id) => setHoveredMenuId(id)}
+      />
+      <RichMenuContents
+        menuId={hoveredMenuId}
+        descriptionContent={descriptionContent}
+        groups={groups}
+      />
     </div>
   );
 };

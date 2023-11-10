@@ -1,5 +1,6 @@
 import { ListItem } from "@components/atoms";
-import { RichMenu } from "@components/organisms/RichMenu";
+import { RichMenu } from "@components/organisms/RichMenu/RIchMenu";
+import { RichMenuProps } from "@components/organisms/RichMenu/type";
 import { useScreenSize } from "@hooks/useScreenSize";
 import { useRichMenuDialog } from "../../hooks";
 import { GlobalNavigationProps } from "../../type";
@@ -7,9 +8,14 @@ import { NAVIGATION_LIST_CLASS_NAME } from "./const";
 
 type NavigationListUIProps = {
   items: GlobalNavigationProps["items"];
+  groups?: RichMenuProps["groups"];
   mediaType?: "desktop" | "mobile";
 };
-export const NavigationListUI = ({ items, mediaType = "desktop" }: NavigationListUIProps) => {
+export const NavigationListUI = ({
+  items,
+  mediaType = "desktop",
+  groups,
+}: NavigationListUIProps) => {
   const { media } = useScreenSize();
   const { richMenuState, noCloseRefs, toggleDialog } = useRichMenuDialog();
 
@@ -38,8 +44,8 @@ export const NavigationListUI = ({ items, mediaType = "desktop" }: NavigationLis
                   richMenuState.isOpen
                 }
                 navigationType={item.navigationType}
-                richMenuType={item.richMenuType}
                 absolute
+                groups={groups}
               />
             </div>
           </li>

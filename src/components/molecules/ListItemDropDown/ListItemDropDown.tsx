@@ -15,6 +15,7 @@ export const ListItemDropDown = ({
   selectedIcon,
   size,
   description,
+  onMouseEnter,
 }: MergeType<ListItemProps, { children: ReactNode }>) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -30,6 +31,7 @@ export const ListItemDropDown = ({
           isSelected,
           icon,
           selectedIcon,
+          onMouseEnter,
           ...(size === "large" ? { size, description } : { size }),
         }}
         onClick={() => setIsOpen((prev) => !prev)}

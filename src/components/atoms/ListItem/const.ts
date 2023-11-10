@@ -8,6 +8,14 @@ export const LIST_ITEM_CONTAINER_CLASS_NAME = tv({
     "focus-visible:ring-1 focus-visible:ring-offset-2",
   ),
   variants: {
+    isDisabled: {
+      true: "cursor-not-allowed",
+      false: "",
+    },
+    isAnchor: {
+      true: "",
+      false: "",
+    },
     isSelected: {
       true: "",
       false: "",
@@ -23,6 +31,7 @@ export const LIST_ITEM_CONTAINER_CLASS_NAME = tv({
   },
   defaultVariants: {
     theme: "normal",
+    isDisabled: false,
   },
   compoundVariants: [
     {
@@ -35,12 +44,28 @@ export const LIST_ITEM_CONTAINER_CLASS_NAME = tv({
       isSelected: true,
       class: "bg-primary-50",
     },
+    {
+      theme: "normal",
+      isAnchor: true,
+      isDisabled: false,
+      class: "hover:bg-gray-extraLight",
+    },
+    {
+      theme: "red",
+      isAnchor: true,
+      isDisabled: false,
+      class: "hover:bg-red-light",
+    },
   ],
 });
 
 export const LIST_ITEM_TEXT_CLASS_NAME = tv({
-  base: clsx("break-keep text-sm font-medium", "group-disabled:opacity-20"),
+  base: clsx("truncate text-sm font-medium", "group-disabled:opacity-20"),
   variants: {
+    isDisabled: {
+      true: "opacity-20",
+      false: "",
+    },
     size: {
       small: "text-xs text-gray-dark",
       medium: "text-gray-dark",
@@ -52,13 +77,18 @@ export const LIST_ITEM_TEXT_CLASS_NAME = tv({
     },
     defaultVariants: {
       theme: "normal",
+      isDisabled: false,
     },
   },
 });
 
 export const LIST_ITEM_ICON_CLASS_NAME = tv({
-  base: clsx("h-4 w-4 text-gray", "group-disabled:opacity-20"),
+  base: clsx("h-4 w-4 shrink-0 text-gray", "group-disabled:opacity-20"),
   variants: {
+    isDisabled: {
+      true: "opacity-20",
+      false: "",
+    },
     isSelected: {
       true: "",
       false: "",
@@ -75,6 +105,7 @@ export const LIST_ITEM_ICON_CLASS_NAME = tv({
   },
   defaultVariants: {
     theme: "normal",
+    isDisabled: false,
   },
   compoundVariants: [
     {
@@ -86,8 +117,12 @@ export const LIST_ITEM_ICON_CLASS_NAME = tv({
 });
 
 export const LIST_ITEM_DESCRIPTION_CLASS_NAME = tv({
-  base: clsx("break-keep text-xs text-gray", "group-disabled:opacity-20"),
+  base: clsx("truncate text-xs text-gray", "group-disabled:opacity-20"),
   variants: {
+    isDisabled: {
+      true: "opacity-20",
+      false: "",
+    },
     isSelected: {
       true: "",
       false: "",
@@ -99,6 +134,7 @@ export const LIST_ITEM_DESCRIPTION_CLASS_NAME = tv({
   },
   defaultVariants: {
     theme: "normal",
+    isDisabled: false,
   },
   compoundVariants: [
     {
@@ -116,4 +152,13 @@ export const LIST_ITEM_DESCRIPTION_CLASS_NAME = tv({
 
 export const LIST_CHEVRON_CLASS_NAME = tv({
   base: clsx("h-4 w-4 text-gray-dark", "group-disabled:opacity-20"),
+  variants: {
+    isDisabled: {
+      true: "opacity-20",
+      false: "",
+    },
+  },
+  defaultVariants: {
+    isDisabled: false,
+  },
 });
