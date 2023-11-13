@@ -73,3 +73,39 @@ export const Default: StoryObj<typeof GlobalNavigation> = {
     ],
   },
 };
+
+export const Simplified: StoryObj<typeof GlobalNavigation> = {
+  args: {
+    groups: [],
+    items: [
+      {
+        href: "#",
+        title: "ダッシュボード",
+        id: "1",
+        navigationType: "default",
+        hasChevron: false,
+      },
+      {
+        href: "",
+        title: "beyondページ",
+        id: "2",
+        navigationType: "beyond",
+      },
+      {
+        href: "#",
+        title: "ドメイン",
+        id: "3",
+        navigationType: "default",
+        hasChevron: false,
+      },
+      {
+        href: "",
+        title: "外部連携",
+        id: "4",
+        navigationType: "connection",
+      },
+    ],
+    showAccount: false,
+    showMenu: false,
+  },
+};

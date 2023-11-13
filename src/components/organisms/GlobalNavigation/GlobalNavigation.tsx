@@ -10,7 +10,12 @@ import { NavigationListUI } from "./components/NavigationListUI";
 import { useRichMenuDialog } from "./hooks";
 import type { GlobalNavigationProps } from "./type";
 
-export const GlobalNavigation = ({ items, groups }: GlobalNavigationProps) => {
+export const GlobalNavigation = ({
+  items,
+  groups,
+  showAccount = true,
+  showMenu = true,
+}: GlobalNavigationProps) => {
   const { isDesktop, isMobile } = useScreenSize();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -24,7 +29,7 @@ export const GlobalNavigation = ({ items, groups }: GlobalNavigationProps) => {
         className="flex items-center gap-x-6 border-b border-gray-light bg-white px-4 py-2"
         ref={headerRef}
       >
-        {isMobile && (
+        {isMobile && showMenu && (
           <button
             onClick={() => setIsSidebarOpen(true)}
             ref={triggerRef}
@@ -36,37 +41,41 @@ export const GlobalNavigation = ({ items, groups }: GlobalNavigationProps) => {
           </button>
         )}
         <BrandLogo />
-        {isDesktop && (
+        {isDesktop && showMenu && (
           <NavigationListUI
             items={items}
             groups={groups}
           />
         )}
-        <div
-          className="relative ml-auto"
-          data-dropdown-id="account"
-          ref={(el) => noCloseRefs.current.push(el)}
-        >
-          <GlobalAccount
-            userId="1"
-            userName="田中 太郎"
-            teamName="Squad beyondチーム"
-            onClick={() => toggleDialog("account")}
-          />
-          <RichMenu
-            isOpen={richMenuState.key === "account" && richMenuState.isOpen}
-            navigationType="account"
-            absolute
-            anchor="right"
-          />
-        </div>
+        {showAccount && (
+          <div
+            className="relative ml-auto"
+            data-dropdown-id="account"
+            ref={(el) => noCloseRefs.current.push(el)}
+          >
+            <GlobalAccount
+              userId="1"
+              userName="田中 太郎"
+              teamName="Squad beyondチーム"
+              onClick={() => toggleDialog("account")}
+            />
+            <RichMenu
+              isOpen={richMenuState.key === "account" && richMenuState.isOpen}
+              navigationType="account"
+              absolute
+              anchor="right"
+            />
+          </div>
+        )}
       </header>
-      <GlobalSidebar
-        items={items}
-        isOpen={isMobile && isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
-        ref={sidebarRef}
-      />
+      {showMenu && (
+        <GlobalSidebar
+          items={items}
+          isOpen={isMobile && isSidebarOpen}
+          onClose={() => setIsSidebarOpen(false)}
+          ref={sidebarRef}
+        />
+      )}
     </>
   );
 };
