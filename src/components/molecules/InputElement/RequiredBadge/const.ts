@@ -8,4 +8,7 @@ export const REQUIRED_BADGE_CLASS_NAME = tv({
       false: "bg-gray-extraLight text-gray-dark",
     },
   },
+  defaultVariants: {
+    isRequired: false,
+  },
 });

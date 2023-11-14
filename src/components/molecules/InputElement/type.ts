@@ -1,5 +1,10 @@
 import { ReactElement } from "react";
+import { RequiredBadgeProps } from "./RequiredBadge/type";
 
 export type InputElementProps = {
-  children: ReactElement;
-};
+  title?: string;
+  errorText?: string;
+  descriptionText?: string;
+  showRequired?: boolean;
+  children?: ReactElement;
+} & RequiredBadgeProps;
