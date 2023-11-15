@@ -7,7 +7,17 @@ export default {
   parameters: {
     controls: { expanded: true },
   },
-  argTypes: {},
+  argTypes: {
+    isRequired: {
+      type: "boolean",
+    },
+    optionalText: {
+      type: "string",
+    },
+    requiredText: {
+      type: "string",
+    },
+  },
 } satisfies Meta<typeof RequiredBadge>;
 
 export const Optional: StoryObj<typeof RequiredBadge> = {

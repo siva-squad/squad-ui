@@ -24,6 +24,12 @@ export default {
     isRequired: {
       type: "boolean",
     },
+    requiredText: {
+      type: "string",
+    },
+    optionalText: {
+      type: "string",
+    },
   },
 } satisfies Meta<typeof InputElement>;
 
