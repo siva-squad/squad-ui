@@ -6,5 +6,6 @@ export type GlobalNavigationProps = {
   groups: RichMenuProps["groups"];
   items: MergeType<ListItemProps, RichMenuProps>[];
   selectedId: string;
+  hasOnlyLogo?: boolean;
   onChangeSelectedId?: (id: string) => void;
 };
