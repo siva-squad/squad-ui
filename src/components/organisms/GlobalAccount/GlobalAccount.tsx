@@ -14,10 +14,11 @@ export const GlobalAccount = ({
   const { width } = useScreenSize();
 
   return (
-    <button
+    <div
       className="flex w-fit items-center gap-x-2"
       data-user={userId}
       onClick={() => onClick(userId)}
+      role="button"
     >
       <Avatar src={userImage} />
       {width > 800 && (
@@ -33,6 +34,6 @@ export const GlobalAccount = ({
           />
         </>
       )}
-    </button>
+    </div>
   );
 };
