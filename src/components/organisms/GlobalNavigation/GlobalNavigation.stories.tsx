@@ -105,7 +105,6 @@ export const Simplified: StoryObj<typeof GlobalNavigation> = {
         navigationType: "connection",
       },
     ],
-    showAccount: false,
-    showMenu: false,
+    hasOnlyLogo: true,
   },
 };
