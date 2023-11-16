@@ -3,7 +3,7 @@ import type { InputElementProps } from "./type";
 
 export const InputElement = ({
   children,
-  title,
+  label,
   errorText,
   descriptionText,
   showRequired,
@@ -13,9 +13,9 @@ export const InputElement = ({
 }: InputElementProps) => {
   return (
     <div className="flex flex-col gap-y-2">
-      {(!!title || !!showRequired) && (
+      {(!!label || !!showRequired) && (
         <div className="flex items-center gap-x-2">
-          {!!title && <span className="text-sm font-medium leading-tight">{title}</span>}
+          {!!label && <label className="text-sm font-medium leading-tight">{label}</label>}
           {!!showRequired && (
             <RequiredBadge
               isRequired={isRequired}

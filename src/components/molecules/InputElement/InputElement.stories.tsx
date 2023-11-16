@@ -9,7 +9,7 @@ export default {
     controls: { expanded: true },
   },
   argTypes: {
-    title: {
+    label: {
       type: "string",
     },
     errorText: {
@@ -35,7 +35,7 @@ export default {
 
 export const Default: StoryObj<typeof InputElement> = {
   args: {
-    title: "タイトル",
+    label: "タイトル",
     descriptionText: "説明文が入ります",
     errorText: "エラーテキストが入ります",
     children: <InputText placeholder="プレイスホルダー" />,
