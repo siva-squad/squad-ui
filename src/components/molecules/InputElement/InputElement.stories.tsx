@@ -21,6 +21,9 @@ export default {
     showRequired: {
       type: "boolean",
     },
+    showLabel: {
+      type: "boolean",
+    },
     isRequired: {
       type: "boolean",
     },

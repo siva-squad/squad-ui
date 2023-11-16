@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { RequiredBadge } from "./RequiredBadge";
 import type { InputElementProps } from "./type";
 
@@ -6,25 +7,27 @@ export const InputElement = ({
   label,
   errorText,
   descriptionText,
+  showLabel = true,
   showRequired,
   isRequired,
   optionalText,
   requiredText,
 }: InputElementProps) => {
+  const visibleLabel = showLabel ? "text-sm font-medium leading-tight" : "sr-only";
+  const visibleGap = !!showLabel && !!showRequired && "gap-x-2";
+
   return (
     <div className="flex flex-col gap-y-2">
-      {(!!label || !!showRequired) && (
-        <div className="flex items-center gap-x-2">
-          {!!label && <label className="text-sm font-medium leading-tight">{label}</label>}
-          {!!showRequired && (
-            <RequiredBadge
-              isRequired={isRequired}
-              optionalText={optionalText}
-              requiredText={requiredText}
-            />
-          )}
-        </div>
-      )}
+      <div className={clsx("flex items-center", visibleGap)}>
+        <label className={visibleLabel}>{label}</label>
+        {!!showRequired && (
+          <RequiredBadge
+            isRequired={isRequired}
+            optionalText={optionalText}
+            requiredText={requiredText}
+          />
+        )}
+      </div>
       {!!descriptionText && (
         <p className="text-xs leading-normal text-gray-dark">{descriptionText}</p>
       )}
