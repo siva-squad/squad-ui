@@ -33,15 +33,27 @@ export default {
     optionalText: {
       type: "string",
     },
+    id: {
+      type: "string",
+    },
+    render: {
+      type: "function",
+    },
   },
 } satisfies Meta<typeof InputElement>;
 
 export const Default: StoryObj<typeof InputElement> = {
   args: {
+    id: "testId",
     label: "タイトル",
     descriptionText: "説明文が入ります",
     errorText: "エラーテキストが入ります",
-    children: <InputText placeholder="プレイスホルダー" />,
+    render: ({ id }) => (
+      <InputText
+        placeholder="プレイスホルダー"
+        id={id}
+      />
+    ),
     showRequired: true,
     isRequired: true,
   },
