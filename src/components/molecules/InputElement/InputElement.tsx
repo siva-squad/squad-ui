@@ -17,7 +17,7 @@ export const InputElement = ({
   const visibleLabel = showLabel ? "text-sm font-medium leading-tight" : "sr-only";
   const visibleGap = !!showLabel && !!showRequired && "gap-x-2";
 
-  const elementUI = render?.({ id, label });
+  const elementUI = render({ id, label });
 
   return (
     <div className="flex flex-col gap-y-2">
