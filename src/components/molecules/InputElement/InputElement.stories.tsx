@@ -9,7 +9,7 @@ export default {
     controls: { expanded: true },
   },
   argTypes: {
-    title: {
+    label: {
       type: "string",
     },
     errorText: {
@@ -21,6 +21,9 @@ export default {
     showRequired: {
       type: "boolean",
     },
+    showLabel: {
+      type: "boolean",
+    },
     isRequired: {
       type: "boolean",
     },
@@ -30,15 +33,27 @@ export default {
     optionalText: {
       type: "string",
     },
+    htmlFor: {
+      type: "string",
+    },
+    render: {
+      type: "function",
+    },
   },
 } satisfies Meta<typeof InputElement>;
 
 export const Default: StoryObj<typeof InputElement> = {
   args: {
-    title: "タイトル",
+    htmlFor: "testId",
+    label: "タイトル",
     descriptionText: "説明文が入ります",
     errorText: "エラーテキストが入ります",
-    children: <InputText placeholder="プレイスホルダー" />,
+    render: ({ htmlFor }) => (
+      <InputText
+        placeholder="プレイスホルダー"
+        id={htmlFor}
+      />
+    ),
     showRequired: true,
     isRequired: true,
   },

@@ -1,10 +1,17 @@
 import { ReactElement } from "react";
 import { RequiredBadgeProps } from "./RequiredBadge/type";
 
+type FormType = {
+  htmlFor: string;
+};
+
 export type InputElementProps = {
-  title?: string;
+  label: string;
   errorText?: string;
   descriptionText?: string;
   showRequired?: boolean;
+  showLabel?: boolean;
   children?: ReactElement;
-} & RequiredBadgeProps;
+  render: (form: FormType) => ReactElement;
+} & FormType &
+  RequiredBadgeProps;
