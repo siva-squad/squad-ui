@@ -15,7 +15,7 @@ export const InputElement = ({
   requiredText,
 }: InputElementProps) => {
   const visibleLabel = showLabel ? "text-sm font-medium leading-tight" : "sr-only";
-  const visibleGap = !!showLabel && !!showRequired && "gap-x-2";
+  const visibleGap = showLabel && showRequired && "gap-x-2";
 
   const elementUI = render({ htmlFor });
 
