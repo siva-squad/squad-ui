@@ -28,7 +28,7 @@ export const InputElement = ({
         >
           {label}
         </label>
-        {!!showRequired && (
+        {showRequired && (
           <RequiredBadge
             isRequired={isRequired}
             optionalText={optionalText}
