@@ -16,12 +16,13 @@ export const InputElement = ({
 }: InputElementProps) => {
   const visibleLabel = showLabel ? "text-sm font-medium leading-tight" : "sr-only";
   const visibleGap = showLabel && showRequired && "gap-x-2";
+  const visibleDisplay = !showLabel && !showRequired ? "hidden" : "flex items-center";
 
   const elementUI = render({ htmlFor });
 
   return (
     <div className="flex flex-col gap-y-2">
-      <div className={clsx("flex items-center", visibleGap)}>
+      <div className={clsx(visibleDisplay, visibleGap)}>
         <label
           htmlFor={htmlFor}
           className={visibleLabel}
