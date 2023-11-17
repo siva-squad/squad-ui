@@ -16,7 +16,7 @@ export const InputElement = ({
 }: InputElementProps) => {
   const visibleLabel = showLabel ? "text-sm font-medium leading-tight" : "sr-only";
   const visibleGap = showLabel && showRequired && "gap-x-2";
-  const visibleDisplay = !showLabel && !showRequired ? "hidden" : "flex items-center";
+  const visibleDisplay = !showLabel && !showRequired ? "sr-only" : "flex items-center";
 
   const elementUI = render({ htmlFor });
 
