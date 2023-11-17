@@ -3,10 +3,10 @@ import { RequiredBadgeProps } from "./RequiredBadge/type";
 
 type FormType = {
   id: string;
-  label: string;
 };
 
 export type InputElementProps = {
+  label: string;
   errorText?: string;
   descriptionText?: string;
   showRequired?: boolean;
