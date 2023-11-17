@@ -3,7 +3,7 @@ import { RequiredBadge } from "./RequiredBadge";
 import type { InputElementProps } from "./type";
 
 export const InputElement = ({
-  id,
+  htmlFor,
   render,
   label,
   errorText,
@@ -17,13 +17,13 @@ export const InputElement = ({
   const visibleLabel = showLabel ? "text-sm font-medium leading-tight" : "sr-only";
   const visibleGap = !!showLabel && !!showRequired && "gap-x-2";
 
-  const elementUI = render({ id });
+  const elementUI = render({ htmlFor });
 
   return (
     <div className="flex flex-col gap-y-2">
       <div className={clsx("flex items-center", visibleGap)}>
         <label
-          htmlFor={id}
+          htmlFor={htmlFor}
           className={visibleLabel}
         >
           {label}

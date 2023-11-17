@@ -33,7 +33,7 @@ export default {
     optionalText: {
       type: "string",
     },
-    id: {
+    htmlFor: {
       type: "string",
     },
     render: {
@@ -44,14 +44,14 @@ export default {
 
 export const Default: StoryObj<typeof InputElement> = {
   args: {
-    id: "testId",
+    htmlFor: "testId",
     label: "タイトル",
     descriptionText: "説明文が入ります",
     errorText: "エラーテキストが入ります",
-    render: ({ id }) => (
+    render: ({ htmlFor }) => (
       <InputText
         placeholder="プレイスホルダー"
-        id={id}
+        id={htmlFor}
       />
     ),
     showRequired: true,

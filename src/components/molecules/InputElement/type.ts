@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 import { RequiredBadgeProps } from "./RequiredBadge/type";
 
 type FormType = {
-  id: string;
+  htmlFor: string;
 };
 
 export type InputElementProps = {
