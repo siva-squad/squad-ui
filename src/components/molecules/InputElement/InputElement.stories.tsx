@@ -54,8 +54,6 @@ export const Default: StoryObj<typeof InputElement> = {
         id={htmlFor}
       />
     ),
-    showRequired: true,
-    isRequired: true,
   },
   decorators: [
     (Story) => (
