@@ -87,6 +87,13 @@ export default {
 export const Default: StoryObj<typeof Button> = {
   argTypes: {
     onClick: { action: "clicked" },
+    type: {
+      type: "string",
+      options: ["button", "submit", "reset"],
+      control: {
+        type: "select",
+      },
+    },
   },
   args: {
     children: "ボタン",

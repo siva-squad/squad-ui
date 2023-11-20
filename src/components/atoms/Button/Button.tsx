@@ -11,6 +11,7 @@ export const Button = ({
   iconPosition = "left",
   disabled = false,
   loading = false,
+  type = "button",
 }: ButtonProps) => {
   const showIcon = !loading && !!icon;
   const spinnerProps = {
@@ -24,6 +25,7 @@ export const Button = ({
       onClick={onClick}
       disabled={disabled}
       className={BUTTON_CLASS_NAME({ theme, isLoading: loading, hasChildren: !!children, size })}
+      type={type}
     >
       {showIcon && iconPosition === "left" && (
         <span className={BUTTON_ICON_CLASS_NAME({ hasChildren: !!children, size, theme })}>
