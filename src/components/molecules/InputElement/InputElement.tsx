@@ -9,8 +9,8 @@ export const InputElement = ({
   errorText,
   descriptionText,
   showLabel = true,
-  showRequired,
-  isRequired,
+  showRequired = true,
+  isRequired = true,
   optionalText,
   requiredText,
 }: InputElementProps) => {
