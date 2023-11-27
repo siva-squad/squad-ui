@@ -14,7 +14,7 @@ export default {
 
 export const Default: StoryObj<typeof BaseModal> = {
   args: {
-    children: "Foo Bar Baz",
+    children: "With a little bit of text",
     title: "Modal",
   },
   decorators: [
@@ -67,6 +67,72 @@ export const Controlled = () => {
           title="Base Modal example"
           onCloseModal={() => setIsOpen(false)}
         >
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur
+            velit modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia
+            dolores facilis sed, a itaque labore eum natus.
+          </p>
+          <Button
+            theme="primary"
+            size="medium"
+            onClick={() => setIsOpen(false)}
+          >
+            Close Modal
+          </Button>
+        </BaseModal>
+      )}
+    </>
+  );
+};
+
+export const ControlledWithScroll = () => {
+  // Actual Use case
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <Button
+        theme="primary"
+        size="medium"
+        onClick={() => setIsOpen(true)}
+      >
+        Open Modal
+      </Button>
+      {isOpen && (
+        <BaseModal
+          title="Base Modal example"
+          onCloseModal={() => setIsOpen(false)}
+        >
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur
+            velit modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia
+            dolores facilis sed, a itaque labore eum natus.
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur
+            velit modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia
+            dolores facilis sed, a itaque labore eum natus.
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur
+            velit modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia
+            dolores facilis sed, a itaque labore eum natus.
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur
+            velit modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia
+            dolores facilis sed, a itaque labore eum natus.
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur
+            velit modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia
+            dolores facilis sed, a itaque labore eum natus.
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur
+            velit modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia
+            dolores facilis sed, a itaque labore eum natus.
+          </p>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur
             velit modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia
