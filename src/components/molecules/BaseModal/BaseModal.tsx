@@ -6,7 +6,10 @@ import type { BaseModalProps } from "./type";
 
 export const BaseModal = ({ children, title, onCloseModal }: BaseModalProps) => {
   return createPortal(
-    <FocusLock returnFocus={true}>
+    <FocusLock
+      returnFocus={true}
+      autoFocus={false}
+    >
       <RemoveScroll>
         <div className="fixed inset-0 grid place-content-center	p-4">
           <div
@@ -15,12 +18,11 @@ export const BaseModal = ({ children, title, onCloseModal }: BaseModalProps) => 
             onClick={onCloseModal}
           />
           <div
-            className="relative min-w-[340px] max-w-[600px] rounded-lg bg-white p-8 shadow-04 grid gap-4"
+            className="relative grid min-w-[340px] max-w-[600px] gap-4 overflow-y-auto rounded-lg bg-white p-8 shadow-04"
             role="dialog"
             aria-modal="true"
             aria-label={title}
           >
-            <h2>{title}</h2>
             {children}
           </div>
         </div>
