@@ -21,7 +21,7 @@ export const BaseModal = ({
         <div className="fixed inset-0 grid place-content-center	p-4">
           <div
             data-testid="modal-background"
-            className="absolute inset-0 opacity-75"
+            className="absolute inset-0 bg-black opacity-60"
             onClick={onCloseModal}
           />
           <div
