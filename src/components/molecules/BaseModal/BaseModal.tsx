@@ -25,7 +25,7 @@ export const BaseModal = ({
             onClick={onCloseModal}
           />
           <div
-            className="relative grid w-[37.5rem] gap-4 overflow-y-auto rounded-t-lg bg-white shadow-04"
+            className="relative grid w-[37.5rem] gap-4 overflow-y-auto rounded-lg bg-white shadow-04"
             role="dialog"
             aria-modal="true"
             aria-label={title}
