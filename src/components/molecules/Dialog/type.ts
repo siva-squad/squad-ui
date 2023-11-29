@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export type BaseModalProps = {
+export type DialogProps = {
   children: string | ReactNode;
   title: string;
   onClose: () => void;

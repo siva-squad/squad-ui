@@ -3,16 +3,16 @@ import FocusLock from "react-focus-lock";
 import { RemoveScroll } from "react-remove-scroll";
 
 import { Button } from "@components/atoms";
-import type { BaseModalProps } from "./type";
+import type { DialogProps } from "./type";
 
-export const BaseModal = ({
+export const Dialog = ({
   children,
   title,
   onClose,
   cancelButtonText,
   saveButtonText,
   isOpen,
-}: BaseModalProps) => {
+}: DialogProps) => {
   if (!isOpen) {
     return;
   }
@@ -25,7 +25,7 @@ export const BaseModal = ({
       <RemoveScroll>
         <div className="fixed inset-0 grid place-content-center	p-4">
           <div
-            data-testid="modal-background"
+            data-testid="dialog-background"
             className="absolute inset-0 bg-black opacity-60"
             onClick={onClose}
           />

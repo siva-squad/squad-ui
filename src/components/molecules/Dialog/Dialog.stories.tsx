@@ -2,20 +2,20 @@ import { useState } from "react";
 import { Button } from "@components/atoms";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { BaseModal } from "./BaseModal";
+import { Dialog } from "./Dialog";
 
 export default {
-  component: BaseModal,
+  component: Dialog,
   parameters: {
     controls: { expanded: true },
   },
   argTypes: {},
-} satisfies Meta<typeof BaseModal>;
+} satisfies Meta<typeof Dialog>;
 
-export const Default: StoryObj<typeof BaseModal> = {
+export const Default: StoryObj<typeof Dialog> = {
   args: {
     children: "With a little bit of text",
-    title: "Modal",
+    title: "Dialog",
     cancelButtonText: "キャンセル",
     saveButtonText: "保存する",
     isOpen: true,
@@ -73,11 +73,11 @@ export const Controlled = () => {
         size="medium"
         onClick={() => setIsOpen(true)}
       >
-        Open Modal
+        Open dialog
       </Button>
       {isOpen && (
-        <BaseModal
-          title="Base Modal example"
+        <Dialog
+          title="Base Dialog example"
           onClose={() => setIsOpen(false)}
           cancelButtonText="キャンセル"
           saveButtonText="保存する"
@@ -88,7 +88,7 @@ export const Controlled = () => {
             velit modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia
             dolores facilis sed, a itaque labore eum natus.
           </p>
-        </BaseModal>
+        </Dialog>
       )}
     </>
   );
@@ -105,11 +105,11 @@ export const ControlledWithScroll = () => {
         size="medium"
         onClick={() => setIsOpen(true)}
       >
-        Open Modal
+        Open dialog
       </Button>
       {isOpen && (
-        <BaseModal
-          title="Base Modal example"
+        <Dialog
+          title="Base Dialog example"
           onClose={() => setIsOpen(false)}
           cancelButtonText="キャンセル"
           saveButtonText="保存する"
@@ -150,7 +150,7 @@ export const ControlledWithScroll = () => {
             velit modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia
             dolores facilis sed, a itaque labore eum natus.
           </p>
-        </BaseModal>
+        </Dialog>
       )}
     </>
   );
