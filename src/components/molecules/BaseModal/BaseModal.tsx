@@ -8,10 +8,15 @@ import type { BaseModalProps } from "./type";
 export const BaseModal = ({
   children,
   title,
-  onCloseModal,
+  onClose,
   cancelButtonText,
   saveButtonText,
+  isOpen,
 }: BaseModalProps) => {
+  if (!isOpen) {
+    return;
+  }
+
   return createPortal(
     <FocusLock
       returnFocus={true}
@@ -22,7 +27,7 @@ export const BaseModal = ({
           <div
             data-testid="modal-background"
             className="absolute inset-0 bg-black opacity-60"
-            onClick={onCloseModal}
+            onClick={onClose}
           />
           <div
             className="relative grid w-[37.5rem] gap-4 overflow-y-auto rounded-lg bg-white shadow-04"
@@ -35,7 +40,7 @@ export const BaseModal = ({
               <Button
                 theme="white"
                 size="medium"
-                onClick={onCloseModal}
+                onClick={onClose}
               >
                 {cancelButtonText}
               </Button>

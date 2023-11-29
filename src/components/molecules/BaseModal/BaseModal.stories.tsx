@@ -18,6 +18,7 @@ export const Default: StoryObj<typeof BaseModal> = {
     title: "Modal",
     cancelButtonText: "キャンセル",
     saveButtonText: "保存する",
+    isOpen: true,
   },
   decorators: [
     (Story) => (
@@ -77,9 +78,10 @@ export const Controlled = () => {
       {isOpen && (
         <BaseModal
           title="Base Modal example"
-          onCloseModal={() => setIsOpen(false)}
+          onClose={() => setIsOpen(false)}
           cancelButtonText="キャンセル"
           saveButtonText="保存する"
+          isOpen={isOpen}
         >
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur
@@ -108,9 +110,10 @@ export const ControlledWithScroll = () => {
       {isOpen && (
         <BaseModal
           title="Base Modal example"
-          onCloseModal={() => setIsOpen(false)}
+          onClose={() => setIsOpen(false)}
           cancelButtonText="キャンセル"
           saveButtonText="保存する"
+          isOpen={isOpen}
         >
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur

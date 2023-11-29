@@ -22,10 +22,16 @@ describe("BaseModal", () => {
     expect(modal).not.toBeInTheDocument();
   });
 
+  test("does not render when isOpen prop is false", () => {
+    render(<BaseModal isOpen={false} />);
+    const modal = screen.queryByRole("dialog", { name: "Modal" });
+    expect(modal).not.toBeInTheDocument();
+  });
+
   test("calls close modal callback function when clicking on the background", async () => {
     const user = userEvent.setup();
     const closeModalCallback = vi.fn();
-    render(<BaseModal onCloseModal={closeModalCallback} />);
+    render(<BaseModal onClose={closeModalCallback} />);
 
     const background = screen.getByTestId("modal-background");
 
