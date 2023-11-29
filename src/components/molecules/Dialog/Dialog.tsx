@@ -30,26 +30,28 @@ export const Dialog = ({
             onClick={onClose}
           />
           <div
-            className="relative grid w-[37.5rem] gap-4 overflow-y-auto rounded-lg bg-white shadow-04"
+            className="overflow-hidden rounded-lg"
             role="dialog"
             aria-modal="true"
             aria-label={title}
           >
-            <div className="p-10">{children}</div>
-            <div className="flex items-center justify-end gap-2 border-t border-t-gray-light px-10 py-4">
-              <Button
-                theme="white"
-                size="medium"
-                onClick={onClose}
-              >
-                {cancelButtonText}
-              </Button>
-              <Button
-                theme="primary"
-                size="medium"
-              >
-                {saveButtonText}
-              </Button>
+            <div className="relative grid max-h-full w-[37.5rem] gap-4 overflow-y-auto  bg-white shadow-04">
+              <div className="p-10">{children}</div>
+              <div className="flex items-center justify-end gap-2 border-t border-t-gray-light px-10 py-4">
+                <Button
+                  theme="white"
+                  size="medium"
+                  onClick={onClose}
+                >
+                  {cancelButtonText}
+                </Button>
+                <Button
+                  theme="primary"
+                  size="medium"
+                >
+                  {saveButtonText}
+                </Button>
+              </div>
             </div>
           </div>
         </div>
