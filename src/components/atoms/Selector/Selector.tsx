@@ -27,6 +27,7 @@ export const Selector = ({ size, options, defaultLabel, disabled, onSelect }: Se
         disabled={disabled}
         aria-disabled={disabled ? "true" : "false"}
         onClick={() => setIsOpen(!isOpen)}
+        type="button"
       >
         <span className={LABEL_CLASS_NAME({ size, disabled, isActive: !!activeLabel })}>
           {activeLabel || defaultLabel}

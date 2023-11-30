@@ -1,3 +1,4 @@
+import { ComponentProps } from "react";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import { Meta, StoryObj } from "@storybook/react";
 import { Anchor } from "./Anchor";
@@ -6,7 +7,10 @@ import { AnchorProps } from "./type";
 const AnchorSet = ({
   children,
   ...props
-}: Pick<AnchorProps, "theme" | "isDisabled" | "isLoading" | "size" | "children">) => {
+}: Pick<
+  AnchorProps,
+  "theme" | "isDisabled" | "loading" | "size" | "children" | "background" | "href"
+>) => {
   return (
     <div className="flex gap-2">
       <Anchor {...props}>{children}</Anchor>
@@ -36,7 +40,9 @@ const AnchorSet = ({
 const AnchorSetSection = ({
   title,
   ...props
-}: Pick<AnchorProps, "theme" | "size" | "children"> & { title: string }) => (
+}: Pick<AnchorProps, "theme" | "size" | "children" | "background" | "isDisabled" | "href"> & {
+  title: string;
+}) => (
   <section>
     <h2 className="mb-2">{title}</h2>
     <div className="flex flex-col gap-2">
@@ -47,18 +53,20 @@ const AnchorSetSection = ({
       />
       <AnchorSet
         {...props}
-        isLoading
+        loading
       />
       <AnchorSet
         {...props}
         isDisabled
-        isLoading
+        loading
       />
     </div>
   </section>
 );
 
-const ThemeTemplate = (props: Pick<AnchorProps, "children" | "theme">) => {
+const ThemeTemplate = (
+  props: Pick<AnchorProps, "children" | "theme" | "onClick" | "background" | "isDisabled" | "href">,
+) => {
   return (
     <article className="flex flex-col gap-4">
       <AnchorSetSection
@@ -83,42 +91,27 @@ const ThemeTemplate = (props: Pick<AnchorProps, "children" | "theme">) => {
 export default {
   component: Anchor,
   argTypes: {
-    isDisabled: {
-      type: "boolean",
-    },
-    href: {
-      type: "string",
-    },
-    children: {
-      type: "symbol",
-    },
-    isLoading: {
-      type: "boolean",
-    },
-    size: {
-      type: "string",
-      control: {
-        type: "select",
-      },
-      options: ["small", "medium", "large"],
-    },
-    icon: {
-      type: "symbol",
-    },
-    iconPosition: {
-      type: "string",
-    },
     theme: {
       type: "string",
+      options: ["red", "white", "outline", "gray"],
       control: {
         type: "select",
       },
-      options: ["white", "primary", "red", "no-background"],
+    },
+    background: {
+      type: "string",
+      options: ["filled", "white"],
+      control: {
+        type: "select",
+      },
     },
   },
 } satisfies Meta<typeof Anchor>;
 
 export const Default: StoryObj<typeof Anchor> = {
+  argTypes: {
+    onClick: { action: "clicked" },
+  },
   args: {
     children: "ボタン",
     theme: "primary",
@@ -126,7 +119,43 @@ export const Default: StoryObj<typeof Anchor> = {
   },
 };
 
-export const Primary = () => <ThemeTemplate theme="primary">アンカー</ThemeTemplate>;
-export const Red = () => <ThemeTemplate theme="red">アンカー</ThemeTemplate>;
-export const White = () => <ThemeTemplate theme="white">アンカー</ThemeTemplate>;
-export const NoBackground = () => <ThemeTemplate theme="no-background">アンカー</ThemeTemplate>;
+export const Primary = () => (
+  <ThemeTemplate
+    theme="primary"
+    href="#"
+  >
+    ボタン
+  </ThemeTemplate>
+);
+export const Red = () => (
+  <ThemeTemplate
+    theme="red"
+    href="#"
+  >
+    ボタン
+  </ThemeTemplate>
+);
+export const White = () => (
+  <ThemeTemplate
+    theme="white"
+    href="#"
+  >
+    ボタン
+  </ThemeTemplate>
+);
+export const Gray = (props: ComponentProps<typeof ThemeTemplate>) => (
+  <ThemeTemplate
+    {...props}
+    theme="gray"
+  >
+    ボタン
+  </ThemeTemplate>
+);
+export const NoBackground = () => (
+  <ThemeTemplate
+    theme="no-background"
+    href="#"
+  >
+    ボタン
+  </ThemeTemplate>
+);
