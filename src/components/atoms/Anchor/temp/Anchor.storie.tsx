@@ -1,16 +1,12 @@
-import { ComponentProps } from "react";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import { Meta, StoryObj } from "@storybook/react";
 import { Anchor } from "./Anchor";
 import { AnchorProps } from "./type";
 
-const ButtonSet = ({
+const AnchorSet = ({
   children,
   ...props
-}: Pick<
-  AnchorProps,
-  "theme" | "isDisabled" | "loading" | "size" | "children" | "background" | "href"
->) => {
+}: Pick<AnchorProps, "theme" | "isDisabled" | "isLoading" | "size" | "children">) => {
   return (
     <div className="flex gap-2">
       <Anchor {...props}>{children}</Anchor>
@@ -37,49 +33,45 @@ const ButtonSet = ({
   );
 };
 
-const ButtonSetSection = ({
+const AnchorSetSection = ({
   title,
   ...props
-}: Pick<AnchorProps, "theme" | "size" | "children" | "background" | "isDisabled" | "href"> & {
-  title: string;
-}) => (
+}: Pick<AnchorProps, "theme" | "size" | "children"> & { title: string }) => (
   <section>
     <h2 className="mb-2">{title}</h2>
     <div className="flex flex-col gap-2">
-      <ButtonSet {...props} />
-      <ButtonSet
+      <AnchorSet {...props} />
+      <AnchorSet
         {...props}
         isDisabled
       />
-      <ButtonSet
+      <AnchorSet
         {...props}
-        loading
+        isLoading
       />
-      <ButtonSet
+      <AnchorSet
         {...props}
         isDisabled
-        loading
+        isLoading
       />
     </div>
   </section>
 );
 
-const ThemeTemplate = (
-  props: Pick<AnchorProps, "children" | "theme" | "onClick" | "background" | "isDisabled" | "href">,
-) => {
+const ThemeTemplate = (props: Pick<AnchorProps, "children" | "theme">) => {
   return (
     <article className="flex flex-col gap-4">
-      <ButtonSetSection
+      <AnchorSetSection
         title="Small"
         size="small"
         {...props}
       />
-      <ButtonSetSection
+      <AnchorSetSection
         title="Medium"
         size="medium"
         {...props}
       />
-      <ButtonSetSection
+      <AnchorSetSection
         title="Large"
         size="large"
         {...props}
@@ -91,27 +83,42 @@ const ThemeTemplate = (
 export default {
   component: Anchor,
   argTypes: {
+    isDisabled: {
+      type: "boolean",
+    },
+    href: {
+      type: "string",
+    },
+    children: {
+      type: "symbol",
+    },
+    isLoading: {
+      type: "boolean",
+    },
+    size: {
+      type: "string",
+      control: {
+        type: "select",
+      },
+      options: ["small", "medium", "large"],
+    },
+    icon: {
+      type: "symbol",
+    },
+    iconPosition: {
+      type: "string",
+    },
     theme: {
       type: "string",
-      options: ["red", "white", "outline", "gray"],
       control: {
         type: "select",
       },
-    },
-    background: {
-      type: "string",
-      options: ["filled", "white"],
-      control: {
-        type: "select",
-      },
+      options: ["white", "primary", "red", "no-background"],
     },
   },
 } satisfies Meta<typeof Anchor>;
 
 export const Default: StoryObj<typeof Anchor> = {
-  argTypes: {
-    onClick: { action: "clicked" },
-  },
   args: {
     children: "ボタン",
     theme: "primary",
@@ -119,43 +126,7 @@ export const Default: StoryObj<typeof Anchor> = {
   },
 };
 
-export const Primary = () => (
-  <ThemeTemplate
-    theme="primary"
-    href="#"
-  >
-    ボタン
-  </ThemeTemplate>
-);
-export const Red = () => (
-  <ThemeTemplate
-    theme="red"
-    href="#"
-  >
-    ボタン
-  </ThemeTemplate>
-);
-export const White = () => (
-  <ThemeTemplate
-    theme="white"
-    href="#"
-  >
-    ボタン
-  </ThemeTemplate>
-);
-export const Gray = (props: ComponentProps<typeof ThemeTemplate>) => (
-  <ThemeTemplate
-    {...props}
-    theme="gray"
-  >
-    ボタン
-  </ThemeTemplate>
-);
-export const NoBackground = () => (
-  <ThemeTemplate
-    theme="no-background"
-    href="#"
-  >
-    ボタン
-  </ThemeTemplate>
-);
+export const Primary = () => <ThemeTemplate theme="primary">アンカー</ThemeTemplate>;
+export const Red = () => <ThemeTemplate theme="red">アンカー</ThemeTemplate>;
+export const White = () => <ThemeTemplate theme="white">アンカー</ThemeTemplate>;
+export const NoBackground = () => <ThemeTemplate theme="no-background">アンカー</ThemeTemplate>;

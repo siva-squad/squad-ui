@@ -10,4 +10,4 @@ export * from "./SearchInput";
 export * from "./Selector";
 export * from "./Spinner";
 export * from "./Tooltip";
-export * from "./Anchor";
+export * from "./Anchor/temp";
