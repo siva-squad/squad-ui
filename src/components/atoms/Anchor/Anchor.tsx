@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { Spinner } from "../Spinner";
-import { BUTTON_CHILDREN_CLASS_NAME, BUTTON_CLASS_NAME, BUTTON_ICON_CLASS_NAME } from "./const";
+import { ANCHOR_CHILDREN_CLASS_NAME, ANCHOR_CLASS_NAME, ANCHOR_ICON_CLASS_NAME } from "./const";
 import { AnchorProps } from "./type";
 
 export const Anchor = forwardRef<HTMLAnchorElement, AnchorProps>(
@@ -31,7 +31,7 @@ export const Anchor = forwardRef<HTMLAnchorElement, AnchorProps>(
       <a
         {...(!isDisabled && { href })}
         onClick={onClick}
-        className={BUTTON_CLASS_NAME({
+        className={ANCHOR_CLASS_NAME({
           isDisabled,
           theme,
           isLoading: loading,
@@ -43,7 +43,7 @@ export const Anchor = forwardRef<HTMLAnchorElement, AnchorProps>(
       >
         {showIcon && iconPosition === "left" && (
           <span
-            className={BUTTON_ICON_CLASS_NAME({ hasChildren: !!children, size, theme, background })}
+            className={ANCHOR_ICON_CLASS_NAME({ hasChildren: !!children, size, theme, background })}
           >
             {icon}
           </span>
@@ -54,7 +54,7 @@ export const Anchor = forwardRef<HTMLAnchorElement, AnchorProps>(
         />
         {children && (
           <span
-            className={BUTTON_CHILDREN_CLASS_NAME({
+            className={ANCHOR_CHILDREN_CLASS_NAME({
               size,
               theme,
               background,
@@ -65,7 +65,7 @@ export const Anchor = forwardRef<HTMLAnchorElement, AnchorProps>(
         )}
         {showIcon && iconPosition === "right" && (
           <span
-            className={BUTTON_ICON_CLASS_NAME({ hasChildren: !!children, size, theme, background })}
+            className={ANCHOR_ICON_CLASS_NAME({ hasChildren: !!children, size, theme, background })}
           >
             {icon}
           </span>

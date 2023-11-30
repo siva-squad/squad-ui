@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { tv } from "tailwind-variants";
 
-export const BUTTON_CLASS_NAME = tv({
+export const ANCHOR_CLASS_NAME = tv({
   base: clsx(
     "inline-flex cursor-pointer items-center justify-center gap-1 rounded outline-none duration-300 ease-out",
     "disabled:opacity-20",
@@ -78,7 +78,7 @@ export const BUTTON_CLASS_NAME = tv({
   ],
 });
 
-export const BUTTON_ICON_CLASS_NAME = tv({
+export const ANCHOR_ICON_CLASS_NAME = tv({
   base: "",
   variants: {
     background: {
@@ -121,7 +121,7 @@ export const BUTTON_ICON_CLASS_NAME = tv({
   ],
 });
 
-export const BUTTON_CHILDREN_CLASS_NAME = tv({
+export const ANCHOR_CHILDREN_CLASS_NAME = tv({
   base: "",
   variants: {
     background: {

@@ -4,7 +4,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Anchor } from "./Anchor";
 import { AnchorProps } from "./type";
 
-const ButtonSet = ({
+const AnchorSet = ({
   children,
   ...props
 }: Pick<
@@ -37,7 +37,7 @@ const ButtonSet = ({
   );
 };
 
-const ButtonSetSection = ({
+const AnchorSetSection = ({
   title,
   ...props
 }: Pick<AnchorProps, "theme" | "size" | "children" | "background" | "isDisabled" | "href"> & {
@@ -46,16 +46,16 @@ const ButtonSetSection = ({
   <section>
     <h2 className="mb-2">{title}</h2>
     <div className="flex flex-col gap-2">
-      <ButtonSet {...props} />
-      <ButtonSet
+      <AnchorSet {...props} />
+      <AnchorSet
         {...props}
         isDisabled
       />
-      <ButtonSet
+      <AnchorSet
         {...props}
         loading
       />
-      <ButtonSet
+      <AnchorSet
         {...props}
         isDisabled
         loading
@@ -69,17 +69,17 @@ const ThemeTemplate = (
 ) => {
   return (
     <article className="flex flex-col gap-4">
-      <ButtonSetSection
+      <AnchorSetSection
         title="Small"
         size="small"
         {...props}
       />
-      <ButtonSetSection
+      <AnchorSetSection
         title="Medium"
         size="medium"
         {...props}
       />
-      <ButtonSetSection
+      <AnchorSetSection
         title="Large"
         size="large"
         {...props}
