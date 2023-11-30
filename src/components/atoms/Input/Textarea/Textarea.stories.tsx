@@ -20,6 +20,9 @@ export default {
     resize: "vertical",
   },
   argTypes: {
+    id: {
+      type: "string",
+    },
     state: {
       control: {
         type: "select",
