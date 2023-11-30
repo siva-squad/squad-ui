@@ -57,6 +57,13 @@ export const BUTTON_CLASS_NAME = tv({
     {
       theme: "gray",
       background: "filled",
+      isLoading: true,
+      class: "bg-gray-extraDark",
+    },
+    {
+      theme: "gray",
+      background: "filled",
+      isLoading: false,
       class: "bg-black hover:bg-gray-extraDark",
     },
     {

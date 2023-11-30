@@ -18,7 +18,8 @@ export const Button = ({
   const spinnerProps = {
     // NOTE: ボタンのサイズが`large`でテキストがない場合はアイコンを大きく表示するため
     size: size === "large" && children ? "medium" : size,
-    theme: ["red", "primary"].includes(theme) ? "white" : "primary",
+    theme,
+    background,
   } as const;
 
   return (
@@ -42,8 +43,8 @@ export const Button = ({
         </span>
       )}
       <Spinner
-        loading={loading}
         {...spinnerProps}
+        loading={loading}
       />
       {children && (
         <span

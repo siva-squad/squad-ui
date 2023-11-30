@@ -1,7 +1,7 @@
 import { SPINNER_CLASS_NAME } from "./consts";
 import type { SpinnerProps } from "./type";
 
-export const Spinner = ({ size, theme, loading }: SpinnerProps) => {
+export const Spinner = ({ size, theme, loading, background }: SpinnerProps) => {
   if (!loading) return null;
   return (
     <span
@@ -10,7 +10,7 @@ export const Spinner = ({ size, theme, loading }: SpinnerProps) => {
     >
       <svg
         aria-hidden="true"
-        className={SPINNER_CLASS_NAME({ theme, size })}
+        className={SPINNER_CLASS_NAME({ theme, size, background })}
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
