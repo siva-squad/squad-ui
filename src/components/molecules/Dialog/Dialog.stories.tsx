@@ -75,21 +75,19 @@ export const Controlled = () => {
       >
         Open dialog
       </Button>
-      {isOpen && (
-        <Dialog
-          title="Base Dialog example"
-          onClose={() => setIsOpen(false)}
-          cancelButtonText="キャンセル"
-          saveButtonText="保存する"
-          isOpen={isOpen}
-        >
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur
-            velit modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia
-            dolores facilis sed, a itaque labore eum natus.
-          </p>
-        </Dialog>
-      )}
+      <Dialog
+        title="Base Dialog example"
+        onClose={() => setIsOpen(false)}
+        cancelButtonText="キャンセル"
+        saveButtonText="保存する"
+        isOpen={isOpen}
+      >
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur velit
+          modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia dolores
+          facilis sed, a itaque labore eum natus.
+        </p>
+      </Dialog>
     </>
   );
 };
@@ -107,51 +105,49 @@ export const ControlledWithScroll = () => {
       >
         Open dialog
       </Button>
-      {isOpen && (
-        <Dialog
-          title="Base Dialog example"
-          onClose={() => setIsOpen(false)}
-          cancelButtonText="キャンセル"
-          saveButtonText="保存する"
-          isOpen={isOpen}
-        >
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur
-            velit modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia
-            dolores facilis sed, a itaque labore eum natus.
-          </p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur
-            velit modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia
-            dolores facilis sed, a itaque labore eum natus.
-          </p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur
-            velit modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia
-            dolores facilis sed, a itaque labore eum natus.
-          </p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur
-            velit modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia
-            dolores facilis sed, a itaque labore eum natus.
-          </p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur
-            velit modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia
-            dolores facilis sed, a itaque labore eum natus.
-          </p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur
-            velit modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia
-            dolores facilis sed, a itaque labore eum natus.
-          </p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur
-            velit modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia
-            dolores facilis sed, a itaque labore eum natus.
-          </p>
-        </Dialog>
-      )}
+      <Dialog
+        title="Base Dialog example"
+        onClose={() => setIsOpen(false)}
+        cancelButtonText="キャンセル"
+        saveButtonText="保存する"
+        isOpen={isOpen}
+      >
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur velit
+          modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia dolores
+          facilis sed, a itaque labore eum natus.
+        </p>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur velit
+          modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia dolores
+          facilis sed, a itaque labore eum natus.
+        </p>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur velit
+          modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia dolores
+          facilis sed, a itaque labore eum natus.
+        </p>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur velit
+          modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia dolores
+          facilis sed, a itaque labore eum natus.
+        </p>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur velit
+          modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia dolores
+          facilis sed, a itaque labore eum natus.
+        </p>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur velit
+          modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia dolores
+          facilis sed, a itaque labore eum natus.
+        </p>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur velit
+          modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia dolores
+          facilis sed, a itaque labore eum natus.
+        </p>
+      </Dialog>
     </>
   );
 };
