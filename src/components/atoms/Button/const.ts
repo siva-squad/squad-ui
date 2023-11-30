@@ -12,16 +12,21 @@ export const BUTTON_CLASS_NAME = tv({
       true: "",
       false: "",
     },
+    background: {
+      filled: "",
+      white: "",
+    },
     hasChildren: {
       true: "text-center font-medium leading-none",
       false: "",
     },
     theme: {
       white:
-        "bg-white hover:bg-primary-100 border border-primary-400 shadow-01 active:bg-primary-300",
-      primary: "bg-primary-600 hover:bg-primary-700 shadow-01 active:bg-primary-900",
+        "border border-primary-400 bg-white shadow-01 hover:bg-primary-100 active:bg-primary-300",
+      primary: "bg-primary-600 shadow-01 hover:bg-primary-700 active:bg-primary-900",
       "no-background": "hover:bg-gray-extraLight",
-      red: "bg-red hover:bg-red-dark shadow-01",
+      red: "bg-red shadow-01 hover:bg-red-dark",
+      gray: "shadow-01",
     },
     size: {
       small: "p-1.5",
@@ -47,7 +52,17 @@ export const BUTTON_CLASS_NAME = tv({
     },
     {
       theme: "no-background",
-      class: "py-0.5 px-1",
+      class: "px-1 py-0.5",
+    },
+    {
+      theme: "gray",
+      background: "filled",
+      class: "bg-black hover:bg-gray-extraDark",
+    },
+    {
+      theme: "gray",
+      background: "white",
+      class: "border-px border-gray-light bg-white hover:bg-gray-extraLight active:bg-gray-light",
     },
   ],
 });
@@ -55,16 +70,21 @@ export const BUTTON_CLASS_NAME = tv({
 export const BUTTON_ICON_CLASS_NAME = tv({
   base: "",
   variants: {
+    background: {
+      filled: "",
+      white: "",
+    },
     theme: {
       white: "text-primary-600",
       primary: "text-gray-light",
       "no-background": "text-primary-600",
       red: "text-gray-light",
+      gray: "",
     },
     size: {
-      small: "w-3 h-3",
-      medium: "w-4 h-4",
-      large: "w-6 h-6",
+      small: "h-3 w-3",
+      medium: "h-4 w-4",
+      large: "h-6 w-6",
     },
     hasChildren: {
       true: "",
@@ -75,7 +95,17 @@ export const BUTTON_ICON_CLASS_NAME = tv({
     {
       size: "large",
       hasChildren: true,
-      class: "w-4 h-4",
+      class: "h-4 w-4",
+    },
+    {
+      background: "filled",
+      theme: "gray",
+      class: "text-white",
+    },
+    {
+      background: "white",
+      theme: "gray",
+      class: "text-black",
     },
   ],
 });
@@ -83,11 +113,16 @@ export const BUTTON_ICON_CLASS_NAME = tv({
 export const BUTTON_CHILDREN_CLASS_NAME = tv({
   base: "",
   variants: {
+    background: {
+      filled: "",
+      white: "",
+    },
     theme: {
       white: "text-primary-600",
       primary: "text-white",
       "no-background": "text-primary-600 active:text-primary-900",
       red: "text-white",
+      gray: "",
     },
     size: {
       small: "text-xs",
@@ -95,4 +130,16 @@ export const BUTTON_CHILDREN_CLASS_NAME = tv({
       large: "text-base",
     },
   },
+  compoundVariants: [
+    {
+      background: "filled",
+      theme: "gray",
+      class: "text-white",
+    },
+    {
+      background: "white",
+      theme: "gray",
+      class: "text-gray-extraDark",
+    },
+  ],
 });

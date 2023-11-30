@@ -8,6 +8,7 @@ export const Button = ({
   icon,
   size,
   theme,
+  background = "filled",
   iconPosition = "left",
   disabled = false,
   loading = false,
@@ -24,11 +25,19 @@ export const Button = ({
     <button
       onClick={onClick}
       disabled={disabled}
-      className={BUTTON_CLASS_NAME({ theme, isLoading: loading, hasChildren: !!children, size })}
+      className={BUTTON_CLASS_NAME({
+        theme,
+        isLoading: loading,
+        hasChildren: !!children,
+        size,
+        background,
+      })}
       type={type}
     >
       {showIcon && iconPosition === "left" && (
-        <span className={BUTTON_ICON_CLASS_NAME({ hasChildren: !!children, size, theme })}>
+        <span
+          className={BUTTON_ICON_CLASS_NAME({ hasChildren: !!children, size, theme, background })}
+        >
           {icon}
         </span>
       )}
@@ -41,13 +50,16 @@ export const Button = ({
           className={BUTTON_CHILDREN_CLASS_NAME({
             size,
             theme,
+            background,
           })}
         >
           {loading ? "読み込み中..." : children}
         </span>
       )}
       {showIcon && iconPosition === "right" && (
-        <span className={BUTTON_ICON_CLASS_NAME({ hasChildren: !!children, size, theme })}>
+        <span
+          className={BUTTON_ICON_CLASS_NAME({ hasChildren: !!children, size, theme, background })}
+        >
           {icon}
         </span>
       )}
