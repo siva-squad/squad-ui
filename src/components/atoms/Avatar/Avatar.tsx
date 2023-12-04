@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { UserCircleIcon } from "@heroicons/react/24/solid";
 import clsx from "clsx";
+import { FullUserCircleIcon } from "./FullUserCircleIcon/FullUserCircleIcon";
 import type { AvatarProps } from "./type";
 
 export const Avatar = ({ src, onClick, size = 32 }: AvatarProps) => {
@@ -20,18 +20,7 @@ export const Avatar = ({ src, onClick, size = 32 }: AvatarProps) => {
       )}
     >
       {!src || isError ? (
-        <>
-          <div
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white"
-            style={{ height: size / 1.25, width: size / 1.25 }}
-          ></div>
-          <div
-            className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2"
-            style={{ width: size, height: size }}
-          >
-            <UserCircleIcon className="aspect-square rounded-full text-gray" />
-          </div>
-        </>
+        <FullUserCircleIcon size={size} />
       ) : (
         <img
           src={src}
