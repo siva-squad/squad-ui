@@ -7,13 +7,19 @@ export default {
   parameters: {
     controls: { expanded: true },
   },
-} satisfies Meta<typeof Avatar>;
-
-export const Default: StoryObj<typeof Avatar> = {
   argTypes: {
     onClick: { action: "clicked" },
+    size: {
+      type: "number",
+      defaultValue: 32,
+    },
   },
+} satisfies Meta<typeof Avatar>;
+
+export const Default: StoryObj<typeof Avatar> = {};
+
+export const NoClick: StoryObj<typeof Avatar> = {
   args: {
-    src: "",
+    onClick: undefined,
   },
 };
