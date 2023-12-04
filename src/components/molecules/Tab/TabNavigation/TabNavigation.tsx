@@ -1,20 +1,32 @@
-import clsx from "clsx";
-
 import { useTab } from "../hook";
+import { TAB_NAVIGATION_BUTTON_CLASS_NAME, TAB_NAVIGATION_CLASS_NAME } from "./const";
+import { TabNavigationProps } from "./type";
 
-export const TabNavigation = ({ tabs }: { tabs: { pageId: number; label: string }[] }) => {
+export const TabNavigation = ({
+  tabs,
+  backgroundColor,
+  activeBorderColor = "black",
+  passiveBorderColor = "gray",
+  activeTextColor = "black",
+  passiveTextColor = "gray",
+}: TabNavigationProps) => {
   const { setCurrentPage, currentPage } = useTab();
 
   return (
-    <div className="flex w-full border-b border-gray-light ">
+    <div
+      className={TAB_NAVIGATION_CLASS_NAME({
+        backgroundColor,
+        passiveBorderColor,
+      })}
+    >
       {tabs.map(({ pageId, label }) => (
         <button
-          className={clsx(
-            "-mb-px border-b px-2 py-4 font-medium",
-            currentPage === pageId
-              ? "border-black text-black"
-              : "border-[transparent] text-gray-dark",
-          )}
+          className={TAB_NAVIGATION_BUTTON_CLASS_NAME({
+            isActive: pageId === currentPage,
+            activeBorderColor,
+            activeTextColor,
+            passiveTextColor,
+          })}
           onClick={() => setCurrentPage(pageId)}
           key={pageId}
         >

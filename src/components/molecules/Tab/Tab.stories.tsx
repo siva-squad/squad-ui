@@ -4,7 +4,7 @@ import { TabNavigation } from "./TabNavigation/TabNavigation";
 import { TabPage } from "./TabPage/TabPage";
 
 export default {
-  component: TabArea,
+  component: () => <></>,
   parameters: {
     controls: { expanded: true },
   },
