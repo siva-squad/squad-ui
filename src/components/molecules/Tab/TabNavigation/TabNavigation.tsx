@@ -6,7 +6,7 @@ export const TabNavigation = ({ tabs }: { tabs: { pageId: number; label: string 
   const { setCurrentPage, currentPage } = useTab();
 
   return (
-    <div className="flex w-full border-b border-gray-light bg-white px-6">
+    <div className="flex w-full border-b border-gray-light ">
       {tabs.map(({ pageId, label }) => (
         <button
           className={clsx(

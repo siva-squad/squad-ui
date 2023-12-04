@@ -1,17 +1,29 @@
-import type { Meta, StoryObj } from "@storybook/react";
-
-import { Tab } from "./Tab";
+import type { Meta } from "@storybook/react";
+import { TabArea } from "./TabArea/TabArea";
+import { TabNavigation } from "./TabNavigation/TabNavigation";
+import { TabPage } from "./TabPage/TabPage";
 
 export default {
-  component: Tab,
+  component: TabArea,
   parameters: {
     controls: { expanded: true },
   },
   argTypes: {},
-} satisfies Meta<typeof Tab>;
+} satisfies Meta;
 
-export const Default: StoryObj<typeof Tab> = {
-  args: {},
+export const Default = () => {
+  return (
+    <TabArea>
+      <TabNavigation
+        tabs={[
+          { label: "page1", pageId: 1 },
+          { label: "page1", pageId: 2 },
+        ]}
+      />
+      <div>
+        <TabPage page={1}>1</TabPage>
+        <TabPage page={2}>2</TabPage>
+      </div>
+    </TabArea>
+  );
 };
-
-
