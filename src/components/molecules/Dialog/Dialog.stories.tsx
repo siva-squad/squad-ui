@@ -19,6 +19,58 @@ export const Default: StoryObj<typeof Dialog> = {
     cancelButtonText: "キャンセル",
     saveButtonText: "保存する",
     isOpen: true,
+    theme: "default",
+  },
+  decorators: [
+    (Story) => (
+      <div
+        data-testid="root"
+        style={{ margin: "3em" }}
+      >
+        <div>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ad architecto vitae
+          deleniti odit labore maiores sapiente error nesciunt suscipit quod, eum veritatis. Minus,
+          molestiae dignissimos. Asperiores consequatur laudantium sit! Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Modi molestias autem sit tenetur repudiandae pariatur optio
+          recusandae sapiente. Nisi, obcaecati! Commodi sint voluptates voluptatum sequi sunt in rem
+          facilis a! Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus dignissimos
+          quibusdam veniam voluptate ut, nihil pariatur qui enim dolorem ea vero atque
+          necessitatibus aut, excepturi magnam reiciendis explicabo aperiam veritatis!
+        </div>
+        <Story />
+        <div>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ad architecto vitae
+          deleniti odit labore maiores sapiente error nesciunt suscipit quod, eum veritatis. Minus,
+          molestiae dignissimos. Asperiores consequatur laudantium sit! Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Modi molestias autem sit tenetur repudiandae pariatur optio
+          recusandae sapiente. Nisi, obcaecati! Commodi sint voluptates voluptatum sequi sunt in rem
+          facilis a! Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus dignissimos
+          quibusdam veniam voluptate ut, nihil pariatur qui enim dolorem ea vero atque
+          necessitatibus aut, excepturi magnam reiciendis explicabo aperiam veritatis!
+        </div>
+        <div>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ad architecto vitae
+          deleniti odit labore maiores sapiente error nesciunt suscipit quod, eum veritatis. Minus,
+          molestiae dignissimos. Asperiores consequatur laudantium sit! Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Modi molestias autem sit tenetur repudiandae pariatur optio
+          recusandae sapiente. Nisi, obcaecati! Commodi sint voluptates voluptatum sequi sunt in rem
+          facilis a! Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus dignissimos
+          quibusdam veniam voluptate ut, nihil pariatur qui enim dolorem ea vero atque
+          necessitatibus aut, excepturi magnam reiciendis explicabo aperiam veritatis!
+        </div>
+      </div>
+    ),
+  ],
+};
+
+export const RedTheme: StoryObj<typeof Dialog> = {
+  args: {
+    children: "With a little bit of text",
+    title: "Dialog",
+    cancelButtonText: "キャンセル",
+    saveButtonText: "保存する",
+    isOpen: true,
+    theme: "red",
   },
   decorators: [
     (Story) => (
@@ -81,6 +133,7 @@ export const Controlled = () => {
         cancelButtonText="キャンセル"
         saveButtonText="保存する"
         isOpen={isOpen}
+        theme="default"
       >
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur velit
@@ -111,6 +164,7 @@ export const ControlledWithScroll = () => {
         cancelButtonText="キャンセル"
         saveButtonText="保存する"
         isOpen={isOpen}
+        theme="default"
       >
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur velit
