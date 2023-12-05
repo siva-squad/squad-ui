@@ -1,7 +1,7 @@
 import type { Meta } from "@storybook/react";
-import { TabArea } from "./TabArea/TabArea";
-import { TabNavigation } from "./TabNavigation/TabNavigation";
-import { TabPage } from "./TabPage/TabPage";
+import { TabArea } from "./TabArea";
+import { TabNavigation } from "./TabNavigation";
+import { TabPage } from "./TabPage";
 
 export default {
   component: () => <></>,
