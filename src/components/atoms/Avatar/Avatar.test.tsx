@@ -20,7 +20,7 @@ describe("Avatar", () => {
   });
 
   test("renders with correct size", () => {
-    const size = 48;
+    const size = 50;
     render(<Avatar size={size} />);
     const avatarButton = screen.getByRole("button");
     expect(avatarButton).toHaveStyle(`height: ${size}px`);
