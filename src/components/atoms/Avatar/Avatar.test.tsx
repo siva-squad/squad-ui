@@ -5,7 +5,7 @@ import { describe, test, vi } from "vitest";
 
 import * as AvatarStories from "./Avatar.stories";
 
-const { Default: Avatar } = composeStories(AvatarStories);
+const { Default: Avatar, NoClick: AvatarNoClick } = composeStories(AvatarStories);
 
 const mockSrc = "https://example.com/avatar.png";
 
@@ -16,6 +16,11 @@ describe("Avatar", () => {
 
   test("renders without error", () => {
     render(<Avatar />);
+    expect(screen.getByRole("button")).toBeInTheDocument();
+  });
+
+  test("renders without error when onClick is not provided", () => {
+    render(<AvatarNoClick />);
     expect(screen.getByRole("button")).toBeInTheDocument();
   });
 
