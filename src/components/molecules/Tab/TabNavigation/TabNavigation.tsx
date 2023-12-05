@@ -29,7 +29,6 @@ export const TabNavigation = ({
           })}
           onClick={() => setCurrentPage(pageId)}
           key={pageId}
-          data-testid={`navigation-button__${pageId}`}
         >
           {label}
         </button>

@@ -1,26 +1,19 @@
 import { useState } from "react";
 
-import type { ReactNode } from "react";
+import { TabContext } from "../context";
+import { TabAreaProps } from "./type";
 
-import { tabContext } from "../context";
-
-export const TabArea = ({
-  children,
-  defaultPage = 1,
-}: {
-  children: ReactNode;
-  defaultPage?: number;
-}) => {
+export const TabArea = ({ children, defaultPage = 1 }: TabAreaProps) => {
   const [currentPage, setCurrentPage] = useState(defaultPage);
 
   return (
-    <tabContext.Provider
+    <TabContext.Provider
       value={{
         currentPage,
         setCurrentPage,
       }}
     >
       {children}
-    </tabContext.Provider>
+    </TabContext.Provider>
   );
 };

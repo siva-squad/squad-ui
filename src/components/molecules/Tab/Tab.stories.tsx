@@ -17,12 +17,14 @@ export const Default = () => {
       <TabNavigation
         tabs={[
           { label: "page1", pageId: 1 },
-          { label: "page1", pageId: 2 },
+          { label: "page2", pageId: 2 },
+          { label: "page3", pageId: 3 },
         ]}
       />
       <div>
-        <TabPage page={1}>1</TabPage>
-        <TabPage page={2}>2</TabPage>
+        <TabPage page={1}>Content 1</TabPage>
+        <TabPage page={2}>Content 2</TabPage>
+        <TabPage page={3}>Content 3</TabPage>
       </div>
     </TabArea>
   );

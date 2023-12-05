@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
-import { tabContext } from "./context";
+import { TabContext } from "./context";
 
 export const useTab = () => {
-  return useContext(tabContext);
+  return useContext(TabContext);
 };

@@ -24,7 +24,7 @@ export default {
       type: "string",
       options: ["black"],
       control: {
-        type: "radio",
+        type: "check",
       },
       defaultValue: "black",
     },
@@ -32,7 +32,7 @@ export default {
       type: "string",
       options: ["black"],
       control: {
-        type: "radio",
+        type: "check",
       },
       defaultValue: "black",
     },
@@ -40,7 +40,7 @@ export default {
       type: "string",
       options: ["transparent", "white"],
       control: {
-        type: "radio",
+        type: "check",
       },
       defaultValue: "transparent",
     },
@@ -48,7 +48,7 @@ export default {
       type: "string",
       options: ["gray"],
       control: {
-        type: "radio",
+        type: "check",
       },
       defaultValue: "gray",
     },
@@ -56,7 +56,7 @@ export default {
       type: "string",
       options: ["gray"],
       control: {
-        type: "radio",
+        type: "check",
       },
       defaultValue: "gray",
     },
