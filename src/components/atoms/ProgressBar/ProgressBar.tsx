@@ -9,6 +9,7 @@ export const ProgressBar = ({ size, color, value = 0 }: ProgressBarProps) => {
       <div
         className={PROGRESS_BAR_CLASS_NAME({ color, size })}
         style={{ width: `${progressValue}%` }}
+        data-testid="progress-bar"
       ></div>
     </div>
   );
