@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Badge } from "./Badge";
-import { COLORS, THEMES } from "./const";
+import { THEMES } from "./const";
+import { COLORS } from "@/src/const/colors";
 
 export default {
   component: Badge,

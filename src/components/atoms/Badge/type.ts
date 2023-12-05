@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
-import { COLORS, THEMES } from "./const";
+import { THEMES } from "./const";
+import { COLORS } from "@/src/const/colors";
 
 export type Colors = (typeof COLORS)[number];
 

@@ -1,16 +1,5 @@
 import { tv } from "tailwind-variants";
 
-export const COLORS = [
-  "primary",
-  "blue",
-  "green",
-  "yellow",
-  "red",
-  "black",
-  "gray",
-  "lightGray",
-] as const;
-
 export const THEMES = ["fill", "border", "light-fill"] as const;
 
 export const BADGE_CLASS_NAME = tv({

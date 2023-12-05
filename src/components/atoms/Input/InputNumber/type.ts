@@ -1,4 +1,5 @@
 import { ComponentProps } from "react";
+import { BadgeProps } from "@components/atoms/Badge/type";
 import { InputStyleProps } from "../type";
 
 export type InputNumberProps = InputStyleProps &
@@ -18,4 +19,8 @@ export type InputNumberProps = InputStyleProps &
     | "defaultValue"
   > & {
     showSuccess?: boolean;
+    label?: string;
+    badgeColor?: BadgeProps["color"];
+    badgeText?: string;
+    helperText?: string;
   };

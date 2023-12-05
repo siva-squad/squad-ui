@@ -2,6 +2,7 @@ import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { InputText } from "./InputText";
+import { COLORS } from "@/src/const/colors";
 
 export default {
   component: InputText,
@@ -14,6 +15,10 @@ export default {
     disabled: false,
     state: undefined,
     showSuccess: false,
+    label: undefined,
+    badgeColor: "lightGray",
+    badgeText: undefined,
+    helperText: undefined,
     onChange: action("onChange"),
     onFocus: action("onFocus"),
     onBlur: action("onBlur"),
@@ -33,6 +38,10 @@ export default {
       options: ["error", undefined],
     },
     onChange: { action: "onChange" },
+    badgeColor: {
+      control: { type: "select" },
+      options: COLORS,
+    },
   },
   parameters: {
     controls: { expanded: true },
@@ -79,5 +88,73 @@ export const Disabled: StoryObj<typeof InputText> = {
   argTypes: {},
   args: {
     disabled: true,
+  },
+};
+
+export const DefaultWithLabel: StoryObj<typeof InputText> = {
+  name: "ラベル付き",
+  argTypes: {},
+  args: {
+    id: "id",
+    label: "ラベル",
+  },
+};
+
+export const DefaultWithBadge: StoryObj<typeof InputText> = {
+  name: "バッチ付き",
+  argTypes: {},
+  args: {
+    id: "id",
+    badgeText: "バッチ",
+  },
+};
+
+export const DefaultWithHelperText: StoryObj<typeof InputText> = {
+  name: "ヘルパーテキスト付き",
+  argTypes: {},
+  args: {
+    id: "id",
+    helperText: "ヘルパーテキスト",
+  },
+};
+
+export const DefaultWithLabelAndBadge: StoryObj<typeof InputText> = {
+  name: "ラベル&バッチ付き",
+  argTypes: {},
+  args: {
+    id: "id",
+    label: "ラベル",
+    badgeText: "任意",
+  },
+};
+
+export const DefaultWithLabelAndHelperText: StoryObj<typeof InputText> = {
+  name: "ラベル&ヘルパーテキスト付き",
+  argTypes: {},
+  args: {
+    id: "id",
+    label: "ラベル",
+    helperText: "ヘルパーテキスト",
+  },
+};
+
+export const DefaultWithBadgeAndHelperText: StoryObj<typeof InputText> = {
+  name: "バッチ&ヘルパーテキスト付き",
+  argTypes: {},
+  args: {
+    id: "id",
+    badgeText: "任意",
+    helperText: "ヘルパーテキスト",
+  },
+};
+
+export const DefaultWithLabelAndBadgeAndHelperText: StoryObj<typeof InputText> = {
+  name: "ラベル&バッチ&ヘルパーテキスト付き",
+  argTypes: {},
+  args: {
+    id: "id",
+    label: "ラベル",
+    badgeText: "任意",
+    helperText: "ヘルパーテキスト",
   },
 };
