@@ -7,6 +7,7 @@ export const Spinner = ({ size, theme, loading, background }: SpinnerProps) => {
     <span
       role="status"
       aria-label="Loading"
+      data-testid="spinner"
     >
       <svg
         aria-hidden="true"
