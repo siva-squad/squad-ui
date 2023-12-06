@@ -7,4 +7,5 @@ export type DialogProps = {
   cancelButtonText: string;
   saveButtonText: string;
   isOpen: boolean;
+  theme?: "default" | "red";
 };
