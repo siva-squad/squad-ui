@@ -2,6 +2,7 @@ import { ComponentProps } from "react";
 
 export type TextareaProps = Pick<
   ComponentProps<"textarea">,
+  | "id"
   | "value"
   | "onChange"
   | "onFocus"

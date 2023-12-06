@@ -6,3 +6,5 @@ export * from "./BrandLogo";
 export * from "./InputElement";
 export * from "./RichMenuDescription";
 export * from "./RichMenuList";
+export * from "./Dialog";
+export * from "./Tab";
