@@ -36,6 +36,20 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: ["./vitest.setup.ts"],
+    coverage: {
+      include: ["src/**/*.{ts,tsx}"],
+      exclude: [
+        "src/**/*.stories.tsx",
+        "src/**/*.test.ts",
+        "src/**/*.test.tsx",
+        "src/**/const.ts",
+        "src/**/consts.ts",
+        "src/**/index.ts",
+        "src/**/type.ts",
+        "src/vite-env.d.ts",
+        "src/assets/**/*",
+      ],
+    },
   },
   build: {
     lib: {

@@ -34,7 +34,7 @@
       "@hooks/*": ["./src/hooks/*"],
       "@/*": ["./*"]
     },
-    "types": ["@testing-library/jest-dom"]
+    "types": ["@testing-library/jest-dom", "vitest/globals"]
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
