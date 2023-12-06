@@ -10,6 +10,7 @@ export const FullUserCircleIcon = ({ size }: { size: number }) => {
       <div
         className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2"
         style={{ width: size, height: size }}
+        data-testid="full-user-circle-icon"
       >
         <UserCircleIcon className="aspect-square rounded-full text-gray" />
       </div>
