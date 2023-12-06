@@ -32,6 +32,7 @@
       "@organisms/*": ["./src/components/organisms/*"],
       "@assets/*": ["./src/assets/*"],
       "@hooks/*": ["./src/hooks/*"],
+      "@const/*": ["./src/const/*"],
       "@/*": ["./*"]
     },
     "types": ["@testing-library/jest-dom"]

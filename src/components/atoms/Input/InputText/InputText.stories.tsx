@@ -1,8 +1,8 @@
+import { COLORS } from "@const/colors";
 import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { InputText } from "./InputText";
-import { COLORS } from "@/src/const/colors";
 
 export default {
   component: InputText,

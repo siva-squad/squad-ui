@@ -1,7 +1,7 @@
+import { COLORS } from "@const/colors";
 import { action } from "@storybook/addon-actions";
 import type { Meta, StoryObj } from "@storybook/react";
 import { InputNumber } from "./InputNumber";
-import { COLORS } from "@/src/const/colors";
 
 export default {
   component: InputNumber,
