@@ -16,6 +16,7 @@ describe("Spinner", () => {
     const spinner = screen.getByTestId("spinner");
     expect(spinner).toBeInTheDocument();
   });
+
   test("does not render when loading is false", () => {
     render(<Spinner loading={false} />);
     const spinner = screen.queryByTestId("spinner");
