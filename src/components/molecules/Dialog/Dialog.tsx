@@ -13,6 +13,7 @@ export const Dialog = ({
   cancelButtonText,
   saveButtonText,
   isOpen,
+  theme = "default",
 }: DialogProps) => {
   const ref = useRef<HTMLBodyElement | null>(null);
   const [mounted, setMounted] = useState(false);
@@ -39,7 +40,7 @@ export const Dialog = ({
             onClick={onClose}
           />
           <div
-            className="overflow-hidden rounded-lg"
+            className="overflow-hidden rounded-2xl"
             role="dialog"
             aria-modal="true"
             aria-label={title}
@@ -48,14 +49,15 @@ export const Dialog = ({
               <div className="p-10">{children}</div>
               <div className="flex items-center justify-end gap-2 border-t border-t-gray-light px-10 py-4">
                 <Button
-                  theme="white"
+                  theme={theme === "default" ? "white" : "gray"}
+                  background="white"
                   size="medium"
                   onClick={onClose}
                 >
                   {cancelButtonText}
                 </Button>
                 <Button
-                  theme="primary"
+                  theme={theme === "default" ? "primary" : "red"}
                   size="medium"
                 >
                   {saveButtonText}
