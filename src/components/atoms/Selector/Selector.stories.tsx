@@ -47,7 +47,6 @@ export const Groups = () => {
     },
   ];
   return (
-    // たてに並べる
     <div className="flex flex-col gap-y-20">
       <Selector
         options={options}
