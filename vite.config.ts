@@ -41,7 +41,6 @@ export default defineConfig({
       exclude: [
         "src/**/*.stories.tsx",
         "src/**/const.ts",
-        "src/**/consts.ts",
         "src/**/index.ts",
         "src/**/type.ts",
         "src/vite-env.d.ts",

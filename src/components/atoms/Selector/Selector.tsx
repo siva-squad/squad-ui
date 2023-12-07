@@ -5,7 +5,7 @@ import {
   LABEL_CLASS_NAME,
   SELECTOR_BUTTON_CLASS_NAME,
   SELECTOR_WRAPPER_CLASS_NAME,
-} from "./consts";
+} from "./const";
 import { SelectorList } from "./SelectorList";
 import type { OptionType, SelectorProps } from "./type";
 

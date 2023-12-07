@@ -1,6 +1,6 @@
 import { CheckIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
-import { LABEL_CLASS_NAME } from "./consts";
+import { LABEL_CLASS_NAME } from "./const";
 import type { SelectorListItemProps } from "./type";
 
 export const SelectorListItem = ({ option, isActive, onClick }: SelectorListItemProps) => {
