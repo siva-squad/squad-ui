@@ -7,9 +7,10 @@ import {
   SELECTOR_BUTTON_CLASS_NAME,
   SELECTOR_WRAPPER_CLASS_NAME,
 } from "./consts";
+import { useOutsideClick } from "./hooks";
 import { SelectorList } from "./SelectorList";
+
 import type { OptionType, SelectorProps } from "./type";
-import { useOutsideClick } from "./useOutsideClick";
 
 export const Selector = ({ size, options, defaultLabel, disabled, onSelect }: SelectorProps) => {
   const [isOpen, setIsOpen] = useState(false);
