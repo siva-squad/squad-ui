@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button } from "@components/atoms";
+import { Button, InputText, Selector } from "@components/atoms";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Dialog } from "./Dialog";
@@ -201,6 +201,44 @@ export const ControlledWithScroll = () => {
           modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia dolores
           facilis sed, a itaque labore eum natus.
         </p>
+      </Dialog>
+    </>
+  );
+};
+
+export const ControlledWithSelectorAndInput = () => {
+  // Actual Use case
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <Button
+        theme="primary"
+        size="medium"
+        onClick={() => setIsOpen(true)}
+      >
+        Open dialog
+      </Button>
+      <Dialog
+        title="Base Dialog example"
+        onClose={() => setIsOpen(false)}
+        cancelButtonText="キャンセル"
+        saveButtonText="保存する"
+        isOpen={isOpen}
+        theme="default"
+      >
+        <div className="flex flex-col gap-20">
+          <Selector
+            size="normal"
+            options={[
+              { id: 1, label: "Option 1", value: "1" },
+              { id: 2, label: "Option 2", value: "2" },
+            ]}
+            defaultLabel="Select an option"
+            onSelect={() => {}}
+          />
+          <InputText placeholder="Input some text" />
+        </div>
       </Dialog>
     </>
   );
