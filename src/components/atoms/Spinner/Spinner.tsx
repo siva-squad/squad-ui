@@ -1,4 +1,4 @@
-import { SPINNER_CLASS_NAME } from "./consts";
+import { SPINNER_CLASS_NAME } from "./const";
 import type { SpinnerProps } from "./type";
 
 export const Spinner = ({ size, theme, loading, background }: SpinnerProps) => {
