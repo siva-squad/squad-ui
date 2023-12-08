@@ -6,7 +6,7 @@ import {
   LABEL_CLASS_NAME,
   SELECTOR_BUTTON_CLASS_NAME,
   SELECTOR_WRAPPER_CLASS_NAME,
-} from "./consts";
+} from "./const";
 import { useOutsideClick } from "./hooks";
 import { SelectorList } from "./SelectorList";
 
