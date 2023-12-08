@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import {
   ICON_CLASS_NAME,
@@ -6,13 +7,30 @@ import {
   SELECTOR_BUTTON_CLASS_NAME,
   SELECTOR_WRAPPER_CLASS_NAME,
 } from "./const";
+import { useOutsideClick } from "./hooks";
 import { SelectorList } from "./SelectorList";
+
 import type { OptionType, SelectorProps } from "./type";
 
 export const Selector = ({ size, options, defaultLabel, disabled, onSelect }: SelectorProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeLabel, setActiveLabel] = useState<OptionType["label"] | null>(null);
   const [activeId, setActiveId] = useState<OptionType["id"] | null>(null);
+  const wrapperRef = useRef(null);
+  const [showOverlay, setShowOverlay] = useState(false);
+
+  useOutsideClick(wrapperRef, () => setIsOpen(false));
+
+  const handleButtonClick = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    setIsOpen((prevIsOpen) => !prevIsOpen);
+    setShowOverlay((prevShowOverlay) => !prevShowOverlay);
+  };
+
+  const closeSelector = () => {
+    setIsOpen(false);
+    setShowOverlay(false);
+  };
 
   const onClick = (option: OptionType) => {
     setActiveLabel(option.label);
@@ -21,12 +39,15 @@ export const Selector = ({ size, options, defaultLabel, disabled, onSelect }: Se
   };
 
   return (
-    <div className={SELECTOR_WRAPPER_CLASS_NAME({ size })}>
+    <div
+      ref={wrapperRef}
+      className={SELECTOR_WRAPPER_CLASS_NAME({ size })}
+    >
       <button
         className={SELECTOR_BUTTON_CLASS_NAME({ size, disabled })}
         disabled={disabled}
         aria-disabled={disabled ? "true" : "false"}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleButtonClick}
         type="button"
       >
         <span className={LABEL_CLASS_NAME({ size, disabled, isActive: !!activeLabel })}>
@@ -41,6 +62,14 @@ export const Selector = ({ size, options, defaultLabel, disabled, onSelect }: Se
           onClick={onClick}
         />
       )}
+      {showOverlay &&
+        createPortal(
+          <div
+            className="fixed inset-0"
+            onClick={closeSelector}
+          />,
+          document.body,
+        )}
     </div>
   );
 };
