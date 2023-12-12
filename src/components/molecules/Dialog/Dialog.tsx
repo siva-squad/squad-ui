@@ -10,6 +10,7 @@ export const Dialog = ({
   children,
   title,
   onClose,
+  onSave,
   cancelButtonText,
   saveButtonText,
   isOpen,
@@ -59,6 +60,7 @@ export const Dialog = ({
                 <Button
                   theme={theme === "default" ? "primary" : "red"}
                   size="medium"
+                  onClick={onSave}
                 >
                   {saveButtonText}
                 </Button>

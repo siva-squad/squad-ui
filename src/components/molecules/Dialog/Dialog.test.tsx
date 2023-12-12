@@ -40,6 +40,18 @@ describe("Dialog", () => {
     expect(closeDialogCallback).toHaveBeenCalled();
   });
 
+  test("calls save dialog callback function when clicking on save button", async () => {
+    const user = userEvent.setup();
+    const saveDialogCallback = vi.fn();
+    render(<Dialog onSave={saveDialogCallback} />);
+
+    const saveButton = screen.getByRole("button", { name: "保存する" });
+
+    await user.click(saveButton);
+
+    expect(saveDialogCallback).toHaveBeenCalled();
+  });
+
   test("in context with button and state", async () => {
     const user = userEvent.setup();
     render(<Controlled />);
