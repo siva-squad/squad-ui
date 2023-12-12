@@ -31,7 +31,7 @@ describe("Dialog", () => {
   test("calls close dialog callback function when clicking on the background", async () => {
     const user = userEvent.setup();
     const closeDialogCallback = vi.fn();
-    render(<Dialog onClose={closeDialogCallback} />);
+    render(<Dialog cancelButtonProps={{ onClose: closeDialogCallback, text: "" }} />);
 
     const background = screen.getByTestId("dialog-background");
 
@@ -40,10 +40,22 @@ describe("Dialog", () => {
     expect(closeDialogCallback).toHaveBeenCalled();
   });
 
+  test("calls close dialog callback function when clicking on cancel button", async () => {
+    const user = userEvent.setup();
+    const closeDialogCallback = vi.fn();
+    render(<Dialog cancelButtonProps={{ onClose: closeDialogCallback, text: "キャンセル" }} />);
+
+    const cancelButton = screen.getByRole("button", { name: "キャンセル" });
+
+    await user.click(cancelButton);
+
+    expect(closeDialogCallback).toHaveBeenCalled();
+  });
+
   test("calls save dialog callback function when clicking on save button", async () => {
     const user = userEvent.setup();
     const saveDialogCallback = vi.fn();
-    render(<Dialog onSave={saveDialogCallback} />);
+    render(<Dialog saveButtonProps={{ onSave: saveDialogCallback, text: "保存する" }} />);
 
     const saveButton = screen.getByRole("button", { name: "保存する" });
 

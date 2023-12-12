@@ -16,8 +16,16 @@ export const Default: StoryObj<typeof Dialog> = {
   args: {
     children: "With a little bit of text",
     title: "Dialog",
-    cancelButtonText: "キャンセル",
-    saveButtonText: "保存する",
+    cancelButtonProps: {
+      text: "キャンセル",
+      onClose: () => console.log("close"),
+      disabled: false,
+    },
+    saveButtonProps: {
+      text: "保存する",
+      onSave: () => console.log("save"),
+      disabled: false,
+    },
     isOpen: true,
     theme: "default",
   },
@@ -67,8 +75,16 @@ export const RedTheme: StoryObj<typeof Dialog> = {
   args: {
     children: "With a little bit of text",
     title: "Dialog",
-    cancelButtonText: "キャンセル",
-    saveButtonText: "保存する",
+    cancelButtonProps: {
+      text: "キャンセル",
+      onClose: () => console.log("close"),
+      disabled: false,
+    },
+    saveButtonProps: {
+      text: "保存する",
+      onSave: () => console.log("save"),
+      disabled: false,
+    },
     isOpen: true,
     theme: "red",
   },
@@ -129,9 +145,8 @@ export const Controlled = () => {
       </Button>
       <Dialog
         title="Base Dialog example"
-        onClose={() => setIsOpen(false)}
-        cancelButtonText="キャンセル"
-        saveButtonText="保存する"
+        cancelButtonProps={{ onClose: () => setIsOpen(false), text: "キャンセル" }}
+        saveButtonProps={{ onSave: () => console.log("save"), text: "保存する" }}
         isOpen={isOpen}
         theme="default"
       >
@@ -160,9 +175,8 @@ export const ControlledWithScroll = () => {
       </Button>
       <Dialog
         title="Base Dialog example"
-        onClose={() => setIsOpen(false)}
-        cancelButtonText="キャンセル"
-        saveButtonText="保存する"
+        cancelButtonProps={{ onClose: () => setIsOpen(false), text: "キャンセル" }}
+        saveButtonProps={{ onSave: () => console.log("save"), text: "保存する" }}
         isOpen={isOpen}
         theme="default"
       >
@@ -221,9 +235,8 @@ export const ControlledWithSelectorAndInput = () => {
       </Button>
       <Dialog
         title="Base Dialog example"
-        onClose={() => setIsOpen(false)}
-        cancelButtonText="キャンセル"
-        saveButtonText="保存する"
+        cancelButtonProps={{ onClose: () => setIsOpen(false), text: "キャンセル" }}
+        saveButtonProps={{ onSave: () => console.log("save"), text: "保存する" }}
         isOpen={isOpen}
         theme="default"
       >
