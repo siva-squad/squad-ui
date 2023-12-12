@@ -4,14 +4,15 @@ import { Area } from "./Area";
 
 export default {
   component: Area,
-  parameters: {
-    controls: { expanded: true },
+  args: {
+    children: "With a little bit of text",
+    color: "lightGray",
   },
-  argTypes: {},
 } satisfies Meta<typeof Area>;
 
 export const Default: StoryObj<typeof Area> = {
   args: {
+    width: "full",
     children: "With a little bit of text",
   },
 };
