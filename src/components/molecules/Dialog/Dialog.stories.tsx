@@ -19,7 +19,6 @@ export const Default: StoryObj<typeof Dialog> = {
     cancelButtonProps: {
       text: "キャンセル",
       onClose: () => console.log("close"),
-      disabled: false,
     },
     saveButtonProps: {
       text: "保存する",
@@ -78,7 +77,6 @@ export const RedTheme: StoryObj<typeof Dialog> = {
     cancelButtonProps: {
       text: "キャンセル",
       onClose: () => console.log("close"),
-      disabled: false,
     },
     saveButtonProps: {
       text: "保存する",
@@ -137,7 +135,6 @@ export const DisabledSaveButton: StoryObj<typeof Dialog> = {
     cancelButtonProps: {
       text: "キャンセル",
       onClose: () => console.log("close"),
-      disabled: false,
     },
     saveButtonProps: {
       text: "保存する",

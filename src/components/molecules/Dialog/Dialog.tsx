@@ -52,7 +52,6 @@ export const Dialog = ({
                   background="white"
                   size="medium"
                   onClick={cancelButtonProps.onClose}
-                  disabled={cancelButtonProps.disabled}
                 >
                   {cancelButtonProps.text}
                 </Button>

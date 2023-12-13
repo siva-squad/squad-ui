@@ -7,7 +7,7 @@ type SaveButtonProps = Pick<ButtonProps, "disabled"> & {
   text: string;
 };
 
-type CancelButtonProps = Pick<ButtonProps, "disabled"> & {
+type CancelButtonProps = {
   onClose: () => void;
   text: string;
 };
