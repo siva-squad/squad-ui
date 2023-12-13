@@ -9,9 +9,8 @@ import type { DialogProps } from "./type";
 export const Dialog = ({
   children,
   title,
-  onClose,
-  cancelButtonText,
-  saveButtonText,
+  saveButtonProps,
+  cancelButtonProps,
   isOpen,
   theme = "default",
 }: DialogProps) => {
@@ -37,7 +36,7 @@ export const Dialog = ({
           <div
             data-testid="dialog-background"
             className="absolute inset-0 bg-black opacity-60"
-            onClick={onClose}
+            onClick={cancelButtonProps.onClose}
           />
           <div
             className="overflow-hidden rounded-2xl"
@@ -52,15 +51,17 @@ export const Dialog = ({
                   theme={theme === "default" ? "white" : "gray"}
                   background="white"
                   size="medium"
-                  onClick={onClose}
+                  onClick={cancelButtonProps.onClose}
                 >
-                  {cancelButtonText}
+                  {cancelButtonProps.text}
                 </Button>
                 <Button
                   theme={theme === "default" ? "primary" : "red"}
                   size="medium"
+                  onClick={saveButtonProps.onSave}
+                  disabled={saveButtonProps.disabled}
                 >
-                  {saveButtonText}
+                  {saveButtonProps.text}
                 </Button>
               </div>
             </div>
