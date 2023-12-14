@@ -12,8 +12,8 @@ export const FavoriteButton = ({
   itemName,
 }: FavoriteButtonProps) => {
   const buttonLabel = isFavorite
-    ? `Remove ${itemName} from favorite`
-    : `Add ${itemName} to favorite`;
+    ? `${itemName}をお気に入りから削除`
+    : `${itemName}をお気に入りに追加`;
 
   return (
     <button
