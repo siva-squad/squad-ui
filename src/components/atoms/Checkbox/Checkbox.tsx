@@ -11,7 +11,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           checked={checked}
           onChange={onChange}
           className={
-            "peer h-4 w-4 cursor-pointer appearance-none rounded-e rounded-s border border-gray-light checked:border-primary-600 checked:bg-primary-50"
+            "peer h-4 w-4 cursor-pointer appearance-none rounded-e rounded-s border border-gray-light bg-white checked:border-primary-600 checked:bg-primary-50"
           }
           value={value}
           ref={ref}
