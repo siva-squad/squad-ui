@@ -16,7 +16,7 @@ describe("FavoriteButton", () => {
     expect(button).toBeInTheDocument();
   });
 
-  test("has different label when isFavourite is true", async () => {
+  test("has different label when isFavorite is true", async () => {
     render(<FavoriteButton isFavorite={true} />);
 
     const button = screen.getByRole("button", { name: "フォルダ１をお気に入りから削除" });
