@@ -2,7 +2,7 @@ type LabelType = string;
 type ValueType = string | number;
 
 export type OptionType = {
-  id: number;
+  id: number | string;
   label: LabelType;
   value: ValueType;
 };
