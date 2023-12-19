@@ -37,11 +37,12 @@ export const InputElement = ({
           />
         )}
       </div>
-      {!!description && typeof description === "string" ? (
-        <p className="text-xs leading-normal text-gray-dark">{description}</p>
-      ) : (
-        description
-      )}
+      {!!description &&
+        (typeof description === "string" ? (
+          <p className="text-xs leading-normal text-gray-dark">{description}</p>
+        ) : (
+          description
+        ))}
       {elementUI}
       {!!errorText && <p className="text-xs leading-normal text-red">{errorText}</p>}
     </div>
