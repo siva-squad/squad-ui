@@ -15,7 +15,7 @@ export default {
     errorText: {
       type: "string",
     },
-    descriptionText: {
+    description: {
       type: "string",
     },
     showRequired: {
@@ -46,7 +46,34 @@ export const Default: StoryObj<typeof InputElement> = {
   args: {
     htmlFor: "testId",
     label: "タイトル",
-    descriptionText: "説明文が入ります",
+    description: "説明文が入ります",
+    errorText: "エラーテキストが入ります",
+    render: ({ htmlFor }) => (
+      <InputText
+        placeholder="プレイスホルダー"
+        id={htmlFor}
+      />
+    ),
+  },
+  decorators: [
+    (Story) => (
+      <div className="max-w-[500px]">
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const WithHtmlForDescription: StoryObj<typeof InputElement> = {
+  args: {
+    htmlFor: "testId",
+    label: "タイトル",
+    description: (
+      <p className="text-xs leading-normal">
+        <a href="#">リンク</a>
+        が入ります
+      </p>
+    ),
     errorText: "エラーテキストが入ります",
     render: ({ htmlFor }) => (
       <InputText
