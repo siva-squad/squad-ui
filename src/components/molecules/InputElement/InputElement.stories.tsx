@@ -70,7 +70,12 @@ export const WithHtmlForDescription: StoryObj<typeof InputElement> = {
     label: "タイトル",
     description: (
       <p className="text-xs leading-normal">
-        <a href="#">リンク</a>
+        <a
+          href="#"
+          className="text-primary-600"
+        >
+          リンク
+        </a>
         が入ります
       </p>
     ),
