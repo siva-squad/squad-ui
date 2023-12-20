@@ -236,6 +236,15 @@ export const ControlledWithScroll = () => {
         isOpen={isOpen}
         theme="default"
       >
+        <Selector
+          defaultLabel="test"
+          options={[
+            { id: 1, value: "test", label: "test" },
+            { id: 2, value: "test2", label: "test2" },
+          ]}
+          onSelect={() => {}}
+          size="normal"
+        ></Selector>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque suscipit aspernatur velit
           modi nesciunt aliquam quasi quam exercitationem aut doloribus reiciendis mollitia dolores
