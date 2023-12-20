@@ -3,17 +3,9 @@ import { createPortal } from "react-dom";
 import FocusLock from "react-focus-lock";
 import { RemoveScroll } from "react-remove-scroll";
 
-import { Button } from "@components/atoms";
 import type { DialogProps } from "./type";
 
-export const Dialog = ({
-  children,
-  title,
-  saveButtonProps,
-  cancelButtonProps,
-  isOpen,
-  theme = "default",
-}: DialogProps) => {
+export const Dialog = ({ children, title, isOpen, onClose }: DialogProps) => {
   const ref = useRef<HTMLBodyElement | null>(null);
   const [mounted, setMounted] = useState(false);
 
@@ -36,7 +28,7 @@ export const Dialog = ({
           <div
             data-testid="dialog-background"
             className="absolute inset-0 bg-black opacity-60"
-            onClick={cancelButtonProps.onClose}
+            onClick={onClose}
           />
           <div
             className="overflow-hidden rounded-2xl"
@@ -44,26 +36,8 @@ export const Dialog = ({
             aria-modal="true"
             aria-label={title}
           >
-            <div className="relative grid max-h-full w-[37.5rem] gap-4 overflow-y-auto  bg-white shadow-04">
-              <div className="p-10">{children}</div>
-              <div className="flex items-center justify-end gap-2 border-t border-t-gray-light px-10 py-4">
-                <Button
-                  theme={theme === "default" ? "white" : "gray"}
-                  background="white"
-                  size="medium"
-                  onClick={cancelButtonProps.onClose}
-                >
-                  {cancelButtonProps.text}
-                </Button>
-                <Button
-                  theme={theme === "default" ? "primary" : "red"}
-                  size="medium"
-                  onClick={saveButtonProps.onSave}
-                  disabled={saveButtonProps.disabled}
-                >
-                  {saveButtonProps.text}
-                </Button>
-              </div>
+            <div className="relative grid max-h-full w-[37.5rem] overflow-y-auto bg-white shadow-04">
+              <div>{children}</div>
             </div>
           </div>
         </div>
