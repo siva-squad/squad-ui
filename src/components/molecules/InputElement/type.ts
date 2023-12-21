@@ -8,7 +8,7 @@ type FormType = {
 export type InputElementProps = {
   label: string;
   errorText?: string;
-  descriptionText?: string;
+  description?: string | ReactElement;
   showRequired?: boolean;
   showLabel?: boolean;
   children?: ReactElement;
