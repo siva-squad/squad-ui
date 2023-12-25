@@ -27,7 +27,7 @@ export const ANCHOR_CLASS_NAME = tv({
     theme: {
       white:
         "border border-primary-400 bg-white shadow-01 hover:bg-primary-100 active:bg-primary-300",
-      primary: "bg-primary-600 shadow-01 active:bg-primary-900 active:underline-primary-900",
+      primary: "bg-primary-600 shadow-01 hover:bg-primary-700 active:bg-primary-900",
       "no-background": "hover:bg-gray-extraLight",
       underline: "hover:bg-gray-extraLight",
       red: "bg-red shadow-01 hover:bg-red-dark",
