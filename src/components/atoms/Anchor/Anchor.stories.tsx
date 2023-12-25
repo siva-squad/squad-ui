@@ -159,3 +159,11 @@ export const NoBackground = () => (
     ボタン
   </ThemeTemplate>
 );
+export const Underline = () => (
+  <ThemeTemplate
+    theme="underline"
+    href="#"
+  >
+    ボタン
+  </ThemeTemplate>
+);

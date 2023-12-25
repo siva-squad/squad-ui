@@ -95,5 +95,11 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    ({ addUtilities }) =>
+      addUtilities({
+        ".underline-primary-600": { textDecorationColor: "#0091FF" },
+        ".underline-primary-900": { textDecorationColor: "#0055C3" },
+      }),
+  ],
 } satisfies Config;
