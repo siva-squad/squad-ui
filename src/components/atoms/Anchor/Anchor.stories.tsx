@@ -32,6 +32,13 @@ const AnchorSet = ({
         {...props}
         icon={<PlusIcon />}
         iconPosition="right"
+      >
+        {children}
+      </Anchor>
+      <Anchor
+        {...props}
+        icon={<PlusIcon />}
+        iconPosition="right"
       />
     </div>
   );
@@ -154,6 +161,14 @@ export const Gray = (props: ComponentProps<typeof ThemeTemplate>) => (
 export const NoBackground = () => (
   <ThemeTemplate
     theme="no-background"
+    href="#"
+  >
+    ボタン
+  </ThemeTemplate>
+);
+export const Underline = () => (
+  <ThemeTemplate
+    theme="underline"
     href="#"
   >
     ボタン
