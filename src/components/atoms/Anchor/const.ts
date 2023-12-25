@@ -27,8 +27,9 @@ export const ANCHOR_CLASS_NAME = tv({
     theme: {
       white:
         "border border-primary-400 bg-white shadow-01 hover:bg-primary-100 active:bg-primary-300",
-      primary: "bg-primary-600 shadow-01 hover:bg-primary-700 active:bg-primary-900",
+      primary: "bg-primary-600 shadow-01 active:bg-primary-900 active:underline-primary-900",
       "no-background": "hover:bg-gray-extraLight",
+      underline: "hover:bg-gray-extraLight",
       red: "bg-red shadow-01 hover:bg-red-dark",
       gray: "shadow-01",
     },
@@ -56,6 +57,10 @@ export const ANCHOR_CLASS_NAME = tv({
     },
     {
       theme: "no-background",
+      class: "px-1 py-0.5",
+    },
+    {
+      theme: "underline",
       class: "px-1 py-0.5",
     },
     {
@@ -89,6 +94,7 @@ export const ANCHOR_ICON_CLASS_NAME = tv({
       white: "text-primary-600",
       primary: "text-gray-light",
       "no-background": "text-primary-600",
+      underline: "text-primary-600",
       red: "text-gray-light",
       gray: "",
     },
@@ -132,6 +138,8 @@ export const ANCHOR_CHILDREN_CLASS_NAME = tv({
       white: "text-primary-600",
       primary: "text-white",
       "no-background": "text-primary-600 active:text-primary-900",
+      underline:
+        "text-primary-600 underline underline-primary-600 active:text-primary-900 active:underline-primary-900",
       red: "text-white",
       gray: "",
     },
