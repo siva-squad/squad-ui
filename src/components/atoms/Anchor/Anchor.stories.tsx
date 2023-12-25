@@ -32,13 +32,6 @@ const AnchorSet = ({
         {...props}
         icon={<PlusIcon />}
         iconPosition="right"
-      >
-        {children}
-      </Anchor>
-      <Anchor
-        {...props}
-        icon={<PlusIcon />}
-        iconPosition="right"
       />
     </div>
   );
