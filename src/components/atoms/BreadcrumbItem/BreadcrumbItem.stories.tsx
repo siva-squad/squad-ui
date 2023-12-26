@@ -11,7 +11,7 @@ export default {
 } satisfies Meta<typeof BreadcrumbItem>;
 
 export const Default: StoryObj<typeof BreadcrumbItem> = {
-  args: {},
+  args: {
+    children: <a href="/">サンプルテキスト</a>,
+  },
 };
-
-
