@@ -5,12 +5,12 @@ export const POPOVER_CONTENT_CLASS_NAME = tv({
   base: "absolute",
   variants: {
     position: {
-      bottomRight: clsx("left-0"),
-      bottomLeft: clsx("right-0"),
+      bottomRight: clsx("right-0"),
+      bottomLeft: clsx("left-0"),
       bottom: clsx("left-1/2 -translate-x-1/2"),
       top: clsx("bottom-full left-1/2 -translate-x-1/2"),
-      topLeft: clsx("bottom-full right-0"),
-      topRight: clsx("bottom-full left-0"),
+      topLeft: clsx("bottom-full left-0"),
+      topRight: clsx("bottom-full right-0"),
       right: clsx("left-full top-1/2 -translate-y-1/2"),
       rightTop: clsx("left-full -translate-y-full"),
       rightBottom: clsx("left-full top-0 translate-y-0"),
