@@ -1,8 +1,7 @@
 export type PopoverProps = {
   children: React.ReactNode;
   content: React.ReactNode;
-  trigger: "hover" | "click" | "focus";
-  placement:
+  position:
     | "bottom"
     | "bottomLeft"
     | "bottomRight"
