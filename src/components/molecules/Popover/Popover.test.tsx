@@ -7,9 +7,9 @@ import * as PopoverStories from "./Popover.stories";
 const { Default: Popover } = composeStories(PopoverStories);
 
 describe("Popover", () => {
-
   test("renders", async () => {
     render(<Popover />);
+    const popoverButton = screen.getByText("Button");
+    expect(popoverButton).toBeInTheDocument();
   });
-
 });
