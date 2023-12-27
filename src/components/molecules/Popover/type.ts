@@ -1,4 +1,5 @@
 export type PopoverProps = {
+  id?: string;
   children: React.ReactNode;
   content: React.ReactNode;
   position:

@@ -4,10 +4,15 @@ import { POPOVER_CONTENT_CLASS_NAME, POPOVER_WRAPPER_CLASS_NAME } from "./const"
 import type { PopoverProps } from "./type";
 
 // TODO: HTMLのpopoverで対応したい
-export const Popover = ({ children, content, position }: PopoverProps) => {
+export const Popover = ({ id, children, content, position }: PopoverProps) => {
   return (
     <div className="relative w-fit">
-      <div className="peer w-fit">{children}</div>
+      <div
+        id={id}
+        className="peer w-fit"
+      >
+        {children}
+      </div>
 
       <div
         className={clsx(
