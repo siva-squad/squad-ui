@@ -52,6 +52,7 @@ export const Button = ({
             size,
             theme,
             background,
+            isLoading: loading,
           })}
         >
           {loading ? "読み込み中..." : children}

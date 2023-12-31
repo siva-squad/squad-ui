@@ -3,7 +3,7 @@ import { tv } from "tailwind-variants";
 
 export const BUTTON_CLASS_NAME = tv({
   base: clsx(
-    "inline-flex items-center justify-center gap-1 rounded outline-none duration-300 ease-out",
+    "group inline-flex items-center justify-center gap-1 rounded outline-none duration-300 ease-out",
     "disabled:opacity-20",
     "focus-visible:ring-1 focus-visible:ring-primary-600 focus-visible:ring-offset-2",
   ),
@@ -25,7 +25,7 @@ export const BUTTON_CLASS_NAME = tv({
         "border border-primary-400 bg-white shadow-01 hover:bg-primary-100 active:bg-primary-300",
       primary: "bg-primary-600 shadow-01 hover:bg-primary-700 active:bg-primary-900",
       "no-background": "hover:bg-gray-extraLight",
-      red: "bg-red shadow-01 hover:bg-red-dark",
+      red: "shadow-01",
       gray: "shadow-01",
     },
     size: {
@@ -71,6 +71,23 @@ export const BUTTON_CLASS_NAME = tv({
       background: "white",
       class: "border-px border-gray-light bg-white hover:bg-gray-extraLight active:bg-gray-light",
     },
+    {
+      theme: "red",
+      background: "filled",
+      isLoading: true,
+      class: "bg-red",
+    },
+    {
+      theme: "red",
+      background: "filled",
+      isLoading: false,
+      class: "bg-red hover:bg-red-dark active:bg-red-dark",
+    },
+    {
+      theme: "red",
+      background: "white",
+      class: "border border-red text-red hover:bg-red-light active:border-red-dark",
+    },
   ],
 });
 
@@ -85,7 +102,7 @@ export const BUTTON_ICON_CLASS_NAME = tv({
       white: "text-primary-600",
       primary: "text-gray-light",
       "no-background": "text-primary-600",
-      red: "text-gray-light",
+      red: "",
       gray: "",
     },
     size: {
@@ -114,12 +131,26 @@ export const BUTTON_ICON_CLASS_NAME = tv({
       theme: "gray",
       class: "text-black",
     },
+    {
+      background: "filled",
+      theme: "red",
+      class: "text-white",
+    },
+    {
+      background: "white",
+      theme: "red",
+      class: "text-red group-active:text-red-dark",
+    },
   ],
 });
 
 export const BUTTON_CHILDREN_CLASS_NAME = tv({
   base: "",
   variants: {
+    isLoading: {
+      true: "",
+      false: "",
+    },
     background: {
       filled: "",
       white: "",
@@ -128,7 +159,7 @@ export const BUTTON_CHILDREN_CLASS_NAME = tv({
       white: "text-primary-600",
       primary: "text-white",
       "no-background": "text-primary-600 active:text-primary-900",
-      red: "text-white",
+      red: "",
       gray: "",
     },
     size: {
@@ -147,6 +178,23 @@ export const BUTTON_CHILDREN_CLASS_NAME = tv({
       background: "white",
       theme: "gray",
       class: "text-gray-extraDark",
+    },
+    {
+      isLoading: false,
+      background: "white",
+      theme: "red",
+      class: "text-red group-active:text-red-dark",
+    },
+    {
+      isLoading: true,
+      background: "white",
+      theme: "red",
+      class: "text-black",
+    },
+    {
+      background: "filled",
+      theme: "red",
+      class: "text-white",
     },
   ],
 });
