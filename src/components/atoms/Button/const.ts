@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { tv } from "tailwind-variants";
+import { buttonChildrenComposedVariants, buttonChildrenVariants } from "@/src/theme/button";
 
 export const BUTTON_CLASS_NAME = tv({
   base: clsx(
@@ -146,55 +147,6 @@ export const BUTTON_ICON_CLASS_NAME = tv({
 
 export const BUTTON_CHILDREN_CLASS_NAME = tv({
   base: "",
-  variants: {
-    isLoading: {
-      true: "",
-      false: "",
-    },
-    background: {
-      filled: "",
-      white: "",
-    },
-    theme: {
-      white: "text-primary-600",
-      primary: "text-white",
-      "no-background": "text-primary-600 active:text-primary-900",
-      red: "",
-      gray: "",
-    },
-    size: {
-      small: "text-xs",
-      medium: "text-sm",
-      large: "text-base",
-    },
-  },
-  compoundVariants: [
-    {
-      background: "filled",
-      theme: "gray",
-      class: "text-white",
-    },
-    {
-      background: "white",
-      theme: "gray",
-      class: "text-gray-extraDark",
-    },
-    {
-      isLoading: false,
-      background: "white",
-      theme: "red",
-      class: "text-red group-active:text-red-dark",
-    },
-    {
-      isLoading: true,
-      background: "white",
-      theme: "red",
-      class: "text-black",
-    },
-    {
-      background: "filled",
-      theme: "red",
-      class: "text-white",
-    },
-  ],
+  variants: buttonChildrenVariants,
+  compoundVariants: buttonChildrenComposedVariants,
 });
