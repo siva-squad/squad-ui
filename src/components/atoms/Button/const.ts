@@ -4,7 +4,7 @@ import {
   buttonBaseVariants,
   buttonChildrenComposedVariants,
   buttonChildrenVariants,
-  buttonCompoundVariants,
+  buttonBaseCompoundVariants,
   buttonIconCompoundVariants,
   buttonIconVariants,
 } from "@/src/theme/buttonTheme";
@@ -16,7 +16,7 @@ export const BUTTON_CLASS_NAME = tv({
     "focus-visible:ring-1 focus-visible:ring-primary-600 focus-visible:ring-offset-2",
   ),
   variants: buttonBaseVariants,
-  compoundVariants: buttonCompoundVariants,
+  compoundVariants: buttonBaseCompoundVariants,
 });
 
 export const BUTTON_ICON_CLASS_NAME = tv({

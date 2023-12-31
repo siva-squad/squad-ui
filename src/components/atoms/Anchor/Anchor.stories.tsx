@@ -127,8 +127,9 @@ export const Primary = () => (
     ボタン
   </ThemeTemplate>
 );
-export const Red = () => (
+export const Red = (props: ComponentProps<typeof ThemeTemplate>) => (
   <ThemeTemplate
+    {...props}
     theme="red"
     href="#"
   >
