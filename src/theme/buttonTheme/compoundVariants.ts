@@ -1,7 +1,7 @@
 import { ComponentVariants } from "./type";
-import { buttonChildrenVariants } from "./variants";
+import { buttonBaseVariants, buttonChildrenVariants, buttonIconVariants } from "./variants";
 
-export const buttonCompoundVariants = [
+export const buttonCompoundVariants: ComponentVariants<typeof buttonBaseVariants>[] = [
   {
     theme: "white",
     isLoading: true,
@@ -57,7 +57,7 @@ export const buttonCompoundVariants = [
   },
 ];
 
-export const buttonIconCompoundVariants = [
+export const buttonIconCompoundVariants: ComponentVariants<typeof buttonIconVariants>[] = [
   {
     size: "large",
     hasChildren: true,
