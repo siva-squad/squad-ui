@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { tv } from "tailwind-variants";
-import { buttonChildrenComposedVariants, buttonChildrenVariants } from "@/src/theme/button";
+import { buttonChildrenComposedVariants, buttonChildrenVariants } from "@/src/theme/buttonTheme";
 
 export const BUTTON_CLASS_NAME = tv({
   base: clsx(

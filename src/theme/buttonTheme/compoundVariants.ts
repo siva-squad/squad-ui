@@ -1,3 +1,6 @@
+import { ComponentVariants } from "./type";
+import { buttonChildrenVariants } from "./variants";
+
 export const buttonCompoundVariants = [
   {
     theme: "white",
@@ -82,55 +85,32 @@ export const buttonIconCompoundVariants = [
   },
 ];
 
-export const buttonChildrenVariants = {
-  isLoading: {
-    true: "",
-    false: "",
-  },
-  background: {
-    filled: "",
-    white: "",
-  },
-  theme: {
-    white: "text-primary-600",
-    primary: "text-white",
-    "no-background": "text-primary-600 active:text-primary-900",
-    red: "",
-    gray: "",
-  },
-  size: {
-    small: "text-xs",
-    medium: "text-sm",
-    large: "text-base",
-  },
-};
-
-export const buttonChildrenComposedVariants = [
+export const buttonChildrenComposedVariants: ComponentVariants<typeof buttonChildrenVariants>[] = [
   {
-    background: "filled" as keyof (typeof buttonChildrenVariants)["background"],
-    theme: "gray" as keyof (typeof buttonChildrenVariants)["theme"],
+    background: "filled",
+    theme: "gray",
     class: "text-white",
   },
   {
-    background: "white" as keyof (typeof buttonChildrenVariants)["background"],
-    theme: "gray" as keyof (typeof buttonChildrenVariants)["theme"],
+    background: "white",
+    theme: "gray",
     class: "text-gray-extraDark",
   },
   {
     isLoading: false,
-    background: "white" as keyof (typeof buttonChildrenVariants)["background"],
-    theme: "red" as keyof (typeof buttonChildrenVariants)["theme"],
+    background: "white",
+    theme: "red",
     class: "text-red group-active:text-red-dark",
   },
   {
     isLoading: true,
-    background: "white" as keyof (typeof buttonChildrenVariants)["background"],
-    theme: "red" as keyof (typeof buttonChildrenVariants)["theme"],
+    background: "white",
+    theme: "red",
     class: "text-black",
   },
   {
-    background: "filled" as keyof (typeof buttonChildrenVariants)["background"],
-    theme: "red" as keyof (typeof buttonChildrenVariants)["theme"],
+    background: "filled",
+    theme: "red",
     class: "text-white",
   },
 ];
