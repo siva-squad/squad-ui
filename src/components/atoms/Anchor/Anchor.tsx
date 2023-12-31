@@ -38,6 +38,7 @@ export const Anchor = forwardRef<HTMLAnchorElement, AnchorProps>(
           hasChildren: !!children,
           size,
           background,
+          showIcon,
         })}
         ref={ref}
       >

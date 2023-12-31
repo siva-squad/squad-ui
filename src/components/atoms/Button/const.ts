@@ -8,6 +8,10 @@ export const BUTTON_CLASS_NAME = tv({
     "focus-visible:ring-1 focus-visible:ring-primary-600 focus-visible:ring-offset-2",
   ),
   variants: {
+    showIcon: {
+      true: "",
+      false: "",
+    },
     isLoading: {
       true: "",
       false: "",
@@ -29,9 +33,9 @@ export const BUTTON_CLASS_NAME = tv({
       gray: "shadow-01",
     },
     size: {
-      small: "p-1.5",
-      medium: "p-2",
-      large: "p-2",
+      small: "px-2 py-1.5",
+      medium: "px-4 py-2",
+      large: "px-4 py-3",
     },
   },
   compoundVariants: [
@@ -41,14 +45,24 @@ export const BUTTON_CLASS_NAME = tv({
       class: "text-black",
     },
     {
-      hasChildren: true,
-      size: "small",
-      class: "px-2 py-1.5",
+      showIcon: true,
+      size: "medium",
+      class: "p-2",
     },
     {
-      hasChildren: true,
+      hasChildren: false,
+      size: "small",
+      class: "p-1.5",
+    },
+    {
+      hasChildren: false,
+      size: "medium",
+      class: "p-2",
+    },
+    {
+      hasChildren: false,
       size: "large",
-      class: "px-4 py-3",
+      class: "p-2",
     },
     {
       theme: "no-background",
