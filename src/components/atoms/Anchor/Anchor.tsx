@@ -29,8 +29,7 @@ export const Anchor = forwardRef<HTMLAnchorElement, AnchorProps>(
 
     return (
       <a
-        {...(!isDisabled && { href })}
-        onClick={onClick}
+        {...(!isDisabled && { href, onClick })}
         className={ANCHOR_CLASS_NAME({
           isDisabled,
           theme,

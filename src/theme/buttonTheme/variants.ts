@@ -18,6 +18,7 @@ export const buttonBaseVariants = {
     "no-background": "hover:bg-gray-extraLight",
     red: "shadow-01",
     gray: "shadow-01",
+    underline: "hover:bg-gray-extraLight",
   },
   size: {
     small: "p-1.5",
@@ -37,6 +38,8 @@ export const buttonIconVariants = {
     "no-background": "text-primary-600",
     red: "",
     gray: "",
+    underline:
+      "text-primary-600 underline underline-primary-600 active:text-primary-900 active:underline-primary-900",
   },
   size: {
     small: "h-3 w-3",
@@ -64,6 +67,8 @@ export const buttonChildrenVariants = {
     "no-background": "text-primary-600 active:text-primary-900",
     red: "",
     gray: "",
+    underline:
+      "text-primary-600 underline underline-primary-600 active:text-primary-900 active:underline-primary-900",
   },
   size: {
     small: "text-xs",

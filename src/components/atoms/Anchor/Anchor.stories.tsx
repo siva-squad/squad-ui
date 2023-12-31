@@ -93,7 +93,7 @@ export default {
   argTypes: {
     theme: {
       type: "string",
-      options: ["red", "white", "outline", "gray"],
+      options: ["red", "white", "outline", "gray", "underline"],
       control: {
         type: "select",
       },

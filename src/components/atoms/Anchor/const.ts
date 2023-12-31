@@ -15,7 +15,13 @@ export const ANCHOR_CLASS_NAME = tv({
     "disabled:opacity-20",
     "focus-visible:ring-1 focus-visible:ring-primary-600 focus-visible:ring-offset-2",
   ),
-  variants: buttonBaseVariants,
+  variants: {
+    ...buttonBaseVariants,
+    isDisabled: {
+      true: "opacity-20 cursor-not-allowed",
+      false: "",
+    },
+  },
   compoundVariants: buttonBaseCompoundVariants,
 });
 
