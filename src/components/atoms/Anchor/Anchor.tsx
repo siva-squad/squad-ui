@@ -57,6 +57,7 @@ export const Anchor = forwardRef<HTMLAnchorElement, AnchorProps>(
               size,
               theme,
               background,
+              isLoading: loading,
             })}
           >
             {loading ? "読み込み中..." : children}

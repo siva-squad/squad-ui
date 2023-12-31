@@ -53,7 +53,7 @@ export const buttonBaseCompoundVariants: ComponentVariants<typeof buttonBaseVari
   {
     theme: "red",
     background: "white",
-    class: "border border-red text-red hover:bg-red-light active:border-red-dark",
+    class: "border border-red hover:bg-red-light active:border-red-dark",
   },
 ];
 
@@ -100,7 +100,7 @@ export const buttonChildrenComposedVariants: ComponentVariants<typeof buttonChil
     isLoading: false,
     background: "white",
     theme: "red",
-    class: "text-red group-active:text-red-dark",
+    class: "text-red group-active:text-red-dark active:text-red-dark",
   },
   {
     isLoading: true,

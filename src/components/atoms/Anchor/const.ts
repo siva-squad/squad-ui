@@ -11,7 +11,7 @@ import {
 
 export const ANCHOR_CLASS_NAME = tv({
   base: clsx(
-    "inline-flex cursor-pointer items-center justify-center gap-1 rounded outline-none duration-300 ease-out",
+    "inline-flex cursor-pointer items-center justify-center gap-1 rounded outline-none duration-300 ease-out group",
     "disabled:opacity-20",
     "focus-visible:ring-1 focus-visible:ring-primary-600 focus-visible:ring-offset-2",
   ),
