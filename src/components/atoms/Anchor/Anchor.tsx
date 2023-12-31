@@ -23,13 +23,13 @@ export const Anchor = forwardRef<HTMLAnchorElement, AnchorProps>(
     const spinnerProps = {
       // NOTE: ボタンのサイズが`large`でテキストがない場合はアイコンを大きく表示するため
       size: size === "large" && children ? "medium" : size,
-      theme,
+      theme: theme === "underline" ? "no-background" : theme,
       background,
     } as const;
 
     return (
       <a
-        {...(!isDisabled && { href, onClick })}
+        {...(!isDisabled && !loading && { href, onClick })}
         className={ANCHOR_CLASS_NAME({
           isDisabled,
           theme,
