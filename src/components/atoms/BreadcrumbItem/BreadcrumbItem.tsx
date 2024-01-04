@@ -2,7 +2,7 @@ import { clsx } from "clsx";
 
 import type { BreadcrumbItemProps } from "./type";
 
-export const BreadcrumbItem = ({ children }: BreadcrumbItemProps) => {
+export const BreadcrumbItem = ({ children, clickable = true }: BreadcrumbItemProps) => {
   return (
     <li
       className={clsx(
@@ -11,6 +11,7 @@ export const BreadcrumbItem = ({ children }: BreadcrumbItemProps) => {
         "focus:underline",
         "active:text-gray-extraDark active:underline",
         "last:pointer-events-none last:cursor-default last:text-gray-extraDark last:no-underline",
+        !clickable && "hover:no-underline",
       )}
     >
       {children}
