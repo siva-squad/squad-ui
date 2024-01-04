@@ -6,9 +6,11 @@ export const BreadcrumbItem = ({
   children,
   clickable = true,
   disabledLastStyle = false,
+  id,
 }: BreadcrumbItemProps) => {
   return (
     <li
+      id={id}
       className={clsx(
         "cursor-pointer list-none text-xs font-regular leading-none text-gray-dark",
         "hover:underline",
