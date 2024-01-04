@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import { createPortal } from "react-dom";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import {
   ICON_CLASS_NAME,
@@ -17,19 +16,12 @@ export const Selector = ({ size, options, defaultLabel, disabled, onSelect }: Se
   const [activeLabel, setActiveLabel] = useState<OptionType["label"] | null>(null);
   const [activeId, setActiveId] = useState<OptionType["id"] | null>(null);
   const wrapperRef = useRef(null);
-  const [showOverlay, setShowOverlay] = useState(false);
 
   useOutsideClick(wrapperRef, () => setIsOpen(false));
 
   const handleButtonClick = (event: React.MouseEvent) => {
     event.stopPropagation();
     setIsOpen((prevIsOpen) => !prevIsOpen);
-    setShowOverlay((prevShowOverlay) => !prevShowOverlay);
-  };
-
-  const closeSelector = () => {
-    setIsOpen(false);
-    setShowOverlay(false);
   };
 
   const onClick = (option: OptionType) => {
@@ -62,14 +54,6 @@ export const Selector = ({ size, options, defaultLabel, disabled, onSelect }: Se
           onClick={onClick}
         />
       )}
-      {showOverlay &&
-        createPortal(
-          <div
-            className="fixed inset-0"
-            onClick={closeSelector}
-          />,
-          document.body,
-        )}
     </div>
   );
 };

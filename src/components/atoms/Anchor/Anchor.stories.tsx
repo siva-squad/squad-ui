@@ -93,7 +93,7 @@ export default {
   argTypes: {
     theme: {
       type: "string",
-      options: ["red", "white", "outline", "gray"],
+      options: ["red", "white", "outline", "gray", "underline"],
       control: {
         type: "select",
       },
@@ -127,8 +127,9 @@ export const Primary = () => (
     ボタン
   </ThemeTemplate>
 );
-export const Red = () => (
+export const Red = (props: ComponentProps<typeof ThemeTemplate>) => (
   <ThemeTemplate
+    {...props}
     theme="red"
     href="#"
   >
@@ -154,6 +155,14 @@ export const Gray = (props: ComponentProps<typeof ThemeTemplate>) => (
 export const NoBackground = () => (
   <ThemeTemplate
     theme="no-background"
+    href="#"
+  >
+    ボタン
+  </ThemeTemplate>
+);
+export const Underline = () => (
+  <ThemeTemplate
+    theme="underline"
     href="#"
   >
     ボタン
