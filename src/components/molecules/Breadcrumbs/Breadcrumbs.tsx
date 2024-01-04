@@ -1,8 +1,11 @@
 import { BreadcrumbItem } from "@components/atoms/BreadcrumbItem";
+import { Popover } from "@components/molecules/Popover";
+import clsx from "clsx";
 import type { BreadcrumbsProps } from "./type";
 
 const OVERFLOW_COUNT = 4 as const;
 const SLICE_END = -2 as const;
+const OVERFLOW_TEXT = "..." as const;
 
 export const Breadcrumbs = ({ children, separator = "/" }: BreadcrumbsProps) => {
   const overflowItems = children.length >= OVERFLOW_COUNT ? children.slice(1, SLICE_END) : null;
@@ -12,7 +15,18 @@ export const Breadcrumbs = ({ children, separator = "/" }: BreadcrumbsProps) => 
         clickable={false}
         key="overflow"
       >
-        ...
+        <Popover
+          content={
+            <div className="rounded-lg bg-white p-2 shadow-04">
+              <ul className={clsx("flex flex-col gap-2", "[&>li]:p-2")}>
+                {overflowItems.map((child) => child)}
+              </ul>
+            </div>
+          }
+          position={"bottom"}
+        >
+          {OVERFLOW_TEXT}
+        </Popover>
       </BreadcrumbItem>
     ) : null;
   };
