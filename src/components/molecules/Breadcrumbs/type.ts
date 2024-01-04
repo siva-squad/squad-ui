@@ -9,4 +9,5 @@ export type BreadcrumbsProps = {
   overflowCount?: number;
   overflowText?: string;
   sliceEnd?: number;
+  id?: string;
 };
