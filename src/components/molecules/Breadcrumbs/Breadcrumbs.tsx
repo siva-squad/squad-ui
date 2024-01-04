@@ -40,6 +40,7 @@ export const Breadcrumbs = ({ children, separator = "/" }: BreadcrumbsProps) => 
   const afterItems = children.slice(SLICE_END);
 
   const items = [beforeItem, el(), ...afterItems]
+    .filter((child) => child != null)
     .map((child, index) => [
       child,
       <BreadcrumbItem key={`breadcrumbsItem-${index}-separator`}>{separator}</BreadcrumbItem>,
