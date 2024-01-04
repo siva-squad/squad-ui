@@ -29,8 +29,7 @@ export const Anchor = forwardRef<HTMLAnchorElement, AnchorProps>(
 
     return (
       <a
-        {...(!isDisabled && { href })}
-        onClick={onClick}
+        {...(!isDisabled && !loading && { href, onClick })}
         className={ANCHOR_CLASS_NAME({
           isDisabled,
           theme,
@@ -58,6 +57,7 @@ export const Anchor = forwardRef<HTMLAnchorElement, AnchorProps>(
               size,
               theme,
               background,
+              isLoading: loading,
             })}
           >
             {loading ? "読み込み中..." : children}

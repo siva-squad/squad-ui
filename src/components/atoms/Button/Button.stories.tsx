@@ -122,7 +122,14 @@ export const Default: StoryObj<typeof Button> = {
 };
 
 export const Primary = () => <ThemeTemplate theme="primary">ボタン</ThemeTemplate>;
-export const Red = () => <ThemeTemplate theme="red">ボタン</ThemeTemplate>;
+export const Red = (props: ComponentProps<typeof ThemeTemplate>) => (
+  <ThemeTemplate
+    {...props}
+    theme="red"
+  >
+    ボタン
+  </ThemeTemplate>
+);
 export const White = () => <ThemeTemplate theme="white">ボタン</ThemeTemplate>;
 export const Gray = (props: ComponentProps<typeof ThemeTemplate>) => (
   <ThemeTemplate
