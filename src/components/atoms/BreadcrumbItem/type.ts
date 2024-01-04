@@ -4,4 +4,5 @@ export type BreadcrumbItemProps = {
   children: ReactNode;
   clickable?: boolean;
   disabledLastStyle?: boolean;
+  id?: string;
 };
