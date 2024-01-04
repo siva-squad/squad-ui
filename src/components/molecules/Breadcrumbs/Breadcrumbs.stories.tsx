@@ -1,6 +1,7 @@
 import { BreadcrumbItem } from "@components/atoms/BreadcrumbItem";
 import type { Meta, StoryObj } from "@storybook/react";
 
+import clsx from "clsx";
 import { Breadcrumbs } from "./Breadcrumbs";
 
 export default {
@@ -14,14 +15,44 @@ export default {
 export const Default: StoryObj<typeof Breadcrumbs> = {
   args: {
     children: [
-      <BreadcrumbItem key="home">Home</BreadcrumbItem>,
-      <BreadcrumbItem key="hoge_1">Hoge1</BreadcrumbItem>,
-      <BreadcrumbItem key="hoge_2">Hoge2</BreadcrumbItem>,
-      <BreadcrumbItem key="hoge_3">Hoge3</BreadcrumbItem>,
-      <BreadcrumbItem key="group">Before last</BreadcrumbItem>,
-      <BreadcrumbItem key="group_1">Last</BreadcrumbItem>,
+      <BreadcrumbItem key="home">ホーム</BreadcrumbItem>,
+      <BreadcrumbItem key="sample-1">サンプルテキスト1</BreadcrumbItem>,
+      <BreadcrumbItem key="sample-2">サンプルテキスト2</BreadcrumbItem>,
+      <BreadcrumbItem key="sample-3">サンプルテキスト3</BreadcrumbItem>,
+      <BreadcrumbItem key="before-last">1つ前のページ</BreadcrumbItem>,
+      <BreadcrumbItem key="current">今いるページ</BreadcrumbItem>,
     ],
     overflowCount: 5,
     sliceEnd: -3,
+  },
+};
+
+export const All = () => (
+  <div className={clsx("flex flex-col gap-5", "[&_h3]:mb-3 [&_h3]:font-bold")}>
+    <section>
+      <h3>コンテンツが4個未満の表示</h3>
+      <Breadcrumbs>
+        <BreadcrumbItem key="home">ホーム</BreadcrumbItem>
+        <BreadcrumbItem key="before-last">1つ前のページ</BreadcrumbItem>
+        <BreadcrumbItem key="current">今いるページ</BreadcrumbItem>
+      </Breadcrumbs>
+    </section>
+    <section>
+      <h3>コンテンツが4個以上の表示</h3>
+      <Breadcrumbs id="hover">
+        <BreadcrumbItem key="home">ホーム</BreadcrumbItem>
+        <BreadcrumbItem key="sample-1">サンプルテキスト1</BreadcrumbItem>
+        <BreadcrumbItem key="sample-2">サンプルテキスト2</BreadcrumbItem>
+        <BreadcrumbItem key="sample-3">サンプルテキスト3</BreadcrumbItem>
+        <BreadcrumbItem key="before-last">1つ前のページ</BreadcrumbItem>
+        <BreadcrumbItem key="current">今いるページ</BreadcrumbItem>
+      </Breadcrumbs>
+    </section>
+  </div>
+);
+
+All.parameters = {
+  pseudo: {
+    hover: "#hover-overflow",
   },
 };

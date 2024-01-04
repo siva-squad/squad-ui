@@ -17,10 +17,14 @@ export const Breadcrumbs = ({
   overflowText = DEFAULTS.OVERFLOW_TEXT,
   sliceEnd = DEFAULTS.SLICE_END,
   disableOverflow = false,
+  id,
 }: BreadcrumbsProps) => {
   if (disableOverflow)
     return (
-      <ol className="flex gap-2">
+      <ol
+        className="flex gap-2"
+        id={id}
+      >
         {children
           .map((child, index) => [
             child,
@@ -39,6 +43,7 @@ export const Breadcrumbs = ({
         key="overflow"
       >
         <Popover
+          id={id ? `${id}-overflow` : undefined}
           content={
             <div className="rounded-lg bg-white p-2 shadow-04">
               <ul className={clsx("flex flex-col gap-2", "[&>li]:p-2")}>
@@ -71,5 +76,12 @@ export const Breadcrumbs = ({
     .flat()
     .slice(0, -1);
 
-  return <ol className="flex gap-2">{items}</ol>;
+  return (
+    <ol
+      id={id}
+      className="flex gap-2"
+    >
+      {items}
+    </ol>
+  );
 };
