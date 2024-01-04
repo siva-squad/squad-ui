@@ -19,7 +19,13 @@ export const Breadcrumbs = ({ children, separator = "/" }: BreadcrumbsProps) => 
           content={
             <div className="rounded-lg bg-white p-2 shadow-04">
               <ul className={clsx("flex flex-col gap-2", "[&>li]:p-2")}>
-                {overflowItems.map((child) => child)}
+                {overflowItems.map((child) => (
+                  <BreadcrumbItem
+                    disabledLastStyle
+                    key={child.key}
+                    {...child.props}
+                  />
+                ))}
               </ul>
             </div>
           }
