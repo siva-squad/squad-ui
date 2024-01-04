@@ -3,12 +3,35 @@ import { Popover } from "@components/molecules/Popover";
 import clsx from "clsx";
 import type { BreadcrumbsProps } from "./type";
 
-const OVERFLOW_COUNT = 4 as const;
-const SLICE_END = -2 as const;
-const OVERFLOW_TEXT = "..." as const;
+const DEFAULTS = {
+  OVERFLOW_COUNT: 4,
+  SLICE_END: -2,
+  OVERFLOW_TEXT: "...",
+  SEPARATOR: "/",
+} as const;
 
-export const Breadcrumbs = ({ children, separator = "/" }: BreadcrumbsProps) => {
-  const overflowItems = children.length >= OVERFLOW_COUNT ? children.slice(1, SLICE_END) : null;
+export const Breadcrumbs = ({
+  children,
+  separator = DEFAULTS.SEPARATOR,
+  overflowCount = DEFAULTS.OVERFLOW_COUNT,
+  overflowText = DEFAULTS.OVERFLOW_TEXT,
+  sliceEnd = DEFAULTS.SLICE_END,
+  disableOverflow = false,
+}: BreadcrumbsProps) => {
+  if (disableOverflow)
+    return (
+      <ol className="flex gap-2">
+        {children
+          .map((child, index) => [
+            child,
+            <BreadcrumbItem key={`breadcrumbsItem-${index}-separator`}>{separator}</BreadcrumbItem>,
+          ])
+          .flat()
+          .slice(0, -1)}
+      </ol>
+    );
+
+  const overflowItems = children.length >= overflowCount ? children.slice(1, sliceEnd) : null;
   const el = () => {
     return overflowItems != null ? (
       <BreadcrumbItem
@@ -31,13 +54,13 @@ export const Breadcrumbs = ({ children, separator = "/" }: BreadcrumbsProps) => 
           }
           position={"bottom"}
         >
-          {OVERFLOW_TEXT}
+          {overflowText}
         </Popover>
       </BreadcrumbItem>
     ) : null;
   };
   const beforeItem = children[0];
-  const afterItems = children.slice(SLICE_END);
+  const afterItems = children.slice(sliceEnd);
 
   const items = [beforeItem, el(), ...afterItems]
     .filter((child) => child != null)
