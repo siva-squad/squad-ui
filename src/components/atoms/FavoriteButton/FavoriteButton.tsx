@@ -8,7 +8,7 @@ export const FavoriteButton = ({
   isFavorite,
   size,
   onClick,
-  disabled,
+  disabled = false,
   itemName,
 }: FavoriteButtonProps) => {
   const buttonLabel = isFavorite
@@ -22,8 +22,10 @@ export const FavoriteButton = ({
       disabled={disabled}
     >
       <span className="sr-only">{buttonLabel}</span>
-      {isFavorite && <StarIconSolid className={ICON_CLASS_NAME({ isFavorite, size })} />}
-      {!isFavorite && <StarIconOutline className={ICON_CLASS_NAME({ isFavorite, size })} />}
+      {isFavorite && <StarIconSolid className={ICON_CLASS_NAME({ isFavorite, size, disabled })} />}
+      {!isFavorite && (
+        <StarIconOutline className={ICON_CLASS_NAME({ isFavorite, size, disabled })} />
+      )}
     </button>
   );
 };
