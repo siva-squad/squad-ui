@@ -17,7 +17,12 @@ describe("FavoriteButton", () => {
   });
 
   test("has different label when isFavorite is true", async () => {
-    render(<FavoriteButton isFavorite={true} />);
+    render(
+      <FavoriteButton
+        isFavorite={true}
+        ariaLabel="フォルダ１をお気に入りから削除"
+      />,
+    );
 
     const button = screen.getByRole("button", { name: "フォルダ１をお気に入りから削除" });
 

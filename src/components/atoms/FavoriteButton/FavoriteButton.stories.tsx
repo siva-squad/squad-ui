@@ -23,12 +23,16 @@ export const Default: StoryObj<typeof FavoriteButton> = {
   args: {
     isFavorite: false,
     size: "medium",
-    itemName: "フォルダ１",
+    ariaLabel: "フォルダ１をお気に入りに追加",
   },
 };
 
 export const UseCaseExample = () => {
   const [isFavorite, setIsFavorite] = useState(false);
+
+  const ariaLabel = isFavorite
+    ? "フォルダ名前をお気に入りから削除"
+    : "フォルダ名前をお気に入りに追加";
 
   return (
     <section className="inline-flex h-7 w-60 items-center justify-start gap-2 rounded p-2">
@@ -36,10 +40,10 @@ export const UseCaseExample = () => {
         フォルダ名前
       </span>
       <FavoriteButton
-        itemName="フォルダ名前"
         isFavorite={isFavorite}
         size="medium"
         onClick={() => setIsFavorite(!isFavorite)}
+        ariaLabel={ariaLabel}
       />
     </section>
   );
@@ -49,70 +53,70 @@ export const AllOptions = () => {
   return (
     <section className="grid w-60 grid-cols-3 grid-rows-2 gap-2 p-2">
       <FavoriteButton
-        itemName="フォルダ名前"
         isFavorite={true}
         size="small"
+        ariaLabel="をお気に入りから削除"
       />
       <FavoriteButton
-        itemName="フォルダ名前"
         isFavorite={true}
         size="medium"
+        ariaLabel="をお気に入りから削除"
       />
       <FavoriteButton
-        itemName="フォルダ名前"
         isFavorite={true}
         size="large"
+        ariaLabel="をお気に入りから削除"
       />
       <FavoriteButton
-        itemName="フォルダ名前"
         isFavorite={false}
         size="small"
+        ariaLabel="をお気に入りに追加"
       />
       <FavoriteButton
-        itemName="フォルダ名前"
         isFavorite={false}
         size="medium"
+        ariaLabel="をお気に入りに追加"
       />
       <FavoriteButton
-        itemName="フォルダ名前"
         isFavorite={false}
         size="large"
+        ariaLabel="をお気に入りに追加"
       />
       <FavoriteButton
         disabled={true}
-        itemName="フォルダ名前"
         isFavorite={true}
         size="small"
+        ariaLabel="をお気に入りから削除"
       />
       <FavoriteButton
         disabled={true}
-        itemName="フォルダ名前"
         isFavorite={true}
         size="medium"
+        ariaLabel="をお気に入りから削除"
       />
       <FavoriteButton
         disabled={true}
-        itemName="フォルダ名前"
         isFavorite={true}
         size="large"
+        ariaLabel="をお気に入りから削除"
       />
       <FavoriteButton
         disabled={true}
-        itemName="フォルダ名前"
         isFavorite={false}
         size="small"
+        ariaLabel="をお気に入りに追加"
       />
       <FavoriteButton
         disabled={true}
-        itemName="フォルダ名前"
         isFavorite={false}
         size="medium"
+        ariaLabel="をお気に入りに追加"
       />
       <FavoriteButton
         disabled={true}
-        itemName="フォルダ名前"
         isFavorite={false}
         size="large"
+        ariaLabel="をお気に入りに追加"
       />
     </section>
   );

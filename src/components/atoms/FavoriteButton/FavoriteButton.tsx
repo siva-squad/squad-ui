@@ -9,19 +9,15 @@ export const FavoriteButton = ({
   size,
   onClick,
   disabled = false,
-  itemName,
+  ariaLabel,
 }: FavoriteButtonProps) => {
-  const buttonLabel = isFavorite
-    ? `${itemName}をお気に入りから削除`
-    : `${itemName}をお気に入りに追加`;
-
   return (
     <button
       type="button"
       onClick={onClick}
       disabled={disabled}
+      aria-label={ariaLabel}
     >
-      <span className="sr-only">{buttonLabel}</span>
       {isFavorite && <StarIconSolid className={ICON_CLASS_NAME({ isFavorite, size, disabled })} />}
       {!isFavorite && (
         <StarIconOutline className={ICON_CLASS_NAME({ isFavorite, size, disabled })} />

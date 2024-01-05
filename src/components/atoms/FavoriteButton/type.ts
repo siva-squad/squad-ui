@@ -6,5 +6,5 @@ export type FavoriteButtonProps = Pick<
 > & {
   isFavorite: boolean;
   size: "small" | "medium" | "large";
-  itemName: string;
+  ariaLabel: string;
 };
