@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 export const TOGGLE_CONTAINER_CLASS_NAME = tv({
-  base: "flex rounded-full transition-colors w-10 p-[2px]",
+  base: "flex w-10 rounded-full p-[2px] transition-colors",
   variants: {
     disabled: {
       true: "cursor-not-allowed",
@@ -19,7 +19,7 @@ export const TOGGLE_CONTAINER_CLASS_NAME = tv({
 });
 
 export const TOGGLE_CIRCLE_CLASS_NAME = tv({
-  base: "flex items-center justify-center rounded-full transition-all bg-white h-5 w-5",
+  base: "flex h-5 w-5 items-center justify-center rounded-full bg-white transition-all",
   variants: {
     isValidValue: {
       true: "translate-x-4",
