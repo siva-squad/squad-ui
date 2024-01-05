@@ -9,7 +9,7 @@ import {
 import type { ToggleProps } from "./type";
 
 export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
-  ({ value, disabled, onToggle }, ref) => {
+  ({ value, disabled, onToggle, size = "normal" }, ref) => {
     const iconClassName = TOGGLE_ICON_CLASS_NAME({ isValidValue: value, disabled });
 
     return (
