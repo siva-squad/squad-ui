@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 export const TOGGLE_CONTAINER_CLASS_NAME = tv({
-  base: "flex w-10 rounded-full p-[2px] transition-colors",
+  base: "flex h-fit w-10 rounded-full p-[2px] transition-colors",
   variants: {
     disabled: {
       true: "cursor-not-allowed",
