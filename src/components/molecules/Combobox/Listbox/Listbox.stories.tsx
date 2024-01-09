@@ -22,7 +22,7 @@ export const Default: StoryObj<typeof Listbox> = {
       {
         name: "Option two",
         id: "1234",
-        isSelected: false,
+        isSelected: true,
       },
       {
         name: "Option three",
