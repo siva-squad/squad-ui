@@ -1,14 +1,8 @@
 import { BreadcrumbItem } from "@components/atoms/BreadcrumbItem";
 import { Popover } from "@components/molecules/Popover";
 import clsx from "clsx";
+import { DEFAULTS } from "./const";
 import type { BreadcrumbsProps } from "./type";
-
-const DEFAULTS = {
-  OVERFLOW_COUNT: 4,
-  SLICE_END: -2,
-  OVERFLOW_TEXT: "...",
-  SEPARATOR: "/",
-} as const;
 
 export const Breadcrumbs = ({
   children,
@@ -26,11 +20,10 @@ export const Breadcrumbs = ({
         id={id}
       >
         {children
-          .map((child, index) => [
+          .flatMap((child, index) => [
             child,
             <BreadcrumbItem key={`breadcrumbsItem-${index}-separator`}>{separator}</BreadcrumbItem>,
           ])
-          .flat()
           .slice(0, -1)}
       </ol>
     );
