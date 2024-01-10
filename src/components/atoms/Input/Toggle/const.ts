@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 export const TOGGLE_CONTAINER_CLASS_NAME = tv({
-  base: "flex h-fit w-10 rounded-full p-[2px] transition-colors",
+  base: "flex h-fit rounded-full transition-colors",
   variants: {
     disabled: {
       true: "cursor-not-allowed",
@@ -13,17 +13,21 @@ export const TOGGLE_CONTAINER_CLASS_NAME = tv({
     },
     size: {
       small: "w-6 p-[1px]",
-      normal: "",
+      normal: "w-10 p-[2px]",
     },
   },
   defaultVariants: {
+    size: "normal",
     disabled: false,
     isValidValue: true,
   },
 });
 
 export const TOGGLE_CIRCLE_CLASS_NAME = tv({
-  base: "flex h-5 w-5 items-center justify-center rounded-full bg-white transition-all",
+  base: "flex items-center justify-center rounded-full bg-white transition-all",
+  defaultVariants: {
+    size: "normal",
+  },
   variants: {
     isValidValue: {
       true: "",
@@ -31,7 +35,7 @@ export const TOGGLE_CIRCLE_CLASS_NAME = tv({
     },
     size: {
       small: "h-3 w-3",
-      normal: "",
+      normal: "h-5 w-5",
     },
   },
   compoundVariants: [
@@ -49,7 +53,7 @@ export const TOGGLE_CIRCLE_CLASS_NAME = tv({
 });
 
 export const TOGGLE_ICON_CLASS_NAME = tv({
-  base: "h-3 w-3",
+  base: "",
   variants: {
     isValidValue: {
       true: "",
@@ -61,9 +65,10 @@ export const TOGGLE_ICON_CLASS_NAME = tv({
     },
     size: {
       small: "h-2 w-2",
-      normal: "",
+      normal: "h-3 w-3",
     },
   },
+
   compoundVariants: [
     {
       isValidValue: true,
@@ -87,6 +92,7 @@ export const TOGGLE_ICON_CLASS_NAME = tv({
     },
   ],
   defaultVariants: {
+    size: "normal",
     disabled: false,
     isValidValue: true,
   },
