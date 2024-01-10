@@ -15,12 +15,24 @@ export default {
 export const Default: StoryObj<typeof Breadcrumbs> = {
   args: {
     children: [
-      <BreadcrumbItem key="home">ホーム</BreadcrumbItem>,
-      <BreadcrumbItem key="sample-1">サンプルテキスト1</BreadcrumbItem>,
-      <BreadcrumbItem key="sample-2">サンプルテキスト2</BreadcrumbItem>,
-      <BreadcrumbItem key="sample-3">サンプルテキスト3</BreadcrumbItem>,
-      <BreadcrumbItem key="before-last">1つ前のページ</BreadcrumbItem>,
-      <BreadcrumbItem key="current">今いるページ</BreadcrumbItem>,
+      <BreadcrumbItem key="home">
+        <a href="/">ホーム</a>
+      </BreadcrumbItem>,
+      <BreadcrumbItem key="sample-1">
+        <a href="/">サンプルテキスト1</a>
+      </BreadcrumbItem>,
+      <BreadcrumbItem key="sample-2">
+        <a href="/">サンプルテキスト2</a>
+      </BreadcrumbItem>,
+      <BreadcrumbItem key="sample-3">
+        <a href="/">サンプルテキスト3</a>
+      </BreadcrumbItem>,
+      <BreadcrumbItem key="before-last">
+        <a href="/">1つ前のページ</a>
+      </BreadcrumbItem>,
+      <BreadcrumbItem key="current">
+        <a href="/">今いるページ</a>
+      </BreadcrumbItem>,
     ],
     overflowCount: 5,
     sliceEnd: -3,
