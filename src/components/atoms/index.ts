@@ -1,7 +1,9 @@
+export * from "./Anchor";
 export * from "./Avatar";
 export * from "./Badge";
 export * from "./Button";
 export * from "./Checkbox";
+export * from "./FavoriteButton";
 export * from "./Input";
 export * from "./ListItem";
 export * from "./ProgressBar";
@@ -10,4 +12,3 @@ export * from "./SearchInput";
 export * from "./Selector";
 export * from "./Spinner";
 export * from "./Tooltip";
-export * from "./Anchor";
