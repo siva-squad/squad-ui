@@ -15,17 +15,14 @@ export const Default: StoryObj<typeof Selector> = {
     placeholder: "選択肢が入ります",
     options: [
       {
-
         label: "オプション1",
         value: "option1",
       },
       {
-
         label: "オプション2",
         value: "option2",
       },
       {
-
         label: "オプション3",
         value: "option3",
       },
