@@ -2,6 +2,8 @@ export type PopoverProps = {
   id?: string;
   children: React.ReactNode;
   content: React.ReactNode;
+  mode?: "click" | "hover";
+  isOpen?: boolean;
   position:
     | "bottom"
     | "bottomLeft"

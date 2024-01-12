@@ -4,7 +4,14 @@ import { POPOVER_CONTENT_CLASS_NAME, POPOVER_WRAPPER_CLASS_NAME } from "./const"
 import type { PopoverProps } from "./type";
 
 // TODO: HTMLのpopoverで対応したい
-export const Popover = ({ id, children, content, position }: PopoverProps) => {
+export const Popover = ({
+  id,
+  children,
+  content,
+  position,
+  mode = "hover",
+  isOpen = false,
+}: PopoverProps) => {
   return (
     <div className="relative w-fit">
       <div
@@ -15,12 +22,8 @@ export const Popover = ({ id, children, content, position }: PopoverProps) => {
       </div>
 
       <div
-        className={clsx(
-          "absolute z-50 hidden w-max",
-          "hover:flex peer-hover:flex",
-          "focus:flex peer-focus:flex",
-          POPOVER_CONTENT_CLASS_NAME({ position }),
-        )}
+        role="dialog"
+        className={clsx(POPOVER_CONTENT_CLASS_NAME({ position, mode, isOpen }))}
       >
         <div className={POPOVER_WRAPPER_CLASS_NAME({ position })}>{content}</div>
       </div>

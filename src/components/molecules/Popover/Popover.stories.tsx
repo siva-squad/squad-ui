@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@components/atoms";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -29,24 +30,37 @@ const positions: PopoverProps["position"][] = [
 
 const SampleContent = () => (
   <div className="rounded-lg bg-white p-2 shadow-04">
-    <div className="p-2">Text</div>
-    <div className="p-2">Text</div>
+    <span>Content</span>
   </div>
 );
 
-export const Default: StoryObj<typeof Popover> = {
-  args: {
-    children: (
+const WithStateComponent = (props: PopoverProps) => {
+  const [isOpen, setIsOpen] = useState(props.isOpen);
+
+  return (
+    <Popover
+      {...props}
+      isOpen={isOpen}
+    >
       <Button
         theme="primary"
         size="small"
+        onClick={() => props.mode === "click" && setIsOpen(!isOpen)}
       >
         Button
       </Button>
-    ),
+    </Popover>
+  );
+};
+
+export const Default: StoryObj<typeof Popover> = {
+  args: {
     content: <SampleContent />,
     position: "bottom",
+    mode: "hover",
+    isOpen: false,
   },
+  render: (args) => <WithStateComponent {...args} />,
 };
 
 const SamplePopover = ({ position }: { position: PopoverProps["position"] }) => (
