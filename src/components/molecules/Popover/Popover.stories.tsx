@@ -25,7 +25,7 @@ const positions: PopoverProps["position"][] = [
   "leftBottom",
   "left",
   "leftTop",
-] as const;
+];
 
 const SampleContent = () => (
   <div className="rounded-lg bg-white p-2 shadow-04">
