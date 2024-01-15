@@ -1,7 +1,7 @@
-import { OptionType } from "../type";
+import { BaseOptionValue, OptionType } from "../type";
 
-export type SelectorListProps = {
-  options: OptionType[];
-  activeId: OptionType["id"] | null;
-  onClick: (option: OptionType) => void;
+export type SelectorListProps<OptionValue extends BaseOptionValue> = {
+  options: OptionType<OptionValue>[];
+  value?: OptionValue
+  onClick: (option: OptionType<OptionValue>) => void;
 };

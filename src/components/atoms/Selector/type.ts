@@ -1,16 +1,17 @@
 type LabelType = string;
-type ValueType = string | number;
 
-export type OptionType = {
-  id: number | string;
+export type BaseOptionValue = string | number | boolean
+
+export type OptionType<OptionValue extends BaseOptionValue> = {
   label: LabelType;
-  value: ValueType;
+  value: OptionValue;
 };
 
-export type SelectorProps = {
+export type SelectorProps<OptionValue extends BaseOptionValue>  = {
   size: "small" | "normal";
-  options: OptionType[];
-  defaultLabel: LabelType;
+  options: OptionType<OptionValue>[];
+  value?: OptionValue;
+  placeholder: LabelType;
   disabled?: boolean;
-  onSelect: (value: ValueType) => void;
+  onSelect: (value: OptionValue) => void;
 };

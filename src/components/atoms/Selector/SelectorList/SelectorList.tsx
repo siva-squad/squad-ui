@@ -1,7 +1,8 @@
+import { BaseOptionValue } from "../type";
 import { SelectorListItem } from "./SelectorListItem";
 import type { SelectorListProps } from "./type";
 
-export const SelectorList = ({ options, activeId, onClick }: SelectorListProps) => {
+export const SelectorList = <OptionValue extends BaseOptionValue>({ options, value, onClick }: SelectorListProps<OptionValue>) => {
   return (
     <ul
       role="listbox"
@@ -9,9 +10,9 @@ export const SelectorList = ({ options, activeId, onClick }: SelectorListProps) 
     >
       {options.map((option) => (
         <SelectorListItem
-          key={option.id}
+          key={String(option.value)}
           option={option}
-          isActive={option.id === activeId}
+          isActive={option.value === value}
           onClick={onClick}
         />
       ))}
