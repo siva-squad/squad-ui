@@ -45,7 +45,7 @@ const WithStateComponent = (props: PopoverProps) => {
       <Button
         theme="primary"
         size="small"
-        onClick={() => props.mode === "click" && setIsOpen(!isOpen)}
+        onClick={() => props.mode === "click" && setIsOpen((prev) => !prev)}
       >
         Button
       </Button>
