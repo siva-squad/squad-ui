@@ -2,8 +2,16 @@ import clsx from "clsx";
 import { tv } from "tailwind-variants";
 
 export const POPOVER_CONTENT_CLASS_NAME = tv({
-  base: "absolute",
+  base: "absolute z-50 hidden w-max",
   variants: {
+    mode: {
+      hover: clsx("hover:flex peer-hover:flex", "focus:visible peer-focus:visible"),
+      click: "",
+    },
+    isOpen: {
+      true: clsx("flex"),
+      false: "",
+    },
     position: {
       bottomRight: clsx("right-0"),
       bottomLeft: clsx("left-0"),
