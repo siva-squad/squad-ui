@@ -1,9 +1,14 @@
 import { CheckIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
+import { BaseOptionValue } from "../../type";
 import { LABEL_CLASS_NAME } from "./const";
 import type { SelectorListItemProps } from "./type";
 
-export const SelectorListItem = ({ option, isActive, onClick }: SelectorListItemProps) => {
+export const SelectorListItem = <OptionValue extends BaseOptionValue>({
+  option,
+  isActive,
+  onClick,
+}: SelectorListItemProps<OptionValue>) => {
   return (
     <li
       role="option"
