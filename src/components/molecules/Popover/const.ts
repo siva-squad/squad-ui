@@ -6,11 +6,11 @@ export const POPOVER_CONTENT_CLASS_NAME = tv({
   variants: {
     mode: {
       hover: clsx("hover:flex peer-hover:flex", "focus:visible peer-focus:visible"),
-      click: clsx(""),
+      click: "",
     },
     isOpen: {
       true: clsx("flex"),
-      false: clsx(""),
+      false: "",
     },
     position: {
       bottomRight: clsx("right-0"),
