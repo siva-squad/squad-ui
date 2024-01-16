@@ -171,10 +171,10 @@ export const ControlledWithSelectorAndInput = () => {
           <Selector
             size="normal"
             options={[
-              { id: 1, label: "Option 1", value: "1" },
-              { id: 2, label: "Option 2", value: "2" },
+              { label: "Option 1", value: "1" },
+              { label: "Option 2", value: "2" },
             ]}
-            defaultLabel="Select an option"
+            placeholder="Select an option"
             onSelect={() => {}}
           />
           <InputText placeholder="Input some text" />
