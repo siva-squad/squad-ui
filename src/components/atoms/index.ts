@@ -1,6 +1,7 @@
 export * from "./Anchor";
 export * from "./Avatar";
 export * from "./Badge";
+export * from "./BreadcrumbItem";
 export * from "./Button";
 export * from "./Checkbox";
 export * from "./FavoriteButton";
