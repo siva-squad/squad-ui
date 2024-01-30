@@ -1,4 +1,5 @@
 export * from "./BrandLogo";
+export * from './Breadcrumbs'
 export * from "./Dialog";
 export * from "./InputElement";
 export * from "./ListItemDropDown";

@@ -12,20 +12,17 @@ export const Default: StoryObj<typeof Selector> = {
   args: {
     disabled: false,
     size: "normal",
-    defaultLabel: "選択肢が入ります",
+    placeholder: "選択肢が入ります",
     options: [
       {
-        id: 1,
         label: "オプション1",
         value: "option1",
       },
       {
-        id: 2,
         label: "オプション2",
         value: "option2",
       },
       {
-        id: 3,
         label: "オプション3",
         value: "option3",
       },
@@ -36,12 +33,10 @@ export const Default: StoryObj<typeof Selector> = {
 export const Groups = () => {
   const options = [
     {
-      id: 1,
       label: "オプション1",
       value: "option1",
     },
     {
-      id: 2,
       label: "オプション2",
       value: "option2",
     },
@@ -49,15 +44,25 @@ export const Groups = () => {
   return (
     <div className="flex flex-col gap-y-20">
       <Selector
-        options={options}
-        defaultLabel="選択肢が入ります"
+        options={[
+          {
+            label: "オプション1",
+            value: "option1",
+          },
+          {
+            label: "オプション2",
+            value: "option2",
+          },
+        ]}
+        value={'option1'}
+        placeholder="選択肢が入ります"
         size="normal"
         disabled={false}
         onSelect={() => {}}
       />
       <Selector
         options={options}
-        defaultLabel="選択肢が入ります"
+        placeholder="選択肢が入ります"
         size="normal"
         disabled={false}
         onSelect={() => {}}
