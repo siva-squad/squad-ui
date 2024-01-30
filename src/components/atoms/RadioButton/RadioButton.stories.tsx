@@ -26,6 +26,20 @@ const RADIO_GROUP_ITEM = {
   items: ["apple", "orange"],
 };
 
+export const Disabled: StoryObj<typeof RadioButton> = {
+  argTypes: {
+    name: {
+      type: "string",
+    },
+    children: {
+      type: "string",
+    },
+  },
+  args: {
+    disabled: true,
+  },
+};
+
 export const Groups = () => {
   const [selected, setSelected] = useState("");
   return (
