@@ -4,6 +4,7 @@ export * from "./Badge";
 export * from "./BreadcrumbItem";
 export * from "./Button";
 export * from "./Checkbox";
+export * from "./DateRangePicker";
 export * from "./FavoriteButton";
 export * from "./Input";
 export * from "./ListItem";
