@@ -1,4 +1,8 @@
 export const buttonBaseVariants = {
+  showIcon: {
+    true: "",
+    false: "",
+  },
   isLoading: {
     true: "",
     false: "",
@@ -21,9 +25,9 @@ export const buttonBaseVariants = {
     underline: "hover:bg-gray-extraLight",
   },
   size: {
-    small: "p-1.5",
-    medium: "p-2",
-    large: "p-2",
+    small: "px-2 py-1.5",
+    medium: "px-4 py-2",
+    large: "px-4 py-3",
   },
 };
 
