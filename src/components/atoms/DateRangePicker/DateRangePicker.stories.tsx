@@ -14,6 +14,7 @@ const Dummy = ({ ...args }: Partial<DateRangePickerProps>) => {
   const [changeType, setChangeType] = useState<DateRangePickerProps["changeType"] | null>(null);
 
   const handleSelect = (values: DateRangePickerProps["value"]) => {
+    console.log(values);
     setValue(values);
 
     switch (changeType) {
@@ -67,11 +68,11 @@ const Dummy = ({ ...args }: Partial<DateRangePickerProps>) => {
       </div>
       {changeType && (
         <DateRangePicker
+          {...args}
           value={value}
           changeType={changeType}
           onChange={handleSelect}
           shortcuts={shortcuts}
-          {...args}
         />
       )}
     </div>
