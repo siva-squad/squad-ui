@@ -32,6 +32,7 @@ export const Button = ({
         hasChildren: !!children,
         size,
         background,
+        showIcon,
       })}
       type={type}
     >
