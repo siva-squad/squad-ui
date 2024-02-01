@@ -8,14 +8,24 @@ export const buttonBaseCompoundVariants: ComponentVariants<typeof buttonBaseVari
     class: "text-black",
   },
   {
-    hasChildren: true,
-    size: "small",
-    class: "px-2 py-1.5",
+    showIcon: true,
+    size: "medium",
+    class: "p-2",
   },
   {
-    hasChildren: true,
+    hasChildren: false,
+    size: "small",
+    class: "p-1.5",
+  },
+  {
+    hasChildren: false,
+    size: "medium",
+    class: "p-2",
+  },
+  {
+    hasChildren: false,
     size: "large",
-    class: "px-4 py-3",
+    class: "p-2",
   },
   {
     theme: "no-background",
