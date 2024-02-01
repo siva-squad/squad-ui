@@ -1,5 +1,4 @@
-import { useRef, useState } from "react";
-import { createPortal } from "react-dom";
+import { useMemo, useRef, useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import {
   ICON_CLASS_NAME,
@@ -10,31 +9,21 @@ import {
 import { useOutsideClick } from "./hooks";
 import { SelectorList } from "./SelectorList";
 
-import type { OptionType, SelectorProps } from "./type";
+import type { BaseOptionValue, OptionType, SelectorProps } from "./type";
 
-export const Selector = ({ size, options, defaultLabel, disabled, onSelect }: SelectorProps) => {
+export const Selector = <OptionValue extends BaseOptionValue>({ size, options, value, placeholder, disabled, onSelect }: SelectorProps<OptionValue>) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeLabel, setActiveLabel] = useState<OptionType["label"] | null>(null);
-  const [activeId, setActiveId] = useState<OptionType["id"] | null>(null);
   const wrapperRef = useRef(null);
-  const [showOverlay, setShowOverlay] = useState(false);
+  const activeLabel = useMemo(() => options.find(option => option.value === value)?.label ?? placeholder, [options, value, placeholder]);
 
   useOutsideClick(wrapperRef, () => setIsOpen(false));
 
   const handleButtonClick = (event: React.MouseEvent) => {
     event.stopPropagation();
     setIsOpen((prevIsOpen) => !prevIsOpen);
-    setShowOverlay((prevShowOverlay) => !prevShowOverlay);
   };
 
-  const closeSelector = () => {
-    setIsOpen(false);
-    setShowOverlay(false);
-  };
-
-  const onClick = (option: OptionType) => {
-    setActiveLabel(option.label);
-    setActiveId(option.id);
+  const onClick = (option: OptionType<OptionValue>) => {
     onSelect(option.value);
   };
 
@@ -51,25 +40,17 @@ export const Selector = ({ size, options, defaultLabel, disabled, onSelect }: Se
         type="button"
       >
         <span className={LABEL_CLASS_NAME({ size, disabled, isActive: !!activeLabel })}>
-          {activeLabel || defaultLabel}
+          {activeLabel || placeholder}
         </span>
         <ChevronDownIcon className={ICON_CLASS_NAME({ disabled })} />
       </button>
       {isOpen && (
         <SelectorList
           options={options}
-          activeId={activeId}
+          value={value}
           onClick={onClick}
         />
       )}
-      {showOverlay &&
-        createPortal(
-          <div
-            className="fixed inset-0"
-            onClick={closeSelector}
-          />,
-          document.body,
-        )}
     </div>
   );
 };

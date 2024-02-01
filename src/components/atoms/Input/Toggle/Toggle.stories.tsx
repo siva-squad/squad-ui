@@ -50,3 +50,48 @@ export const Disabled: StoryObj<typeof Toggle> = {
     disabled: true,
   },
 };
+
+export const All = () => (
+  <div className="grid w-fit grid-cols-4 gap-6">
+    <Toggle
+      value={false}
+      onToggle={() => {}}
+    />
+    <Toggle
+      value={false}
+      disabled
+      onToggle={() => {}}
+    />
+    <Toggle
+      value={false}
+      size="small"
+      onToggle={() => {}}
+    />
+    <Toggle
+      value={false}
+      disabled
+      size="small"
+      onToggle={() => {}}
+    />
+    <Toggle
+      value={true}
+      onToggle={() => {}}
+    />
+    <Toggle
+      value={true}
+      disabled
+      onToggle={() => {}}
+    />
+    <Toggle
+      value={true}
+      size="small"
+      onToggle={() => {}}
+    />
+    <Toggle
+      value={true}
+      disabled
+      size="small"
+      onToggle={() => {}}
+    />
+  </div>
+);

@@ -9,12 +9,12 @@ import {
 import type { ToggleProps } from "./type";
 
 export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
-  ({ value, disabled, onToggle }, ref) => {
-    const iconClassName = TOGGLE_ICON_CLASS_NAME({ isValidValue: value, disabled });
+  ({ value, disabled, onToggle, size = "normal" }, ref) => {
+    const iconClassName = TOGGLE_ICON_CLASS_NAME({ isValidValue: value, disabled, size });
 
     return (
       <label
-        className={TOGGLE_CONTAINER_CLASS_NAME({ disabled, isValidValue: value })}
+        className={TOGGLE_CONTAINER_CLASS_NAME({ disabled, isValidValue: value, size })}
         aria-disabled={disabled}
       >
         <input
@@ -25,7 +25,7 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
           onChange={onToggle}
           ref={ref}
         />
-        <span className={TOGGLE_CIRCLE_CLASS_NAME({ isValidValue: value })}>
+        <span className={TOGGLE_CIRCLE_CLASS_NAME({ isValidValue: value, size })}>
           {value ? (
             <CheckIcon className={iconClassName} />
           ) : (

@@ -1,6 +1,6 @@
 import { ComponentProps, ReactNode } from "react";
 
-type Theme = "white" | "primary" | "red" | "gray" | "no-background";
+type Theme = "white" | "primary" | "red" | "gray" | "no-background" | "underline";
 type Size = "small" | "medium" | "large";
 type Background = "filled" | "white";
 

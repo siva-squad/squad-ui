@@ -31,5 +31,15 @@ export const SPINNER_CLASS_NAME = tv({
       theme: "gray",
       class: "fill-black text-gray",
     },
+    {
+      background: "filled",
+      theme: "red",
+      class: "fill-white text-red-dark",
+    },
+    {
+      background: "white",
+      theme: "red",
+      class: "fill-red text-gray",
+    },
   ],
 });

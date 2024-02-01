@@ -11,7 +11,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           checked={checked}
           onChange={onChange}
           className={
-            "peer h-4 w-4 cursor-pointer appearance-none rounded-e rounded-s border border-gray-light checked:border-primary-600 checked:bg-primary-50"
+            "peer h-4 w-4 cursor-pointer appearance-none rounded-e rounded-s border border-gray-light bg-white checked:border-primary-600 checked:bg-primary-50"
           }
           value={value}
           ref={ref}
@@ -21,7 +21,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           height={12}
           className={"absolute left-0.5 hidden text-primary-600 peer-checked:inline-block"}
         />
-        <span className="font-noto-sans-cjk-jp text-s">{children}</span>
+        {children && <span className="font-noto-sans-cjk-jp text-s">{children}</span>}
       </label>
     );
   },

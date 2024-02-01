@@ -3,18 +3,9 @@ import { createPortal } from "react-dom";
 import FocusLock from "react-focus-lock";
 import { RemoveScroll } from "react-remove-scroll";
 
-import { Button } from "@components/atoms";
 import type { DialogProps } from "./type";
 
-export const Dialog = ({
-  children,
-  title,
-  onClose,
-  cancelButtonText,
-  saveButtonText,
-  isOpen,
-  theme = "default",
-}: DialogProps) => {
+export const Dialog = ({ children, title, isOpen, onClose }: DialogProps) => {
   const ref = useRef<HTMLBodyElement | null>(null);
   const [mounted, setMounted] = useState(false);
 
@@ -45,24 +36,8 @@ export const Dialog = ({
             aria-modal="true"
             aria-label={title}
           >
-            <div className="relative grid max-h-full w-[37.5rem] gap-4 overflow-y-auto  bg-white shadow-04">
-              <div className="p-10">{children}</div>
-              <div className="flex items-center justify-end gap-2 border-t border-t-gray-light px-10 py-4">
-                <Button
-                  theme={theme === "default" ? "white" : "gray"}
-                  background="white"
-                  size="medium"
-                  onClick={onClose}
-                >
-                  {cancelButtonText}
-                </Button>
-                <Button
-                  theme={theme === "default" ? "primary" : "red"}
-                  size="medium"
-                >
-                  {saveButtonText}
-                </Button>
-              </div>
+            <div className="relative grid max-h-full w-[37.5rem] overflow-y-auto bg-white shadow-04">
+              <div>{children}</div>
             </div>
           </div>
         </div>
