@@ -1,16 +1,25 @@
-import clsx from "clsx";
 import type { TextboxProps } from "./type";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { TEXTBOX_CLASS_NAME, TEXTBOX_ICON_CLASS_NAME } from "./const";
 
-export const Textbox = ({}: TextboxProps) => {
+export const Textbox = ({ size, labelText, onClick, disabled }: TextboxProps) => {
   return (
-    <input
-      type="text"
-      className={clsx(
-        "rounded-lg border border-gray-light bg-white p-4 text-sm leading-none outline-none w-full",
-        "ring-offset-2 focus:text-black focus:ring-1 focus:ring-primary-600",
-        "disabled:cursor-not-allowed disabled:text-gray",
-      )}
-      placeholder="選択してください"
-    />
+    <label className="relative">
+      <button
+        onClick={onClick}
+        className="absolute inset-y-0 right-0 flex items-center pr-3"
+        tabIndex={-1}
+        disabled={disabled}
+      >
+        <ChevronDownIcon className={TEXTBOX_ICON_CLASS_NAME({ disabled })} />
+        <span className="sr-only">{labelText}</span>
+      </button>
+      <input
+        type="text"
+        className={TEXTBOX_CLASS_NAME({ size, disabled })}
+        placeholder="選択してください"
+        disabled={disabled}
+      />
+    </label>
   );
 };

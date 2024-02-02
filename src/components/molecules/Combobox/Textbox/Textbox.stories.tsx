@@ -11,5 +11,19 @@ export default {
 } satisfies Meta<typeof Textbox>;
 
 export const Default: StoryObj<typeof Textbox> = {
-  args: {},
+  args: {
+    size: "normal",
+  },
+};
+
+export const Small: StoryObj<typeof Textbox> = {
+  args: {
+    size: "small",
+  },
+};
+
+export const Disabled: StoryObj<typeof Textbox> = {
+  args: {
+    disabled: true,
+  },
 };
