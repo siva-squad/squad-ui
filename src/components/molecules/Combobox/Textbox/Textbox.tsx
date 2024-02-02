@@ -2,9 +2,17 @@ import type { TextboxProps } from "./type";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { TEXTBOX_CLASS_NAME, TEXTBOX_ICON_CLASS_NAME } from "./const";
 
-export const Textbox = ({ size, labelText, onClick, disabled }: TextboxProps) => {
+export const Textbox = ({ size, onClick, disabled, onChange, value }: TextboxProps) => {
   return (
-    <label className="relative">
+    <div className="relative">
+      <input
+        onChange={onChange}
+        value={value}
+        type="text"
+        className={TEXTBOX_CLASS_NAME({ size, disabled })}
+        placeholder="選択してください"
+        disabled={disabled}
+      />
       <button
         onClick={onClick}
         className="absolute inset-y-0 right-0 flex items-center pr-3"
@@ -12,14 +20,7 @@ export const Textbox = ({ size, labelText, onClick, disabled }: TextboxProps) =>
         disabled={disabled}
       >
         <ChevronDownIcon className={TEXTBOX_ICON_CLASS_NAME({ disabled })} />
-        <span className="sr-only">{labelText}</span>
       </button>
-      <input
-        type="text"
-        className={TEXTBOX_CLASS_NAME({ size, disabled })}
-        placeholder="選択してください"
-        disabled={disabled}
-      />
-    </label>
+    </div>
   );
 };

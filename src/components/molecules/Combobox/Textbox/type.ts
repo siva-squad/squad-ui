@@ -1,6 +1,7 @@
 export type TextboxProps = {
   size?: "normal" | "small";
-  labelText: string;
   onClick: () => void;
   disabled: boolean;
+  onChange: (event: React.ChangeEvent) => void;
+  value: string;
 };

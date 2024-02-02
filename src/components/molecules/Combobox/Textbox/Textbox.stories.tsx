@@ -13,6 +13,7 @@ export default {
 export const Default: StoryObj<typeof Textbox> = {
   args: {
     size: "normal",
+    disabled: false,
   },
 };
 
