@@ -1,2 +1,2 @@
 export * from "./useCalendarCellTheme";
-export * from "./useCalendarSelector";
+export * from "./useCalendarSlider";

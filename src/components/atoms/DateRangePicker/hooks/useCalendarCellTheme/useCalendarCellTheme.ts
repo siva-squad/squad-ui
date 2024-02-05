@@ -1,14 +1,7 @@
-import { DayItemProps } from "../../../DayItem/type";
+import { DayItemProps } from "@atoms/DayItem/type";
+import { checkIsSameDay } from "@/src/utils/date";
 
 export const useCalendarCellTheme = ({ from, to }: { from?: Date; to?: Date }) => {
-  const checkSameDate = (prev: Date, next: Date) => {
-    return (
-      prev.getFullYear() === next.getFullYear() &&
-      prev.getMonth() === next.getMonth() &&
-      prev.getDate() === next.getDate()
-    );
-  };
-
   const checkInRange = (prev: Date, from: Date, to: Date) => {
     return from < prev && prev < to;
   };
@@ -16,16 +9,16 @@ export const useCalendarCellTheme = ({ from, to }: { from?: Date; to?: Date }) =
   const generateTheme = (date: Date): DayItemProps["theme"] => {
     const now = new Date();
 
-    if (from && checkSameDate(from, date)) {
+    if (from && checkIsSameDay(from, date)) {
       return to ? "selectedFrom" : "selected";
     }
-    if (to && checkSameDate(to, date)) {
+    if (to && checkIsSameDay(to, date)) {
       return from ? "selectedTo" : "selected";
     }
     if (from && to && checkInRange(date, from, to)) {
       return "range";
     }
-    if (checkSameDate(now, date)) {
+    if (checkIsSameDay(now, date)) {
       return "today";
     }
   };
