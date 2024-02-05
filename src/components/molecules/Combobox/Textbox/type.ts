@@ -4,4 +4,8 @@ export type TextboxProps = {
   disabled: boolean;
   onChange: (event: React.ChangeEvent) => void;
   value: string;
+  isListOpen: boolean;
+  inputLabelId: string;
+  placeholder: string;
+  listName: string;
 };

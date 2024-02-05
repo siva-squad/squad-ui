@@ -14,6 +14,7 @@ export const Default: StoryObj<typeof Textbox> = {
   args: {
     size: "normal",
     disabled: false,
+    placeholder: "選択してください",
   },
 };
 
