@@ -1,0 +1,17 @@
+name: マージ時にpackage.json のバージョンを更新する
+on:
+  push:
+    branches:
+      - main
+jobs:
+  update_version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+
+      - name: "date変数設定"
+        run: echo "CURRENT_DATETIME=$(date +'%Y-%m-%d-%H-%M-%S')" >> $GITHUB_ENV
+
+      - name: バージョンの更新(patch)
+        run: npm version "0.10.${{ env.CURRENT_DATETIME }}"
