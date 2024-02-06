@@ -15,6 +15,7 @@ export const Combobox = ({
 }: ComboboxProps) => {
   const [showList, setShowList] = useState(false);
   const [value, setValue] = useState("");
+  const [selectedElementId, setSelectedElementId] = useState("");
   const inputLabelId = useId();
 
   return (
@@ -40,6 +41,11 @@ export const Combobox = ({
 
       {showList && (
         <Listbox
+          selectedElementId={selectedElementId}
+          onClick={({ id, name }) => {
+            setSelectedElementId(id);
+            setValue(name);
+          }}
           options={options}
           listName={listName}
         />
