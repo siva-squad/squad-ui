@@ -2,7 +2,7 @@ export type TextboxProps = {
   size?: "normal" | "small";
   onClick: () => void;
   disabled: boolean;
-  onChange: (event: React.ChangeEvent) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   value: string;
   isListOpen: boolean;
   inputLabelId: string;
