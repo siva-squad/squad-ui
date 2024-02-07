@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { clsx } from "clsx";
 
@@ -15,6 +15,13 @@ export const Tooltip = ({
 }: TooltipProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [tabIndex, setTabIndex] = useState(0);
+  const ref = useRef<HTMLBodyElement | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    ref.current = document.querySelector("body");
+    setMounted(true);
+  }, []);
 
   const tooltipRef = useRef<HTMLSpanElement>(null);
   const anchorRef = useRef<HTMLSpanElement>(null);
@@ -46,11 +53,10 @@ export const Tooltip = ({
     setIsOpen(false);
   };
 
-  const bodyElement = document.querySelector("body");
-
   return (
     <>
-      {bodyElement &&
+      {mounted &&
+        ref.current &&
         isOpen &&
         createPortal(
           <span
@@ -69,7 +75,7 @@ export const Tooltip = ({
               />
             </span>
           </span>,
-          bodyElement,
+          ref.current,
         )}
       <span
         data-testid="tooltip-anchor"
