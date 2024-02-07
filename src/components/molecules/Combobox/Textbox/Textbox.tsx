@@ -7,6 +7,8 @@ export const Textbox = ({
   onClick,
   disabled,
   onChange,
+  onFocus,
+  onBlur,
   value,
   isListOpen,
   inputLabelId,
@@ -27,6 +29,8 @@ export const Textbox = ({
         className={TEXTBOX_CLASS_NAME({ size, disabled })}
         placeholder={placeholder}
         disabled={disabled}
+        onFocus={onFocus}
+        onBlur={onBlur}
       />
       <button
         onClick={onClick}

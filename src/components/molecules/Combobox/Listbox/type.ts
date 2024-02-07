@@ -8,4 +8,5 @@ export type ListboxProps = {
   listName: string;
   onClick: (option: Option) => void;
   selectedElementId: string;
+  visualFocusIndex: number | null;
 };

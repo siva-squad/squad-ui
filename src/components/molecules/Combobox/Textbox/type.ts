@@ -3,6 +3,8 @@ export type TextboxProps = {
   onClick: () => void;
   disabled: boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onFocus: () => void;
+  onBlur: () => void;
   value: string;
   isListOpen: boolean;
   inputLabelId: string;
