@@ -10,4 +10,5 @@ export type TextboxProps = {
   inputLabelId: string;
   placeholder: string;
   listName: string;
+  isFocus: boolean;
 };

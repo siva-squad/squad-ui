@@ -4,7 +4,7 @@ import { tv } from "tailwind-variants";
 export const TEXTBOX_CLASS_NAME = tv({
   base: clsx(
     "rounded-lg border border-gray-light bg-white leading-none outline-none w-full block",
-    "ring-offset-2 focus:text-black focus:ring-1 focus:ring-primary-600 placeholder:text-gray-dark",
+    "placeholder:text-gray-dark",
   ),
   variants: {
     size: {
@@ -13,6 +13,10 @@ export const TEXTBOX_CLASS_NAME = tv({
     },
     disabled: {
       true: "placeholder:text-gray disabled:cursor-not-allowed",
+      false: "",
+    },
+    isFocus: {
+      true: "ring-offset-2 text-black ring-1 ring-primary-600",
       false: "",
     },
   },
