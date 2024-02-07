@@ -16,7 +16,7 @@ export const TEXTBOX_CLASS_NAME = tv({
       false: "",
     },
     isFocus: {
-      true: "ring-offset-2 text-black ring-1 ring-primary-600",
+      true: "ring-offset-2 ring-1 ring-primary-600",
       false: "",
     },
   },
