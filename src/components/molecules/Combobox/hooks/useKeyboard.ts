@@ -3,16 +3,16 @@ import { Option } from "../Listbox/type";
 
 type UseKeyboardProps = {
   options: Option[];
-  showList: boolean;
-  setShowList: (boolean: boolean) => void;
+  isListOpen: boolean;
+  setIsListOpen: (boolean: boolean) => void;
   setValue: (string: string) => void;
   setSelectedElementId: (string: string) => void;
 };
 
 export const useKeyboard = ({
   options,
-  showList,
-  setShowList,
+  isListOpen,
+  setIsListOpen,
   setValue,
   setSelectedElementId,
 }: UseKeyboardProps) => {
@@ -32,14 +32,14 @@ export const useKeyboard = ({
         case "ArrowUp":
           event.preventDefault();
           const lastIndex = options.length - 1;
-          setShowList(true);
+          setIsListOpen(true);
           setVisualFocusIndex(lastIndex);
           return;
         case "Down":
         case "ArrowDown":
           event.preventDefault();
           const firstIndex = 0;
-          setShowList(true);
+          setIsListOpen(true);
           setVisualFocusIndex(firstIndex);
           return;
         case "Enter":
@@ -79,12 +79,12 @@ export const useKeyboard = ({
             setValue(name);
             setSelectedElementId(id);
           }
-          setShowList(false);
+          setIsListOpen(false);
           return;
         case "Escape":
           event.preventDefault();
-          if (showList) {
-            setShowList(false);
+          if (isListOpen) {
+            setIsListOpen(false);
           }
           return;
         default:
@@ -92,7 +92,7 @@ export const useKeyboard = ({
       }
     };
 
-    if (!showList) {
+    if (!isListOpen) {
       document.addEventListener("keydown", handleClosedListKey);
 
       return () => {
@@ -105,7 +105,7 @@ export const useKeyboard = ({
         document.removeEventListener("keydown", handleOpenedListKey);
       };
     }
-  }, [isFocus, visualFocusIndex, showList]);
+  }, [isFocus, visualFocusIndex, isListOpen]);
 
   return { visualFocusIndex, setIsFocus, setVisualFocusIndex, isFocus };
 };

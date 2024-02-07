@@ -14,20 +14,20 @@ export const Combobox = ({
   placeholder = "選択してください",
   size = "normal",
 }: ComboboxProps) => {
-  const [showList, setShowList] = useState(false);
+  const [isListOpen, setIsListOpen] = useState(false);
   const [value, setValue] = useState("");
   const [selectedElementId, setSelectedElementId] = useState("");
   const inputLabelId = useId();
   const { visualFocusIndex, setIsFocus, setVisualFocusIndex, isFocus } = useKeyboard({
     options,
-    showList,
-    setShowList,
+    isListOpen,
+    setIsListOpen,
     setValue,
     setSelectedElementId,
   });
   const ref = useOutsideClick(() => {
     setIsFocus(false);
-    setShowList(false);
+    setIsListOpen(false);
   });
 
   return (
@@ -49,18 +49,18 @@ export const Combobox = ({
         listName={listName}
         onClick={() => {
           setIsFocus(true);
-          setShowList(!showList);
+          setIsListOpen(!isListOpen);
         }}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
         disabled={disabled}
         inputLabelId={inputLabelId}
-        isListOpen={showList}
+        isListOpen={isListOpen}
         placeholder={placeholder}
         isFocus={isFocus}
       />
 
-      {showList && (
+      {isListOpen && (
         <Listbox
           visualFocusIndex={visualFocusIndex}
           selectedElementId={selectedElementId}
