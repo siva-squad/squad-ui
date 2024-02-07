@@ -3,7 +3,7 @@ import { Listbox } from "./Listbox";
 import { Textbox } from "./Textbox";
 import type { ComboboxProps } from "./type";
 import { RequiredBadge } from "@components/atoms/RequiredBadge";
-import { useKeyboard } from "./hooks";
+import { useKeyboard, useOutsideClick } from "./hooks";
 
 export const Combobox = ({
   options,
@@ -25,9 +25,16 @@ export const Combobox = ({
     setValue,
     setSelectedElementId,
   });
+  const ref = useOutsideClick(() => {
+    setIsFocus(false);
+    setShowList(false);
+  });
 
   return (
-    <div className="grid gap-2">
+    <div
+      className="grid gap-2"
+      ref={ref}
+    >
       <label htmlFor={inputLabelId}>Label Text </label>
       <RequiredBadge
         isRequired={isRequired}
