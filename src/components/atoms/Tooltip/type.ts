@@ -7,8 +7,8 @@ export type Alignment = "left" | "right" | "center";
 export type TooltipProps = {
   positionToAnchor: PositionToAnchor;
   alignment: Alignment;
-  tooltipText: string | ReactNode;
-  children: string | ReactNode;
+  tooltipText: ReactNode;
+  children: ReactNode;
   ariaLabelledBy: string;
 };
 
