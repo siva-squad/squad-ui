@@ -8,7 +8,7 @@ export const SelectorListItem = <OptionValue extends BaseOptionValue>({
   option,
   isActive,
   onClick,
-  disabled,
+  disabled = false,
 }: SelectorListItemProps<OptionValue>) => {
   return (
     <li
