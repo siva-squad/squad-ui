@@ -16,6 +16,10 @@ export const Combobox = ({
 }: ComboboxProps) => {
   const inputLabelId = useId();
   const [value, setValue] = useState("");
+  const filteredOptions =
+    value.length > 0
+      ? options.filter((option) => option.name.toLowerCase().includes(value.toLowerCase()))
+      : options;
   const {
     visualFocusIndex,
     setIsFocus,
@@ -26,7 +30,7 @@ export const Combobox = ({
     setIsListOpen,
     isListOpen,
   } = useKeyboard({
-    options,
+    options: filteredOptions,
     setValue,
   });
   const ref = useOutsideClick(() => {
@@ -72,8 +76,9 @@ export const Combobox = ({
             setSelectedElementId(id);
             setValue(name);
             setIsFocus(true);
+            setIsListOpen(false);
           }}
-          options={options}
+          options={filteredOptions}
           listName={listName}
           onMouseOver={(index) => setVisualFocusIndex(index)}
         />
