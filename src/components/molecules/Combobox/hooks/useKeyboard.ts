@@ -3,19 +3,12 @@ import { Option } from "../Listbox/type";
 
 type UseKeyboardProps = {
   options: Option[];
-  isListOpen: boolean;
-  setIsListOpen: (boolean: boolean) => void;
   setValue: (string: string) => void;
-  setSelectedElementId: (string: string) => void;
 };
 
-export const useKeyboard = ({
-  options,
-  isListOpen,
-  setIsListOpen,
-  setValue,
-  setSelectedElementId,
-}: UseKeyboardProps) => {
+export const useKeyboard = ({ options, setValue }: UseKeyboardProps) => {
+  const [isListOpen, setIsListOpen] = useState(false);
+  const [selectedElementId, setSelectedElementId] = useState("");
   const [isFocus, setIsFocus] = useState(false);
   const [visualFocusIndex, setVisualFocusIndex] = useState<number | null>(null);
 
@@ -107,5 +100,14 @@ export const useKeyboard = ({
     }
   }, [isFocus, visualFocusIndex, isListOpen]);
 
-  return { visualFocusIndex, setIsFocus, setVisualFocusIndex, isFocus };
+  return {
+    visualFocusIndex,
+    setIsFocus,
+    setVisualFocusIndex,
+    isFocus,
+    selectedElementId,
+    setSelectedElementId,
+    setIsListOpen,
+    isListOpen,
+  };
 };

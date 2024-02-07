@@ -14,16 +14,20 @@ export const Combobox = ({
   placeholder = "選択してください",
   size = "normal",
 }: ComboboxProps) => {
-  const [isListOpen, setIsListOpen] = useState(false);
-  const [value, setValue] = useState("");
-  const [selectedElementId, setSelectedElementId] = useState("");
   const inputLabelId = useId();
-  const { visualFocusIndex, setIsFocus, setVisualFocusIndex, isFocus } = useKeyboard({
-    options,
-    isListOpen,
-    setIsListOpen,
-    setValue,
+  const [value, setValue] = useState("");
+  const {
+    visualFocusIndex,
+    setIsFocus,
+    setVisualFocusIndex,
+    isFocus,
+    selectedElementId,
     setSelectedElementId,
+    setIsListOpen,
+    isListOpen,
+  } = useKeyboard({
+    options,
+    setValue,
   });
   const ref = useOutsideClick(() => {
     setIsFocus(false);
