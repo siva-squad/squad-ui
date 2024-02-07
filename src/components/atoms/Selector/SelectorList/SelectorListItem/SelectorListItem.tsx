@@ -16,8 +16,7 @@ export const SelectorListItem = <OptionValue extends BaseOptionValue>({
       className={clsx(
         "box-border inline-flex h-10 w-full items-center justify-between truncate rounded-md bg-white px-4",
         "hover:bg-primary-100 hover:text-primary-600 focus:ring-1 focus:ring-inset focus:ring-primary-600",
-        disabled &&
-          "last:pointer-events-none last:cursor-default last:text-gray-extraDark last:no-underline",
+        disabled && "pointer-events-none cursor-default text-gray-extraDark no-underline",
       )}
       onClick={() => onClick(option)}
       tabIndex={0}
