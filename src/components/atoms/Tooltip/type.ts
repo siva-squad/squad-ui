@@ -10,6 +10,7 @@ export type TooltipProps = {
   tooltipText: ReactNode;
   children: ReactNode;
   ariaLabelledBy: string;
+  rootId?: string;
 };
 
 export type TooltipPositionStyles = {
