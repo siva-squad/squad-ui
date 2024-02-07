@@ -19,13 +19,14 @@ export const Default: StoryObj<typeof Selector> = {
         value: "option1",
       },
       {
-        label: "オプション2",
+        label: "オプション2(disabled)",
         value: "option2",
+        disabled: true,
       },
       {
-        label: "オプション3(disabled)",
+        label: "オプション3",
         value: "option3",
-        disabled: true,
+        disabled: false,
       },
     ],
   },
