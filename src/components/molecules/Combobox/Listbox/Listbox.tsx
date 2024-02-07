@@ -8,6 +8,7 @@ export const Listbox = ({
   onClick,
   selectedElementId,
   visualFocusIndex,
+  onMouseOver,
 }: ListboxProps) => {
   return (
     <ul
@@ -27,6 +28,7 @@ export const Listbox = ({
             "flex w-full items-center justify-between gap-2 px-4 py-3.5 text-xs",
             visualFocusIndex === index && "bg-primary-100 text-primary-600",
           )}
+          onMouseOver={() => onMouseOver(index)}
         >
           <span>{name}</span>
           {id === selectedElementId && <CheckIcon className="h-4 w-4 stroke-1 text-primary-600" />}

@@ -107,5 +107,5 @@ export const useKeyboard = ({
     }
   }, [isFocus, visualFocusIndex, showList]);
 
-  return { visualFocusIndex, setIsFocus };
+  return { visualFocusIndex, setIsFocus, setVisualFocusIndex };
 };

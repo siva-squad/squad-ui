@@ -1,4 +1,4 @@
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
 import { Listbox } from "./Listbox";
 import { Textbox } from "./Textbox";
 import type { ComboboxProps } from "./type";
@@ -18,7 +18,8 @@ export const Combobox = ({
   const [value, setValue] = useState("");
   const [selectedElementId, setSelectedElementId] = useState("");
   const inputLabelId = useId();
-  const { visualFocusIndex, setIsFocus } = useKeyboard({
+  const inputRef = useRef<HTMLInputElement>(null);
+  const { visualFocusIndex, setIsFocus, setVisualFocusIndex } = useKeyboard({
     options,
     showList,
     setShowList,
@@ -43,6 +44,9 @@ export const Combobox = ({
         onClick={() => {
           setIsFocus(true);
           setShowList(!showList);
+          if (!!inputRef.current) {
+            inputRef.current.focus();
+          }
         }}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
@@ -50,6 +54,7 @@ export const Combobox = ({
         inputLabelId={inputLabelId}
         isListOpen={showList}
         placeholder={placeholder}
+        ref={inputRef}
       />
 
       {showList && (
@@ -59,9 +64,14 @@ export const Combobox = ({
           onClick={({ id, name }) => {
             setSelectedElementId(id);
             setValue(name);
+            setIsFocus(true);
+            if (!!inputRef.current) {
+              inputRef.current.focus();
+            }
           }}
           options={options}
           listName={listName}
+          onMouseOver={(index) => setVisualFocusIndex(index)}
         />
       )}
     </div>
