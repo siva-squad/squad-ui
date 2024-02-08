@@ -1,6 +1,6 @@
-import { CheckIcon } from "@assets/icons";
 import type { ListboxProps } from "./type";
-import clsx from "clsx";
+
+import { ListElement } from "./ListElement";
 
 export const Listbox = ({
   options,
@@ -18,21 +18,15 @@ export const Listbox = ({
       id={listName}
     >
       {options.map(({ name, id }, index) => (
-        <li
-          onClick={() => onClick({ name, id })}
-          aria-selected={id === selectedElementId}
-          role="option"
-          key={id}
+        <ListElement
           id={id}
-          className={clsx(
-            "flex w-full items-center justify-between gap-2 px-4 py-3.5 text-xs",
-            visualFocusIndex === index && "bg-primary-100 text-primary-600",
-          )}
+          key={id}
+          onClick={() => onClick({ name, id })}
           onMouseOver={() => onMouseOver(index)}
-        >
-          <span>{name}</span>
-          {id === selectedElementId && <CheckIcon className="h-4 w-4 stroke-1 text-primary-600" />}
-        </li>
+          isSelected={id === selectedElementId}
+          hasVisualFocus={visualFocusIndex === index}
+          name={name}
+        />
       ))}
     </ul>
   );
