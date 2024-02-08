@@ -12,7 +12,6 @@ export const Tooltip = ({
   tooltipText,
   ariaLabelledBy,
   children,
-  rootId = "body",
 }: TooltipProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [tabIndex, setTabIndex] = useState(0);
@@ -20,7 +19,7 @@ export const Tooltip = ({
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    ref.current = document.querySelector(rootId);
+    ref.current = document.querySelector("body");
     setMounted(true);
   }, []);
 
