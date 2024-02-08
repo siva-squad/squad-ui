@@ -12,7 +12,10 @@ export default {
 
 export const Default: StoryObj<typeof AvatarMultiple> = {
   args: {
-    avatars: [{ id: "xxx", src: "yyy" }],
+    avatars: Array.from({ length: 12 }).map((_, i) => ({
+      id: i.toString(),
+      src: i.toString(),
+    })),
     onClick: (id) => console.log({ id }),
   },
 };
