@@ -7,7 +7,9 @@ export default {
   parameters: {
     controls: { expanded: true },
   },
-  argTypes: {},
+  argTypes: {
+    onClick: { action: "clicked" },
+  },
 } satisfies Meta<typeof AvatarMultiple>;
 
 export const Default: StoryObj<typeof AvatarMultiple> = {
