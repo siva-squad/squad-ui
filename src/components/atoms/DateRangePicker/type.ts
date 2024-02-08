@@ -1,16 +1,16 @@
+import { DatePickerShortcut } from "@atoms/DatePicker";
+
 export type DateRangePickerValue = {
   from?: Date;
   to?: Date;
 };
 
-type DateRangePickerShortcut = {
-  label: string;
-  value: Date;
-};
-
 export type DateRangePickerProps = {
   value: { from?: Date; to?: Date };
   changeType: "from" | "to";
-  shortcuts?: DateRangePickerShortcut[];
+  title?: (displayMonth: Date) => React.ReactNode;
+  minDate?: Date;
+  maxDate?: Date;
+  shortcuts?: DatePickerShortcut[];
   onChange: (value: { from?: Date; to?: Date }) => void;
 };

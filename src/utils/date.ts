@@ -40,6 +40,14 @@ export const startOfTheDay = (date: Date) => {
   return newDate;
 };
 
+export const checkIsSameDay = (date1: Date, date2: Date) => {
+  return (
+    date1.getFullYear() === date2.getFullYear() &&
+    date1.getMonth() === date2.getMonth() &&
+    date1.getDate() === date2.getDate()
+  );
+};
+
 /**
  * 2つの日付の間にある日付を配列で返す
  * @return Date[]

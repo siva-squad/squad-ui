@@ -2,38 +2,32 @@ import { useId } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import clsx from "clsx";
 import { Button } from "../Button";
-import { useCalendarSlider } from "../DatePicker/hooks";
 import { DayItem } from "../DayItem";
 import { DAY_ITEM_SIZE } from "../DayItem/const";
 import { WeekItem } from "../WeekItem";
-import { useCalendarCellTheme, useCalendarSelector } from "./hooks";
+import { useCalendarCellTheme, useCalendarSlider } from "./hooks";
 
-import { DateRangePickerProps } from "./type";
+import { DatePickerProps } from "./type";
 import { checkEnableDate, getCalendarDates } from "./util";
 import { startOfTheDay } from "@/src/utils/date";
 
-export const DateRangePicker = ({
+export const DatePicker = ({
   value,
   shortcuts = [],
-  changeType,
   title,
   minDate,
   maxDate,
   onChange,
-}: DateRangePickerProps) => {
+}: DatePickerProps) => {
   const id = useId();
-  const { generateTheme } = useCalendarCellTheme(value);
-  const { changeDate } = useCalendarSelector({
-    value,
-    changeType,
-  });
+  const { generateTheme } = useCalendarCellTheme(value ?? null);
   const calendar = useCalendarSlider({
     width: DAY_ITEM_SIZE.width * 7,
-    defaultMonth: value[changeType],
+    defaultMonth: value,
   });
   const calendarTitle = useCalendarSlider({
     width: 240,
-    defaultMonth: value[changeType],
+    defaultMonth: value,
   });
 
   const formattedShortcuts = shortcuts.map((shortcut) => ({
@@ -42,11 +36,11 @@ export const DateRangePicker = ({
   }));
 
   const handleSelectDate = (date: Date) => {
-    onChange(changeDate(date));
+    onChange(date);
   };
 
   const handleSelectShortcut = (date: Date) => {
-    onChange(changeDate(date));
+    onChange(date);
     calendar.skipTo(date);
     calendarTitle.skipTo(date);
   };
