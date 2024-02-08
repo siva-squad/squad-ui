@@ -32,7 +32,7 @@ jobs:
         run: |
           git add .
           git commit -m "v$(grep version package.json | awk -F \" '{print $4}')"
-          git push origin HEAD
+          git push origin
 
       # 前回リリースからの差分をもとに、リリースノートの本文を生成する
       - name: Generate release note
