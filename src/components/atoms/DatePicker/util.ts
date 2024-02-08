@@ -43,3 +43,10 @@ export const getCalendarDates = (date: Date) => {
   // カレンダーに表示する日付を週で分割して返す
   return chunk(getDateRange(calendarFrom, calendarTo), 7);
 };
+
+/**選択可能な日付であるかを判定する */
+export const checkEnableDate = (date: Date, minDate?: Date, maxDate?: Date) => {
+  if (minDate && date < minDate) return false;
+  if (maxDate && date > maxDate) return false;
+  return true;
+};

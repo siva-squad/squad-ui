@@ -9,13 +9,16 @@ import { WeekItem } from "../WeekItem";
 import { useCalendarCellTheme, useCalendarSelector } from "./hooks";
 
 import { DateRangePickerProps } from "./type";
-import { getCalendarDates } from "./util";
+import { checkEnableDate, getCalendarDates } from "./util";
 import { startOfTheDay } from "@/src/utils/date";
 
 export const DateRangePicker = ({
   value,
   shortcuts = [],
   changeType,
+  title,
+  minDate,
+  maxDate,
   onChange,
 }: DateRangePickerProps) => {
   const id = useId();
@@ -28,7 +31,7 @@ export const DateRangePicker = ({
     width: DAY_ITEM_SIZE.width * 7,
     defaultMonth: value[changeType],
   });
-  const title = useCalendarSlider({
+  const calendarTitle = useCalendarSlider({
     width: 240,
     defaultMonth: value[changeType],
   });
@@ -45,17 +48,17 @@ export const DateRangePicker = ({
   const handleSelectShortcut = (date: Date) => {
     onChange(changeDate(date));
     calendar.skipTo(date);
-    title.skipTo(date);
+    calendarTitle.skipTo(date);
   };
 
   const handleSlideNext = () => {
     calendar.slideNext();
-    title.slideNext();
+    calendarTitle.slideNext();
   };
 
   const handleSlidePrev = () => {
     calendar.slidePrev();
-    title.slidePrev();
+    calendarTitle.slidePrev();
   };
 
   return (
@@ -71,10 +74,10 @@ export const DateRangePicker = ({
             <ChevronLeftIcon className="h-6 w-6 text-black" />
           </button>
           <span className="block text-center font-bold">
-            {title.render((date) => (
-              <div className="text-center font-bold">{`${date.getFullYear()}年 ${
-                date.getMonth() + 1
-              }月`}</div>
+            {calendarTitle.render((date) => (
+              <div className="text-center font-bold">
+                {title ? title(date) : `${date.getFullYear()}年 ${date.getMonth() + 1}月`}
+              </div>
             ))}
           </span>
           <div className="flex justify-end">
@@ -121,6 +124,7 @@ export const DateRangePicker = ({
                         // Note: 遷移時はアニメーションを無効化
                         transition={!condition.isMoving}
                         date={day}
+                        disabled={!checkEnableDate(day, minDate, maxDate)}
                         onClick={handleSelectDate}
                       />
                     ))}
@@ -136,6 +140,7 @@ export const DateRangePicker = ({
               key={`date-range-picker-shortcut-${shortcut.label}`}
               theme="white"
               size="small"
+              disabled={shortcut.disabled}
               onClick={() => handleSelectShortcut(shortcut.value)}
             >
               <div className="min-w-[36px] whitespace-pre">{shortcut.label}</div>

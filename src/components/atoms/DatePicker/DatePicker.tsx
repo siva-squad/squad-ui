@@ -8,17 +8,24 @@ import { WeekItem } from "../WeekItem";
 import { useCalendarCellTheme, useCalendarSlider } from "./hooks";
 
 import { DatePickerProps } from "./type";
-import { getCalendarDates } from "./util";
+import { checkEnableDate, getCalendarDates } from "./util";
 import { startOfTheDay } from "@/src/utils/date";
 
-export const DatePicker = ({ value, shortcuts = [], onChange }: DatePickerProps) => {
+export const DatePicker = ({
+  value,
+  shortcuts = [],
+  title,
+  minDate,
+  maxDate,
+  onChange,
+}: DatePickerProps) => {
   const id = useId();
   const { generateTheme } = useCalendarCellTheme(value ?? null);
   const calendar = useCalendarSlider({
     width: DAY_ITEM_SIZE.width * 7,
     defaultMonth: value,
   });
-  const title = useCalendarSlider({
+  const calendarTitle = useCalendarSlider({
     width: 240,
     defaultMonth: value,
   });
@@ -35,17 +42,17 @@ export const DatePicker = ({ value, shortcuts = [], onChange }: DatePickerProps)
   const handleSelectShortcut = (date: Date) => {
     onChange(date);
     calendar.skipTo(date);
-    title.skipTo(date);
+    calendarTitle.skipTo(date);
   };
 
   const handleSlideNext = () => {
     calendar.slideNext();
-    title.slideNext();
+    calendarTitle.slideNext();
   };
 
   const handleSlidePrev = () => {
     calendar.slidePrev();
-    title.slidePrev();
+    calendarTitle.slidePrev();
   };
 
   return (
@@ -61,10 +68,10 @@ export const DatePicker = ({ value, shortcuts = [], onChange }: DatePickerProps)
             <ChevronLeftIcon className="h-6 w-6 text-black" />
           </button>
           <span className="block text-center font-bold">
-            {title.render((date) => (
-              <div className="text-center font-bold">{`${date.getFullYear()}年 ${
-                date.getMonth() + 1
-              }月`}</div>
+            {calendarTitle.render((date) => (
+              <div className="text-center font-bold">
+                {title ? title(date) : `${date.getFullYear()}年 ${date.getMonth() + 1}月`}
+              </div>
             ))}
           </span>
           <div className="flex justify-end">
@@ -111,6 +118,7 @@ export const DatePicker = ({ value, shortcuts = [], onChange }: DatePickerProps)
                         // Note: 遷移時はアニメーションを無効化
                         transition={!condition.isMoving}
                         date={day}
+                        disabled={!checkEnableDate(day, minDate, maxDate)}
                         onClick={handleSelectDate}
                       />
                     ))}
@@ -126,6 +134,7 @@ export const DatePicker = ({ value, shortcuts = [], onChange }: DatePickerProps)
               key={`date-range-picker-shortcut-${shortcut.label}`}
               theme="white"
               size="small"
+              disabled={shortcut.disabled}
               onClick={() => handleSelectShortcut(shortcut.value)}
             >
               <div className="min-w-[36px] whitespace-pre">{shortcut.label}</div>

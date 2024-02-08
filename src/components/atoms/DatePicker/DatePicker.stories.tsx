@@ -20,7 +20,7 @@ const Dummy = ({ ...args }: Partial<DatePickerProps>) => {
   const shortcuts = [
     { label: "今日", value: now },
     { label: "明日", value: addDay(now, 1) },
-    { label: "3日後", value: addDay(now, 3) },
+    { label: "3日後", value: addDay(now, 3), disabled: true },
     { label: "5日後", value: addDay(now, 5) },
     { label: "1週間後", value: addDay(now, 7) },
     { label: "1ヶ月後", value: addMonth(now, 1) },
@@ -68,4 +68,33 @@ export default {
 
 export const Default: StoryObj<typeof DatePicker> = {
   render: (args) => <Dummy {...args} />,
+};
+
+export const MinDate: StoryObj<typeof DatePicker> = {
+  render: (args) => (
+    <Dummy
+      {...args}
+      minDate={new Date()}
+    />
+  ),
+};
+
+export const MaxDate: StoryObj<typeof DatePicker> = {
+  render: (args) => (
+    <Dummy
+      {...args}
+      maxDate={new Date()}
+    />
+  ),
+};
+
+export const CustomTitle: StoryObj<typeof DatePicker> = {
+  render: (args) => (
+    <Dummy
+      {...args}
+      title={(date) => (
+        <div className="text-red">{`${date.getFullYear()}年${date.getMonth() + 1}月`}</div>
+      )}
+    />
+  ),
 };
