@@ -4,5 +4,5 @@ export type AvatarMultipleProps = {
   avatars: ({ id: string } & Pick<AvatarProps, "size" | "src">)[];
   maxDisplayCount?: number;
   showIndicator?: boolean;
-  onClick?: (id: string) => void;
+  onClick: () => void;
 };

@@ -1,5 +1,5 @@
 export * from "./BrandLogo";
-export * from './Breadcrumbs'
+export * from "./Breadcrumbs";
 export * from "./Dialog";
 export * from "./InputElement";
 export * from "./ListItemDropDown";
@@ -10,3 +10,4 @@ export * from "./Popover";
 export * from "./RichMenuDescription";
 export * from "./RichMenuList";
 export * from "./Tab";
+export * from "./AvatarMultiple";

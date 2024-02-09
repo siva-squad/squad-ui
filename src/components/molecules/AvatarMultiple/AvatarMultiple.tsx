@@ -11,23 +11,28 @@ export const AvatarMultiple = ({
   const displayAvatars = avatars.slice(0).slice(0, maxDisplayCount);
 
   return (
-    <div className="flex items-center gap-x-1">
-      <div className="relative flex items-center">
+    <div className="flex w-fit items-center justify-between gap-x-1">
+      <button
+        className={clsx("relative flex cursor-pointer items-center rounded-sm")}
+        onClick={onClick}
+        type="button"
+      >
         {displayAvatars.map((avatar, index) => (
           <div
             key={avatar.id}
             className={clsx(
               "isolate flex items-center justify-center",
-              index > 0 && "ml-[-1.5%] rounded-full ring-2  ring-gray-extraLight",
+              index > 0 && "ml-[-1.25em] rounded-full ring-2 ring-gray-extraLight",
             )}
           >
             <Avatar
               {...avatar}
-              onClick={() => onClick?.(avatar.id)}
+              // NOTE: cursor-pointerを有効にする為onClickを追加
+              onClick={() => {}}
             />
           </div>
         ))}
-      </div>
+      </button>
       {showIndicator && <span className="text-s">{displayAvatars.length}</span>}
     </div>
   );

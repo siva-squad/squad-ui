@@ -9,6 +9,15 @@ export default {
   },
   argTypes: {
     onClick: { action: "clicked" },
+    avatars: {
+      type: "symbol",
+    },
+    maxDisplayCount: {
+      type: "number",
+    },
+    showIndicator: {
+      type: "boolean",
+    },
   },
 } satisfies Meta<typeof AvatarMultiple>;
 
@@ -18,6 +27,5 @@ export const Default: StoryObj<typeof AvatarMultiple> = {
       id: i.toString(),
       src: i.toString(),
     })),
-    onClick: (id) => console.log({ id }),
   },
 };
