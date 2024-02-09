@@ -4,7 +4,7 @@ import type { AvatarMultipleProps } from "./type";
 
 export const AvatarMultiple = ({
   avatars,
-  maxDisplayCount = 3,
+  maxDisplayCount = 4,
   onClick,
   showIndicator = true,
 }: AvatarMultipleProps) => {
