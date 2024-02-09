@@ -36,6 +36,14 @@ export const Default: StoryObj<typeof AvatarMultiple> = {
   },
 };
 
+export const NoSrc: StoryObj<typeof AvatarMultiple> = {
+  args: {
+    avatars: Array.from({ length: 12 }).map((_, i) => ({
+      id: i.toString(),
+    })),
+  },
+};
+
 export const NoIndicator: StoryObj<typeof AvatarMultiple> = {
   args: {
     avatars: Array.from({ length: 12 }).map((_, i) => ({
