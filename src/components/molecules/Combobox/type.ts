@@ -11,4 +11,5 @@ export type ComboboxProps = {
   placeholder?: string;
   size?: "normal" | "small";
   description?: string;
+  errorText?: string;
 };

@@ -13,6 +13,7 @@ export const Combobox = ({
   badgeText,
   disabled = false,
   placeholder = "選択してください",
+  errorText = "この名前のオプションはありません。",
   size = "normal",
   description,
   labelText,
@@ -90,6 +91,9 @@ export const Combobox = ({
           listName={listName}
           onMouseOver={(index) => setVisualFocusIndex(index)}
         />
+      )}
+      {filteredOptions.length === 0 && (
+        <p className="text-xs leading-normal text-red">{errorText}</p>
       )}
     </div>
   );
