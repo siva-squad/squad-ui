@@ -1,39 +1,32 @@
 import { useEffect, useRef } from "react";
 
-export const useListArrowNavigation = ({
-  visualFocusIndex,
-  length,
-}: {
-  visualFocusIndex: number | null;
-  length: number;
-}) => {
-  const listRef = useRef<HTMLUListElement>(null);
-  const listElementRefs = Array.from({ length }, () => useRef<HTMLLIElement>(null));
+export const useListArrowNavigation = ({ hasVisualFocus }: { hasVisualFocus: boolean }) => {
+  const listElementRef = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
-    if (!listRef.current || visualFocusIndex === null) {
+    if (!listElementRef.current || !hasVisualFocus) {
       return;
     }
 
-    const currentFocusedElement = listElementRefs[visualFocusIndex].current;
+    const parentElement = listElementRef.current.parentElement;
 
-    if (!currentFocusedElement) {
+    if (!parentElement) {
       return;
     }
 
-    const listPosition = listRef.current.getBoundingClientRect();
-    const listElementPosition = currentFocusedElement.getBoundingClientRect();
+    const parentElementPosition = parentElement?.getBoundingClientRect();
+    const listElementPosition = listElementRef.current.getBoundingClientRect();
 
     if (
-      listElementPosition.bottom > listPosition.bottom ||
-      listElementPosition.top < listPosition.top
+      listElementPosition.bottom > parentElementPosition.bottom ||
+      listElementPosition.top < parentElementPosition.top
     ) {
-      currentFocusedElement.scrollIntoView({
+      listElementRef.current.scrollIntoView({
         behavior: "smooth",
         block: "nearest",
       });
     }
-  }, [listRef, visualFocusIndex, listElementRefs]);
+  }, [listElementRef, hasVisualFocus]);
 
-  return { listRef, listElementRefs };
+  return { listElementRef };
 };
