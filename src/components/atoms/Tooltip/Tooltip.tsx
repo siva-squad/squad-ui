@@ -1,4 +1,5 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { clsx } from "clsx";
 
 import { Shape } from "./Shape";
@@ -14,6 +15,13 @@ export const Tooltip = ({
 }: TooltipProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [tabIndex, setTabIndex] = useState(0);
+  const ref = useRef<HTMLBodyElement | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    ref.current = document.querySelector("body");
+    setMounted(true);
+  }, []);
 
   const tooltipRef = useRef<HTMLSpanElement>(null);
   const anchorRef = useRef<HTMLSpanElement>(null);
@@ -47,24 +55,28 @@ export const Tooltip = ({
 
   return (
     <>
-      {isOpen && (
-        <span
-          role="tooltip"
-          id={ariaLabelledBy}
-          aria-hidden={!isOpen}
-          ref={tooltipRef}
-          className="absolute z-40 inline-block w-40 rounded bg-white text-sm leading-normal drop-shadow-md"
-          style={tooltipPositionStyles}
-        >
-          <span className="relative inline-flex h-full w-full items-center justify-center p-2">
-            {tooltipText}
-            <Shape
-              className={clsx("absolute m-auto", shapePositionStyles.shapeClasses)}
-              style={shapePositionStyles.shapePosition}
-            />
-          </span>
-        </span>
-      )}
+      {mounted &&
+        ref.current &&
+        isOpen &&
+        createPortal(
+          <span
+            role="tooltip"
+            id={ariaLabelledBy}
+            aria-hidden={!isOpen}
+            ref={tooltipRef}
+            className="absolute z-40 inline-block w-40 rounded bg-white text-sm leading-normal drop-shadow-md"
+            style={tooltipPositionStyles}
+          >
+            <span className="relative inline-flex h-full w-full items-center justify-center p-2">
+              {tooltipText}
+              <Shape
+                className={clsx("absolute m-auto", shapePositionStyles.shapeClasses)}
+                style={shapePositionStyles.shapePosition}
+              />
+            </span>
+          </span>,
+          ref.current,
+        )}
       <span
         data-testid="tooltip-anchor"
         aria-labelledby={ariaLabelledBy}

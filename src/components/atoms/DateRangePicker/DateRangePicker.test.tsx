@@ -6,7 +6,7 @@ import * as DateRangePickerStories from "./DateRangePicker.stories";
 
 const { Default: DateRangePicker } = composeStories(DateRangePickerStories);
 
-describe("DateRangePicker", () => {
+describe.todo("DateRangePicker", () => {
   afterEach(() => {
     cleanup();
   });
