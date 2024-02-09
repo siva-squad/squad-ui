@@ -21,11 +21,27 @@ export default {
   },
 } satisfies Meta<typeof AvatarMultiple>;
 
+const generateMockAvatarUrl = (i: number) => {
+  return `https://ui-avatars.com/api?background=random&color=FFF&name=${
+    String.fromCharCode(i + 65) + String.fromCharCode(i + 66)
+  }`;
+};
+
 export const Default: StoryObj<typeof AvatarMultiple> = {
   args: {
     avatars: Array.from({ length: 12 }).map((_, i) => ({
       id: i.toString(),
-      src: i.toString(),
+      src: generateMockAvatarUrl(i),
     })),
+  },
+};
+
+export const NoIndicator: StoryObj<typeof AvatarMultiple> = {
+  args: {
+    avatars: Array.from({ length: 12 }).map((_, i) => ({
+      id: i.toString(),
+      src: generateMockAvatarUrl(i),
+    })),
+    showIndicator: false,
   },
 };

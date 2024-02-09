@@ -31,7 +31,7 @@ export const AvatarMultiple = ({
           </div>
         ))}
       </button>
-      {showIndicator && <span className="text-s">{displayAvatars.length}</span>}
+      {showIndicator && <span className="text-s">{avatars.length}</span>}
     </div>
   );
 };
