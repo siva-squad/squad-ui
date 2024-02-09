@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Avatar } from "./Avatar";
 
+const MOCK_AVATAR_SRC = "https://ui-avatars.com/api?background=random&color=FFF";
+
 export default {
   component: Avatar,
   parameters: {
@@ -16,10 +18,17 @@ export default {
   },
 } satisfies Meta<typeof Avatar>;
 
-export const Default: StoryObj<typeof Avatar> = {};
-
-export const NoClick: StoryObj<typeof Avatar> = {
+export const Default: StoryObj<typeof Avatar> = {
   args: {
+    src: MOCK_AVATAR_SRC,
+  },
+};
+
+export const NoSrc: StoryObj<typeof Avatar> = {};
+
+export const UnClickable: StoryObj<typeof Avatar> = {
+  args: {
+    src: MOCK_AVATAR_SRC,
     onClick: undefined,
   },
 };

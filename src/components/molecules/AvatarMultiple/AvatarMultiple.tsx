@@ -22,14 +22,12 @@ export const AvatarMultiple = ({
             key={avatar.id}
             className={clsx(
               "isolate flex items-center justify-center",
+              // cursor-pointer override
+              "[&_button]:cursor-pointer [&_span]:cursor-pointer",
               index > 0 && "ml-[-1.25em] rounded-full ring-2 ring-gray-extraLight",
             )}
           >
-            <Avatar
-              {...avatar}
-              // NOTE: cursor-pointerを有効にする為onClickを追加
-              onClick={() => {}}
-            />
+            <Avatar {...avatar} />
           </div>
         ))}
       </button>
