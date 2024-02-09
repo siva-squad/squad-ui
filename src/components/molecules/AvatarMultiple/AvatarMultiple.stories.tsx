@@ -53,3 +53,13 @@ export const NoIndicator: StoryObj<typeof AvatarMultiple> = {
     showIndicator: false,
   },
 };
+
+export const NoHover: StoryObj<typeof AvatarMultiple> = {
+  args: {
+    avatars: Array.from({ length: 12 }).map((_, i) => ({
+      id: i.toString(),
+      src: generateMockAvatarUrl(i),
+    })),
+    showBackgroundHover: false,
+  },
+};

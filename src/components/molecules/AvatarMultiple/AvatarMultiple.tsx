@@ -7,13 +7,16 @@ export const AvatarMultiple = ({
   maxDisplayCount = 4,
   onClick,
   showIndicator = true,
+  showBackgroundHover = true,
 }: AvatarMultipleProps) => {
   const displayAvatars = avatars.slice(0).slice(0, maxDisplayCount);
 
   return (
     <div className="flex w-fit items-center justify-between gap-x-1">
       <button
-        className={clsx("relative flex cursor-pointer items-center rounded-sm")}
+        className={clsx("relative flex cursor-pointer items-center rounded-sm p-1", {
+          "hover:bg-gray-extraLight": showBackgroundHover,
+        })}
         onClick={onClick}
         type="button"
       >
