@@ -5,7 +5,7 @@ import { describe, test, vi } from "vitest";
 
 import * as AvatarStories from "./Avatar.stories";
 
-const { Default: Avatar, NoClick: AvatarNoClick } = composeStories(AvatarStories);
+const { Default: Avatar, UnClickable: AvatarNoClick } = composeStories(AvatarStories);
 
 const mockSrc = "https://example.com/avatar.png";
 
