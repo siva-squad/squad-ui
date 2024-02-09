@@ -16,9 +16,10 @@ export const Combobox = ({
 }: ComboboxProps) => {
   const inputLabelId = useId();
   const [value, setValue] = useState("");
+
   const filteredOptions =
     value.length > 0
-      ? options.filter((option) => option.name.toLowerCase().includes(value.toLowerCase()))
+      ? options.filter((option) => option.name.toLowerCase().startsWith(value.toLowerCase()))
       : options;
   const {
     visualFocusIndex,
