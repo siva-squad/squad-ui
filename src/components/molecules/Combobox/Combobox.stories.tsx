@@ -34,48 +34,84 @@ export const Default: StoryObj<typeof Combobox> = {
         id: "4",
         name: "Option 4",
       },
+      {
+        id: "5",
+        name: "Option 5",
+      },
     ],
   },
 };
 
 export const LongList: StoryObj<typeof Combobox> = {
   args: {
-    listName: "Test list 2",
+    listName: "States",
     disabled: false,
     size: "normal",
     isRequired: true,
     options: [
       {
         id: "1",
-        name: "Option 1",
+        name: "Alabama",
       },
       {
         id: "2",
-        name: "Option 2",
+        name: "Alaska",
       },
       {
         id: "3",
-        name: "Option 3",
+        name: "Arizona",
       },
       {
         id: "4",
-        name: "Option 4",
+        name: "Arkansas",
+      },
+      {
+        id: "5",
+        name: "California",
+      },
+      {
+        id: "6",
+        name: "Colorado",
+      },
+      {
+        id: "7",
+        name: "Connecticut",
+      },
+      {
+        id: "8",
+        name: "Delaware",
+      },
+      {
+        id: "9",
+        name: "Columbia",
+      },
+      {
+        id: "10",
+        name: "Florida",
+      },
+      {
+        id: "11",
+        name: "Georgia",
       },
       {
         id: "12",
-        name: "Option 12",
+        name: "Guam",
       },
       {
-        id: "22",
-        name: "Option 22",
+        id: "13",
+        name: "Hawaii",
       },
       {
-        id: "32",
-        name: "Option 32",
+        id: "14",
+        name: "Idaho",
       },
       {
-        id: "42",
-        name: "Option 42",
+        id: "15",
+        name: "Indiana",
+      },
+      {
+        id: "16",
+        name: "Kansas",
       },
     ],
   },
