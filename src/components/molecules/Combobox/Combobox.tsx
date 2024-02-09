@@ -4,6 +4,7 @@ import { Textbox } from "./Textbox";
 import type { ComboboxProps } from "./type";
 import { RequiredBadge } from "@components/atoms/RequiredBadge";
 import { useKeyboard, useOutsideClick } from "./hooks";
+import { Option } from "./Listbox/type";
 
 export const Combobox = ({
   options,
@@ -13,27 +14,33 @@ export const Combobox = ({
   disabled = false,
   placeholder = "選択してください",
   size = "normal",
+  description,
+  labelText,
+  onSelect,
 }: ComboboxProps) => {
   const inputLabelId = useId();
-  const [value, setValue] = useState("");
+  const [query, setQuery] = useState("");
+  const [selected, setSelected] = useState<Option>({ name: "", id: "" });
+
+  const handleSelect = (option: Option) => {
+    setQuery(option.name);
+    setSelected(option);
+    setIsFocus(true);
+    setIsListOpen(false);
+
+    onSelect(option);
+  };
 
   const filteredOptions =
-    value.length > 0
-      ? options.filter((option) => option.name.toLowerCase().startsWith(value.toLowerCase()))
+    query.length > 0
+      ? options.filter((option) => option.name.toLowerCase().startsWith(query.toLowerCase()))
       : options;
-  const {
-    visualFocusIndex,
-    setIsFocus,
-    setVisualFocusIndex,
-    isFocus,
-    selectedElementId,
-    setSelectedElementId,
-    setIsListOpen,
-    isListOpen,
-  } = useKeyboard({
-    options: filteredOptions,
-    setValue,
-  });
+
+  const { visualFocusIndex, setIsFocus, setVisualFocusIndex, isFocus, setIsListOpen, isListOpen } =
+    useKeyboard({
+      options: filteredOptions,
+      handleSelect,
+    });
   const ref = useOutsideClick(() => {
     setIsFocus(false);
     setIsListOpen(false);
@@ -44,16 +51,21 @@ export const Combobox = ({
       className="grid gap-2"
       ref={ref}
     >
-      <label htmlFor={inputLabelId}>Label Text </label>
-      <RequiredBadge
-        isRequired={isRequired}
-        optionalText={badgeText}
-        requiredText={badgeText}
-      />
-      <p>Some description</p>
+      <label
+        className="flex items-center text-sm font-medium leading-tight gap-x-2"
+        htmlFor={inputLabelId}
+      >
+        {labelText}
+        <RequiredBadge
+          isRequired={isRequired}
+          optionalText={badgeText}
+          requiredText={badgeText}
+        />
+      </label>
+      <p className="text-xs leading-normal text-gray-dark">{description}</p>
       <Textbox
-        value={value}
-        onChange={(event) => setValue(event.target.value)}
+        value={query}
+        onChange={(event) => setQuery(event.target.value)}
         size={size}
         listName={listName}
         onClick={() => {
@@ -72,13 +84,8 @@ export const Combobox = ({
       {isListOpen && (
         <Listbox
           visualFocusIndex={visualFocusIndex}
-          selectedElementId={selectedElementId}
-          onClick={({ id, name }) => {
-            setSelectedElementId(id);
-            setValue(name);
-            setIsFocus(true);
-            setIsListOpen(false);
-          }}
+          selectedElementId={selected.id}
+          onClick={(option) => handleSelect(option)}
           options={filteredOptions}
           listName={listName}
           onMouseOver={(index) => setVisualFocusIndex(index)}

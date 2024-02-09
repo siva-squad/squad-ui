@@ -3,12 +3,11 @@ import { Option } from "../Listbox/type";
 
 type UseKeyboardProps = {
   options: Option[];
-  setValue: (string: string) => void;
+  handleSelect: (option: Option) => void;
 };
 
-export const useKeyboard = ({ options, setValue }: UseKeyboardProps) => {
+export const useKeyboard = ({ options, handleSelect }: UseKeyboardProps) => {
   const [isListOpen, setIsListOpen] = useState(false);
-  const [selectedElementId, setSelectedElementId] = useState("");
   const [isFocus, setIsFocus] = useState(false);
   const [visualFocusIndex, setVisualFocusIndex] = useState<number | null>(null);
 
@@ -38,7 +37,7 @@ export const useKeyboard = ({ options, setValue }: UseKeyboardProps) => {
         case "Enter":
         case "Escape":
           event.preventDefault();
-          setValue("");
+          handleSelect({ name: "", id: "" });
           return;
       }
     };
@@ -67,10 +66,9 @@ export const useKeyboard = ({ options, setValue }: UseKeyboardProps) => {
           return;
         case "Enter":
           event.preventDefault();
-          if (!(visualFocusIndex === null)) {
-            const { name, id } = options[visualFocusIndex];
-            setValue(name);
-            setSelectedElementId(id);
+          if (visualFocusIndex !== null) {
+            const option = options[visualFocusIndex];
+            handleSelect(option);
           }
           setIsListOpen(false);
           return;
@@ -105,8 +103,6 @@ export const useKeyboard = ({ options, setValue }: UseKeyboardProps) => {
     setIsFocus,
     setVisualFocusIndex,
     isFocus,
-    selectedElementId,
-    setSelectedElementId,
     setIsListOpen,
     isListOpen,
   };
