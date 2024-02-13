@@ -30,9 +30,10 @@ jobs:
 
       - name: 変更を PR にプッシュする
         run: |
+          git push origin
           git add .
           git commit -m "v$(grep version package.json | awk -F \" '{print $4}')"
-          git push
+          git push origin
 
       # 前回リリースからの差分をもとに、リリースノートの本文を生成する
       - name: Generate release note
