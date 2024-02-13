@@ -12,4 +12,6 @@ export type ComboboxProps = {
   size?: "normal" | "small";
   description?: string;
   errorText?: string;
+  showLabel?: boolean;
+  showRequired?: boolean;
 };

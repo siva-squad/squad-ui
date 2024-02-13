@@ -5,6 +5,7 @@ import type { ComboboxProps } from "./type";
 import { RequiredBadge } from "@components/atoms/RequiredBadge";
 import { useKeyboard, useOutsideClick } from "./hooks";
 import { Option } from "./Listbox/type";
+import clsx from "clsx";
 
 export const Combobox = ({
   options,
@@ -18,6 +19,8 @@ export const Combobox = ({
   description,
   labelText,
   onSelect,
+  showLabel = true,
+  showRequired = true,
 }: ComboboxProps) => {
   const inputLabelId = useId();
   const [query, setQuery] = useState("");
@@ -52,18 +55,22 @@ export const Combobox = ({
       className="grid gap-2"
       ref={ref}
     >
-      <label
-        className="flex items-center text-sm font-medium leading-tight gap-x-2"
-        htmlFor={inputLabelId}
-      >
-        {labelText}
-        <RequiredBadge
-          isRequired={isRequired}
-          optionalText={badgeText}
-          requiredText={badgeText}
-        />
-      </label>
-      <p className="text-xs leading-normal text-gray-dark">{description}</p>
+      <div className={clsx(showLabel && showRequired ? "flex items-center gap-x-2" : "sr-only")}>
+        <label
+          className={clsx(showLabel ? "text-sm font-medium leading-tight" : "sr-only")}
+          htmlFor={inputLabelId}
+        >
+          {labelText}
+        </label>
+        {showRequired && (
+          <RequiredBadge
+            isRequired={isRequired}
+            optionalText={badgeText}
+            requiredText={badgeText}
+          />
+        )}
+      </div>
+      {!!description && <p className="text-xs leading-normal text-gray-dark">{description}</p>}
       <div className="relative">
         <Textbox
           value={query}
