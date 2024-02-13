@@ -17,6 +17,8 @@ export const Default: StoryObj<typeof Combobox> = {
     placeholder: "Option 456",
     size: "normal",
     isRequired: true,
+    showLabel: true,
+    labelText: "Options",
     options: [
       {
         id: "1",
@@ -47,7 +49,8 @@ export const LongList: StoryObj<typeof Combobox> = {
     listName: "States",
     disabled: false,
     size: "normal",
-    isRequired: true,
+    isRequired: false,
+    labelText: "State",
     options: [
       {
         id: "1",
