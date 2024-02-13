@@ -13,7 +13,7 @@ export const Listbox = ({
     <ul
       role="listbox"
       aria-label={listName}
-      className="inline-flex w-full flex-col items-start justify-start rounded bg-white shadow-03 max-h-56 scroll-auto overflow-y-scroll"
+      className="absolute mt-2 inline-flex w-full flex-col items-start justify-start rounded bg-white shadow-03 max-h-56 scroll-auto overflow-y-scroll"
       id={listName}
     >
       {options.map(({ name, id }, index) => (

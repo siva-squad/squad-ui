@@ -64,34 +64,39 @@ export const Combobox = ({
         />
       </label>
       <p className="text-xs leading-normal text-gray-dark">{description}</p>
-      <Textbox
-        value={query}
-        onChange={(event) => setQuery(event.target.value)}
-        size={size}
-        listName={listName}
-        onClick={() => {
-          setIsFocus(true);
-          setIsListOpen(!isListOpen);
-        }}
-        onFocus={() => setIsFocus(true)}
-        onBlur={() => setIsFocus(false)}
-        disabled={disabled}
-        inputLabelId={inputLabelId}
-        isListOpen={isListOpen}
-        placeholder={placeholder}
-        isFocus={isFocus}
-      />
-
-      {isListOpen && (
-        <Listbox
-          visualFocusIndex={visualFocusIndex}
-          selectedElementId={selected.id}
-          onClick={(option) => handleSelect(option)}
-          options={filteredOptions}
+      <div className="relative">
+        <Textbox
+          value={query}
+          onChange={(event) => {
+            setIsListOpen(true);
+            setQuery(event.target.value);
+          }}
+          size={size}
           listName={listName}
-          onMouseOver={(index) => setVisualFocusIndex(index)}
+          onClick={() => {
+            setIsFocus(true);
+            setIsListOpen(!isListOpen);
+          }}
+          onFocus={() => setIsFocus(true)}
+          onBlur={() => setIsFocus(false)}
+          disabled={disabled}
+          inputLabelId={inputLabelId}
+          isListOpen={isListOpen}
+          placeholder={placeholder}
+          isFocus={isFocus}
         />
-      )}
+
+        {isListOpen && (
+          <Listbox
+            visualFocusIndex={visualFocusIndex}
+            selectedElementId={selected.id}
+            onClick={(option) => handleSelect(option)}
+            options={filteredOptions}
+            listName={listName}
+            onMouseOver={(index) => setVisualFocusIndex(index)}
+          />
+        )}
+      </div>
       {filteredOptions.length === 0 && (
         <p className="text-xs leading-normal text-red">{errorText}</p>
       )}
