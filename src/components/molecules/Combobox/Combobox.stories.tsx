@@ -115,4 +115,28 @@ export const LongList: StoryObj<typeof Combobox> = {
       },
     ],
   },
+  decorators: [
+    (Story) => (
+      <div className="grid min-h-screen content-center">
+        <div>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum aliquam voluptatum
+            obcaecati labore dolorum illo sed, optio sequi ipsam molestiae id consequatur veniam
+            deserunt vitae, modi quidem ipsum repellendus nesciunt.
+          </p>
+          <Story />
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora, accusamus inventore.
+            Unde architecto illo esse autem magnam nobis praesentium laudantium earum ab? Quo
+            ratione mollitia quaerat eligendi qui asperiores hic!
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui recusandae illo dolore
+            fugiat saepe ullam accusamus ipsam eligendi ex aperiam sint quasi iure dicta, sequi,
+            nihil reiciendis obcaecati! Sunt, et.
+          </p>
+        </div>
+      </div>
+    ),
+  ],
 };
