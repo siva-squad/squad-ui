@@ -2,7 +2,7 @@ name: マージ時にpackage.json のバージョンを更新する
 on:
   push:
     branches:
-      - main
+      - feature/auto-semver/nuintee
 jobs:
   update_version:
     runs-on: ubuntu-latest
@@ -31,8 +31,8 @@ jobs:
       - name: 変更を PR にプッシュする
         run: |
           git add .
-          git commit -a "v$(grep version package.json | awk -F \" '{print $4}')"
-        # git push origin
+          git commit -m "v$(grep version package.json | awk -F \" '{print $4}')"
+          git push origin
 
       # 前回リリースからの差分をもとに、リリースノートの本文を生成する
       - name: Generate release note
