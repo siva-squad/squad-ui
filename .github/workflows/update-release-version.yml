@@ -18,10 +18,9 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/squad-ui
+          git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
         env:
-          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_TOKEN: "xxxxxxxx"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: "date変数設定"
         run: echo "CURRENT_DATETIME=$(date +'%Y-%m-%d-%H-%M-%S')" >> $GITHUB_ENV
@@ -33,7 +32,7 @@ jobs:
         run: |
           git add .
           git commit -m "v$(grep version package.json | awk -F \" '{print $4}')"
-          git push origin -f
+        # git push origin
 
       # 前回リリースからの差分をもとに、リリースノートの本文を生成する
       - name: Generate release note
