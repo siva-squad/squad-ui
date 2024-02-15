@@ -1,8 +1,8 @@
-name: マージ時にpackage.json のバージョンを更新する
+name: Update the version in package.json when push main branch
 on:
   push:
     branches:
-      - feature/auto-semver/nuintee
+      - main
 jobs:
   update_version:
     runs-on: ubuntu-latest
