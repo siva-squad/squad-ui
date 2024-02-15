@@ -14,8 +14,8 @@ export const AvatarMultiple = ({
   return (
     <div className="flex w-fit items-center justify-between gap-x-1">
       <button
-        className={clsx("relative flex cursor-pointer items-center rounded-sm p-1", {
-          "hover:bg-gray-extraLight": showBackgroundHover,
+        className={clsx("relative flex cursor-pointer items-center rounded-full bg-[transparent]", {
+          "hover:shadow-md": showBackgroundHover,
         })}
         onClick={onClick}
         type="button"
