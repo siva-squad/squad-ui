@@ -1,0 +1,52 @@
+name: Update the version in package.json when push main branch
+on:
+  push:
+    branches:
+      - main
+jobs:
+  update_version:
+    runs-on: ubuntu-latest
+
+    outputs:
+      chagned: ${{ steps.get_diff.outputs.changed }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Gitの設定
+        if: steps.diff.outputs.changed == '0'
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "date変数設定"
+        run: echo "CURRENT_DATETIME=$(date +'%Y-%m-%d-%H-%M-%S')" >> $GITHUB_ENV
+
+      - name: バージョンの更新(patch)
+        run: npm version "0.10.${{ env.CURRENT_DATETIME }}"
+
+      - name: 変更を PR にプッシュする
+        run: |
+          git push origin
+
+      - name: Get previous tag
+        id: pre_tag
+        run: |
+          echo "::set-output name=pre_tag::$(curl -H 'Accept: application/vnd.github.v3+json' -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/${{ github.repository }}/releases/latest | jq -r .tag_name)"
+
+      # 前回リリースからの差分をもとに、リリースノートの本文を生成する
+      - name: Generate release note
+        id: release_note
+        run: |
+          echo "::set-output name=release_note::$(curl -X POST -H 'Accept: application/vnd.github.v3+json' -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/${{ github.repository }}/releases/generate-notes -d '{"tag_name":"v0.10.${{ env.CURRENT_DATETIME }}", "previous_tag_name":"${{ steps.pre_tag.outputs.pre_tag }}"}' | jq .body | sed 's/"//g')"
+
+      # タグを切り、リリースノートを作成する
+      - name: Create Release
+        run: |
+          curl -X POST \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -d "{ \"tag_name\": \"v0.10.${{ env.CURRENT_DATETIME }}\", \"name\": \"v0.10.${{ env.CURRENT_DATETIME }}\", \"body\": \"${{ steps.release_note.outputs.release_note }}\"}" \
+            https://api.github.com/repos/${{ github.repository }}/releases

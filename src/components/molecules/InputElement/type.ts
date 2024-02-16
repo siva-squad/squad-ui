@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { RequiredBadgeProps } from "./RequiredBadge/type";
+import { RequiredBadgeProps } from "../../atoms/RequiredBadge/type";
 
 type FormType = {
   htmlFor: string;

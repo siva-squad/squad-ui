@@ -10,4 +10,8 @@ export * from "./Popover";
 export * from "./RichMenuDescription";
 export * from "./RichMenuList";
 export * from "./Tab";
+<<<<<<< HEAD
 export * from "./AvatarMultiple";
+=======
+export * from "./Combobox";
+>>>>>>> origin
