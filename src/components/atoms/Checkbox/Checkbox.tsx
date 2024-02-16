@@ -21,7 +21,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           height={12}
           className={"absolute left-0.5 hidden text-primary-600 peer-checked:inline-block"}
         />
-        {children && <span className="font-noto-sans-cjk-jp text-s">{children}</span>}
+        {children && <span className="text-s">{children}</span>}
       </label>
     );
   },
