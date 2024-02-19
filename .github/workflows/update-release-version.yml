@@ -1,5 +1,6 @@
 name: Update the version in package.json when push main branch
 on:
+  merge_group:
   push:
     branches:
       - main
