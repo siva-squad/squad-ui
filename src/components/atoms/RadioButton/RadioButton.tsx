@@ -21,7 +21,7 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
           disabled={disabled}
         />
         <div className="absolute left-1 hidden h-2 w-2 rounded-full bg-primary-600 peer-checked:block peer-disabled:bg-disabled-black"></div>
-        <span className="font-noto-sans-cjk-jp text-s">{children}</span>
+        <span className="text-s">{children}</span>
       </label>
     );
   },

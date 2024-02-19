@@ -7,8 +7,12 @@ export const LABEL_CLASS_NAME = tv({
       true: "font-medium",
       false: "font-regular",
     },
+    disabled: {
+      true: "text-gray",
+    },
   },
   defaultVariants: {
     isActive: false,
+    disabled: false,
   },
 });

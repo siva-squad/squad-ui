@@ -1,10 +1,21 @@
+@import "./assets/fonts/fonts.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .hidden-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hidden-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 body {
   margin: 0;
-  font-family: "Hiragino Sans", sans-serif;
+  font-family: "Noto Sans CJK JP", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

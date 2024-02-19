@@ -19,12 +19,14 @@ export const Default: StoryObj<typeof Selector> = {
         value: "option1",
       },
       {
-        label: "オプション2",
+        label: "オプション2(disabled)",
         value: "option2",
+        disabled: true,
       },
       {
         label: "オプション3",
         value: "option3",
+        disabled: false,
       },
     ],
   },
@@ -54,7 +56,7 @@ export const Groups = () => {
             value: "option2",
           },
         ]}
-        value={'option1'}
+        value={"option1"}
         placeholder="選択肢が入ります"
         size="normal"
         disabled={false}

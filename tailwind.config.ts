@@ -60,7 +60,7 @@ export default {
       },
     },
     fontFamily: {
-      "noto-sans-cjk-jp": "Noto Sans CJK JP",
+      "noto-sans-cjk-jp": ['"Noto Sans CJK JP"', "sans-serif"],
     },
     extend: {
       fontSize: {

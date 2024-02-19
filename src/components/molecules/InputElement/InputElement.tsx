@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { RequiredBadge } from "./RequiredBadge";
+import { RequiredBadge } from "../../atoms/RequiredBadge";
 import type { InputElementProps } from "./type";
 
 export const InputElement = ({
