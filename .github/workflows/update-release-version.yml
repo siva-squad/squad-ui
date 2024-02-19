@@ -1,7 +1,7 @@
 name: Update the version in package.json when push main branch
 on:
   merge_group:
-  push:
+  pull_request:
     branches:
       - main
 jobs:
@@ -33,21 +33,21 @@ jobs:
         run: |
           git push origin
 
-      - name: Get previous tag
-        id: pre_tag
-        run: |
-          echo "::set-output name=pre_tag::$(curl -H 'Accept: application/vnd.github.v3+json' -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/${{ github.repository }}/releases/latest | jq -r .tag_name)"
+      # - name: Get previous tag
+      #   id: pre_tag
+      #   run: |
+      #     echo "::set-output name=pre_tag::$(curl -H 'Accept: application/vnd.github.v3+json' -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/${{ github.repository }}/releases/latest | jq -r .tag_name)"
 
-      # 前回リリースからの差分をもとに、リリースノートの本文を生成する
-      - name: Generate release note
-        id: release_note
-        run: |
-          echo "::set-output name=release_note::$(curl -X POST -H 'Accept: application/vnd.github.v3+json' -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/${{ github.repository }}/releases/generate-notes -d '{"tag_name":"v0.10.${{ env.CURRENT_DATETIME }}", "previous_tag_name":"${{ steps.pre_tag.outputs.pre_tag }}"}' | jq .body | sed 's/"//g')"
+      # # 前回リリースからの差分をもとに、リリースノートの本文を生成する
+      # - name: Generate release note
+      #   id: release_note
+      #   run: |
+      #     echo "::set-output name=release_note::$(curl -X POST -H 'Accept: application/vnd.github.v3+json' -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/${{ github.repository }}/releases/generate-notes -d '{"tag_name":"v0.10.${{ env.CURRENT_DATETIME }}", "previous_tag_name":"${{ steps.pre_tag.outputs.pre_tag }}"}' | jq .body | sed 's/"//g')"
 
-      # タグを切り、リリースノートを作成する
-      - name: Create Release
-        run: |
-          curl -X POST \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            -d "{ \"tag_name\": \"v0.10.${{ env.CURRENT_DATETIME }}\", \"name\": \"v0.10.${{ env.CURRENT_DATETIME }}\", \"body\": \"${{ steps.release_note.outputs.release_note }}\"}" \
-            https://api.github.com/repos/${{ github.repository }}/releases
+      # # タグを切り、リリースノートを作成する
+      # - name: Create Release
+      #   run: |
+      #     curl -X POST \
+      #       -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+      #       -d "{ \"tag_name\": \"v0.10.${{ env.CURRENT_DATETIME }}\", \"name\": \"v0.10.${{ env.CURRENT_DATETIME }}\", \"body\": \"${{ steps.release_note.outputs.release_note }}\"}" \
+      #       https://api.github.com/repos/${{ github.repository }}/releases
