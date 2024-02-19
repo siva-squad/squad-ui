@@ -5,19 +5,24 @@ import type { AvatarProps } from "./type";
 
 export const Avatar = ({ src, onClick, size = 32 }: AvatarProps) => {
   const [isError, setIsError] = useState(false);
+  const isButton = typeof onClick === "function";
+
+  const Tag = isButton ? "button" : "span";
 
   return (
-    <button
-      onClick={onClick}
+    <Tag
       style={{
         height: size,
         width: size,
       }}
-      type="button"
       className={clsx(
-        "relative rounded-full bg-gray",
-        onClick ? "cursor-pointer" : "cursor-default",
+        "relative flex items-center justify-center rounded-full bg-gray",
+        isButton ? "cursor-pointer" : "cursor-default",
       )}
+      {...(isButton && {
+        type: "button",
+        onClick,
+      })}
     >
       {!src || isError ? (
         <FullUserCircleIcon size={size} />
@@ -37,6 +42,6 @@ export const Avatar = ({ src, onClick, size = 32 }: AvatarProps) => {
           key={src}
         />
       )}
-    </button>
+    </Tag>
   );
 };
