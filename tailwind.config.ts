@@ -64,13 +64,13 @@ export default {
     },
     extend: {
       fontSize: {
-        "2xl": "32px",
-        xl: "24px",
-        lg: "20px",
-        base: "16px",
-        s: "14px",
-        xs: "12px",
-        xxs: "10px",
+        "2xl": "2rem", // 32px
+        xl: "1.5rem", // 24px
+        lg: "1.25rem", // 20px
+        base: "1rem", // 16px
+        s: "0.875rem", // 14px
+        xs: "0.75rem", // 12px
+        xxs: "0.625rem", // 10px
       },
       fontWeight: {
         regular: "400",

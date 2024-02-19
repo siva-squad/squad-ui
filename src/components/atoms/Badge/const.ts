@@ -14,7 +14,7 @@ export const COLORS = [
 export const THEMES = ["fill", "border", "light-fill"] as const;
 
 export const BADGE_CLASS_NAME = tv({
-  base: "rounded-full px-2 py-1 text-[10px]",
+  base: "rounded-full px-2 py-1 !text-xxs",
   variants: {
     color: {
       primary: "",
