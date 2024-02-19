@@ -14,7 +14,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           onChange={onChange}
           className={clsx(
             "peer h-4 w-4 cursor-pointer appearance-none rounded-e rounded-s border border-gray-light bg-white",
-            "checked:border-primary-600 checked:bg-primary-50 disabled:cursor-not-allowed disabled:border-gray disabled:bg-gray-light",
+            "checked:border-primary-600 checked:bg-primary-50 disabled:cursor-not-allowed disabled:bg-gray-light disabled:checked:border-disabled-black",
           )}
           value={value}
           ref={ref}
@@ -23,7 +23,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           width={12}
           height={12}
           className={
-            "absolute left-0.5 hidden text-primary-600 peer-checked:inline-block peer-disabled:text-gray"
+            "absolute left-0.5 hidden text-primary-600 peer-checked:inline-block peer-disabled:text-disabled-black"
           }
         />
         {children && <span className="font-noto-sans-cjk-jp text-s">{children}</span>}

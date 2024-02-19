@@ -13,14 +13,14 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
           checked={checked}
           className={clsx(
             "peer h-4 w-4 cursor-pointer appearance-none rounded-full border border-gray-light",
-            "checked:border-primary-600 checked:bg-primary-50 disabled:cursor-not-allowed disabled:border-gray disabled:bg-gray-light",
+            "checked:border-primary-600 checked:bg-primary-50 disabled:cursor-not-allowed disabled:bg-gray-light disabled:checked:border-disabled-black",
           )}
           value={value}
           aria-checked={checked}
           ref={ref}
           disabled={disabled}
         />
-        <div className="absolute left-1 hidden h-2 w-2 rounded-full bg-primary-600 peer-checked:block peer-disabled:bg-gray"></div>
+        <div className="absolute left-1 hidden h-2 w-2 rounded-full bg-primary-600 peer-checked:block peer-disabled:bg-disabled-black"></div>
         <span className="font-noto-sans-cjk-jp text-s">{children}</span>
       </label>
     );

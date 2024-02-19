@@ -5,21 +5,23 @@ import { RadioButton } from "./RadioButton";
 
 export default {
   component: RadioButton,
-  parameters: {
-    controls: { expanded: true },
-  },
-} satisfies Meta<typeof RadioButton>;
-
-export const Default: StoryObj<typeof RadioButton> = {
   argTypes: {
     name: {
       type: "string",
+    },
+    checked: {
+      type: "boolean",
     },
     children: {
       type: "string",
     },
   },
-};
+  parameters: {
+    controls: { expanded: true },
+  },
+} satisfies Meta<typeof RadioButton>;
+
+export const Default: StoryObj<typeof RadioButton> = {};
 
 const RADIO_GROUP_ITEM = {
   name: "fruits",
