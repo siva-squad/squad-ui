@@ -1,8 +1,5 @@
-import { ReactNode, ComponentProps } from "react";
+import { ComponentProps } from "react";
 
 export type CheckboxProps = {
-  checked: boolean;
-  children?: ReactNode;
-  value: string;
-  onChange: ComponentProps<"input">["onChange"];
-};
+  value?: string;
+} & Pick<ComponentProps<"input">, "onChange" | "disabled" | "checked" | "children">;
