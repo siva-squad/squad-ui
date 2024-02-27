@@ -44,6 +44,12 @@ export const WithLabel: StoryObj<typeof Checkbox> = {
   },
 };
 
+export const Disabled: StoryObj<typeof Checkbox> = {
+  args: {
+    disabled: true,
+  },
+};
+
 export const Controlled = ({
   children,
   value,

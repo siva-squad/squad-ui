@@ -1,9 +1,5 @@
-import { ComponentProps, ReactNode } from "react";
+import { ComponentProps } from "react";
 
 export type RadioButtonProps = {
-  name: string;
-  checked: boolean;
-  children?: ReactNode;
-  value: string;
-  onChange: ComponentProps<"input">["onChange"];
-};
+  value?: string;
+} & Pick<ComponentProps<"input">, "name" | "checked" | "children" | "onChange" | "disabled">;
