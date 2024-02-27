@@ -69,6 +69,7 @@ export const Controlled = () => {
     <>
       <Button
         theme="primary"
+        variant="fill"
         size="medium"
         onClick={() => setIsOpen(true)}
       >
@@ -97,6 +98,7 @@ export const ControlledWithScroll = () => {
     <>
       <Button
         theme="primary"
+        variant="fill"
         size="medium"
         onClick={() => setIsOpen(true)}
       >
@@ -157,6 +159,7 @@ export const ControlledWithSelectorAndInput = () => {
     <>
       <Button
         theme="primary"
+        variant="fill"
         size="medium"
         onClick={() => setIsOpen(true)}
       >
@@ -192,6 +195,7 @@ export const ControlledWithButton = () => {
     <>
       <Button
         theme="primary"
+        variant="fill"
         size="medium"
         onClick={() => setIsOpen(true)}
       >
@@ -241,15 +245,16 @@ export const ControlledWithButton = () => {
         </div>
         <div className="flex items-center justify-end gap-2 border-t border-t-gray-light px-10 py-4">
           <Button
-            theme={"white"}
-            background="white"
+            theme="primary"
+            variant="outline"
             size="medium"
             onClick={() => setIsOpen(false)}
           >
             キャンセル
           </Button>
           <Button
-            theme={"primary"}
+            theme="primary"
+            variant="fill"
             size="medium"
             onClick={() => console.log("save")}
           >

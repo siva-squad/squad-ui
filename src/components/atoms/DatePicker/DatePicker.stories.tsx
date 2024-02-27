@@ -31,14 +31,16 @@ const Dummy = ({ ...args }: Partial<DatePickerProps>) => {
     <div>
       <div className="flex gap-4">
         <Button
-          theme={isOpen ? "primary" : "white"}
+          theme="primary"
+          variant={isOpen ? "fill" : "outline"}
           size="medium"
           onClick={() => setOpen(true)}
         >
           公開日を設定
         </Button>
         <Button
-          theme="white"
+          theme="primary"
+          variant="outline"
           size="medium"
           onClick={() => setOpen(false)}
         >

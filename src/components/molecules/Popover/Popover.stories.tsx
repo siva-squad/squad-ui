@@ -44,6 +44,7 @@ const WithStateComponent = (props: PopoverProps) => {
     >
       <Button
         theme="primary"
+        variant="fill"
         size="small"
         onClick={() => props.mode === "click" && setIsOpen((prev) => !prev)}
       >
@@ -70,7 +71,8 @@ const SamplePopover = ({ position }: { position: PopoverProps["position"] }) => 
     position={position}
   >
     <Button
-      theme={"primary"}
+      theme="primary"
+      variant="fill"
       size={"small"}
     >
       {position}

@@ -41,7 +41,8 @@ const Dummy = ({ ...args }: Partial<DateRangePickerProps>) => {
     <div>
       <div className="flex gap-4">
         <Button
-          theme={changeType === "from" ? "primary" : "white"}
+          theme="primary"
+          variant={changeType === "from" ? "fill" : "outline"}
           size="medium"
           onClick={() => setChangeType("from")}
         >
@@ -50,7 +51,8 @@ const Dummy = ({ ...args }: Partial<DateRangePickerProps>) => {
             : "チェックイン"}
         </Button>
         <Button
-          theme={changeType === "to" ? "primary" : "white"}
+          theme="primary"
+          variant={changeType === "to" ? "fill" : "outline"}
           size="medium"
           onClick={() => setChangeType("to")}
         >
@@ -59,7 +61,8 @@ const Dummy = ({ ...args }: Partial<DateRangePickerProps>) => {
             : "チェックアウト"}
         </Button>
         <Button
-          theme="white"
+          theme="primary"
+          variant="outline"
           size="medium"
           onClick={() => setChangeType(null)}
         >

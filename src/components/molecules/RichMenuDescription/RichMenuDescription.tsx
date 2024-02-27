@@ -24,7 +24,8 @@ export const RichMenuDescription = ({
       <div className="mt-4 w-fit self-center">
         <Anchor
           href={faqLink}
-          theme="no-background"
+          theme="primary"
+          variant="text"
           size="small"
           iconPosition="right"
           icon={<ArrowTopRightOnSquareIcon />}

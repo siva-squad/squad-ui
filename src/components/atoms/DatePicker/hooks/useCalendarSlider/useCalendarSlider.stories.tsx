@@ -14,21 +14,24 @@ const Dummy = ({ ...props }: UseCalendarSliderProps) => {
     <div>
       <div className="mb-4 flex gap-2">
         <Button
-          theme="white"
+          theme="primary"
+          variant="outline"
           size="medium"
           onClick={() => slidePrev()}
         >
           前のページ
         </Button>
         <Button
-          theme="white"
+          theme="primary"
+          variant="outline"
           size="medium"
           onClick={() => slideNext()}
         >
           次のページ
         </Button>
         <Button
-          theme="white"
+          theme="primary"
+          variant="outline"
           size="medium"
           onClick={() => skipTo(new Date())}
         >

@@ -32,7 +32,8 @@ export const RichMenuList = ({ groups, onViewAllFolders }: RichMenuListProps) =>
       </div>
       <div className="w-fit self-center">
         <Button
-          theme="no-background"
+          theme="primary"
+          variant="text"
           size="small"
           iconPosition="right"
           icon={<ChevronRightIcon />}
