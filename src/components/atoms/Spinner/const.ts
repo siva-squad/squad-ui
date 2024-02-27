@@ -1,11 +1,12 @@
 import { tv } from "tailwind-variants";
 
 export const SPINNER_CLASS_NAME = tv({
-  base: "animate-spin  text-opacity-20",
+  base: "animate-spin text-opacity-20",
   variants: {
-    background: {
-      filled: "",
-      white: "",
+    variant: {
+      fill: "",
+      outline: "",
+      text: "",
     },
     size: {
       small: "h-3 w-3",
@@ -13,33 +14,56 @@ export const SPINNER_CLASS_NAME = tv({
       large: "h-6 w-6",
     },
     theme: {
-      white: "fill-primary-600 text-gray",
-      primary: "fill-white text-primary-800",
+      primary: "",
+      red: "",
       gray: "",
-      red: "fill-white text-red-dark",
-      "no-background": "fill-primary-600 text-gray",
     },
   },
   compoundVariants: [
     {
-      background: "filled",
-      theme: "gray",
-      class: "fill-white text-black",
+      theme: "primary",
+      variant: "fill",
+      class: "fill-white text-primary-800",
     },
     {
-      background: "white",
-      theme: "gray",
-      class: "fill-black text-gray",
-    },
-    {
-      background: "filled",
       theme: "red",
+      variant: "fill",
       class: "fill-white text-red-dark",
     },
     {
-      background: "white",
+      theme: "gray",
+      variant: "fill",
+      class: "fill-white text-black",
+    },
+    {
+      theme: "primary",
+      variant: "outline",
+      class: "fill-primary-600 text-gray",
+    },
+    {
       theme: "red",
+      variant: "outline",
       class: "fill-red text-gray",
+    },
+    {
+      theme: "gray",
+      variant: "outline",
+      class: "fill-black text-gray",
+    },
+    {
+      theme: "primary",
+      variant: "text",
+      class: "fill-primary-600 text-gray",
+    },
+    {
+      theme: "red",
+      variant: "text",
+      class: "fill-red text-gray",
+    },
+    {
+      theme: "gray",
+      variant: "text",
+      class: "fill-black text-gray",
     },
   ],
 });
