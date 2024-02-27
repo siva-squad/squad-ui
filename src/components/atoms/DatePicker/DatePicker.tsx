@@ -132,7 +132,8 @@ export const DatePicker = ({
           {formattedShortcuts.map((shortcut) => (
             <Button
               key={`date-range-picker-shortcut-${shortcut.label}`}
-              theme="white"
+              theme="primary"
+              variant="outline"
               size="small"
               disabled={shortcut.disabled}
               onClick={() => handleSelectShortcut(shortcut.value)}

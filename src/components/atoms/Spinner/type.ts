@@ -1,6 +1,6 @@
 export type SpinnerProps = {
   size: "small" | "medium" | "large";
-  theme: "primary" | "white" | "gray" | "red" | "no-background";
-  background?: "filled" | "white";
+  theme: "primary" | "red" | "gray";
+  variant: "fill" | "outline" | "text";
   loading: boolean;
 };

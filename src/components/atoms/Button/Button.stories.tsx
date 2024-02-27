@@ -7,9 +7,9 @@ import { ButtonProps } from "./type";
 const ButtonSet = ({
   children,
   ...props
-}: Pick<ButtonProps, "theme" | "disabled" | "loading" | "size" | "children" | "background">) => {
+}: Pick<ButtonProps, "theme" | "disabled" | "loading" | "size" | "children" | "variant">) => {
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 items-center">
       <Button {...props}>{children}</Button>
       <Button
         {...props}
@@ -37,10 +37,10 @@ const ButtonSet = ({
 const ButtonSetSection = ({
   title,
   ...props
-}: Pick<ButtonProps, "theme" | "size" | "children" | "background"> & { title: string }) => (
+}: Pick<ButtonProps, "theme" | "size" | "children" | "variant"> & { title: string }) => (
   <section>
     <h2 className="mb-2">{title}</h2>
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 items-start">
       <ButtonSet {...props} />
       <ButtonSet
         {...props}
@@ -59,11 +59,9 @@ const ButtonSetSection = ({
   </section>
 );
 
-const ThemeTemplate = (
-  props: Pick<ButtonProps, "children" | "theme" | "onClick" | "background">,
-) => {
+const ThemeTemplate = (props: Pick<ButtonProps, "children" | "theme" | "onClick" | "variant">) => {
   return (
-    <article className="flex flex-col gap-4">
+    <article className="flex flex-col gap-4 items-start">
       <ButtonSetSection
         title="Small"
         size="small"
@@ -88,14 +86,14 @@ export default {
   argTypes: {
     theme: {
       type: "string",
-      options: ["red", "white", "outline", "gray"],
+      options: ["red", "gray", "primary"],
       control: {
         type: "select",
       },
     },
-    background: {
+    variant: {
       type: "string",
-      options: ["filled", "white"],
+      options: ["fill", "outline", "text"],
       control: {
         type: "select",
       },
@@ -118,25 +116,88 @@ export const Default: StoryObj<typeof Button> = {
     children: "ボタン",
     theme: "primary",
     size: "small",
+    disabled: false,
+    variant: "fill",
   },
 };
 
-export const Primary = () => <ThemeTemplate theme="primary">ボタン</ThemeTemplate>;
-export const Red = (props: ComponentProps<typeof ThemeTemplate>) => (
+export const PrimaryFill = () => (
+  <ThemeTemplate
+    variant="fill"
+    theme="primary"
+  >
+    ボタン
+  </ThemeTemplate>
+);
+export const RedFill = (props: ComponentProps<typeof ThemeTemplate>) => (
   <ThemeTemplate
     {...props}
     theme="red"
+    variant="fill"
   >
     ボタン
   </ThemeTemplate>
 );
-export const White = () => <ThemeTemplate theme="white">ボタン</ThemeTemplate>;
-export const Gray = (props: ComponentProps<typeof ThemeTemplate>) => (
+export const GrayFill = (props: ComponentProps<typeof ThemeTemplate>) => (
   <ThemeTemplate
     {...props}
     theme="gray"
+    variant="fill"
   >
     ボタン
   </ThemeTemplate>
 );
-export const NoBackground = () => <ThemeTemplate theme="no-background">ボタン</ThemeTemplate>;
+
+export const PrimaryOutline = () => (
+  <ThemeTemplate
+    variant="outline"
+    theme="primary"
+  >
+    ボタン
+  </ThemeTemplate>
+);
+export const RedOutline = (props: ComponentProps<typeof ThemeTemplate>) => (
+  <ThemeTemplate
+    {...props}
+    theme="red"
+    variant="outline"
+  >
+    ボタン
+  </ThemeTemplate>
+);
+export const GrayOutline = (props: ComponentProps<typeof ThemeTemplate>) => (
+  <ThemeTemplate
+    {...props}
+    theme="gray"
+    variant="outline"
+  >
+    ボタン
+  </ThemeTemplate>
+);
+
+export const PrimaryText = () => (
+  <ThemeTemplate
+    variant="text"
+    theme="primary"
+  >
+    ボタン
+  </ThemeTemplate>
+);
+export const RedText = (props: ComponentProps<typeof ThemeTemplate>) => (
+  <ThemeTemplate
+    {...props}
+    theme="red"
+    variant="text"
+  >
+    ボタン
+  </ThemeTemplate>
+);
+export const GrayText = (props: ComponentProps<typeof ThemeTemplate>) => (
+  <ThemeTemplate
+    {...props}
+    theme="gray"
+    variant="text"
+  >
+    ボタン
+  </ThemeTemplate>
+);

@@ -43,7 +43,8 @@ export const Default: StoryObj<typeof RichMenuList> = {
         items: [...Array(10)].map(() => commonItems),
         bottomButton: (
           <Button
-            theme="no-background"
+            theme="primary"
+            variant="text"
             size="small"
             iconPosition="right"
             icon={<ChevronRightIcon />}

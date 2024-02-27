@@ -1,15 +1,15 @@
 import { ComponentProps, ReactNode } from "react";
 
-type Theme = "white" | "primary" | "red" | "gray" | "no-background";
+type Theme = "primary" | "red" | "gray";
 type Size = "small" | "medium" | "large";
-type Background = "filled" | "white";
+type Variant = "fill" | "outline" | "text";
 
 export type ButtonProps = Pick<
   ComponentProps<"button">,
   "onClick" | "disabled" | "children" | "type"
 > & {
   icon?: ReactNode;
-  background?: Background;
+  variant: Variant;
   theme: Theme;
   size: Size;
   loading?: boolean;

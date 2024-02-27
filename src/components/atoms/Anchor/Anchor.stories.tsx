@@ -9,10 +9,10 @@ const AnchorSet = ({
   ...props
 }: Pick<
   AnchorProps,
-  "theme" | "isDisabled" | "loading" | "size" | "children" | "background" | "href"
+  "theme" | "isDisabled" | "loading" | "size" | "children" | "variant" | "href"
 >) => {
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 items-center">
       <Anchor {...props}>{children}</Anchor>
       <Anchor
         {...props}
@@ -40,12 +40,12 @@ const AnchorSet = ({
 const AnchorSetSection = ({
   title,
   ...props
-}: Pick<AnchorProps, "theme" | "size" | "children" | "background" | "isDisabled" | "href"> & {
+}: Pick<AnchorProps, "theme" | "size" | "children" | "variant" | "isDisabled" | "href"> & {
   title: string;
 }) => (
   <section>
     <h2 className="mb-2">{title}</h2>
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 items-start">
       <AnchorSet {...props} />
       <AnchorSet
         {...props}
@@ -65,10 +65,10 @@ const AnchorSetSection = ({
 );
 
 const ThemeTemplate = (
-  props: Pick<AnchorProps, "children" | "theme" | "onClick" | "background" | "isDisabled" | "href">,
+  props: Pick<AnchorProps, "children" | "theme" | "onClick" | "variant" | "isDisabled" | "href">,
 ) => {
   return (
-    <article className="flex flex-col gap-4">
+    <article className="flex flex-col gap-2 items-start">
       <AnchorSetSection
         title="Small"
         size="small"
@@ -93,14 +93,14 @@ export default {
   argTypes: {
     theme: {
       type: "string",
-      options: ["red", "white", "outline", "gray", "underline"],
+      options: ["red", "gray", "primary"],
       control: {
         type: "select",
       },
     },
-    background: {
+    variant: {
       type: "string",
-      options: ["filled", "white"],
+      options: ["fill", "outline", "text", "underline"],
       control: {
         type: "select",
       },
@@ -116,54 +116,117 @@ export const Default: StoryObj<typeof Anchor> = {
     children: "ボタン",
     theme: "primary",
     size: "small",
+    variant: "fill",
   },
 };
 
-export const Primary = () => (
+export const PrimaryFill = () => (
   <ThemeTemplate
+    variant="fill"
     theme="primary"
-    href="#"
+    href=""
   >
     ボタン
   </ThemeTemplate>
 );
-export const Red = (props: ComponentProps<typeof ThemeTemplate>) => (
+export const RedFill = (props: ComponentProps<typeof ThemeTemplate>) => (
   <ThemeTemplate
     {...props}
     theme="red"
-    href="#"
+    variant="fill"
   >
     ボタン
   </ThemeTemplate>
 );
-export const White = () => (
-  <ThemeTemplate
-    theme="white"
-    href="#"
-  >
-    ボタン
-  </ThemeTemplate>
-);
-export const Gray = (props: ComponentProps<typeof ThemeTemplate>) => (
+export const GrayFill = (props: ComponentProps<typeof ThemeTemplate>) => (
   <ThemeTemplate
     {...props}
     theme="gray"
+    variant="fill"
   >
     ボタン
   </ThemeTemplate>
 );
-export const NoBackground = () => (
+
+export const PrimaryOutline = () => (
   <ThemeTemplate
-    theme="no-background"
-    href="#"
+    variant="outline"
+    theme="primary"
+    href=""
   >
     ボタン
   </ThemeTemplate>
 );
-export const Underline = () => (
+export const RedOutline = (props: ComponentProps<typeof ThemeTemplate>) => (
   <ThemeTemplate
-    theme="underline"
-    href="#"
+    {...props}
+    theme="red"
+    variant="outline"
+  >
+    ボタン
+  </ThemeTemplate>
+);
+export const GrayOutline = (props: ComponentProps<typeof ThemeTemplate>) => (
+  <ThemeTemplate
+    {...props}
+    theme="gray"
+    variant="outline"
+  >
+    ボタン
+  </ThemeTemplate>
+);
+
+export const PrimaryText = () => (
+  <ThemeTemplate
+    variant="text"
+    theme="primary"
+    href=""
+  >
+    ボタン
+  </ThemeTemplate>
+);
+export const RedText = (props: ComponentProps<typeof ThemeTemplate>) => (
+  <ThemeTemplate
+    {...props}
+    theme="red"
+    variant="text"
+  >
+    ボタン
+  </ThemeTemplate>
+);
+export const GrayText = (props: ComponentProps<typeof ThemeTemplate>) => (
+  <ThemeTemplate
+    {...props}
+    theme="gray"
+    variant="text"
+  >
+    ボタン
+  </ThemeTemplate>
+);
+
+export const PrimaryUnderline = () => (
+  <ThemeTemplate
+    variant="underline"
+    theme="primary"
+    href=""
+  >
+    ボタン
+  </ThemeTemplate>
+);
+export const RedUnderline = (props: ComponentProps<typeof ThemeTemplate>) => (
+  <ThemeTemplate
+    {...props}
+    theme="red"
+    variant="underline"
+  >
+    ボタン
+  </ThemeTemplate>
+);
+export const GrayUnderline = (props: ComponentProps<typeof ThemeTemplate>) => (
+  <ThemeTemplate
+    {...props}
+    theme="gray"
+    variant="underline"
   >
     ボタン
   </ThemeTemplate>

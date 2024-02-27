@@ -52,7 +52,8 @@ export const WithButton: StoryObj<typeof Tooltip> = {
     alignment: "center",
     children: (
       <Button
-        theme="white"
+        theme="primary"
+        variant="outline"
         size="medium"
       >
         Test
