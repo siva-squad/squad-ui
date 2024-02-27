@@ -1,14 +1,10 @@
 import { ComponentVariants } from "./type";
-import { buttonBaseVariants, buttonChildrenVariants, buttonIconVariants } from "./variants";
+import { buttonBaseVariants, buttonIconVariants } from "./variants";
 
 export const buttonBaseCompoundVariants: ComponentVariants<typeof buttonBaseVariants>[] = [
   {
-    theme: "white",
-    isLoading: true,
-    class: "text-black",
-  },
-  {
     showIcon: true,
+    isLoading: false,
     size: "medium",
     class: "p-2",
   },
@@ -28,42 +24,129 @@ export const buttonBaseCompoundVariants: ComponentVariants<typeof buttonBaseVari
     class: "p-2",
   },
   {
-    theme: "no-background",
+    showIcon: true,
+    isLoading: false,
+    variant: "text",
+    size: "medium",
     class: "px-1 py-0.5",
   },
   {
-    theme: "gray",
-    background: "filled",
-    isLoading: true,
-    class: "bg-gray-extraDark",
+    hasChildren: false,
+    variant: "text",
+    class: "px-1 py-0.5",
   },
   {
-    theme: "gray",
-    background: "filled",
+    theme: "red",
+    variant: "fill",
+    class: "shadow-01 bg-red text-white",
+  },
+  {
+    theme: "red",
+    variant: "fill",
+    isDisabled: false,
     isLoading: false,
-    class: "bg-black hover:bg-gray-extraDark",
+    class: "hover:bg-red-dark active:bg-red-dark",
+  },
+  {
+    theme: "primary",
+    variant: "fill",
+    class: "bg-primary-600 shadow-01 text-white",
+  },
+  {
+    theme: "primary",
+    variant: "fill",
+    isDisabled: false,
+    isLoading: false,
+    class: "hover:bg-primary-700 active:bg-primary-900",
   },
   {
     theme: "gray",
-    background: "white",
-    class: "border-px border-gray-light bg-white hover:bg-gray-extraLight active:bg-gray-light",
+    variant: "fill",
+    class: "shadow-01 bg-gray-extraDark text-white",
   },
   {
-    theme: "red",
-    background: "filled",
-    isLoading: true,
-    class: "bg-red",
-  },
-  {
-    theme: "red",
-    background: "filled",
+    theme: "gray",
+    variant: "fill",
+    isDisabled: false,
     isLoading: false,
-    class: "bg-red hover:bg-red-dark active:bg-red-dark",
+    class: "hover:bg-black",
   },
   {
     theme: "red",
-    background: "white",
-    class: "border border-red hover:bg-red-light active:border-red-dark",
+    variant: "outline",
+    class: "border border-red text-red shadow-01",
+  },
+  {
+    theme: "red",
+    variant: "outline",
+    isDisabled: false,
+    isLoading: false,
+    class: "hover:bg-red-light active:border-red-dark active:text-red-dark",
+  },
+  {
+    theme: "primary",
+    variant: "outline",
+    class: "border border-primary-400 bg-white shadow-01 text-primary-600",
+  },
+  {
+    theme: "primary",
+    variant: "outline",
+    isDisabled: false,
+    isLoading: false,
+    class: "hover:bg-primary-100 active:bg-primary-300",
+  },
+  {
+    theme: "gray",
+    variant: "outline",
+    class: "border border-gray-light bg-white shadow-01 text-gray-extraDark",
+  },
+  {
+    theme: "gray",
+    variant: "outline",
+    isDisabled: false,
+    isLoading: false,
+    class: "hover:bg-gray-extraLight active:bg-gray-light",
+  },
+  {
+    variant: "outline",
+    isLoading: true,
+    class: "text-black",
+  },
+  {
+    theme: "red",
+    variant: "text",
+    class: "text-red",
+  },
+  {
+    theme: "red",
+    variant: "text",
+    isDisabled: false,
+    isLoading: false,
+    class: "hover:bg-red-light active:text-red-dark",
+  },
+  {
+    theme: "primary",
+    variant: "text",
+    class: "text-primary-600",
+  },
+  {
+    theme: "primary",
+    variant: "text",
+    isDisabled: false,
+    isLoading: false,
+    class: "hover:bg-gray-extraLight active:text-primary-900",
+  },
+  {
+    theme: "gray",
+    variant: "text",
+    class: "text-gray-extraDark",
+  },
+  {
+    theme: "gray",
+    variant: "text",
+    isDisabled: false,
+    isLoading: false,
+    class: "hover:bg-gray-extraLight active:text-black",
   },
 ];
 
@@ -72,55 +155,5 @@ export const buttonIconCompoundVariants: ComponentVariants<typeof buttonIconVari
     size: "large",
     hasChildren: true,
     class: "h-4 w-4",
-  },
-  {
-    background: "filled",
-    theme: "gray",
-    class: "text-white",
-  },
-  {
-    background: "white",
-    theme: "gray",
-    class: "text-black",
-  },
-  {
-    background: "filled",
-    theme: "red",
-    class: "text-white",
-  },
-  {
-    background: "white",
-    theme: "red",
-    class: "text-red group-active:text-red-dark",
-  },
-];
-
-export const buttonChildrenComposedVariants: ComponentVariants<typeof buttonChildrenVariants>[] = [
-  {
-    background: "filled",
-    theme: "gray",
-    class: "text-white",
-  },
-  {
-    background: "white",
-    theme: "gray",
-    class: "text-gray-extraDark",
-  },
-  {
-    isLoading: false,
-    background: "white",
-    theme: "red",
-    class: "text-red group-active:text-red-dark active:text-red-dark",
-  },
-  {
-    isLoading: true,
-    background: "white",
-    theme: "red",
-    class: "text-black",
-  },
-  {
-    background: "filled",
-    theme: "red",
-    class: "text-white",
   },
 ];
