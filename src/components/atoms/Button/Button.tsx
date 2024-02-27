@@ -8,18 +8,19 @@ export const Button = ({
   icon,
   size,
   theme,
-  background = "filled",
+  variant,
   iconPosition = "left",
   disabled = false,
   loading = false,
   type = "button",
 }: ButtonProps) => {
   const showIcon = !loading && !!icon;
+  const hasChildren = !!children;
   const spinnerProps = {
     // NOTE: ボタンのサイズが`large`でテキストがない場合はアイコンを大きく表示するため
     size: size === "large" && children ? "medium" : size,
     theme,
-    background,
+    variant,
   } as const;
 
   return (
@@ -29,16 +30,20 @@ export const Button = ({
       className={BUTTON_CLASS_NAME({
         theme,
         isLoading: loading,
-        hasChildren: !!children,
+        hasChildren,
         size,
-        background,
+        variant,
         showIcon,
+        isDisabled: disabled,
       })}
       type={type}
     >
       {showIcon && iconPosition === "left" && (
         <span
-          className={BUTTON_ICON_CLASS_NAME({ hasChildren: !!children, size, theme, background })}
+          className={BUTTON_ICON_CLASS_NAME({
+            hasChildren,
+            size,
+          })}
         >
           {icon}
         </span>
@@ -47,13 +52,10 @@ export const Button = ({
         {...spinnerProps}
         loading={loading}
       />
-      {children && (
+      {hasChildren && (
         <span
           className={BUTTON_CHILDREN_CLASS_NAME({
             size,
-            theme,
-            background,
-            isLoading: loading,
           })}
         >
           {loading ? "読み込み中..." : children}
@@ -61,7 +63,10 @@ export const Button = ({
       )}
       {showIcon && iconPosition === "right" && (
         <span
-          className={BUTTON_ICON_CLASS_NAME({ hasChildren: !!children, size, theme, background })}
+          className={BUTTON_ICON_CLASS_NAME({
+            hasChildren,
+            size,
+          })}
         >
           {icon}
         </span>
