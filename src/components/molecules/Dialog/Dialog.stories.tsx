@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import { Button, InputText, Selector } from "@components/atoms";
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -21,6 +21,56 @@ export const Default: StoryObj<typeof Dialog> = {
   },
   decorators: [
     (Story) => (
+      <div
+        data-testid="root"
+        style={{ margin: "3em" }}
+      >
+        <div>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ad architecto vitae
+          deleniti odit labore maiores sapiente error nesciunt suscipit quod, eum veritatis. Minus,
+          molestiae dignissimos. Asperiores consequatur laudantium sit! Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Modi molestias autem sit tenetur repudiandae pariatur optio
+          recusandae sapiente. Nisi, obcaecati! Commodi sint voluptates voluptatum sequi sunt in rem
+          facilis a! Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus dignissimos
+          quibusdam veniam voluptate ut, nihil pariatur qui enim dolorem ea vero atque
+          necessitatibus aut, excepturi magnam reiciendis explicabo aperiam veritatis!
+        </div>
+        <Story />
+        <div>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ad architecto vitae
+          deleniti odit labore maiores sapiente error nesciunt suscipit quod, eum veritatis. Minus,
+          molestiae dignissimos. Asperiores consequatur laudantium sit! Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Modi molestias autem sit tenetur repudiandae pariatur optio
+          recusandae sapiente. Nisi, obcaecati! Commodi sint voluptates voluptatum sequi sunt in rem
+          facilis a! Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus dignissimos
+          quibusdam veniam voluptate ut, nihil pariatur qui enim dolorem ea vero atque
+          necessitatibus aut, excepturi magnam reiciendis explicabo aperiam veritatis!
+        </div>
+        <div>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta ad architecto vitae
+          deleniti odit labore maiores sapiente error nesciunt suscipit quod, eum veritatis. Minus,
+          molestiae dignissimos. Asperiores consequatur laudantium sit! Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Modi molestias autem sit tenetur repudiandae pariatur optio
+          recusandae sapiente. Nisi, obcaecati! Commodi sint voluptates voluptatum sequi sunt in rem
+          facilis a! Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus dignissimos
+          quibusdam veniam voluptate ut, nihil pariatur qui enim dolorem ea vero atque
+          necessitatibus aut, excepturi magnam reiciendis explicabo aperiam veritatis!
+        </div>
+      </div>
+    ),
+  ],
+};
+
+export const FlexWidth: StoryObj<typeof Dialog> = {
+  args: {
+    children: <p className="p-10">With a little bit of text</p>,
+    flexWidth: true,
+    title: "Dialog",
+    onClose: () => console.log("close"),
+    isOpen: true,
+  },
+  decorators: [
+    (Story: FC) => (
       <div
         data-testid="root"
         style={{ margin: "3em" }}
