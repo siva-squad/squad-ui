@@ -5,4 +5,5 @@ export type DialogProps = {
   title: string;
   isOpen: boolean;
   onClose?: () => void;
+  flexWidth?: boolean;
 };

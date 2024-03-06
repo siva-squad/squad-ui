@@ -3,9 +3,10 @@ import { createPortal } from "react-dom";
 import FocusLock from "react-focus-lock";
 import { RemoveScroll } from "react-remove-scroll";
 
+import clsx from "clsx";
 import type { DialogProps } from "./type";
 
-export const Dialog = ({ children, title, isOpen, onClose }: DialogProps) => {
+export const Dialog = ({ children, title, isOpen, onClose, flexWidth = false }: DialogProps) => {
   const ref = useRef<HTMLBodyElement | null>(null);
   const [mounted, setMounted] = useState(false);
 
@@ -36,7 +37,12 @@ export const Dialog = ({ children, title, isOpen, onClose }: DialogProps) => {
             aria-modal="true"
             aria-label={title}
           >
-            <div className="relative grid max-h-full w-[37.5rem] overflow-y-auto bg-white shadow-04">
+            <div
+              className={clsx(
+                "relative grid max-h-full overflow-y-auto bg-white shadow-04",
+                flexWidth ? "w-full" : "w-[37.5rem]",
+              )}
+            >
               <div>{children}</div>
             </div>
           </div>
