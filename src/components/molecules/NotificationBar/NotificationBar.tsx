@@ -9,7 +9,6 @@ export const NotificationBar = ({
   onClose,
   onClick,
   buttonText,
-  isUndoButtonShown = true,
 }: NotificationBarProps) => {
   const { backgroundColor, color } = getVariantStyles(status);
 
@@ -20,7 +19,7 @@ export const NotificationBar = ({
       <NotificationIcon status={status} />
       <span className="text-neutral-900 text-xs font-normal leading-tight">{notificationText}</span>
       <div className="flex flex-none items-center justify-start gap-1">
-        {isUndoButtonShown && (
+        {Boolean(buttonText) && (
           <button
             onClick={onClick}
             className={`${color} text-xs font-normal leading-3`}
