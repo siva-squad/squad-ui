@@ -12,7 +12,6 @@ const meta: Meta<typeof NotificationBar> = {
     buttonText: { control: "text" },
     onClose: { action: "closed" },
     onClick: { action: "clicked" },
-    isUndoButtonShown: { options: [true, false], control: { type: "radio" } },
   },
 };
 
@@ -24,7 +23,13 @@ export const Primary: Story = {
   args: {
     status: "success",
     notificationText: "テキストが入ります。テキストが入ります。テキストが入ります。",
+  },
+};
+
+export const WithButton: Story = {
+  args: {
+    status: "success",
+    notificationText: "テキストが入ります。テキストが入ります。テキストが入ります。",
     buttonText: "ボタン",
-    isUndoButtonShown: true,
   },
 };
