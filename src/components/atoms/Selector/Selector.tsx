@@ -62,6 +62,7 @@ export const Selector = <OptionValue extends BaseOptionValue>({
           options={options}
           value={value}
           onClick={onClick}
+          parentRef={wrapperRef}
         />
       )}
     </div>
