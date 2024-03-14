@@ -25,6 +25,7 @@ export const Selector = <OptionValue extends BaseOptionValue>({ size, options, v
 
   const onClick = (option: OptionType<OptionValue>) => {
     onSelect(option.value);
+    setIsOpen(false);
   };
 
   return (
