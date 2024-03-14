@@ -64,7 +64,7 @@ export const Tooltip = ({
             id={ariaLabelledBy}
             aria-hidden={!isOpen}
             ref={tooltipRef}
-            className="absolute z-40 inline-block w-40 rounded bg-white text-sm leading-normal drop-shadow-md"
+            className="absolute z-40 inline-block rounded bg-white text-sm leading-normal drop-shadow-md"
             style={tooltipPositionStyles}
           >
             <span className="relative inline-flex h-full w-full items-center justify-center p-2">
