@@ -11,10 +11,21 @@ import { SelectorList } from "./SelectorList";
 
 import type { BaseOptionValue, OptionType, SelectorProps } from "./type";
 
-export const Selector = <OptionValue extends BaseOptionValue>({ size, options, value, placeholder, disabled, onSelect }: SelectorProps<OptionValue>) => {
+export const Selector = <OptionValue extends BaseOptionValue>({
+  size,
+  options,
+  value,
+  placeholder,
+  disabled,
+  onSelect,
+  listHeight,
+}: SelectorProps<OptionValue>) => {
   const [isOpen, setIsOpen] = useState(false);
   const wrapperRef = useRef(null);
-  const activeLabel = useMemo(() => options.find(option => option.value === value)?.label ?? placeholder, [options, value, placeholder]);
+  const activeLabel = useMemo(
+    () => options.find((option) => option.value === value)?.label ?? placeholder,
+    [options, value, placeholder],
+  );
 
   useOutsideClick(wrapperRef, () => setIsOpen(false));
 
@@ -47,6 +58,7 @@ export const Selector = <OptionValue extends BaseOptionValue>({ size, options, v
       </button>
       {isOpen && (
         <SelectorList
+          listHeight={listHeight}
           options={options}
           value={value}
           onClick={onClick}

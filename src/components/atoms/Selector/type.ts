@@ -14,5 +14,6 @@ export type SelectorProps<OptionValue extends BaseOptionValue> = {
   value?: OptionValue;
   placeholder: LabelType;
   disabled?: boolean;
+  listHeight?: number;
   onSelect: (value: OptionValue) => void;
 };

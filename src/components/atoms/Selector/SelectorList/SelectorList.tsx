@@ -6,9 +6,13 @@ export const SelectorList = <OptionValue extends BaseOptionValue>({
   options,
   value,
   onClick,
+  listHeight,
 }: SelectorListProps<OptionValue>) => {
   return (
-    <div className="z-[1] flex h-52 w-full flex-col items-start justify-start rounded bg-white py-1 shadow-03">
+    <div
+      className="absolute top-0 z-[1] mt-2 flex flex-col items-start justify-start rounded bg-white py-1 shadow-03"
+      style={{ maxHeight: listHeight || "13rem", width, top, left }}
+    >
       <ul
         role="listbox"
         className="hidden-scrollbar w-full overflow-y-scroll"
