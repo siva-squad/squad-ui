@@ -13,22 +13,10 @@ export const Default: StoryObj<typeof Selector> = {
     disabled: false,
     size: "normal",
     placeholder: "選択肢が入ります",
-    options: [
-      {
-        label: "オプション1",
-        value: "option1",
-      },
-      {
-        label: "オプション2(disabled)",
-        value: "option2",
-        disabled: true,
-      },
-      {
-        label: "オプション3",
-        value: "option3",
-        disabled: false,
-      },
-    ],
+    options: new Array(10).fill(null).map((_, index) => ({
+      label: `オプション_${index}`,
+      value: `option_${index}`,
+    })),
   },
 };
 
