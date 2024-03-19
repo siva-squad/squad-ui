@@ -13,6 +13,7 @@ export const RichMenu = ({
   navigationType,
   anchor = "left",
   groups,
+  onClick,
 }: RichMenuProps) => {
   const { height: windowHeight } = useScreenSize();
   const { rectState, clientRectRef } = useClientRect({ enabled: isOpen });
@@ -36,6 +37,7 @@ export const RichMenu = ({
       <MenuList
         navigationType={navigationType}
         onMouseEnter={(id) => setHoveredMenuId(id)}
+        onClick={onClick}
       />
       <RichMenuContents
         menuId={hoveredMenuId}

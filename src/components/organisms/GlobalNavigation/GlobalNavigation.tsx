@@ -10,7 +10,12 @@ import { NavigationListUI } from "./components/NavigationListUI";
 import { useRichMenuDialog } from "./hooks";
 import type { GlobalNavigationProps } from "./type";
 
-export const GlobalNavigation = ({ items, groups, hasOnlyLogo = false }: GlobalNavigationProps) => {
+export const GlobalNavigation = ({
+  items,
+  groups,
+  hasOnlyLogo = false,
+  onClickAccountMenu,
+}: GlobalNavigationProps) => {
   const { isDesktop, isMobile } = useScreenSize();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -59,6 +64,7 @@ export const GlobalNavigation = ({ items, groups, hasOnlyLogo = false }: GlobalN
               navigationType="account"
               absolute
               anchor="right"
+              onClick={onClickAccountMenu}
             />
           </div>
         )}

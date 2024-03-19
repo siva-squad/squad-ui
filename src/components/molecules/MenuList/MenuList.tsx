@@ -6,7 +6,7 @@ import { MENU_NAVIGATION } from "./const";
 import { MenuListProps } from "./type";
 
 export const MenuList = forwardRef<HTMLElement, MenuListProps>(
-  ({ navigationType, onMouseEnter }, ref) => {
+  ({ navigationType, onMouseEnter, onClick }, ref) => {
     const [menuNavigationItems] = MENU_NAVIGATION.filter((nav) => nav.groupId === navigationType);
 
     return (
@@ -18,7 +18,7 @@ export const MenuList = forwardRef<HTMLElement, MenuListProps>(
           if (item.children) {
             return (
               <ListItemDropDown
-                {...(item as ListItemProps)}
+                {...({ ...item, onClick: () => onClick && onClick(item.id) } as ListItemProps)}
                 onMouseEnter={() => onMouseEnter(item.id)}
                 key={item.id}
               >
@@ -29,7 +29,7 @@ export const MenuList = forwardRef<HTMLElement, MenuListProps>(
 
           return (
             <ListItem
-              {...(item as ListItemProps)}
+              {...({ ...item, onClick: () => onClick && onClick(item.id) } as ListItemProps)}
               key={item.id}
               onMouseEnter={() => onMouseEnter(item.id)}
               size="large"

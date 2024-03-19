@@ -16,6 +16,9 @@ export default {
     onChangeSelectedId: {
       type: "function",
     },
+    onClickAccountMenu: {
+      type: "function",
+    },
     selectedId: {
       type: "string",
     },
