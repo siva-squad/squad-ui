@@ -14,8 +14,11 @@ import {
   ShieldCheckIcon as ShieldCheckIconSolid,
   ClipboardDocumentIcon as ClipboardDocumentIconSolid,
 } from "@heroicons/react/24/solid";
-import type { MenuNavigationType } from "@molecules/MenuList";
-import { OTHERS_NAVIGATION } from "../ListItemDropDown/const";
+import type {
+  MenuListProps,
+  MenuNavigationItemProps,
+  MenuNavigationType,
+} from "@molecules/MenuList";
 
 export const MENU_NAVIGATION_KEYS = [
   "default",
@@ -35,9 +38,42 @@ export const MENU_NAVIGATION_KEYS = [
   "bonus",
   "others",
   "logout",
+  "faq",
+  "terms",
+  "policy",
+  "admin",
 ] as const;
 
-export const MENU_NAVIGATION: MenuNavigationType = [
+export const OTHERS_NAVIGATION = [
+  {
+    id: "faq",
+    title: "FAQ",
+
+    hasChevron: false,
+  },
+  {
+    id: "terms",
+    title: "利用規約",
+
+    hasChevron: false,
+  },
+  {
+    id: "policy",
+    title: "プライバシーポリシー",
+
+    hasChevron: false,
+  },
+  {
+    id: "admin",
+    title: "Admin",
+
+    hasChevron: false,
+  },
+] as const satisfies MenuNavigationItemProps[];
+
+export const MENU_NAVIGATION = ({
+  onClick = () => {},
+}: Pick<MenuListProps, "onClick">): MenuNavigationType => [
   {
     groupId: "default",
     items: [],
@@ -53,6 +89,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         title: "フォルダ",
         href: "",
         hasChevron: false,
+        onClick: () => onClick("folder"),
       },
       {
         id: "cvtag",
@@ -62,6 +99,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         title: "一括タグ",
         href: "",
         hasChevron: false,
+        onClick: () => onClick("cvtag"),
       },
       {
         id: "replacement",
@@ -71,6 +109,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         title: "マジック置換",
         href: "",
         hasChevron: false,
+        onClick: () => onClick("replacement"),
       },
       {
         id: "media",
@@ -80,6 +119,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         title: "メディア",
         href: "",
         hasChevron: false,
+        onClick: () => onClick("media"),
       },
       {
         id: "inspection",
@@ -89,6 +129,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         title: "審査",
         href: "",
         hasChevron: false,
+        onClick: () => onClick("inspection"),
       },
       {
         id: "form",
@@ -98,6 +139,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         title: "フォーム",
         href: "",
         hasChevron: false,
+        onClick: () => onClick("form"),
       },
     ],
   },
@@ -110,6 +152,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         description: "広告管理画面の数値を取得できます",
         href: "",
         hasChevron: false,
+        onClick: () => onClick("ad"),
       },
       {
         id: "cv-measurement",
@@ -117,6 +160,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         description: "ECカートやCRMのCV数を表示できます",
         href: "",
         hasChevron: false,
+        onClick: () => onClick("cv-measurement"),
       },
     ],
   },
@@ -129,6 +173,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         description: "作業するチームを選択できます。",
         href: "",
         hasChevron: false,
+        onClick: () => onClick("team"),
       },
       {
         id: "role",
@@ -136,6 +181,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         description: "チームメンバーを管理できます",
         href: "",
         hasChevron: false,
+        onClick: () => onClick("role"),
       },
       {
         id: "user-settings",
@@ -143,6 +189,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         description: "お客様自身の情報を確認・変更できます",
         href: "",
         hasChevron: false,
+        onClick: () => onClick("user-settings"),
       },
       {
         id: "plans",
@@ -150,6 +197,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         description: "ご利用中のプラン料金を確認できます",
         href: "",
         hasChevron: false,
+        onClick: () => onClick("plans"),
       },
       {
         id: "payments",
@@ -157,6 +205,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         description: "お支払い情報を確認・変更",
         href: "",
         hasChevron: false,
+        onClick: () => onClick("payments"),
       },
       {
         id: "bonus",
@@ -164,6 +213,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
         description: "ご紹介キャッシュバック等の特典があります",
         href: "",
         hasChevron: false,
+        onClick: () => onClick("bonus"),
       },
       {
         id: "others",
@@ -173,7 +223,7 @@ export const MENU_NAVIGATION: MenuNavigationType = [
           <div className="mt-4 flex flex-col gap-y-2 pl-4">
             {OTHERS_NAVIGATION.map((nav) => (
               <ListItem
-                {...nav}
+                {...{ ...nav, onClick: () => onClick(nav.id) }}
                 key={nav.id}
               />
             ))}

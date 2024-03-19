@@ -1,28 +1,28 @@
-import { ListItemProps } from "@components/atoms/ListItem/type";
+import { MenuNavigationItemProps } from "../MenuList";
 
-export const OTHERS_NAVIGATION: ListItemProps[] = [
+export const OTHERS_NAVIGATION = [
   {
-    id: "1",
+    id: "faq",
     title: "FAQ",
     href: "",
     hasChevron: false,
   },
   {
-    id: "2",
+    id: "terms",
     title: "利用規約",
     href: "",
     hasChevron: false,
   },
   {
-    id: "3",
+    id: "policy",
     title: "プライバシーポリシー",
     href: "",
     hasChevron: false,
   },
   {
-    id: "4",
+    id: "admin",
     title: "Admin",
     href: "",
     hasChevron: false,
   },
-];
+] satisfies MenuNavigationItemProps[];

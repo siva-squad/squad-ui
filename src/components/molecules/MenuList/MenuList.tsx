@@ -7,7 +7,9 @@ import { MenuListProps } from "./type";
 
 export const MenuList = forwardRef<HTMLElement, MenuListProps>(
   ({ navigationType, onMouseEnter, onClick }, ref) => {
-    const [menuNavigationItems] = MENU_NAVIGATION.filter((nav) => nav.groupId === navigationType);
+    const [menuNavigationItems] = MENU_NAVIGATION({ onClick }).filter(
+      (nav) => nav.groupId === navigationType,
+    );
 
     return (
       <nav
