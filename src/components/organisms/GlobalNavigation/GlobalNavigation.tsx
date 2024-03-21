@@ -10,6 +10,11 @@ import { NavigationListUI } from "./components/NavigationListUI";
 import { useRichMenuDialog } from "./hooks";
 import type { GlobalNavigationProps } from "./type";
 
+/**
+ * @deprecated アプリケーション側で実装するためdeprecated
+ * @param param0
+ * @returns
+ */
 export const GlobalNavigation = ({
   items,
   groups,
