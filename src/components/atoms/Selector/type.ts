@@ -12,6 +12,7 @@ export type SelectorProps<OptionValue extends BaseOptionValue> = {
   size: "small" | "normal";
   options: OptionType<OptionValue>[];
   value?: OptionValue;
+  defaultValue?: OptionValue;
   placeholder: LabelType;
   disabled?: boolean;
   listHeight?: number;

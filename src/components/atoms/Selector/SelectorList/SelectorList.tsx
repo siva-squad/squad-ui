@@ -10,6 +10,7 @@ export const SelectorList = <OptionValue extends BaseOptionValue>({
   onClick,
   listHeight,
   parentRef,
+  defaultValue,
 }: SelectorListProps<OptionValue>) => {
   const ref = useRef<HTMLBodyElement | null>(null);
   const [mounted, setMounted] = useState(false);
@@ -41,7 +42,7 @@ export const SelectorList = <OptionValue extends BaseOptionValue>({
           <SelectorListItem
             key={String(option.value)}
             option={option}
-            isActive={option.value === value}
+            isActive={value ? option.value === value : option.value === defaultValue}
             disabled={option.disabled}
             onClick={onClick}
           />
