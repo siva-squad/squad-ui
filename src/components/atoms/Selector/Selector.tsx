@@ -19,12 +19,16 @@ export const Selector = <OptionValue extends BaseOptionValue>({
   disabled,
   onSelect,
   listHeight,
+  defaultValue,
 }: SelectorProps<OptionValue>) => {
   const [isOpen, setIsOpen] = useState(false);
   const wrapperRef = useRef(null);
   const activeLabel = useMemo(
-    () => options.find((option) => option.value === value)?.label ?? placeholder,
-    [options, value, placeholder],
+    () =>
+      options.find((option) => option.value === value)?.label ??
+      options.find((option) => option.value === defaultValue)?.label ??
+      placeholder,
+    [options, value, placeholder, defaultValue],
   );
 
   useOutsideClick(wrapperRef, () => setIsOpen(false));
@@ -63,6 +67,7 @@ export const Selector = <OptionValue extends BaseOptionValue>({
           value={value}
           onClick={onClick}
           parentRef={wrapperRef}
+          defaultValue={defaultValue}
         />
       )}
     </div>
