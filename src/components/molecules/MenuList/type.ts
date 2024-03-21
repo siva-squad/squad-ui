@@ -9,6 +9,7 @@ export type MenuListTypeKey = "beyond" | "connection" | "account" | "default";
 export type MenuListProps = {
   navigationType: MenuListTypeKey;
   onMouseEnter: (id: MenuKindKey) => void;
+  onClick?: (id: MenuKindKey) => void;
 };
 
 export type MenuNavigationItemProps = Omit<ListItemProps, "id"> & { id: MenuKindKey };

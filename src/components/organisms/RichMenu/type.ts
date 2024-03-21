@@ -1,4 +1,4 @@
-import type { MenuListTypeKey } from "@components/molecules/MenuList";
+import type { MenuKindKey, MenuListTypeKey } from "@components/molecules/MenuList";
 import { RichMenuListProps } from "@components/molecules/RichMenuList/type";
 
 export type RichMenuProps = {
@@ -8,4 +8,5 @@ export type RichMenuProps = {
   absolute?: boolean;
   anchor?: "right" | "left";
   groups?: RichMenuListProps["groups"];
+  onClick?: (key: MenuKindKey) => void;
 };

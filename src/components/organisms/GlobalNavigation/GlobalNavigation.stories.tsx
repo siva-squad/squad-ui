@@ -16,9 +16,30 @@ export default {
     onChangeSelectedId: {
       type: "function",
     },
+    onClickAccountMenu: {
+      type: "function",
+    },
     selectedId: {
       type: "string",
     },
+    userId: {
+      type: "string",
+    },
+    userImage: {
+      type: "string",
+    },
+    userName: {
+      type: "string",
+    },
+    teamName: {
+      type: "string",
+    },
+  },
+  args: {
+    userId: "1",
+    userName: "田中太郎",
+    userImage: "https://via.placeholder.com/100",
+    teamName: "Squad Beyond",
   },
 } satisfies Meta<typeof GlobalNavigation>;
 

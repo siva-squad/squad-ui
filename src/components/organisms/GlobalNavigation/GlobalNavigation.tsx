@@ -10,7 +10,16 @@ import { NavigationListUI } from "./components/NavigationListUI";
 import { useRichMenuDialog } from "./hooks";
 import type { GlobalNavigationProps } from "./type";
 
-export const GlobalNavigation = ({ items, groups, hasOnlyLogo = false }: GlobalNavigationProps) => {
+export const GlobalNavigation = ({
+  items,
+  groups,
+  hasOnlyLogo = false,
+  onClickAccountMenu,
+  userId,
+  userName,
+  userImage,
+  teamName,
+}: GlobalNavigationProps) => {
   const { isDesktop, isMobile } = useScreenSize();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -49,9 +58,10 @@ export const GlobalNavigation = ({ items, groups, hasOnlyLogo = false }: GlobalN
             ref={(el) => noCloseRefs.current.push(el)}
           >
             <GlobalAccount
-              userId="1"
-              userName="田中 太郎"
-              teamName="Squad beyondチーム"
+              userId={userId}
+              userImage={userImage}
+              userName={userName}
+              teamName={teamName}
               onClick={() => toggleDialog("account")}
             />
             <RichMenu
@@ -59,6 +69,7 @@ export const GlobalNavigation = ({ items, groups, hasOnlyLogo = false }: GlobalN
               navigationType="account"
               absolute
               anchor="right"
+              onClick={onClickAccountMenu}
             />
           </div>
         )}
