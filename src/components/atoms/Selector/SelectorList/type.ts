@@ -5,6 +5,6 @@ export type SelectorListProps<OptionValue extends BaseOptionValue> = {
   value?: OptionValue;
   defaultValue?: OptionValue;
   listHeight?: number;
-  parentRef: React.RefObject<HTMLDivElement>;
+  rect?: DOMRect;
   onClick: (option: OptionType<OptionValue>) => void;
 };

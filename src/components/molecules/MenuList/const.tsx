@@ -66,10 +66,9 @@ export const OTHERS_NAVIGATION = [
   {
     id: "admin",
     title: "Admin",
-
     hasChevron: false,
   },
-] as const satisfies MenuNavigationItemProps[];
+] satisfies MenuNavigationItemProps[];
 
 export const MENU_NAVIGATION = ({
   onClick = () => {},

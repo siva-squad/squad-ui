@@ -22,7 +22,7 @@ export const Selector = <OptionValue extends BaseOptionValue>({
   defaultValue,
 }: SelectorProps<OptionValue>) => {
   const [isOpen, setIsOpen] = useState(false);
-  const wrapperRef = useRef(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const activeLabel = useMemo(
     () =>
       options.find((option) => option.value === value)?.label ??
@@ -66,7 +66,7 @@ export const Selector = <OptionValue extends BaseOptionValue>({
           options={options}
           value={value}
           onClick={onClick}
-          parentRef={wrapperRef}
+          rect={wrapperRef.current?.getBoundingClientRect()}
           defaultValue={defaultValue}
         />
       )}
