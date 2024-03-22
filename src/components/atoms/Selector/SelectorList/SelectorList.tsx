@@ -9,7 +9,7 @@ export const SelectorList = <OptionValue extends BaseOptionValue>({
   value,
   onClick,
   listHeight,
-  parentRef,
+  rect,
   defaultValue,
 }: SelectorListProps<OptionValue>) => {
   const ref = useRef<HTMLBodyElement | null>(null);
@@ -20,11 +20,10 @@ export const SelectorList = <OptionValue extends BaseOptionValue>({
     setMounted(true);
   }, []);
 
-  if (!mounted || !ref.current || !parentRef.current) {
+  if (!mounted || !ref.current || !rect) {
     return;
   }
 
-  const [rect] = parentRef.current.getClientRects();
   const top = rect.y + rect.height;
   const left = rect.x;
   const width = rect.width;
