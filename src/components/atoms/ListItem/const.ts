@@ -24,7 +24,7 @@ export const LIST_ITEM_CONTAINER_CLASS_NAME = tv({
       normal: clsx(
         "hover:enabled:bg-gray-extraLight",
         "focus-visible:ring-primary-600",
-        "[&:not(:focus-visible)]:focus:bg-primary-50",
+        "[&:not(:focus-visible)]:focus:bg-gray-extraLight",
       ),
       red: clsx("hover:enabled:bg-red-light", "focus-visible:ring-red", "focus:bg-red-light"),
     },
@@ -42,7 +42,7 @@ export const LIST_ITEM_CONTAINER_CLASS_NAME = tv({
     {
       theme: "normal",
       isSelected: true,
-      class: "bg-primary-50",
+      class: "bg-gray-extraLight",
     },
     {
       theme: "normal",
