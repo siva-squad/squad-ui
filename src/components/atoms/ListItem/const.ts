@@ -48,7 +48,6 @@ export const LIST_ITEM_CONTAINER_CLASS_NAME = tv({
       theme: "normal",
       isAnchor: true,
       isDisabled: false,
-      class: "hover:bg-gray-extraLight",
     },
     {
       theme: "red",
