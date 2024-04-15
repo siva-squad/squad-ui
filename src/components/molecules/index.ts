@@ -1,3 +1,4 @@
+export * from "./Accordion";
 export * from "./BrandLogo";
 export * from "./Breadcrumbs";
 export * from "./Dialog";
