@@ -1,12 +1,11 @@
 import clsx from "clsx";
-import { NEST_CONTAINER_VARIANTS } from "./const";
 import { NestContainerProps } from "./type";
 
 export const NestContainer = ({ children, className, ...props }: NestContainerProps) => {
   return (
     <div
       {...props}
-      className={clsx(NEST_CONTAINER_VARIANTS({}), className ?? "")}
+      className={clsx("border-l-2 border-gray-light pl-6", className ?? "")}
     >
       {children}
     </div>
