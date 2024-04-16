@@ -9,14 +9,14 @@ import {
 } from "./const";
 import { AccordionProps } from "./type";
 
-export const Accordion = ({ label, disabled, children }: AccordionProps) => {
+export const Accordion = ({ label, disabled = false, children }: AccordionProps) => {
   const [isOpen, setOpen] = useState(false);
   const accordionId = `accordion-panel-${label}`;
   const contentRef = useRef<HTMLDivElement>(null);
   const handleClick = () => setOpen(!isOpen);
 
   return (
-    <div className={ACCORDION_CONTAINER_VARIANTS({ open: isOpen })}>
+    <div className={ACCORDION_CONTAINER_VARIANTS({})}>
       <button
         className={ACCORDION_TRIGGER_VARIANTS({ disabled })}
         aria-expanded={isOpen}
