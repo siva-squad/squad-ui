@@ -64,7 +64,7 @@ export const ListItem = React.forwardRef<HTMLAnchorElement | HTMLButtonElement, 
             {iconUI}
           </span>
         )}
-        <span className="flex flex-1 flex-col items-start">
+        <span className="flex flex-1 flex-col items-start w-full">
           <span className={LIST_ITEM_TEXT_CLASS_NAME({ size, theme, isDisabled })}>{title}</span>
           {description && size === "large" && (
             <span className={LIST_ITEM_DESCRIPTION_CLASS_NAME({ isSelected, theme, isDisabled })}>
