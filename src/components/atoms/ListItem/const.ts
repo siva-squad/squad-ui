@@ -59,7 +59,7 @@ export const LIST_ITEM_CONTAINER_CLASS_NAME = tv({
 });
 
 export const LIST_ITEM_TEXT_CLASS_NAME = tv({
-  base: clsx("truncate w-full text-sm font-medium", "group-disabled:opacity-20"),
+  base: clsx("truncate w-full text-left text-sm font-medium", "group-disabled:opacity-20"),
   variants: {
     isDisabled: {
       true: "opacity-20",
