@@ -8,6 +8,7 @@ export type InputNumberProps = InputStyleProps &
     | "name"
     | "min"
     | "max"
+    | "step"
     | "placeholder"
     | "disabled"
     | "onFocus"
