@@ -2,69 +2,41 @@
   font-family: "Noto Sans CJK JP";
   font-style: normal;
   font-weight: 100;
-  src:
-    url("./NotoSansCJKjp-Thin.woff2") format("woff2"),
-    url("./NotoSansCJKjp-Thin.woff") format("woff"),
-    url("./NotoSansCJKjp-Thin.ttf") format("truetype"),
-    url("./NotoSansCJKjp-Thin.eot") format("embedded-opentype");
+  src: url("./NotoSansCJKjp-Thin.woff2") format("woff2");
 }
 @font-face {
   font-family: "Noto Sans CJK JP";
   font-style: normal;
   font-weight: 200;
-  src:
-    url("./NotoSansCJKjp-Light.woff2") format("woff2"),
-    url("./NotoSansCJKjp-Light.woff") format("woff"),
-    url("./NotoSansCJKjp-Light.ttf") format("truetype"),
-    url("./NotoSansCJKjp-Light.eot") format("embedded-opentype");
+  src: url("./NotoSansCJKjp-Light.woff2") format("woff2");
 }
 @font-face {
   font-family: "Noto Sans CJK JP";
   font-style: normal;
   font-weight: 300;
-  src:
-    url("./NotoSansCJKjp-DemiLight.woff2") format("woff2"),
-    url("./NotoSansCJKjp-DemiLight.woff") format("woff"),
-    url("./NotoSansCJKjp-DemiLight.ttf") format("truetype"),
-    url("./NotoSansCJKjp-DemiLight.eot") format("embedded-opentype");
+  src: url("./NotoSansCJKjp-DemiLight.woff2") format("woff2");
 }
 @font-face {
   font-family: "Noto Sans CJK JP";
   font-style: normal;
   font-weight: 400;
-  src:
-    url("./NotoSansCJKjp-Regular.woff2") format("woff2"),
-    url("./NotoSansCJKjp-Regular.woff") format("woff"),
-    url("./NotoSansCJKjp-Regular.ttf") format("truetype"),
-    url("./NotoSansCJKjp-Regular.eot") format("embedded-opentype");
+  src: url("./NotoSansCJKjp-Regular.woff2") format("woff2");
 }
 @font-face {
   font-family: "Noto Sans CJK JP";
   font-style: normal;
   font-weight: 500;
-  src:
-    url("./NotoSansCJKjp-Medium.woff2") format("woff2"),
-    url("./NotoSansCJKjp-Medium.woff") format("woff"),
-    url("./NotoSansCJKjp-Medium.ttf") format("truetype"),
-    url("./NotoSansCJKjp-Medium.eot") format("embedded-opentype");
+  src: url("./NotoSansCJKjp-Medium.woff2") format("woff2");
 }
 @font-face {
   font-family: "Noto Sans CJK JP";
   font-style: normal;
   font-weight: 700;
-  src:
-    url("./NotoSansCJKjp-Bold.woff2") format("woff2"),
-    url("./NotoSansCJKjp-Bold.woff") format("woff"),
-    url("./NotoSansCJKjp-Bold.ttf") format("truetype"),
-    url("./NotoSansCJKjp-Bold.eot") format("embedded-opentype");
+  src: url("./NotoSansCJKjp-Bold.woff2") format("woff2");
 }
 @font-face {
   font-family: "Noto Sans CJK JP";
   font-style: normal;
   font-weight: 900;
-  src:
-    url("./NotoSansCJKjp-Black.woff2") format("woff2"),
-    url("./NotoSansCJKjp-Black.woff") format("woff"),
-    url("./NotoSansCJKjp-Black.ttf") format("truetype"),
-    url("./NotoSansCJKjp-Black.eot") format("embedded-opentype");
+  src: url("./NotoSansCJKjp-Black.woff2") format("woff2");
 }
