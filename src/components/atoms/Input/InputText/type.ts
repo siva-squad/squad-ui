@@ -16,6 +16,7 @@ export type InputTextProps = InputStyleProps &
     | "defaultValue"
     | "value"
     | "onChange"
+    | "readOnly"
   > & {
     showSuccess?: boolean;
     type?: "email" | "password" | "search" | "text";
