@@ -39,6 +39,9 @@ export default {
     render: {
       type: "function",
     },
+    occupyErrorArea: {
+      type: "boolean",
+    },
   },
 } satisfies Meta<typeof InputElement>;
 

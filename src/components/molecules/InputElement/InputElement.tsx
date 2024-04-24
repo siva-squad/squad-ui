@@ -13,6 +13,7 @@ export const InputElement = ({
   isRequired = true,
   optionalText,
   requiredText,
+  occupyErrorArea = false,
 }: InputElementProps) => {
   const visibleLabel = showLabel ? "text-sm font-medium leading-tight" : "sr-only";
   const visibleGap = showLabel && showRequired && "gap-x-2";
@@ -44,7 +45,12 @@ export const InputElement = ({
           description
         ))}
       {elementUI}
-      {!!errorText && <p className="text-xs leading-normal text-red">{errorText}</p>}
+      {errorText ? (
+        <p className="text-xs leading-normal text-red">{errorText}</p>
+      ) : occupyErrorArea ? (
+        // NOTE: チラつき対策でエラーテキストの表示領域確保
+        <span className="invisible text-xs leading-normal">-</span>
+      ) : null}
     </div>
   );
 };
