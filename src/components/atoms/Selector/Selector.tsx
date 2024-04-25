@@ -6,6 +6,7 @@ import {
   SELECTOR_BUTTON_CLASS_NAME,
   SELECTOR_WRAPPER_CLASS_NAME,
 } from "./const";
+import { ForSearch } from "./ForSearch";
 import { useOutsideClick } from "./hooks";
 import { SelectorList } from "./SelectorList";
 
@@ -20,6 +21,7 @@ export const Selector = <OptionValue extends BaseOptionValue>({
   onSelect,
   listHeight,
   defaultValue,
+  enableSearch = false,
 }: SelectorProps<OptionValue>) => {
   const [isOpen, setIsOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -32,6 +34,13 @@ export const Selector = <OptionValue extends BaseOptionValue>({
   );
 
   useOutsideClick(wrapperRef, () => setIsOpen(false));
+
+  if (enableSearch)
+    return (
+      <ForSearch
+        {...{ size, options, value, placeholder, disabled, onSelect, listHeight, defaultValue }}
+      />
+    );
 
   const handleButtonClick = (event: React.MouseEvent) => {
     event.stopPropagation();

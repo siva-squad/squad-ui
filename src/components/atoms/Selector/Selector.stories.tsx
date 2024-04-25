@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { StoryObj, Meta } from "@storybook/react";
 import { Selector } from "./Selector";
 
@@ -31,19 +32,11 @@ export const Groups = () => {
       value: "option2",
     },
   ];
+  const [value, setValue] = useState("option1");
   return (
     <div className="flex flex-col gap-y-20">
       <Selector
-        options={[
-          {
-            label: "オプション1",
-            value: "option1",
-          },
-          {
-            label: "オプション2",
-            value: "option2",
-          },
-        ]}
+        options={options}
         value={"option1"}
         placeholder="選択肢が入ります"
         size="normal"
@@ -51,11 +44,13 @@ export const Groups = () => {
         onSelect={() => {}}
       />
       <Selector
+        enableSearch
         options={options}
+        value={value}
         placeholder="選択肢が入ります"
         size="normal"
         disabled={false}
-        onSelect={() => {}}
+        onSelect={(v) => setValue(v)}
       />
     </div>
   );

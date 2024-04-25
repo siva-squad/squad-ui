@@ -36,7 +36,7 @@ export const SELECTOR_BUTTON_CLASS_NAME = tv({
 });
 
 export const LABEL_CLASS_NAME = tv({
-  base: "text-center font-normal leading-none truncate",
+  base: "truncate text-center font-normal leading-none",
   variants: {
     size: {
       small: "text-xs",
