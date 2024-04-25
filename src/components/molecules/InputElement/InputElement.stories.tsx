@@ -67,6 +67,69 @@ export const Default: StoryObj<typeof InputElement> = {
   ],
 };
 
+export const OccupiedErrorArea = () => {
+  return (
+    <div>
+      <h2 className="mb-2">Occupied</h2>
+      <section className="flex items-end gap-x-2">
+        <InputElement
+          htmlFor="testId-1"
+          label="タイトル-1"
+          isRequired
+          errorText="text"
+          occupyErrorArea
+          render={({ htmlFor }) => (
+            <InputText
+              placeholder="プレイスホルダー"
+              id={htmlFor}
+            />
+          )}
+        />
+        <InputElement
+          htmlFor="testId-2"
+          label=""
+          isRequired
+          showRequired={false}
+          occupyErrorArea
+          render={({ htmlFor }) => (
+            <InputText
+              placeholder="プレイスホルダー"
+              id={htmlFor}
+            />
+          )}
+        />
+      </section>
+      <h2 className="mb-2 mt-6">Unoccupied</h2>
+      <section className="flex items-end gap-x-2">
+        <InputElement
+          htmlFor="testId-1"
+          label="タイトル-1"
+          isRequired
+          errorText="text"
+          render={({ htmlFor }) => (
+            <InputText
+              placeholder="プレイスホルダー"
+              id={htmlFor}
+            />
+          )}
+        />
+        <InputElement
+          htmlFor="testId-2"
+          label=""
+          isRequired
+          showRequired={false}
+          render={({ htmlFor }) => (
+            <InputText
+              placeholder="プレイスホルダー"
+              id={htmlFor}
+            />
+          )}
+        />
+      </section>
+    </div>
+  );
+};
+
 export const WithHtmlForDescription: StoryObj<typeof InputElement> = {
   args: {
     htmlFor: "testId",
