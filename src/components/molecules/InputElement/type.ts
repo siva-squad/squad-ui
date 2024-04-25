@@ -12,6 +12,7 @@ export type InputElementProps = {
   showRequired?: boolean;
   showLabel?: boolean;
   children?: ReactElement;
+  occupyErrorArea?: boolean;
   render: (form: FormType) => ReactElement;
 } & FormType &
   RequiredBadgeProps;
