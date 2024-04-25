@@ -1,6 +1,6 @@
 {
   "name": "@siva-squad-development/squad-ui",
-  "version": "0.10.2024-04-25-01",
+  "version": "0.10.2024-04-25-02",
   "main": "./dist/squad-ui.umd.js",
   "module": "./dist/squad-ui.es.js",
   "types": "./dist/index.d.ts",
