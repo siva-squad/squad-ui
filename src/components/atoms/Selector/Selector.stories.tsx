@@ -32,25 +32,26 @@ export const Groups = () => {
       value: "option2",
     },
   ];
-  const [value, setValue] = useState("option1");
+  const [value1, setValue1] = useState("option1");
+  const [value2, setValue2] = useState("option1");
   return (
     <div className="flex flex-col gap-y-20">
       <Selector
         options={options}
-        value={"option1"}
+        value={value1}
         placeholder="選択肢が入ります"
         size="normal"
         disabled={false}
-        onSelect={() => {}}
+        onSelect={setValue1}
       />
       <Selector
         enableSearch
         options={options}
-        value={value}
+        value={value2}
         placeholder="選択肢が入ります"
         size="normal"
         disabled={false}
-        onSelect={(v) => setValue(v)}
+        onSelect={setValue2}
       />
     </div>
   );
