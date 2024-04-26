@@ -17,4 +17,5 @@ export type SelectorProps<OptionValue extends BaseOptionValue> = {
   disabled?: boolean;
   listHeight?: number;
   onSelect: (value: OptionValue) => void;
+  enableSearch?: boolean;
 };
